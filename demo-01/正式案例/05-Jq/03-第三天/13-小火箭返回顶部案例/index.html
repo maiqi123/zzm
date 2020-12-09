@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+        body {
+            height: 8000px;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        .actGotop {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 150px;
+            height: 195px;
+            display: none;
+            z-index: 100;
+        }
+
+        .actGotop a,
+        .actGotop a:link {
+            width: 150px;
+            height: 195px;
+            display: inline-block;
+            background: url(images/gotop.png) no-repeat;
+            outline: none;
+        }
+
+        .actGotop a:hover {
+            width: 150px;
+            height: 195px;
+            background: url(images/gotop.gif) no-repeat;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 返回顶部小火箭 -->
+    <div class="actGotop"><a href="javascript:;" title="Top"></a></div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // 接口
+        $(function () {
+            var $actGotop = $('.actGotop');
+            // 功能1 鼠标滑动 显示小火箭
+            $(window).scroll(function () {
+                var y = $(window).scrollTop();
+                // console.log(y);
+                if (y > 1000) {
+                    $actGotop.fadeIn();
+                } else {
+                    $actGotop.fadeOut();
+                }
+            })
+            // 功能2 点击火箭返回顶部
+            $actGotop.click(function () {
+                $(document.documentElement).animate({
+                    scrollTop: 0
+                }, 1000)
+            })
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $(function() {
+        //     // 功能:
+        //     // 1. 通过滚动来控制小火箭的显示与隐藏
+        //     // 2. 点击小火箭实现缓慢的返回顶部 带动画
+
+        //     var $actGotop = $(".actGotop");
+
+        //     // 功能1. 通过滚动来控制小火箭的显示与隐藏
+        //     $(window).scroll(function() {
+        //         // 1. 获取到页面的滚动距离
+        //         // 2. 距离 >= 1500, 就可以让小火箭展示出来, 否则可以隐藏小火箭
+        //         var y = $(window).scrollTop();
+        //         // console.log(y);
+
+        //         if (y >= 1500) {
+        //             $actGotop.fadeIn();
+        //         } else {
+        //             $actGotop.fadeOut();
+        //         }
+        //     })
+
+        //     // 功能2:
+        //     $actGotop.click(function () {
+        //       // $(window).scrollTop(0); // 瞬间返回顶部, 没有动画
+
+        //       // 带动画返回顶部 没有效果
+        //       /*$(window).animate({
+        //         scrollTop: 0
+        //       }, 1000)*/
+
+        //       // 获取页面滚动卷曲距离
+        //       //     window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        //       //    window.pageYOffset 只读属性, 设置无效
+
+        //       // document.documentElement ==> html
+        //       // document.body ==> body
+
+        //       /*$(document.documentElement).animate({
+        //         scrollTop: 0
+        //       }, 1000)*/
+
+        //       // 写上html, body 是为了更好的兼容更多浏览器
+        //      /* $("html, body").animate({
+        //         scrollTop: 0
+        //       }, 1000)*/
+
+        //       window.scroll(0, 0);
+        //     })
+        // });
+    </script>
+</body>
+
+</html>

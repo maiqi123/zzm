@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="1.jpg" alt="">
+  <img src="1.jpg" alt="">
+  <img src="1.jpg" alt="">
+  <img src="1.jpg" alt="">
+
+  <script>
+    // 修改所有图片的url地址，改成2.jpg
+    // 在文档中根据标签名获取元素
+    // 参数： 字符串 标签名
+    // 返回值：是一个伪数组， 伪数组长得和数组一样，都可以跟数组一样遍历，，，但是伪数组不能调用数组的方法。
+    var imgs = document.getElementsByTagName('img');
+    console.log(imgs);
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].src = '2.jpg';
+    }
+  </script>
+</body>
+</html>

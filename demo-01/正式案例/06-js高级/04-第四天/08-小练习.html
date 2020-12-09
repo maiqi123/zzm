@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var lw = {
+        age: 28,
+        skill: "翻墙",
+    };
+
+    function Person() {}
+
+    // 原型替换: 
+    Person.prototype = lw;
+    Person.prototype.constructor = Person;
+    
+
+    // 坑: 实例对象在创建的那一刻, 他的原型链就已经定下来, 后面的原型替换是不会影响到实例对象的原型链的.
+    var xm = new Person();
+    
+
+    // 如何实现让xm可以使用到lw对象上的skill属性???
+    console.log( xm.skill ); // ==> 翻墙
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <form action="/a.php" method="get"> -->
+  <form id="myForm">
+    用户名: <input type="text" name="username"></br>
+    密码: <input type="text" name="password"></br>
+    <!-- <input type="button" value="注册"> 这个触发不了submit事件 -->
+    <button>注册123</button>
+  </form>
+  <script src="../bignews69/js/jquery-1.12.4.min.js"></script>
+  <script>
+    // 给form表单注册一个submit事件 这个事件只能给form表单注册
+    // 而触发必须是      <input type="submit">
+    // 还可以是  <button>注册</button>
+    $('#myForm').on('submit',function(e){
+      // 阻止默认提交 行为 
+      e.preventDefault()
+      console.log(123);
+    })
+  </script>
+</body>
+</html>

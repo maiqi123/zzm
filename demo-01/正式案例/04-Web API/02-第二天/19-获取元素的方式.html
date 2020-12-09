@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box" id="box">
+    <span>123</span>
+  </div>
+  <div class="box">2</div>
+  <div>3</div>
+  <span>567</span>
+
+  <input type="text" name="aa">
+
+  <script>
+    // 1. document.getElementById('')  根据id获取元素  参数：id   返回值：元素
+    // 2. document.getElementsByTagName(''); 通过标签名获取元素  参数：标签名  返回值：伪数组
+    // var box = document.getElementById('box');
+    // console.log(box);
+    /* 
+      3. document.getElementsByClassName() 通过类名获取元素， 参数：类名  返回值：伪数组 
+
+      4. document.getElementsByName() 通过name属性获取元素 参数：name  返回值：伪数组
+    */
+    // var boxs = document.getElementsByClassName('box');
+    // console.log(boxs);
+
+    // var result = document.getElementsByName('aa');
+    // console.log(result);
+
+
+    /* 
+      重点掌握：
+        // 在文档中根据选择器进行查找元素
+        // 参数：css的选择器
+        // 返回值：对象
+        // 不管找到多少个，只会返回第一个。
+        document.querySelector('')
+        // 在文档中根据选择器进行查找元素
+        // 参数：css的选择器
+        // 返回值：伪数组
+        document.querySelectorAll('')
+    */
+    // var result = document.querySelector('#box span')
+    // // var result = document.querySelectorAll('.box span')
+    // console.log(result);
+
+  </script>
+</body>
+</html>

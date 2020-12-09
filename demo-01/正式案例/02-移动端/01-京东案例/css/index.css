@@ -1,0 +1,175 @@
+/* 全局容器的样式 */
+.container {
+  height: 3000px;
+  /* ps */
+  background-color: pink;
+  /* 最大宽度 */
+  max-width: 640px;
+  /* 最小宽度 */
+  min-width: 320px;
+  margin: 0 auto;
+
+  /* 为了把banner部分挤下去不被header遮住，给全局容器设置padding-top */
+  padding-top: 40px;
+}
+
+/* --------------------------header的样式 */
+.header {
+  /* width: ??? 默认占满父元素的一行即可; */
+  height: 40px;
+  background-color: #e12d2e;
+  /* 固定定位：会脱标——》脱标之后的元素默认宽度有内容撑开 */
+  position: fixed;
+  top: 0;
+  /* left: 0; */
+  width: 100%;
+
+  max-width: 640px;
+  min-width: 320px;
+}
+
+/* 左右固定 */
+.header .logo {
+  width: 75px;
+  height: 40px;
+  /* ps */
+  /* background-color: blue; */
+
+  float: left;
+
+  padding-top: 9px;
+  padding-left: 9px;
+
+}
+
+.header .logo i {
+  width: 56px;
+  height: 21px;
+  /* ps */
+  /* background-color: red; */
+  display: block;
+  /* 
+    量取的是缩小之后的坐标
+    但是没有设置背景图片的大小还是二倍的尺寸
+    ——》需要设置背景图片的大小！！！！
+  */
+  /* background: url('../images/jd-sprites.png') 0 -109px;
+  background-size: 200px 200px; */
+  background-position: 0 -109px;
+}
+
+.header .login {
+  width: 49px;
+  height: 40px;
+  /* ps */
+  /* background-color: blue; */
+
+  float: right;
+  text-align: center;
+  line-height: 40px;
+}
+
+.header .login a {
+  color: #fff;
+  display: block;
+}
+
+
+/* 中间自适应 */
+.search {
+  height: 40px;
+  /* ps */
+  /* background-color: yellow; */
+
+  /* 触发bfc */
+  overflow: hidden;
+  position: relative;
+}
+
+.search i {
+  width: 19px;
+  height: 19px;
+  /* ps */
+  /* background-color: red; */
+  /* 子绝父相 */
+  position: absolute;
+  top: 11px;
+  left: 10px;
+
+  /* background: url('../images/jd-sprites.png') -60px -110px;
+  background-size: 200px 200px; */
+  background-position: -60px -110px;
+}
+
+.search input {
+  /* 始终占满search的一行 */
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+  border-radius: 15px;
+  padding-left: 35px;
+}
+
+/* -----------------------------nav的样式 */
+.nav ul li {
+  width: 20%;
+  float: left;
+  padding: 10px 0;
+}
+
+.nav ul li img {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.nav ul li p {
+  text-align: center;
+  color: #000;
+  line-height: 30px;
+}
+
+/* ----------------------------------news的样式 */
+.news {
+  height: 30px;
+  background-color: #fff;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+/* 左右固定 */
+.news .news_title {
+  width: 80px;
+  height: 30px;
+  /* ps */
+  /* background-color: blue; */
+  float: left;
+  padding-top: 8px;
+  padding-left: 7px;
+}
+
+.news .more {
+  width: 40px;
+  height: 30px;
+  /* ps */
+  /* background-color: blue; */
+  float: right;
+
+  line-height: 30px;
+}
+
+.news .more a {
+  display: block;
+}
+
+/* 中间自适应 */
+.news .info {
+  height: 30px;
+  /* ps */
+  /* background-color: yellow; */
+  /* 触发bfc */
+  overflow: hidden;
+
+  line-height: 30px;
+  padding-left: 12px;
+}

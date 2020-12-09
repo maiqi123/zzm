@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据转换</title>
+</head>
+<body>
+  <input type="button" value="存入" id="btn1">
+  <input type="button" value="获取" id="btn2">
+  <script>
+    var obj = {
+      "name":"tom",
+      "age":20
+    }
+
+    var arr = [
+      {"name":"tom","age":20},
+      {"name":"rose","age":22}
+    ]
+
+    console.log(typeof obj);
+
+    document.getElementById('btn1').onclick = function(){
+      var str = JSON.stringify(obj)
+      console.log(typeof str);
+      // localStorage.setItem('aaa',obj)
+      localStorage.setItem('aaa',str)
+
+      var stu = JSON.stringify(arr)
+      localStorage.setItem('stu',stu)
+    }
+
+    document.getElementById('btn2').onclick = function(){
+      var stu = localStorage.getItem('stu')
+      console.log(stu);
+      
+      console.log(typeof stu);
+      var arr = JSON.parse(stu)
+      console.log(arr);
+
+      var str = localStorage.getItem('aaa')
+      console.log(str);
+      console.log(typeof str);
+      var obj = JSON.parse(str)
+      console.log(obj);
+    }
+  </script>
+</body>
+</html>

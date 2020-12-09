@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <pp-button></pp-button>
+      <pp-button></pp-button>
+      <pp-button></pp-button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 组件的基本使用:
+      // 1. 定义组件
+      // Vue.component(组件名, 组件配置对象)   组件名先遵循全小写的规范, 多个单词之间通过 - 隔开
+      // 组件是可复用的vue实例, 组件也是vue实例, 所以new Vue怎么配置的, 组件也可以怎么配置
+      // 例如: data methods computed watch 八大钩子函数
+      // 注意: el 是根实例独有的属性, 组件虽然不配置el, 但是一般配置template
+      
+      // 2. 使用组件
+      // 直接当成html标签使用即可
+      // ------------------------------------------------------------------------
+      // 组件使用的注意点:
+      // 1. 不要使用html内置的标签名
+      //    el-button el-table el-input el-form el-select el-option
+      //    elementUI 组件库
+
+      // 2. 一个组件应该是一个整体, 组件模板有且只能有一个根元素
+
+      Vue.component('pp-button', {
+        // 模板, 指定组件的结构的
+        template: `
+          <div>
+            <button>我是按钮</button>
+            <div>我是组件</div>
+          </div>
+        `
+      })
+
+      // 根实例独有的属性 => el
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        }
+      })
+    </script>
+  </body>
+</html>

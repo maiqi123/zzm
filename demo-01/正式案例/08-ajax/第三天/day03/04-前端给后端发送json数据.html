@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 前端给后端发送json数据
+
+        var obj = {
+            name: "lw",
+            age: 20,
+            hobby: [
+                "abc",
+                "def"
+            ]
+        };
+
+        // 发送ajax请求 post
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("POST", "./04.php");
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send( "data=" + JSON.stringify(obj) );
+
+        xhr.onload = function () {
+            if(xhr.status === 200){
+                console.log(xhr.responseText);
+            }
+        }
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <button class="go400">去400</button>
+  <button class="go800">去800</button>
+  <div></div>
+  <script>
+    // 作用：让任意元素运动到任意的位置
+    // 参数1：element 动画的元素
+    // 参数2：target 运动的目标位置
+    function animate (element, target) {
+      var timer = setInterval(function() {
+        // 每次在原来的位置 + 10
+        // 判断如果到了终点，应该清除定时器
+        var current = element.offsetLeft;
+        current += 10;
+        if (current >= target) {
+          // 到了终点
+          clearInterval(timer);
+        } else {
+          element.style.left = current + 'px';
+        }
+      }, 16);
+    }
+
+    // 让盒子有动画的运动到400px
+    var go400 = document.querySelector('.go400');
+    var go800 = document.querySelector('.go800');
+    var div = document.querySelector('div');
+    go400.onclick = function () {
+      animate(div, 400);
+    }
+
+    go800.onclick = function () {
+      animate(div, 1200);
+    }
+
+
+  </script>
+</body>
+</html>

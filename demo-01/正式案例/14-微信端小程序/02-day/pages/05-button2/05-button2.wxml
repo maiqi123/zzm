@@ -1,0 +1,42 @@
+<!-- 1.form-type  表单 -->
+<!-- 1.1. submit  提交收集数据 -->
+<!-- 1.2. reset 重置 -->
+<!-- <form bindsubmit="submit">
+    <input name='username'></input>
+    <input name='password'></input>
+    <button form-type="submit">登录</button>
+    <button form-type="reset">重置</button>
+</form> -->
+
+
+<!-- 2. open-type 开放能力-->
+<!-- 2.1 客服会话  contact  模拟器演示不了, 真机演示 -->
+<!--     凡是能点击 客服小妹的都是客户, 其实客服小妹也是一个微信号, 比如说就是你们公司的客服 -->
+<!--     添加客服小妹的微信号 
+     登录官网 => 左侧 => 客服 => 添加微信号 ==> 网页/移动端 
+ -->
+<button open-type="contact">客服小妹</button>
+
+<!-- 2.2 分享转发 share -->
+<button open-type="share">分享</button>
+
+<!-- 2.3 获取手机号  getPhoneNumber (演示不了) 企业账号 -->
+<button open-type="getPhoneNumber">手机号</button>
+
+<!-- 2.4 getUserInfo  获取用户信息 -->
+<!-- 需要添加一个 事件 bindgetuserinfo -->
+<button open-type="getUserInfo" bindgetuserinfo='getUserInfo'>获取用户信息</button>
+
+<!-- 2.6 launchApp 启动app  -->
+<!-- 演示不了, 线上, 线上的app -->
+<button open-type="launchApp">启动</button>
+
+<!-- 2.7 打开授权设置页 -->
+<button open-type="openSetting">授权设置</button>
+
+<!-- 2.8 反馈 -->
+<button open-type="feedback">反馈</button>
+
+
+
+

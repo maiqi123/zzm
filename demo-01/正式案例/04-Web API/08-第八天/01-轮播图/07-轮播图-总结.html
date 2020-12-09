@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .box {
+        width: 790px;
+        height: 340px;
+        background-color: pink;
+        margin: 200px auto;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      /* 1. ul要足够宽，能够放下所有图片  2. ul要有定位 */
+      .img-box {
+        width: 900%;
+        height: 100%;
+        position: absolute;
+      }
+
+      .img-box li {
+        float: left;
+      }
+
+      .point-box {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        height: 20px;
+        padding: 0 5px;
+        /* width: 200px; */
+        background-color: rgba(255, 255, 255, .5);
+        border-radius: 10px;
+      }
+      .point-box li {
+        float: left;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: 4px 3px;
+        cursor: pointer;
+        background-color: #fff;
+      }
+
+      .point-box li.now {
+        background-color: red;
+      }
+
+      .left,
+      .right {
+        width: 30px;
+        height: 60px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, .3);
+        line-height: 60px;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        font-size: 24px;
+        font-family: 宋体;
+        font-weight: 700;
+      }
+      .left {
+        left: 0;
+      }
+      .right {
+        right: 0;
+      }
+      .left:hover,
+      .right:hover {
+        background-color: rgba(0, 0, 0, .6);
+      }
+
+      .arrow {
+        display: none;
+      }
+
+      .box:hover .arrow{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul class="img-box">
+        <li>
+          <a href="#"><img src="images/1.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/2.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/3.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/4.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/5.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/6.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/7.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/8.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/1.jpg" alt=""></a>
+        </li>
+      </ul>
+      <ul class="point-box">
+        <li class="now"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="arrow">
+        <span class="left">&lt;</span>
+        <span class="right">&gt;</span>
+      </div>
+    </div>
+    <script src="animate.js"></script>
+    <script>
+      /* 
+        0. 找对象
+        1. 小圆点功能
+        2. 左右箭头的功能
+        3. 无限滚动
+        4. 小圆点和左右箭头联动
+        5. 自动播放
+      */
+      var box = document.querySelector('.box');
+      var ul = document.querySelector('.img-box');
+      var imgs = document.querySelectorAll('.img-box li');
+      var points = document.querySelectorAll('.point-box li');
+      var left = document.querySelector('.left');
+      var right = document.querySelector('.right');
+      var width = box.offsetWidth;
+      /* 
+        1. 给所有的小圆点注册点击事件
+        2. 当前小圆点要高亮
+        3. 让ul跟着移动 下标 和 宽度
+      */
+      for (var i = 0; i < points.length; i++) {
+        points[i].setAttribute('index', i);
+        points[i].onclick = function () {
+          // 排他并高亮
+          for (var i = 0; i < points.length; i++) {
+            points[i].className = '';
+          }
+          this.className = 'now';
+
+          var index = this.getAttribute('index');
+
+          // 如果是最后一张，瞬间变成第0张
+          if (count === imgs.length - 1) {
+            count = 0;
+            ul.style.left = 0;
+          }
+          // 修改count
+          count = index;
+          animate(ul, - index * width);
+        }
+      }
+
+
+      /* 
+        左右箭头功能
+        1. 给右箭头注册点击事件
+        2. 准备一个count变量，记录点击右箭头的次数
+        3. 让count++
+        4. 移动ul
+
+
+        联动功能
+        1. 点击左右箭头，小圆点要联动
+        2. 点击小圆点， count要联动
+      */
+      var count = 0;
+      // 1. 可以执行动画
+      var flag = true;
+      right.onclick = function() {
+        // 2. 判断flag
+        if (flag) {
+          // 3. 把flag改成false
+          flag = false
+          // 如果是最后一张图片了，瞬间变成第0张
+          if (count === imgs.length - 1) {
+            count = 0;
+            ul.style.left = 0;
+          }
+          count++;
+          animate(ul, - count * width, function() {
+            flag = true;
+          });
+          // setTimeout(function() {
+          //   flag = true;
+          // }, 2000);
+
+          // 让count对应的小圆点高亮
+          for (var i = 0; i < points.length; i++) {
+            points[i].className = '';
+          }
+          if (count === imgs.length - 1) {
+            points[0].className = 'now';
+          } else {
+            points[count].className = 'now';
+          }
+        }
+
+      }
+      left.onclick = function () {
+        // 如果是第0张，瞬间变成最后一张
+        if (count === 0) {
+          count = imgs.length - 1;
+          ul.style.left = - count * width + 'px';
+        }
+        count--;
+        animate(ul, - count * width);
+
+        // 让count对应的小圆点高亮
+        for (var i = 0; i < points.length; i++) {
+          points[i].className = '';
+        }
+        if (count === imgs.length - 1) {
+          points[0].className = 'now';
+        } else {
+          points[count].className = 'now';
+        }
+      }
+
+
+
+      /* 
+        自动播放
+          1. 开启定时器，每隔2秒触发右箭头的点击事件
+          2. 鼠标移入到轮播图，清空定时器
+          3. 鼠标离开轮播图，重新开启定时器
+      */
+      var timer = setInterval(function() {
+        right.click();
+      }, 2000);
+      box.onmouseover = function () {
+        clearInterval(timer);
+      };
+
+      box.onmouseout = function () {
+        timer = setInterval(function() {
+          right.click();
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

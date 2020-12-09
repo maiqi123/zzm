@@ -1,0 +1,7 @@
+{
+  "prettier.printWidth" : 115,
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.arrowParens": "avoid",
+  "prettier.bracketSpacing": true
+}

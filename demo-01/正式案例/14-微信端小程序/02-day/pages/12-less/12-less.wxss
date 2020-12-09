@@ -1,0 +1,9 @@
+text {
+  color: red;
+}
+.father .son {
+  color: red;
+}
+.cc {
+  color: red;
+}

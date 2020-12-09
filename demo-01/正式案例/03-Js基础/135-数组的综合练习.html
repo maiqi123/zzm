@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var arr = ["c", "a", "z", "a", "x", "a", "a", "z", "c", "x", "a", "x"];
+    // 1. 获取数组中每个元素出现的次数  {c: 2, a: 5, z:2, x:3}
+
+    // 需要有一个对象 {}, 判断对象中是否包含遍历的值， 如果包含，让值+1  如果对象中不包含遍历的值，给对象添加这个属性，并且值为1
+
+    // 如何给对象增加一个属性
+    // var obj = {};
+    // obj.c = 1;
+    // // obj[c] = 1;
+    // console.log(obj);
+
+    // 如何让对象的属性值+1
+    // var obj = {
+    //   c: 5
+    // };
+    // obj.c++;
+    // console.log(obj);
+
+    // 如何判断对象是否有某个属性
+    // var obj = {
+    //   a: 1,
+    //   b: 2
+    // };
+    // // 判断对象是否包含c属性
+    // // console.log(obj.c === undefined);
+    // // 'c' in obj 布尔值：如果obj有c属性，结果是true
+    // console.log('c' in obj);
+
+
+    var arr = ["c", "a", "z", "a", "x", "a", "a", "z", "c", "x", "a", "x"];
+    // // {c: 2, a: 5, z:2, x:3}
+
+    // // 1. 准备空对象
+    // // 2. 遍历arr数组
+    // // 3. 判断遍历出来的值在对象中是否存在
+    // // 4. 如果不存在， 给对象增加一个属性，值为1
+    // // 5. 如果存在，让对象这个值 +1
+    var obj = {};
+    for (var i = 0; i < arr.length; i++) {
+      var temp = arr[i];
+      if (temp in obj) {
+        // 存在
+        obj[temp]++;
+        // obj[temp]++
+      } else {
+        // 不存在
+        obj[temp] = 1;
+      }
+    }
+    console.log(obj);
+
+    var max = 0;
+    var key = ''
+    for (var k in obj) {
+      if (obj[k] > max) {
+        max = obj[k];
+        key = k;
+      }
+    }
+    console.log(max, key);
+
+    // 2. 获取数组中出现次数最多的元素以及次数
+  </script>
+</body>
+
+</html>

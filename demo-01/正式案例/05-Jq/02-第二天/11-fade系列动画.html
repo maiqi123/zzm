@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: #f00;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <button>展示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 三组基本动画
+
+        //  fadeIn(speed, easing, callback)   fadeOut()    fadeToggle()
+        //    淡入                               淡出           切换
+
+       //  参数同show系列参数
+        // 以上三个参数都是可选的
+
+        // fade系列动画, 没有参数有动画效果
+
+        $("button").eq(0).click(function() {
+            $("div").fadeIn(3000, function () {
+                $("div").css("backgroundColor", "lime");
+            });
+        });
+
+        // 隐藏
+        $("button").eq(1).click(function() {
+            $("div").fadeOut();
+        });
+
+
+        // 切换
+        $("button").eq(2).click(function() {
+            $("div").fadeToggle();
+        });
+
+        // 三组基本动画
+        //  1. show hide toggle
+        //  2. slideDown slideUp  slideToggle
+        //  3. fadeIn fadeOut  fadeToggle
+
+        //  共同点: 参数都是一样的 speed, easing, callback  都是可选的
+        //  不同点:  show系列动画 没有参数就没有动画效果
+        //   slide fade 系列动画, 没有参数有动画效果
+    })
+    </script>
+</body>
+
+</html>

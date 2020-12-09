@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // constructor 属性
+        //  1. 原型对象自带该属性
+        //  2. 原型对象的constructor属性的值指向了当前的构造函数
+
+        // function Person(){}
+        // console.log( Person.prototype );
+        // console.log( Person.prototype.constructor );
+
+        // 测试题
+        function Person(){}
+        var p = new Person();
+
+        // p.constructor ==> p是从原型对象Person.prototype上获取到constructor属性
+        // 原型对象的constructor属性值指向当前的构造函数Person
+        console.log( p.constructor === Person ); // true
+        console.log( p.constructor === Person.prototype.constructor ); // true
+
+
+
+        // 拟人化理解原型三角关系
+
+        // 构造函数 孩子他妈
+        // 原型对象 孩子他爸
+        // 实例对象 孩子
+        
+        // 构造函数 和 原型对象 是 配偶关系
+        // 1. 构造函数 通过prototype属性访问到原型对象
+        // 2. 原型对象 通过constructor属性访问到构造函数
+
+        // 构造函数 和 实例对象 是 母子关系
+        //  1. 构造函数通过new 创建出来实例对象
+        //  2. 实例对象不能直接去访问构造函数
+
+        // 原型对象 和 实例对象 是 父子关系
+        //  1. 实例对象可以直接访问原型对象
+        //  2. 实例对象可以通过constructor属性间接的访问构造函数
+    </script>
+</body>
+</html>

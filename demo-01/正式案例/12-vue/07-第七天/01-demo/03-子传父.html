@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #app {
+        width: 400px;
+        height: 400px;
+        background-color: pink;
+      }
+      .son {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 
+      :msg="str"  v-bind:msg 会动态解析str变量的
+      msg="str"
+
+     -->
+
+    <!-- 在谁的模板中, 用的就是谁的变量 -->
+    <div id="app">
+      <h3>这是父组件</h3>
+      <son @sb="fatherFn"></son>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 子传父:
+      // 1. 在子组件中, 通过触发子组件的事件, 触发事件的同时传值
+      //    this.$emit(事件名, 参数1, 参数2, ...)
+
+      // 2. 在父组件中, 通过给子组件注册对应的事件, 接收参数
+
+      Vue.component('son', {
+        template: `
+          <div class="son">
+            <h4>我是son组件</h4>
+            <p>自己的数据: {{ money }}</p>
+            <button @click="send">子传父</button>
+          </div>
+        `,
+        data () {
+          return {
+            money: '100块'
+          }
+        },
+        methods: {
+          send () {
+            this.$emit('sb', this.money, '拖拉机')
+          }
+        }
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        methods: {
+          fatherFn (money, car) {
+            alert('这是父组件的方法' + money + car)
+          }
+        }
+      })
+
+
+
+      /* 
+        子传父:
+          1. 子组件中, 以触发事件的方式传值
+             注意: 事件名规范全小写, click  mouseenter mouseleave
+             this.$emit(事件名, 参数1, 参数2, ...)
+
+          2. 在父组件中, 给子组件注册对应的事件, 接收参数
+             <son @事件名="fatherFn"></son>
+
+             methods: {
+               fatherFn (参数1, 参数2, ..) {
+
+               }
+             }
+      
+      */
+    </script>
+  </body>
+</html>

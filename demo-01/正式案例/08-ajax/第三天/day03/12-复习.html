@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数据交互
+        //  xml + JSON
+        //  JSON格式要求
+        //  1. JSON本质是字符串
+        //  2. 引号里面是键值对格式(对象或数组)
+        //  3. 键名是必须使用双引号(单引号,没有引号都是不对的)
+        //  4. 使用逗号隔开键值对, 最后一个键值对没有逗号
+
+        //  json字符串 和 js对象之间互相转换
+        //   json字符串 ==> js对象 JSON.parse() 解析功能
+        //   js对象 ==> json字符串 JSON.stringify() 字符串化功能
+        
+        // jQ的ajax功能
+        /*$.ajax({
+            type: "get 或者 post", // 请求方式
+            url: 请求地址,
+            data: {
+                发送的数据
+            },
+            dataType: 预期服务器响应的数据类型, // json text xml
+            beforeSend: function(){
+                // 发送ajax请求前执行
+                // return false; 阻止发送ajax请求
+            },
+            success: function(data){
+                // 响应成功
+                // 形参data就是响应回来的数据
+            },
+            error: function(){
+                // 失败
+            },
+            complete: function(){
+                // 完成==> 不论成功还是失败都会执行
+            }
+        })*/
+
+        // $.get()  $.post()
+
+        // 接口化开发 ==> 前端照着文档进行写ajax的请求和处理响应.
+    </script>
+</body>
+</html>

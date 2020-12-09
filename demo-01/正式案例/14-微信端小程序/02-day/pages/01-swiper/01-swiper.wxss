@@ -1,0 +1,11 @@
+/* pages/01-swiper/01-swiper.wxss */
+/* 大家以后遇到轮播图,设置的样式 就是一个 swiper  和  image */
+swiper {
+  width: 100%;
+  height: 150px;
+}
+
+swiper image {
+  width: 100%;
+  height: 150px;
+}

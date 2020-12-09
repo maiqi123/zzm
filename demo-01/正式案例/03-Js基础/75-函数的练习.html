@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 求任意数组中的最大值
+    // 函数：getMax
+    // 参数：数组
+    // 返回值：最大值
+    // function getMax(arr) {
+    //   // 假设第0个是最大的
+    //   var max = arr[0];
+    //   for (var i = 1; i < arr.length; i++) {
+    //     if (arr[i] > max) {
+    //       max = arr[i];
+    //     }
+    //   }
+    //   return max;
+    // }
+    // console.log(getMax([1, 4, 7, 2, 5]));
+    // console.log(getMax([1, 444, 77, 2, 5]));
+
+    // 2. 求任意数组中的最小值
+    // 3. 翻转任意数组，返回一个新的数组
+    // reverse([1,2,3,4])
+    // reverse([2,4,6,8])
+    // function reverse(arr) {
+    //   var newArr = [];
+    //   for (var i = arr.length - 1; i >= 0; i--) {
+    //     newArr.push(arr[i]);
+    //   }
+    //   return newArr;
+    // }
+    // console.log(reverse([1,2,3,4]));
+    // console.log(reverse([2,4,6,8]))
+
+
+
+    // 4. 对任意数组从小到大排序
+    // 名字：sort
+    // 参数：数组
+    // 返回值：数组
+    function sort(arr) {
+      // 趟
+      for (var i = 0; i < arr.length - 1; i++) {
+        var flag = true;
+        // 次
+        for (var j = 0; j < arr.length - 1 - i; j++) {
+          if (arr[j] > arr[j+1]) {
+            flag = false;
+            var temp = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = temp;
+          }
+        }
+        if (flag === true) {
+          break;
+        }
+      }
+      return arr;
+    }
+
+    console.log(sort([1,4, 6, 2, 3, 7]));
+  </script>
+</body>
+</html>

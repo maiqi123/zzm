@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #f99;
+            position: relative;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button>开始动画</button>
+    <button>停止动画</button>
+    <div></div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("button").eq(0).click(function() {
+                $("div").slideDown(1000).slideUp(1000)
+            });
+
+            $("button").eq(1).click(function() {
+                // stop(); 停止当前正在执行的动画, 如果元素的队列中还有后续动画, 就会去执行后续动画.
+                // 2个参数: 都是可选的, 默认值都是false
+                //  clearQueue: 是否清除元素的动画队列, true: 清除
+                //  jumpToEnd:  是否要跳转到当前正在执行的动画的最终状态 true: 跳转
+                $("div").stop(true, true);
+            });
+        })
+    </script>
+</body>
+</html>

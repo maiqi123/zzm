@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // new Array();
+    // new Object();
+
+    // 自定义构造函数
+    // 构造函数也是函数
+    // 1. 构造函数的首字母是大写。
+    // 2. 构造函数一定要配合 new 一起，作用：创建一个对象
+    // 3. 在构造函数内部有一个特殊关键字 this
+    function Student(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    var stu = new Student('zs', 20);
+    console.log(stu);
+
+    var stu2 = new Student('ls', 30);
+    console.log(stu2);
+  </script>
+</body>
+</html>

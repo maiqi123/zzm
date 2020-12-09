@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <style>
+    .container {
+      border: 1px solid #000;
+    }
+
+    .item {
+      height: 100px;
+      border: 1px solid red;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- 
+    需求：在响应式布局容器中有6个子盒子
+
+      1、大屏：一行3个
+      2、中屏：一行3个
+      3、小屏：一行2个
+      4、超小屏：一行1个
+
+   -->
+  <div class="container">
+    <div class="item col-md-4 col-sm-6"></div>
+    <div class="item col-md-4 col-sm-6"></div>
+    <div class="item col-md-4 col-sm-6"></div>
+    <div class="item col-md-4 col-sm-6"></div>
+    <div class="item col-md-4 col-sm-6"></div>
+    <div class="item col-md-4 col-sm-6"></div>
+  </div>
+</body>
+</html>

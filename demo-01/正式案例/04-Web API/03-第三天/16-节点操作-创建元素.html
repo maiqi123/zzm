@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>我是一个div</div>
+  <script>
+    // 参数： 标签名
+    // 作用：在内存中创建一个空的元素
+    // document.createElement('div')
+    var p = document.createElement('p');
+    p.innerText = '我是一个p标签';
+    p.style.color = 'red';
+    document.querySelector('div').appendChild(p);
+
+
+    var button = document.createElement('button');
+    button.innerText = '我是按钮';
+    document.querySelector('div').appendChild(button);
+  </script>
+</body>
+</html>

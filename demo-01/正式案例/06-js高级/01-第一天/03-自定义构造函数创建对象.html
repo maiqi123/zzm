@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 自定义构造函数创建对象
+
+      // 构造函数的特征:
+      //  1. 首字母大写(规范)
+      //  2. 和new配合使用
+
+      // 使用构造函数来创建对象可以解决工厂函数无法识别对象具体的类型的问题.
+      function fn() {
+        console.log('hello')
+      }
+      function Person(name, age) {
+        // 通过this.xxx = yyy;形式给创建的对象添加属性和方法
+        this.name = name
+        this.age = age
+        this.sayHi = fn
+      }
+      var p1 = new Person('xm', 20)
+      var p2 = new Person('xhei', 20)
+      //   console.log(p1, p2)
+      console.log(p1 === p2)
+      console.log(p1.sayHi === p2.sayHi)
+
+      // new 做了几件事情
+      //  1. 创建一个新对象
+      //  2. this指向新对象
+      //  3. 执行构造函数内的代码
+      //  4. 将新对象返回出去
+
+      // 术语:
+      //  1. 实例: 构造函数创建出来的对象叫做实例(对象, 可以有多个实例对象)
+      //  2. 实例化: 构造函数创建对象的过程
+      //  3. 成员: 对象中属性和方法的统称.
+    </script>
+  </body>
+</html>

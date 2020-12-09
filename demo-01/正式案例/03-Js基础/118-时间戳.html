@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 时间戳: 1970年1月1号的0时0分0秒到现在的毫秒数
+
+      // 如何得到一个时间戳
+
+      // 在数据的前面添加一个 + 号  这个+号会被解析成正号 会隐式将数据类型转换成Number
+      // var date = +new Date();
+
+      // 会自动转换成时间戳
+      //console.log(date / 1000); // 1595062445792
+
+      // 求一段程序的运行时间
+
+      // 在最开始获取对应的时间 为了方便计算 转换成时间戳
+      var start = +new Date();
+      var sum = 0;
+      for (var i = 1; i < 10000000; i++) {
+        sum += i;
+      }
+      var end = +new Date();
+
+      console.log(end - start);
+    </script>
+  </body>
+</html>

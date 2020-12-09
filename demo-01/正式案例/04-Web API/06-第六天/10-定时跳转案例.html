@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="http://www.baidu.com">登录成功，3秒后自动跳转到首页</a>
+  <script>
+    // 开启定时器， 等到时间为0的时候， 使用location.href进行跳转
+    var link = document.querySelector('a');
+    var count = 3;
+    setInterval(function() {
+      count--;
+      link.innerText = '登录成功，'+ count +'秒后自动跳转到首页';
+      if (count === 0) {
+        location.href = link.href;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

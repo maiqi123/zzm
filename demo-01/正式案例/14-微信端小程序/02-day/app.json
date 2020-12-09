@@ -1,0 +1,30 @@
+{
+  "pages":[
+    "pages/14-component/14-component",
+    "pages/13-component/13-component",
+    "pages/12-less/12-less",
+    "pages/12-wxss/12-wxss",
+    "pages/11-setdata/11-setdata",
+    "pages/10-bindevent/10-bindevent",
+    "pages/09-wxs/09-wxs",
+    "pages/08-wxml-for/08-wxml-for",
+    "pages/07-wxmll-if/07-wxmll-if",
+    "pages/06-wxml-databind/06-wxml-databind",
+    "pages/05-button2/05-button2",
+    "pages/04-button/04-button",
+    "pages/03-richtext/03-richtext",
+    "pages/02-navigator/02-navigator",
+    "pages/01-swiper/01-swiper",
+    "pages/one/one",
+    "pages/two/two",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

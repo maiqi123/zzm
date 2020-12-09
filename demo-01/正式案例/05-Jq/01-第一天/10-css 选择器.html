@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li id="tangtang">堂哥</li>
+        <li class="flyman">
+            大飞哥
+            <ol>
+                <li>小飞飞</li>
+                <li>小小飞</li>
+            </ol>
+        </li>
+        <li class="cc">CC</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // css 选择器
+            //  标签
+            // $("li").text("都是传智最帅的男人");
+
+            //  子代
+            //  css(name, value) 操作样式
+            //      name 样式名
+            //      value 样式值
+            // $("ul>li").css("color", "hotpink");
+
+            //  后代
+            // $(".flyman li").css("backgroundColor", "lime");
+
+            //  id
+            $("#tangtang").text("堂哥很细  ");
+
+            //  类名
+            $(".flyman").text("大飞哥喜欢CC");
+
+            //  交集 连写
+            $("li.cc").text("可我cc不喜欢大飞哥啊, 想和堂哥在一起");
+
+            //  并集 , 
+            $(".cc, .flyman").text("凑合过呗");
+        })
+    </script>
+</body>
+</html>

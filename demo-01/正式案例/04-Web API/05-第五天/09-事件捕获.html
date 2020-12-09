@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+
+    .son {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+
+  <script>
+    var father = document.querySelector('.father');
+    var son = document.querySelector('.son');
+
+    
+    // 第三个参数： useCapture  是否使用捕获  默认是false
+    // 第三个参数决定这个事件到底在什么阶段触发  如果是false，代表在冒泡阶段触发， 如果是true，代表在捕获阶段触发这个事件。
+    // document  son father body 
+    son.addEventListener('click', function(e) {
+      console.log('son的事件');
+    }, false);
+    father.addEventListener('click', function(e) {
+      console.log('father的事件');
+    }, false);
+
+    document.body.addEventListener('click', function () {
+      console.log('body的点击事件');
+    }, false);
+
+    document.addEventListener('click', function (e) {
+      // e.stopPropagation();
+      // console.log('document的点击事件');
+    }, true);
+
+  </script>
+</body>
+</html>

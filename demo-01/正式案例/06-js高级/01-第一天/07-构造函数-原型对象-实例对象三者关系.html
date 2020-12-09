@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 构造函数
+      function Person() {}
+
+      // 原型对象 :  Person.prototype
+      Person.prototype.color = 'lime'
+      Person.prototype.sayHi = function () {
+        console.log('hello')
+      }
+      Person.prototype.running = function () {
+        console.log('running')
+      }
+
+      // 实例对象
+      var p1 = new Person()
+      var p2 = new Person()
+      console.log(p1 === p2)
+
+      console.log(p1.sayHi === p2.sayHi) // true
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 原型链继承
+      // function Person() {}
+
+      // 写法 太麻烦 重复了
+      /*Person.prototype.color = "lime";
+    Person.prototype.sayHi = function() {
+        console.log("hi");
+    }
+    Person.prototype.work = function() {
+        console.log("work");
+    }
+    Person.prototype.running = function() {
+        console.log("running man");
+    }
+    Person.prototype.learn = function() {
+        console.log("learn");
+    }*/
+
+      function Person() {
+        this.number = ['1', '2', '3']
+      }
+      // 优化写法: 原型替换
+      //  把原型对象替换成一个新对象, 在新对象中添加需要的成员
+      //  原型替换问题: 会造成constructor属性丢失了
+      //  解决: 手动给新的原型对象添加上constructor属性即可
+      Person.prototype = {
+        constructor: Person,
+        sayHi: function () {
+          console.log('hello')
+        },
+        learn: function () {
+          console.log('learn')
+        },
+        // ...
+      }
+      var p = new Person()
+      var p2 = new Person()
+      p2.number.pop()
+      // p.sayHi();
+      // p.learn();
+
+      //  属性查找原则: 沿着原型链来找
+      //  没有原型替换的 p的原型链:
+      //   p ==> Person.prototype ==> Object.prototype ==> null;
+
+      //  原型替换的 p的原型链:
+      //   p ==> Person.prototype (本质上是替换新对象) ==> Object.prototype ==> null;
+
+      console.log(p) // Person
+      console.log(p2)
+
+      // 原型链继承: 给原型对象添加的成员, 实例都可以继承到
+      // 2种写法:
+      //  1. 直接给原型对象添加
+      //      Person.prototype.xxx = yyy; ==> 写多了之后 就非常重复
+      //  2. 原型替换
+      //      Person.prototype = { // ... }; ==> 造成constructor属性丢失, 手动添加下即可.
+    </script>
+  </body>
+</html>

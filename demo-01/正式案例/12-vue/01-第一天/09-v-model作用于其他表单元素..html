@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="msg">
+      <hr>
+      <textarea v-model="desc"></textarea>
+      <p>{{ desc }}</p>
+      <hr>
+      <!-- select框的value值, 就是选中的option的value值 
+           1. 可以用于获取
+           2. 还可以用于设置
+      -->
+      <select v-model="cityId">
+        <option value="1">上海</option>
+        <option value="2">无锡</option>
+        <option value="3">香港</option>
+        <option value="4">北京</option>
+        <option value="5">哈尔滨</option>
+        <option value="6">齐齐哈尔</option>
+      </select>
+      <p>{{ cityId }}</p>
+      <hr>
+      <input type="checkbox" v-model="flag">
+      <p>{{ flag }}</p>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 注意点: v-model设置了之后, 会忽略掉默认设置的value, checked等属性
+      // 表单元素小练习
+      // 1. textarea  value
+      // 2. select/option  value
+      // 3. checkbox复选框  checked属性
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: '123456',
+          desc: '今天天气还行',
+          cityId: 6,
+          flag: false
+        }
+      })
+    </script>
+  </body>
+</html>

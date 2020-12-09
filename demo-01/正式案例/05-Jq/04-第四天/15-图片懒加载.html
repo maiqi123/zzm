@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            height: 500px; 
+            background-color: #ccc;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div></div>
+    <div></div>
+    <img class="lazyload" data-original="./lazyloadimgs/01.gif" alt="">
+    <div></div>
+    <div></div>
+    <img class="lazyload" data-original="./lazyloadimgs/02.gif" alt="">
+    <div></div>
+    <div></div>
+    <img class="lazyload" data-original="./lazyloadimgs/03.gif" alt="">
+    <div></div>
+    <div></div>
+    <img class="lazyload" data-original="./lazyloadimgs/04.gif" alt="">
+    <div></div>
+    <div></div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script src="jquery.lazyload.js"></script>
+    <script>
+        $(function () {
+            // jQ插件 jQuery.lazyload.js 实现图片的懒加载
+
+            // 修改和配置
+            $("img.lazyload").lazyload();
+
+            // http://www.jq22.com/jquery-info390
+            // 极简插件: https://chrome.zzzmh.cn/help?token=setup
+
+            // 小结:
+            //  1. 引用jQ + jQ插件
+            //  2. src属性换成data-original
+            //  3. 给图片添加类名标记, 方便控制哪些图片需要懒加载
+            //  4. 最好写上宽高
+            //  5. 调用$("img.lazyload").lazyload();
+        })
+    </script>
+</body>
+</html>

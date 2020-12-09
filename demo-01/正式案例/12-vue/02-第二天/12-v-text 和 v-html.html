@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      v-text 设置元素的 innerText 不识别标签, 完全可以被 插值表达式 替代
+      v-html 设置元素的 innerHTML 识别标签  需要识别标签的时候, 使用v-html即可
+     -->
+
+    <div id="app">
+      <h1>{{ msg }} 嘿嘿, 呵呵, 嘎嘎 {{ info }}</h1>
+      <h1 v-text="msg"></h1>
+      <h1 v-html="msg"></h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: '<a href="#">我是a标签</a>',
+          info: '你好'
+        }
+      })
+    </script>
+  </body>
+</html>

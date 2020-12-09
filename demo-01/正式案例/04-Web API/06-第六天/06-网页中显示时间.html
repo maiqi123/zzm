@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 400px;
+      height: 50px;
+      background-color: #acffc2;
+      border: 5px solid black;
+      margin: 100px auto;
+      font: bold 24px/50px 楷体;
+      text-align: center;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    // 2020年07月28日 15:30:39
+    function addZero(n) {
+      return n < 10 ? '0' + n : n;
+    }
+    var box = document.querySelector('#box');
+
+    function setTime() {
+      console.log('123');
+      var d = new Date();
+      var str = '';
+      var year = d.getFullYear();
+      var month = d.getMonth() + 1;
+      var day = d.getDate();
+      var hours = d.getHours();
+      var minutes = d.getMinutes();
+      var seconds = d.getSeconds();
+      str = year + '年' + addZero(month) + '月' + addZero(day) + '日 ' + addZero(hours) + ':' + addZero(minutes) + ':' +
+        addZero(seconds);
+      box.innerText = str;
+    }
+    setTime();
+
+    // 参数1：函数 ，不是一个函数的调用
+    setInterval(setTime, 1000);
+  </script>
+</body>
+
+</html>

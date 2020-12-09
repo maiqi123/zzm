@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    // 把函数放到构造函数的外面, 因为这样fn函数在内存中只有一份.
+    // 地址: 0x11
+    // 这样做法可以解决构造函数创建对象的内存浪费问题, 但是容易造成全局污染问题.
+    /*function fn() {
+        console.log("hi");
+    }
+
+    function fn2() {
+        console.log("running man");
+    }*/
+
+
+    // 优化: 减少全局污染问题
+    var tools = {
+        fn: function () {
+            console.log("hi");
+        },
+        fn2: function () {
+            console.log("running man");
+        },
+        // ...
+    };
+
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+
+        // 在构造函数中, 不要这么添加方法
+        // 每次执行构造函数的时候, 都会在内存中创建相同的功能的函数 ==> 内存浪费
+        /*this.sayHi = function () {
+            console.log("hello");
+        }*/
+        this.sayHi = tools.fn; // 把fn函数的地址0x11赋值给sayHi方法.
+        this.running = tools.fn2;
+    }
+
+    var p1 = new Person("xm", 18);
+    var p2 = new Person("xh", 19);
+    console.log(p1, p2);
+    console.log(p1.sayHi === p2.sayHi);
+
+
+    // 小结: 解决构造函数创建对象造成内存浪费问题
+    // 1. 把写在构造函数里面的函数放到构造函数外面, 目的: 让函数在内存中只有一份
+    // 2. 把函数写在一个对象中, 全局只有对象, 可以减少全局污染问题
+    </script>
+</body>
+
+</html>

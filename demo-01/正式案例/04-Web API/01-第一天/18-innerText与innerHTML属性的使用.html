@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>123</div>
+<div title="哈哈哈" id="box">
+  <p>123</p>
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+</div>  
+<script>
+  var box = document.getElementById('box');
+
+  // innerText更加安全，，innerHTML容易被xss攻击
+  // 永远不要给用户提交的内容使用innerHTML
+
+  // innerText可以获取到标签的文本内容， 可以设置标签的文本内容
+  // box.innerText  box.innerHTML
+  // box.title = '嘻嘻嘻';
+  // console.log(box.innerText);
+  // box.innerText = '456';
+  // console.log(box.innerHTML);
+  // box.innerHTML = '456';
+
+  // innerText获取的仅仅是内部的文本，忽略掉html标签， innerHTML获取到内部的文本和标签
+  // innerText不识别标签，会把标签当成文本，，innerHTML中，标签是能够识别，生效的。
+  // console.log(box.innerText);
+  // console.log(box.innerHTML);
+  // box.innerText = '<h1>我是标签</h1>';
+  // box.innerHTML = '<h1>我是标签</h1>';
+
+  // box.innerText = '<a href="javascript:document.write(\'哈哈哈哈，傻了吧\')">点我看大片</a>';
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // window: 
+    // 1. window对象是浏览器中顶级对象，全局对象
+    // 2. 我们常用的所有的属性和方法都是属于window的
+    // 3. 因为window特别的常用，window可以省略
+    // 4. 定义的全局变量和全局的函数也是window的
+
+    // console.log(window);
+    // alert
+    // window.alert('哈哈');
+    // window.prompt('嘻嘻');
+    // window.document.write('哈哈哈');
+    // window.console.log('123')
+
+    var num = 11;
+    // console.log(window);
+    console.log(window.num);
+
+    function fn() {
+      console.log('我是一个函数');
+    }
+    window.fn();
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ obj.name }}</h1>
+      <h1>{{ obj.age }}</h1>
+      <h1>{{ obj.desc }}</h1>
+      <button @click="fn">新增一个响应式的属性</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 1. vue中的数据, 是响应式的, 修改了数据, 视图会自动更新
+      //    原理: 利用Object.defineProperty进行属性的劫持
+      // 2. 动态添加的属性, 不是响应式的
+      // 3. 就希望能够动态添加一个属性, 且希望这个属性是响应式的  (告诉vue, 让vue帮你劫持他)
+      //    Vue.set(对象, 属性名, 值)
+      //    this.$set(对象, 属性名, 值)
+
+      // 数组不用大家考虑, vue内部对数组的操作方法, 进行了重写, 所以调用这些变异方法, 也会触发视图的更新
+      // https://cn.vuejs.org/v2/guide/list.html#数组更新检测
+
+      // 特例: 目前vue的版本无法检测数组的一些操作, 需要避开
+      // (1) 直接通过下标改值   this.list[0] = '水果'  无法触发更新
+      // (2) 直接修改数组的长度 this.list.length = 2   无法触发更新
+
+      // 如果非要通过下标改值, 可以 Vue.set(数组, 下标, 值) => Vue.set(this.list, 0, '水果')
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          obj: {
+            name: 'zs',
+            age: 18
+          },
+          list: []
+        },
+        methods: {
+          fn () {
+            Vue.set(this.obj, 'desc', '不错, 很好')
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

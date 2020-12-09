@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 函数的三要素： 函数名 ，参数，返回值
+    // 1. 求任意半径的圆的面积
+    function getArea(r) {
+      return 3.14 * r * r;
+    }
+    console.log(getArea(10));
+    console.log(getArea(100));
+
+    // 2. 求任意半径的圆的周长
+    // 2 * 3.14 * r
+
+    // 3. 求任意2个数中的最大值
+    function getMax(n1, n2) {
+      // if (n1 > n2) {
+      //   return n1;
+      // } else {
+      //   return n2;
+      // }
+      return n1 > n2 ? n1 : n2;
+    }
+
+    console.log(getMax(10, 20));
+    console.log(getMax(100, 20));
+  </script>
+</body>
+</html>

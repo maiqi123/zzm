@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 600px;
+      height: 600px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" id="btn1" value="设置桔红色">
+  <input type="button" id="btn2" value="设置蓝色">
+  <input type="button" id="btn3" value="设置风骚粉">
+  <div class="box"></div>
+  <script>
+    // 浏览器的本地存储功能 
+    // 浏览器的本地存储功能可以帮助我们来存储一些数据 
+    // 这些数据的格式必须是字符串 是键值对的值  key  value
+    // 1.获取页面中的标签对象 
+    var box = document.querySelector('.box');
+    var btn1 = document.getElementById('btn1')
+    var btn2 = document.getElementById('btn2')
+    var btn3 = document.getElementById('btn3')
+
+    // 为了能够 让每次打开的页面中的盒子都显示上次设置的颜色
+    // 应该先将本地存储中的数据获取出来 给到盒子
+    var color = localStorage.getItem('color')
+    box.style.backgroundColor = color
+
+    // 2. 单击按钮设置颜色
+    btn1.onclick = function(){
+      box.style.backgroundColor = 'orangered'
+      // 同时将颜色存储到本地存储当中
+      localStorage.setItem('color','orangered')
+    }
+
+    // 我们当前的需求是每次打开的时候，都要显示上次设置的颜色
+    // localStorage.setItem(key,value) // 有两个参数  一个是键  一个是值
+    // localStorage.getItem(key) // 获取本地存储中的数据 有一个参数  是键
+  </script>
+</body>
+</html>

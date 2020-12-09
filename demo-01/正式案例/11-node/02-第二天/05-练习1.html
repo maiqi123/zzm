@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let list = [
+        // wu: 武力    zhi:智力
+        { id: 1, name: '张飞', wu: 97, zhi: 10 },
+        { id: 2, name: '诸葛亮', wu: 55, zhi: 99 },
+        { id: 3, name: '赵云', wu: 97, zhi: 66 },
+        { id: 4, name: '周瑜', wu: 80, zhi: 98 },
+        { id: 5, name: '吕布', wu: 100, zhi: 8 },
+        { id: 6, name: '司马懿', wu: 30, zhi: 98 },
+      ]
+
+      // + 求数组中所有英雄的武力平均值
+      // let t = 0
+      // list.forEach(item => (t += item.wu))
+      // console.log(t / list.length)
+
+      // let t = 0
+      // list.forEach(item => (t += item.wu))
+      // // console.log(t / list.length)
+
+      // // + 得到一个新数组，只保留英雄的名字， `['张飞', '诸葛亮', '赵云', '周瑜', '吕布', '司马懿']`
+      // let arr = list.map(item => item.name)
+      // console.log(arr)
+
+      // let list1 = list.map(item => item.name)
+      // // console.log(list1)
+      // // + 得到一个新数组，新数组中只保留武力值超过90的英雄
+      // let arr = list.filter(item => item.wu > 90)
+      // console.log(...arr)
+
+      // let list2 = list.filter(item => item.wu > 90)
+      // // console.log(list2)
+      // // + 删除数组中名字为周瑜的英雄
+      // let arr = list.filter(item => item.name != '周瑜')
+      // console.log(arr)
+
+      // let list3 = list.filter(item => item.name != '周瑜')
+      // // console.log(list3)
+      // // + 判断数组中所有英雄的武力是否都超过60， 最终打印结果： `全是猛将`  `还有菜鸟`
+      // let arr = list.every(item => item.wu > 60)
+      // console.log(arr ? '全是猛将' : '还有菜鸟')
+
+      // let arr = list.some(item => item.wu > 60)
+      // console.log(arr ? '还有菜鸟' : '全是猛将')
+      // let b = list.every(item => item.wu > 60)
+      // // console.log(b ? '全是猛将' : '还有菜鸟')
+      // // + 删除数组中所有智力低于60的英雄
+      let arr = list.filter(item => item.zhi > 60)
+      console.log(arr)
+
+      // let list4 = list.filter(item => item.zhi >= 60)
+      // // console.log(list4)
+      // // + 找到数组中id为2的英雄，求他的武力+智力的综合
+      // let obj = list.find(item => item.id === 2)
+      // console.log(obj.wu + obj.zhi)
+    </script>
+  </body>
+</html>

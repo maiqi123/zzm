@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 需求: 将obj中的每一项, 拼成字符串 "燕哥-班班-堂哥-CC-dfg"
+        var obj = {
+            0: "燕哥",
+            1: "班班",
+            2: "堂哥",
+            3: "CC",
+            4: "dfg",
+            length: 5
+        };
+
+        // 让obj去借用数组的join方法
+        var res = [].join.call(obj, "❥(^_-)");
+        // 相当于:
+        //  obj.join("-")
+        
+        console.log(res);
+    </script>
+</body>
+</html>

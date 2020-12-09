@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1. 截取字符串"我爱中华人民共和国"，中的"中华"
+    //2. "abcoefoxyozzopp"查找字符串中所有o出现的位置
+    //3. 把 get-element-by-id字符串变成 getElementById
+
+    var str = '我爱中华人民共和国';
+    console.log(str.substr(2, 2));
+    console.log(str.slice(2, 4));
+
+    // 2. "abcoefoxyozzopp"查找字符串中所有o出现的位置
+
+    // 3. get-element-by-id字符串变成 getElementById
+    // 3.1 先根据-把字符串切割成数组
+    // 3.2 遍历数组，把数组中每个值的首字母变成大
+    // 3.3 把数组中心 根据 ''进行拼接
+    // var str = 'get-element-by-id';
+    // // str = str.replace('-e', 'E');
+    // // console.log(str);
+    // var arr = str.split('-');
+    // // console.log(arr);
+    // for (var i = 1; i < arr.length; i++) {
+    //   arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
+    // }
+    // console.log(arr);
+    // str = arr.join('');
+    // console.log(str);
+
+
+    // 封装一个函数
+    function fn (str) {
+      var arr = str.split('-');
+      // console.log(arr);
+      for (var i = 1; i < arr.length; i++) {
+        arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
+      }
+      console.log(arr);
+      str = arr.join('');
+      return str;
+    }
+
+    console.log(fn ('get-element-by-id'));
+    console.log(fn ('my-element-by-id'));
+
+  </script>
+</body>
+</html>

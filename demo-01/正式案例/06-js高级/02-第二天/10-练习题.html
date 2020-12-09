@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    // 1
+    /*var num = 10;
+    fn1();
+
+    function fn1() {
+        console.log(num); // undefined 
+        var num = 20;
+        console.log(num); // 20 20 
+    }
+    console.log(num); // 10 10*/
+
+    // 预解析后的
+    /*function fn1() {
+        // 函数内的代码在执行之前, 也需要经过预解析
+        var num;
+
+        console.log(num); // undefined 
+        num = 20;          // 修改局部num为20
+        console.log(num); // 20
+    }
+    var num;
+
+    num = 10; // 修改全局num为10
+    fn1();
+    console.log(num); // 10*/
+
+
+    // 2.
+    /* var num = 10;
+     fn1();
+     function fn1() {
+       console.log(num); // 10
+       num = 20;         // 修改全局num为20
+       console.log(num); // 20
+     }
+     console.log(num); // 20*/
+
+
+    // 4
+    var num1 = 10;
+    var num2 = 20;
+
+    function fn(num1) {
+        // var num1 = 实参; // undefined
+        // var num3;
+        
+        num1 = 100;         // 修改局部num1为100
+        num2 = 200;         // 修改全局num2为200
+        num3 = 300;         // 修改局部num3为300
+
+        console.log(num1);  //   100  
+        console.log(num2);  //   200
+        console.log(num3);  //   300
+        var num3;
+    }
+    fn();
+    console.log(num1);  // 10
+    console.log(num2);  // 200
+    console.log(num3);  // error
+    </script>
+</body>
+
+</html>

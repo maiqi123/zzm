@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text">
+      <input type="text">
+      <input type="text" v-focus2>
+      <input type="text">
+      <input type="text">
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // autofocus 有一定兼容性, vue中不推荐直接用
+      // vue中推荐, 通过 js 的方式, 让元素获取焦点 inp.focus()
+      // 如果进行的通用的dom操作, 就推荐将这个dom操作, 封装到自定义指令中!
+
+      // 自定义指令的语法:
+      // 1. 定义指令
+      // Vue.directive(指令名, 配置对象)
+      // 2. 使用指令
+      // 使用时, v- 开头
+
+      // 全局定义: 在任何vue实例都可以使用   (vue组件, 都是一个vue实例)
+      Vue.directive('focus', {
+        // 可以配置 5 个钩子函数
+        // 指令所在的元素被插入到页面中时, 这个函数就会被触发 (此时dom已经渲染完成)
+        inserted (el) {
+          // el => 指令所在的元素
+          // console.log(el)
+          el.focus()
+        }
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        // 局部定义
+        directives: {
+          focus2: {
+            inserted (el) {
+              el.focus()
+            }
+          }
+        }
+
+        // created 一般可以发送初始化渲染的ajax请求 (从created开始, 数据就准备就绪了)
+        // mounted 可以开始操作dom (从mounted开始, 模板和数据生成的结构 才 替换了视图)
+        // mounted () {
+        //   document.querySelector('input').focus()
+        // }
+      })
+    </script>
+  </body>
+</html>

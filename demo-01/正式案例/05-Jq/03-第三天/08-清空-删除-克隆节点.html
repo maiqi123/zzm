@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="box" style="width: 500px; padding: 20px; border: 2px solid #000">
+        <h1>哈哈</h1>
+        <p><span><a href="#">哈哈</a></span></p>
+        <h2>呜呜</h2>
+    </div>
+
+    <p class="demo"><a href="#">在外面浪</a>xxxx</p>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 清空-删除-克隆节点
+
+            // 清空 empty() 里面的没了, 自身还在  清理门户
+            // $("div").empty();
+
+            // 删除 remove()   自身都没了, 自杀式效果
+            // $("div").remove();
+
+            // 克隆 clone()  就是深克隆效果
+            // 参数: 用来决定是否要克隆元素的事件 布尔类型的, true 克隆事件
+            //      默认false
+
+            $(".demo").click(function() {
+                alert(1);
+            });
+
+            var $newP = $(".demo").clone(true); // 在内存中
+            $("div").append( $newP );
+        })
+    </script>
+</body>
+</html>
+

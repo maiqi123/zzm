@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = ['张飞', '马超', '黄忠', '刘备'];
+
+    // 1. 如何给数组连续的增加元素：  arr[arr.length] = 值;
+    // 2. arr.push('刘备')
+
+    // 数组的下标范围： 0  -  length-1
+    // 需要在数组的  length这个地方增加新的元素
+    // 给数组新增加赵云
+    // arr[4] = '赵云';
+    // console.log(arr[arr.length]);
+
+    // arr[arr.length] = '赵云';
+    // arr[arr.length] = '曹操';
+    // console.log(arr);
+
+    arr.push('赵云');
+    console.log(arr);
+  </script>
+</body>
+</html>

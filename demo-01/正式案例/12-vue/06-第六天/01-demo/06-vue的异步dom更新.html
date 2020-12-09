@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="fn">按钮</button>
+      <h1>{{ msg }}</h1>
+      <h1>{{ friends }}</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 1. vue中修改了数据, 视图会自动更新, 只不过这个更新的过程是异步的 (提升渲染性能, 统一对比更新)
+      // 2. 如果在修改了数据之后, 立刻的去获取dom结构, 实际拿到的是之前的结构
+      // 3. 但是, 就想要在修改了数据后, 拿到更新后的dom结构, vue中提供了一个语法 
+      //    Vue.nextTick(函数)   这个函数会在异步dom更新完成后, 立刻执行
+      //    this.$nextTick(函数) 这个函数会在异步dom更新完成后, 立刻执行
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          friends: '好朋友'
+        },
+        methods: {
+          fn () {
+            // console.log(document.querySelector('h1').innerHTML) // hello vue
+            // this.msg = '老三'
+            // console.log(document.querySelector('h1').innerHTML) // hello vue
+            
+            // -------------------------------------------------------------------
+            // this.msg = '老大'
+            // this.msg = '老二'
+            // this.msg = '老三'
+            // this.msg = '老四'
+            // this.friends = '老王'
+
+            // -------------------------------------------------------------------
+            // this.msg = '老大' // 不是立刻更新的
+            // setTimeout(() => {
+            //   console.log(document.querySelector('h1').innerHTML)
+            // }, 1000)
+
+            // -------------------------------------------------------------------
+            // this.msg = '老大'
+            // Vue.nextTick(() => {
+            //   console.log(document.querySelector('h1').innerHTML)
+            // })
+            // ----------------------------------------------------------------
+
+            this.msg = '老大'
+            this.$nextTick(() => {
+              console.log(document.querySelector('h1').innerHTML)
+            })
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

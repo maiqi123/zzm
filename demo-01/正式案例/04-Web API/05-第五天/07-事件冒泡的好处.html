@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      height: 500px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+
+  <script>
+    // 事件委托: 
+    // var lis = document.querySelectorAll('li');
+    // for (var i = 0; i < lis.length; i++) {
+    //   lis[i].addEventListener('click', function() {
+    //     this.style.backgroundColor = 'red';
+    //   })
+    // }
+    var ul = document.querySelector('ul');
+    ul.addEventListener('click', function(e) {
+      console.log(this); 
+      console.log(e.target); 
+      if (e.target.tagName === 'LI') {
+        e.target.style.backgroundColor = 'red';
+      }
+    })
+
+
+    // ul.addEventListener('click', function(e) {
+    //   // e.target : e.target 点击谁，e.target就是谁
+    //   // console.log(this);
+    //   // console.log(e.target);
+    //   // this.style.backgroundColor = 'red';
+    //   console.dir(e.target);
+    //   if (e.target.tagName === 'LI') {
+    //     e.target.style.backgroundColor = 'red';
+    //   }
+    // });
+  </script>
+</body>
+</html>

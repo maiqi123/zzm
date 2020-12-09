@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字符类的元字符 []
+        //  表示一个字符, 可以在[]里面写可以出现的字符
+        //  [] 自带或者含义
+        //  可以在[]里面写 -   表示范围, 可以自定义, 但不能反过来写
+        //  可以在[] 里面写 ^   [^] 表示非
+
+        // /[abc]/ 匹配a或者b或者c
+        // /[^abc]/ 匹配非abc, 不能是abc其中任意一个
+        // /[a-z]/ 匹配a到z的任意一个字符
+        // /[A-Z]/ 匹配A到Z的任意一个字符
+        // /[0-9]/ 匹配0到9的任意一个字符
+        // /[a-zA-Z0-9]/      匹配a到z 或 A到Z 或 0到9的任意一个字符
+
+        // console.log( /[abc]/.test("1s2") ); // false
+        // console.log( /[abc]/.test("1c2") ); // true
+        // console.log( /[abc]/.test("123") ); // false
+        // console.log( /[a-z]/.test("h") ); // true
+        // console.log( /[a-z]/.test("5") ); // false
+        // console.log( /[a-h]/.test("y") ); // false
+        // console.log( /[h-c]/.test("y") ); // error
+        // console.log( /[a-zH-X3-6]/.test("A3") ); // true
+
+        // console.log( /[^0]/.test("0123") ); // true
+        // console.log( /[^0]/.test("0") ); // false
+        // console.log( /[^0]/.test("123") );// true
+    </script>
+</body>
+</html>

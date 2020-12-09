@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ msg }}</h1>
+      <button @click="fn">改值</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // vue中提供了 watch 侦听器的语法, 可以监视数据的变化
+      // el视图, data数据, methods方法, computed计算属性, watch侦听器
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          str: 'abc',
+          obj: {
+            name: '小花',
+            age: 18,
+            desc: '小花, 小花, 貌美如花'
+          }
+        },
+        methods: {
+          fn () {
+            // this.obj = {
+            //   name: '小丽',
+            //   age: 19,
+            //   desc: '小丽, 小丽, 非常美丽'
+            // }
+            this.obj.age = 18.5
+          }
+        },
+        watch: {
+          // 监视 obj.age 的变化
+          // 'obj.age' (newValue, oldValue) {
+          //   console.log('小花, 我一直看着你, 你变了, 你今年' + newValue + '岁')
+          // }
+
+          // 监视整个 obj 中所有属性的变化, 默认监视, 只是监视到了对象地址的变化
+          // obj (newValue, oldValue) {
+          //   console.log(newValue, oldValue)
+          // }
+
+          // 如果要监视整个对象中所有属性的变化, 要使用深度监视 deep
+          obj: {
+            // 立刻马上, 如果配置成true, 那么一进入页面, 就会立刻执行一次handler函数
+            immediate: true,
+            // 默认是false, 一旦配置了true, 表示对这个对象深度监视, 
+            // 只要obj的任何一个属性变化了, 都会触发handler  (根据需求用, 不要滥用)
+            deep: true,
+            // 处理函数, obj变化了, 就会执行handler处理函数
+            handler (newValue) {
+              console.log(111)
+              console.log(newValue)
+            }
+          }
+        }
+      })
+
+
+      // const obj = {
+      //   name: 'zs',
+      //   age: 18,
+      //   'de-sc': '不错'
+      // }
+      // console.log(obj)
+
+
+
+      /* 
+        watch小结:
+          watch: {
+            msg (newValue, oldValue) {
+              ...
+            },
+            'obj.age' (newValue, oldValue) {
+              ...
+            },
+            obj: {
+              immediate: true, // 了解即可, 是否一进入页面执行一次handler
+              deep: true,
+              handler (newValue, oldValue) {
+                ...
+              }
+            }
+          }
+      
+      
+      */
+    </script>
+  </body>
+</html>

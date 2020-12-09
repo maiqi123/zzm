@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table {
+      margin: 50px auto;
+    }
+    td {
+      padding: 15px;
+    }
+    div {
+      text-align: center;
+    }
+    button {
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button class="start">开始点名</button>
+    <button class="stop">结束点名</button>
+  </div>
+  <script>
+    var list = [
+      [    '@',  '@',     '@',     '@',      '@',   '讲 师',  '@',     '@',      '@',     '@'   ],
+      ['左 磊', '孟令正', '张盈圳',  '陈 胜',  '@',  '孙小峰', '尤美淇', '王文朝', '王 珊', '于 冲' ],
+      ['王冬雪', '王喆俊', '吴 健',  '刘志龙', '@',  '李英超', '何亚龙', '汪 毅',  '赵 勇', '徐 婷' ],
+      ['胡兵兵', '张小雨', '唐志辉', '邢方辉', '@',  '吕 鑫',  '王一贵', '李斌',   '郁星星', '张 健'],
+      ['马登科', '蒋 瑞',  '廖兴路', '宋丹丹', '@',  '朱丰兵',  '@',     '孙利飞', '魏周阳', '刘 俊'],
+      ['沈成成', '尹志云', '@',      '何卓楠', '@',  '郭 齐',  '@',     '王海斌', '陈维智', '邓 娟' ],
+      ['杨宗建', '汪志琴', '陈福辉', '伍兰兰',  '@', '王彬彬', '武锦涛', '吴汇浩', '陈伟杰',   '@'   ],
+      ['刘闪闪', '周玲玲', '张 鲍',  '沈敏杰',  '@', '柳 洁',  '陈 成',  '钟 毅',  '楚中庆', '黄梦辉'],
+      ['朱怡霖', '戴 程',  '@',      '王子健',  '@', '陈 鹏', '杨 雨',   '@',     '仝孟杰', '邓 玉' ],
+      ['@',      '王振磊', '苏 浩',  '金王龙',  '@',  '肖 晶', '窦金赟', '方 方', '刘 芳',   '张效博'],
+      ['管斌杰', '熊奥迪',  '张 鹏',  '冯文杰',  '@',  '韩 杰', '林文欣', '@',     '张建国',  '李 成']
+    ];
+
+    /* 
+      1. 动态创建table 添加到body
+      2. 遍历list数组，动态创建 tr, 添加到table
+      3. 遍历list[i]数组，动态创建td, 添加到tr中  给td设置内容，，如果是@，不用设置内容
+    */
+    var start = document.querySelector('.start');
+    var stop = document.querySelector('.stop');
+    var table = document.createElement('table');
+    var tds = [];
+    document.body.appendChild(table);
+    for(var i = 0; i < list.length; i++) {
+      // 创建tr
+      var tr = document.createElement('tr');
+      table.appendChild(tr);
+      // 创建td
+      for (var j = 0; j < list[i].length; j++) {
+        var td = document.createElement('td');
+        tr.appendChild(td);
+        // 给td设置内容
+        if (list[i][j] !== '@') {
+          td.innerText = list[i][j];
+          td.style.backgroundColor = 'yellowgreen';
+          if (list[i][j] === '讲师') {
+            continue;
+          }
+          tds.push(td);
+        }
+      }
+    }
+
+    /* 
+      随机点名思路：
+        1. 给按钮注册点击事件
+        2. 随机选中某一个td，把背景色改成 粉色，需要排他
+    */
+    // var tds = document.querySelectorAll('td');
+    start.addEventListener('click', function() {
+      for (var i = 0; i < tds.length; i++) {
+        tds[i].style.backgroundColor = 'yellowgreen';
+      }
+      var random = Math.random() * tds.length | 0;
+      tds[random].style.backgroundColor = 'hotpink';
+    });
+  </script>
+</body>
+</html>

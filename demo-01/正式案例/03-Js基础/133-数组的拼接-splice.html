@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // splice: 可以在数组的任意位置添加或者删除若干个元素。
+      var arr = ['a', 'b', 'c', 'd']
+
+      // 删除用法
+      // 参数1：开始的下标
+      // 参数2：删除的个数
+      // 后续所有的参数：都是新增的元素
+      // 返回值：是一个数组，这个数组会包含所有被删除的元素
+      // 数组.splice(start, deleteCount, 添加的元素1, 添加的元素2...)
+      // var newArr = arr.splice(1, 2);
+      // console.log(arr);
+      // console.log(newArr);
+
+      arr.splice(1, 1, 'e', 'f', 'g')
+      console.log(arr)
+      // arr.splice(1, 0, 'e');
+      // console.log(arr);
+    </script>
+  </body>
+</html>

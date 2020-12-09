@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      需要我们传入 一个数组：
+      [
+        { value: 1, label: '北京' },
+        { value: 2, label: '上海' },
+        { value: 3, label: '广州' },
+      ]
+      
+       */
+
+      var list = [
+        { id: 1, title: '北京' },
+        { id: 2, title: '上海' },
+        { id: 3, title: '广州' },
+      ]
+      list = list.map(function (item) {
+        return { value: item.id, label: item.title }
+      })
+
+      function city(arr) {
+        arr.forEach(function (item) {
+          console.log(item.value)
+          console.log(item.label)
+        })
+      }
+
+      city(list)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      table {
+        width: 400px;
+        text-align: center;
+        border: 3px solid #000;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 模板的范围是属于谁, 用的就是谁的变量 -->
+    <div id="app">
+      <h1>学生表格</h1>
+      <pp-table :list="students">
+        <template v-slot:default="obj">
+          <a @click="delList(obj.item.id)" href="#">删除{{ obj.item.id }}</a>
+        </template>
+      </pp-table>      
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 将来表格组件, 会用很多次, 封装成组件便于复用和维护
+      Vue.component('pp-table', {
+        template: `
+          <table>
+            <tr>
+              <th>序号</th>
+              <th>姓名</th>
+              <th>年纪</th>
+              <th>特长</th>
+              <th>操作</th>
+            </tr>
+            <tr v-for="item in list" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.age }}</td>
+              <td>{{ item.desc }}</td>
+              <td>
+                <!-- 给slot以 添加属性的方式, 传值 -->
+                <slot :item="item" desc="不错"></slot>
+              </td>
+            </tr>
+          </table>
+        `,
+        props: ['list']
+      })
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          students: [
+            { id: 1, name: '张三', age: 12, desc: '语文好' },
+            { id: 2, name: '李四', age: 20, desc: '英语好' },
+            { id: 3, name: '王五', age: 88, desc: '体育好' },
+            { id: 4, name: '赵六', age: 108, desc: '心态好' }
+          ]
+        },
+        methods: {
+          delList (id) {
+            // console.log('删除')
+            this.students = this.students.filter(item => item.id !== id)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

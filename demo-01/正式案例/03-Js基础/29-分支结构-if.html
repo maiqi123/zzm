@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 语法1： if(判断条件) { 语句1 }
+    // 如果条件为true, 语句1就会执行  如果条件为false, 语句1就不执行。
+
+    // 语法2： if (判断条件) { 语句1 } else { 语句2 }
+    // 如果条件为true，执行语句1  否则执行语句2
+
+    // 语法3： if (判断条件) {语句1} else if (条件2) {语句2} else {语句3}
+
+    // 如果年龄大于等于18， 打印：可以包宿
+    // var age = 26;
+    // if (age >= 18) {
+    //   console.log('小兄弟，来包宿吗');
+    // }
+
+    // 如果成年了 去网吧包宿 否则在家里打王者
+    // var age = 20;
+    // if (age >= 18) {
+    //   console.log('去网吧包宿');
+    // } else {
+    //   console.log('在家打王者');
+    // }
+
+    // 如果年龄大于等于18，去网吧包宿
+    // 如果年龄是12-18岁  在家打王者
+    // 如果年龄小于12，   在家看猫和老鼠
+    var age = 10;
+    if (age >= 18) {
+      console.log('去网吧包宿');
+    } else if (age >= 12) {
+      console.log('在家打王者');
+    } else {
+      console.log('看猫和老鼠');
+    }
+
+  </script>
+</body>
+</html>

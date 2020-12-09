@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    function f1() {
+        var name = "李四";
+
+        return function () {
+            console.log(name);
+        };
+    }
+    var fn = f1();
+    var name = "张三";
+    fn();
+    // 李四
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* width: 200px;
+            height: 200px; */
+            width: 4rem;
+            height: 4rem;
+            background-color: #f99;
+        }
+    </style>
+</head>
+<body>
+    
+    <div></div>
+
+    <script>
+        // REM 适配 相对单位 相对于html的fontSize大小  1rem ==> html的fontSize
+        // 750设计稿  基准值 50px     1rem ==> 50px;
+        //   div 200px * 200px ==> 4rem * 4rem
+
+        // rem适配原理: 在不同的屏幕尺寸下, 需要给html的fontSize设置上不同大小
+        // 媒体查询 ==> 麻烦
+
+        // js去动态给html的fontSize去设置大小
+        //  1. 获取到屏幕的可视区宽
+        //  2. 给html设置上fontSize大小
+
+        // resize 浏览器窗口大小发生改变触发
+        window.onresize = function () {
+            var w = window.innerWidth;
+            if (w <= 320) {
+                w = 320;
+            }
+            if(w >= 750){
+                w = 750;
+            }
+            // w / 15 ==> 为了得到基准值
+            document.documentElement.style.fontSize = w / 15 +"px";
+        }
+        window.onresize();
+    </script>
+</body>
+</html>

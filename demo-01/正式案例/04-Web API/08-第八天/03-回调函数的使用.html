@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 高阶函数
+    // 回调函数：把一个函数当成参数进行传递，这个当成参数的函数就叫回调函数
+
+    function fn (a) {
+      console.log(a);
+
+      setTimeout(function() {
+        a();
+      }, 1000)
+    }
+    fn(function(){
+      console.log('123');
+    });
+  </script>
+</body>
+</html>

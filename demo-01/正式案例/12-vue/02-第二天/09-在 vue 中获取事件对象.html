@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <a @click="fn" href="http://www.baidu.com">去百度</a>
+      <a @click="fn2($event, 100)" href="http://www.baidu.com">去百度2</a>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 阻止冒泡 e.stopProgation()
+      // 阻止默认行为 e.preventDefault()
+      // 要阻止冒泡, 要阻止默认行为, 都需要拿到事件对象
+
+      // 在vue中如何获取事件对象:
+      // 1. 对于没有传参的情况 @click="fn", 直接通过形参, 就可以拿到事件对象
+      // 2. 对于有传参的情况 @click="fn(参数1, $event)" 需要在模板中, 通过$event, 拿到事件对象
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        methods: {
+          fn (e) {
+            e.preventDefault()
+            console.log(e)
+            console.log('你好')
+          },
+          fn2 (e, num) {
+            e.preventDefault()
+            console.log(e)
+          }
+        }
+      })
+
+
+      // box.addEventListener('click', function(e) {
+
+      // })
+
+    </script>
+  </body>
+</html>

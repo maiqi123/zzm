@@ -1,0 +1,36 @@
+<!--  条件渲染 wx:if='' -->
+<!-- 1. 基本使用 -->
+<!-- <view wx:if='{{ false }}'>嘻嘻</view> -->
+
+<!-- 2. 条件渲染  wx:if wx:elif  wx:else -->
+<!-- <view wx:if='{{ age >= 18 }}'>成年人</view>
+<view wx:elif='{{ age >= 8 }}'>少年</view>
+<view wx:else>熊孩子</view> -->
+
+<!-- 3. block  不参与渲染, 只负责保证代码的完整性  类似 vue 里面的 template  -->
+<!-- <block wx:if='{{ isShow }}'>
+  <view>马哥</view>
+  <view>18</view>
+  <view>180</view>
+</block>
+
+<block wx:else>
+  <view>张毅</view>
+  <view>10</view>
+  <view>100</view>
+</block> -->
+
+<!-- 4. wx:if   hidden -->
+<!-- 
+  wx:if  : `判断是否显示`  true-显示 false-隐藏
+  hidden : `判断是否隐藏` true-隐藏 false-显示
+
+
+  wx:if 是通过不断的创建节点和删除节点来实现 显示和隐藏的 , 性能确实不好 
+
+  hidden : 通过 css样式 display:none 和block 来切换显示和隐藏的
+ -->
+
+<!-- <view wx:if='{{ isShow }}'>嘻嘻</view> -->
+
+<view hidden="{{ isShow }}">哈哈</view>

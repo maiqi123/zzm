@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">切换</button>
+  <img src="1.jpg" id="img" alt="">
+  <script>
+    // 1. 找对象
+    // 2. 给button注册点击事件 
+    // 3. 修改img的src属性
+    var btn = document.getElementById('btn');
+    var img = document.getElementById('img');
+    // console.log(btn, img);
+    btn.onclick = function() {
+      img.src = '2.jpg';
+    }
+  </script>
+</body>
+</html>

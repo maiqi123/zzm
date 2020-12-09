@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        /* rgb三原色 取值范围是 0 - 255 之间 */
+        background-color: rgb(10, 200, 50);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="box"></div> -->
+    <script>
+      setInterval(function () {
+        var r = parseInt(Math.random() * 256);
+        var g = parseInt(Math.random() * 256);
+        var b = parseInt(Math.random() * 256);
+
+        // console.log(r, g, b);
+        // WEBAPI => JS操作标签和样式
+
+        document.body.style.backgroundColor =
+          'rgb(' + r + ',' + g + ',' + b + ')';
+      }, 50);
+    </script>
+  </body>
+</html>

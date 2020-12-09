@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button>点击, 发送ajax请求</button>
+
+    <script>
+        // get post请求
+
+        // 使用ajax来发送get请求
+
+        document.querySelector("button").onclick = function () {
+            // 使用ajax来发送请求的话, 第一件事情: 去创建一个ajax对象
+
+            // 内置的构造函数 XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // ajax发送的请求, 需要http协议(请求 + 响应)
+            //  请求报文: 请求行 头 体
+
+            // 设置请求行
+            //  xhr.open(type, url);
+            //  参数:
+            //   type: 请求方式 GET POST
+            //   url: 请求的地址
+            xhr.open("GET", "02.php?username=lw&age=19");
+            
+            // 设置请求头
+            //  不用管, 浏览器会自动添加
+
+            // 设置请求体(放的是发送的数据)
+            // xhr.send(数据)
+            xhr.send(null); // 注意点: get请求方式, 请求体是空的, 数据已经放到了url的后面, 但是send方法一定要调用, 只有这样, ajax请求才会发送出去.
+        }
+    </script>
+</body>
+</html>

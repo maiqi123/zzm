@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 4000px;
+    }
+    h1 {
+      text-align: center;
+      display: none;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>我是一个头部</h1>
+
+  <script>
+    // 1. 给window注册滚动事件
+    // 2. 获取到页面的滚动距离  window.pageYOffset  scrollY
+    var h1 = document.querySelector('h1');
+    window.addEventListener('scroll', function() {
+      var y = window.scrollY;
+      console.log(y);
+      if (y >= 500) {
+        h1.style.display = 'block';
+      } else {
+        h1.style.display = 'none';
+      }
+    })
+  </script>
+</body>
+</html>

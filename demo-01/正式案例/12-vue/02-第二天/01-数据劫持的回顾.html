@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  // 数据
+  const data = {
+    name: 'zs',
+    age: 18,
+    desc: '不错'
+  }
+
+  // 需求: 对 data 的 age 属性, 进行劫持
+  // es5 语法 => Object.defineProperty
+  let temp = data.age
+  Object.defineProperty(data, 'age', {
+    get () {
+      return temp
+    },
+    set (value) {
+      temp = value
+    }
+  })
+
+  console.log(data.age)
+  data.age = 30
+  console.log(data.age)
+
+
+
+</script>
+  
+</body>
+</html>

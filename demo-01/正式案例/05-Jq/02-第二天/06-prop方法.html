@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="checkbox" checked="checked">
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // prop方法操作属性: checked selected disabled
+            //  prop方法和attr方法使用一样.
+
+            // 需求: 点击input, 获取到他的选中状态(获取checked的属性值)
+
+            $("input").click(function() {
+                console.log($(this).attr("checked")); // error
+                console.log($(this).prop("checked"));
+            });
+        })
+    </script>
+</body>
+</html>

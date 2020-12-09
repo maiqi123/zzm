@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 需求: 统计fn函数调用的次数
+
+        // count是个全局变量, 是可以在任何位置使用的, 可以随意修改的.
+        // 这样会导致使用count变量来统计结果, 这个结果是不正确.
+        
+        // 使用闭包来保护count数据的安全.
+        /*var count = 0; // 统计
+        function fn(){
+            count++;
+            console.log("fn执行了" + count + " 次");
+        }
+        fn();*/
+
+        // 使用闭包来解决
+        function outer(){
+            // 闭包保护了count数据, 使其不被随意的修改掉
+            // count 局部变量
+            var count = 0; // 统计
+
+            function fn(){
+                count++;
+                console.log("fn执行了" + count + " 次");
+            }
+
+            return fn;
+        }
+        
+        var res = outer();
+        console.log(res); // fn函数
+        res();
+    </script>
+</body>
+</html>

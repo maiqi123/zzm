@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 视图 -->
+    <input type="text" />
+    <p></p>
+
+    <script>
+      /*
+        双向数据绑定:
+          1. 视图变, 数据跟着变
+          2. 数据变, 视图跟着变
+      */
+
+      // 数据
+      const data = {
+        msg: '你好, vue',
+      }
+      // 进行一个基本初始化过程, 将数据赋值渲染到视图中
+      const input = document.querySelector('input')
+      const p = document.querySelector('p')
+      input.value = data.msg
+      p.innerHTML = data.msg
+
+      // 1. 视图变, 数据跟着变
+      // 监听输入框的修改的事件, 输入框改了, 将修改后的值, 更新到 data.msg 中去
+      // input事件, html5中新增的, 直接用于监听输入框的输入的
+      input.addEventListener('input', function () {
+        // console.log('用户在输入')
+        data.msg = input.value
+      })
+      // 2. 数据变, 视图跟着变
+      // data.msg = '123' 说明, 当修改了数据的时候, 我们需要知道的, 需要进而更新视图
+      // 问题: 数据修改了, 我们希望能知道.
+      // 方案: 数据劫持, es5语法 Object.defineProperty, 作用: 可以劫持修饰对象的某个属性
+      // 将来这个属性的获取 或者 设置, 都会被劫持到, 可以做对应的事情
+      let temp = data.msg
+
+      Object.defineProperty(data, 'msg', {
+        get() {
+          return temp
+        },
+        set(value) {
+          // 数据修改了, 视图要更新
+          temp = value
+          // 更新视图
+          input.value = temp
+          p.innerHTML = temp
+        },
+      })
+
+      console.log(data.msg)
+      data.msg = 'zs'
+      console.log(data.msg)
+
+      // 1. 复习 es5/es6 数组方法, map reverse find findIndex some every forEach filter
+      // 2. 巩固箭头函数, 解构赋值
+      // ...
+    </script>
+  </body>
+</html>

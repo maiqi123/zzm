@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #f99;
+        }
+    </style>
+</head>
+<body>
+    
+    <div></div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script src="jquery.color.js"></script>
+    <script>
+        $(function () {
+            // jQuery 插件: 也是个js文件, 在jq基础上, 新增拓展了功能
+            // jQ插件需要配合jQ一起使用. 在引用的时候, 先引用jQ 在引用jQ插件.
+
+            // jQ插件： jQuery.color.js 插件 实现让animate做颜色型动画
+
+            $("div").click(function() {
+                // animate方法不支持颜色型动画, 支持数字型动画.
+                $("div").animate({
+                    width: 500,
+                    backgroundColor: "rgb(255,192,203)"
+                }, 1000)
+            });
+        })
+    </script>
+</body>
+</html>

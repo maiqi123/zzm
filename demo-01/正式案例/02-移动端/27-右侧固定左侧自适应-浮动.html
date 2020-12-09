@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      height: 600px;
+      border: 3px solid #000;
+    }
+
+    /* 左侧自适应 */
+    .left {
+      /* width: ????; */
+      height: 310px;
+      background-color: blue;
+
+      /* 触发bfc */
+      overflow: hidden;
+    }
+
+
+    /* 右侧固定 */
+    .right {
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
+      /* 右浮动 */
+      float: right;
+    }
+
+    /* 
+      右侧固定左侧自适应-浮动
+        1、左侧不设置宽度默认自适应——》触发bfc
+        2、右侧宽度写死——》右浮动
+
+        注意点：在html结构中需要先写right再写left
+     */
+
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="right"></div>
+    <div class="left"></div>
+  </div>
+</body>
+</html>

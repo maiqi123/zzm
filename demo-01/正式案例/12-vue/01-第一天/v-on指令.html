@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="fn">修改数值</button>
+      <button @click="fn">修改数值</button>
+      <h2>{{msg}}</h2>
+      <input type="text" value="呵呵呵呵" />
+    </div>
+  </body>
+  <script src="./vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '哈哈哈哈',
+      },
+      methods: {
+        fn() {
+          //   console.log('我要修改数值')
+          this.msg = '嘻嘻嘻嘻'
+        },
+      },
+    })
+  </script>
+</html>

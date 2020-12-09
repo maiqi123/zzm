@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 上下文调用模式 又称为 方法借用(调)模式
+
+        var cc = {
+            car: "加长版林肯",
+            money: 1000000000000000000,
+            liaomei: function () {
+                console.log("hello, 小妹啊, 哥有" + this.car + ", 哥带你回家啊, 嘿嘿嘿!!!");
+            }
+        }
+        cc.liaomei();
+
+        var dfg = {
+            car: "摩拜单车"
+        }
+        // dfg.liaomei(); // error
+
+        // 需求: dfg找cc借用liaomei技能(方法)
+
+        cc.liaomei.call(dfg);
+        cc.liaomei.apply(dfg);
+        //  理解成call的第一个参数去借用了liaomei方法.
+        //  上面代码起到的效果类似于, 可以去理解
+         // dfg.liaomei();
+
+        //  1. cc.liaomei方法被call给调用了
+        //  2. liaomei方法内的this指向call的第一个参数dfg
+
+        // console.log(dfg); // 注意: 上面call方法借用了liaomei, 但dfg对象里面是没有liaomei方法的.
+    </script>
+</body>
+</html>

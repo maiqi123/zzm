@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      /* 过渡 */
+      transition: 1s;
+    }
+
+    body:hover div {
+      /* 
+      2d转换-平移
+      属性名：转换：transform
+      属性值：translate
+        取值：
+          1、translateX(移动的距离)：沿着x轴方向（水平方向）平移对应的位置
+          2、translateY(移动的距离)：沿着y轴方向（垂直方向）平移对应的位置
+          3、translate(x,y)
+
+        注意点：
+          1、translate中取值可以是数字+px，也可以是百分比（相对于自己的宽高）
+          2、translate在移动之后是不会影响到其他盒子的布局
+       */
+      /* transform: translateX(800px); */
+      /* transform: translateY(800px); */
+      /* transform: translate(800px,800px); */
+      transform: translateY(100%);
+    }
+
+  </style>
+</head>
+<body>
+  <div></div>
+  <h1>我是一个h1标签</h1>
+</body>
+</html>

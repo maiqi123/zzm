@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>飞飞翻牌子</button>
+  <select>
+    <option>西施</option>
+    <option>如花</option>
+    <option>赵军</option>
+    <option>小路</option>
+    <option>于欢</option>
+  </select>
+  <script>
+    // 1. 给button注册点击事件
+    // 2. 随机让某一个option选中 selected改成true
+    var ff = document.querySelector('button');
+    var options = document.querySelectorAll('option');
+
+    ff.onclick = function () {
+      console.log('123');
+      var random = parseInt(Math.random() * options.length);
+      console.log(random);
+      options[random].selected = true;
+    }
+  </script>
+</body>
+</html>

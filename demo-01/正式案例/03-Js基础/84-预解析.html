@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 预 解析：
+    // 浏览器执行js代码，分为两个阶段：
+    // 预解析阶段 + 代码执行
+    // 1. 把所有的变量的声明提前，，，，不会提升赋值, 如果遇到了同名的变量，会忽略
+    // 2. 把所有的函数的声明提前，，，，不会提升函数的调用，如果遇到了同名的函数，会覆盖。
+    // 3. 如果函数名和变量名同名， 以函数为主
+
+    // console.log(num);
+    // var num = 11;
+    
+    // fn();
+
+    // function fn() {
+    //   console.log('哈哈');
+    // }
+    
+    // console.log(a);
+
+    // var a;
+    // function a() {
+    //   console.log('哈哈');
+    // }
+    // var a
+
+    // var a = 11;
+    // var a = 11;
+
+    // console.log(fn);
+
+    // function fn() {
+    //   console.log('哈哈')
+    // }
+
+    // function fn() {
+    //   console.log('呵呵');
+    // }
+
+
+    console.log(a);
+    var a;
+    function a() {
+      console.log('1');
+    }
+    function a() {
+      console.log('2')
+    }
+
+  </script>
+</body>
+</html>

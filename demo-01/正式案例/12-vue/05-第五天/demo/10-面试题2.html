@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      嘎嘎 3 2 1 4
+       // 宏任务1: 主线程的代码
+       console.log('嘎嘎')
+
+       setTimeout(() => {
+         console.log(4)
+       }, 0)
+
+       new Promise((resolve, reject) => {
+         resolve(1) // 将外部的promise对象, 从pending改成了fulfilled成功, 记录值 1
+
+         new Promise((resolve, reject) => {
+           resolve(2) // 将内部的promise对象, 从pending改成fulfilled成功, 记录值 2
+         }).then(data => {
+           // 等待执行的微任务 1
+           console.log(data)
+         })
+
+       }).then(data => {
+         // 等待执行的微任务 2
+         console.log(data)
+       })
+
+       console.log(3)
+
+       // 宏任务1: 主线程的代码
+       // 3
+       // 执行满足条件的微任务
+       // 2
+       // 1
+
+       // 下一个宏任务
+       // 4
+    </script>
+  </body>
+</html>

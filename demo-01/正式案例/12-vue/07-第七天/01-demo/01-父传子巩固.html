@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #app {
+        width: 400px;
+        height: 400px;
+        background-color: pink;
+      }
+      .son {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 
+      :msg="str"  v-bind:msg 会动态解析str变量的
+      msg="str"
+
+     -->
+
+    <div id="app">
+      <h3>这是父组件</h3>
+      <son :msg="str"></son>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 父传子:
+      // 1. 给子组件以添加属性的方式, 传值
+      // 2. 在子组件内, 通过 props 接收传值
+      Vue.component('son', {
+        template: `
+          <div class="son">我是son组件 - {{ msg }}</div>
+        `,
+        props: ['msg']
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          str: 'hello pengpeng'
+        }
+      })
+    </script>
+  </body>
+</html>

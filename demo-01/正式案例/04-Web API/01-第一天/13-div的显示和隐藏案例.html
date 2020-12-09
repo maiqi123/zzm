@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="show">显示</button>
+  <button id="hide">隐藏</button>
+  <button id="toggle">切换</button>
+  <div id="div"></div>
+  <script>
+    // 1. 找对象
+    // 2. 给隐藏按钮注册点击事件
+    // 3. 给div添加hide类
+    var show = document.getElementById('show');
+    var hide = document.getElementById('hide');
+    var div = document.getElementById('div');
+    var toggle = document.getElementById('toggle');
+
+    hide.onclick = function () {
+      div.className = 'hide';
+    }
+
+    show.onclick = function() {
+      div.className = '';
+    }
+
+    toggle.onclick = function () {
+      // if (div.className === 'hide') {
+      //   div.className = '';
+      // } else {
+      //   div.className = 'hide';
+      // }
+      div.className = div.className === 'hide' ? '' : 'hide';
+    }
+  </script>
+</body>
+</html>

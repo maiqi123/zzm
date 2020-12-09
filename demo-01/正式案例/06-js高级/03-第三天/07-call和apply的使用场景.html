@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // animate.css     https://www.dowebok.com/98.html
+
+        // call和apply的使用场景
+        // 1. 如果参数比较少的话, 使用call更方便
+        // 2. 如果参数已经在数组或伪数组中, 使用apply更合适
+
+        // 需求: 求数组的最大值(一行代码实现)
+        var arr = [6, 4, 99, 88, 73, 26, 68, 77, 82, 38];
+
+        // Math.max() 求最大值
+        // console.log( Math.max( 99, 88, 73, 26, 68, 77 ) ); // ok
+        // console.log( Math.max( arr ) ); // error
+
+        // 思路: 让数组来借用Math的max方法来求出数组里面的最大值
+        // var res = Math.max.apply(arr, arr);
+
+        // call方法可以实现功能, 但是没有apply合适.
+        var res = Math.max.call(arr, 6, 4, 99, 88, 73, 26, 680, 77, 82, 38);
+        // 相当于:
+        //  arr.max(6, 4, 99, 88, 73, 26, 68, 77, 82, 38);
+        console.log(res);
+    </script>
+</body>
+</html>

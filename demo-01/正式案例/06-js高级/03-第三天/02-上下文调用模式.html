@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 上下文调用模式 ==> 修改this指向
+        //  学习call  apply  bind三个方法
+        //  以上三个方法是在Function的prototype原型对象上
+        //  是个函数就可以使用call  apply  bind三个方法
+
+        // call 方法
+        // 1. 可以用来调用函数, ()
+
+        function fn(){
+            console.log(1);
+            console.log(this);
+        }
+        // fn();
+        // 第一个参数不写， 或者是null undefined的话， 函数内的this指向widnow、
+        // fn.call(undefined); // fn 函数被call方法调用了
+
+        
+        // 2. call调用的时候, 可以传参
+        //  第一个参数可以用来修改函数内的this指向.
+
+        /*function fn2(){
+            console.log(this);
+        }
+        fn2();
+        fn2.call( {} );*/
+
+        // 3. call的参数是若干个, 除了第一个参数外的其他所有参数,都是用来给函数 传递实参的.
+
+        /*function fn3(n1, n2){
+            console.log(this);
+            console.log(arguments);
+            console.log(n1 + n2);
+        }
+        // fn3(10, 20);
+        fn3.call( [10], 100, 200, 300, 400, 600, 80 );*/
+
+
+        // 上下文调用模式 call
+        //  作用:
+        //   1. 能调用函数
+        //   2. 第一个参数用来修改this指向
+        //   3. 除了第一个参数外的其他所有参数, 都是用来给函数传递实参的.
+    </script>
+</body>
+</html>

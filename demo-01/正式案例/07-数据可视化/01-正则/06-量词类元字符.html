@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 量词类元字符
+        // *   次数大于等于0次  >=0         {0,}
+        // +   次数大于等于1次  >=1         {1,}
+        // ?   次数是0或1次    0 | 1        {0,1}
+        // {m}      次数为m次
+        // {m,}     次数为>=m次
+        // {m,n}    次数为m到n次(包含m和n)
+
+        // * >=0 
+        //  a有0次的情况 "" 符合 a为0次的情况
+        //  ^ $ 从头到尾匹配上
+        /*console.log( /^a*$/.test("") ); // true
+        console.log( /^a*$/.test("a") ); // true 
+        console.log( /^a*$/.test("aa") ); // true
+        console.log( /^a*$/.test("aab") ); // false*/
+
+
+        // +  >=1 
+        /*console.log( /^a+$/.test("") ); // false
+        console.log( /^a+$/.test("a") ); // true 
+        console.log( /^a+$/.test("aa") ); // true
+        console.log( /^a+$/.test("aab") ); // false*/
+        
+        // ? 0 | 1
+        // console.log( /^a?$/.test("") ); // true
+        // console.log( /^a?$/.test("a") ); // true 
+        // console.log( /^a?$/.test("aa") ); // false
+        // console.log( /^a?$/.test("aab") ); // false
+
+        // {}  
+        // 量词就近修饰
+        console.log( /chuan{2}/.test("chuanchuan") ); // false
+        console.log( /chuan{2}/.test("chuann") ); // true
+        console.log( /(chuan){2}/.test("chuanchuan") ); // true
+    </script>
+</body>
+</html>

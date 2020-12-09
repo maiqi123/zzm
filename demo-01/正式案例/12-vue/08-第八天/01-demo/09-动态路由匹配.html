@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-link to="/product/1">商品1</router-link>
+      <router-link to="/product/2">商品2</router-link>
+      <router-link to="/product/3">商品3</router-link>
+      <router-link to="/product/4">商品4</router-link>
+
+      <router-view></router-view>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <script>
+      // 渲染商品1
+      // 渲染商品2
+      // 渲染商品3
+      // 渲染商品4
+      // ...
+      // 渲染商品10000
+      // 多个商品只需要准备一个组件即可, 根据不同的id, 就可以渲染不同的效果
+      // 场景: 希望多个场景能够匹配到一个路由上, 进行组件的渲染, 比如不同的商品id, 希望用同一个组件渲染
+
+      const Product = {
+        template: `
+          <div>我是商品组件</div>
+        `
+      }
+
+      // path: '/product/:id'  => 动态路由匹配, 可以匹配 /product/1 /product/2 ... /product/10000
+
+      const router = new VueRouter({
+        routes: [
+          { path: '/product/:id', component: Product }
+        ]
+      })
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        router
+      })
+    </script>
+  </body>
+</html>

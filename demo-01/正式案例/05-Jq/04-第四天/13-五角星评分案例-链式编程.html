@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>五角星评分案例</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .comment {
+      font-size: 40px;
+      color: #ff16cf;
+    }
+
+    .comment li {
+      float: left;
+    }
+
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="comment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+  </ul>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      var $lis = $(".comment li");
+
+      var wjx_k = "☆";
+      var wjx_s = "★";
+
+      $lis.on("mouseenter", function () {
+        // $(this).text(wjx_s); // 当前的变实心
+        // $(this).prevAll().text(wjx_s);  // 前面所有变实心
+        // $(this).nextAll().text(wjx_k);  // 后面所有变空心
+
+        // 链式
+        // $(this).text(wjx_s).prevAll().text(wjx_s).prevObject.nextAll().text(wjx_k);
+        $(this).text(wjx_s).prevAll().text(wjx_s).end().nextAll().text(wjx_k);
+
+        // prevObject 属性  找到上一次返回的jQ对象
+        // end() 方法 就是封装prevObject属性
+
+        // console.log($(this).text(wjx_s)); // $(this)
+        // console.log($(this).text(wjx_s).prevAll().text(wjx_s)); // $(this).prevAll()
+        // console.log( $(this).text(wjx_s).prevAll().text(wjx_s).prevObject ); // $(this)
+
+
+      })
+
+      // 移出
+      $(".comment").on("mouseleave", function () {
+        $lis.text(wjx_k); // 所有的li变空
+
+        // 在做件事情: 找到我之前点击的那个li ==> 有active类名
+        $(".comment li.active").text(wjx_s).prevAll().text(wjx_s);
+      })
+
+      // 鼠标点击li
+      $lis.on("click", function () {
+        // 需要确保类名只能在当前点击的元素上, 其他兄弟没有该类名
+        $(this).addClass("active").siblings().removeClass("active");
+      })
+    });
+  </script>
+</body>
+
+</html>

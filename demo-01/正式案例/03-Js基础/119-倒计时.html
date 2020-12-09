@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 倒计时
+      // 1. 获取当下时间和未来时间 将这两个时间做差得到时间差
+      // 2. 在将时间差(毫秒数)转换成易于阅读的时分秒
+
+      // 获取当下时间
+      var now = new Date();
+      // 获取未来时间 => 传递一个对应的字符串进去即可
+      var future = new Date('2020-07-19 12:00:00');
+
+      // 获取时间差 得到秒数
+      var dTime = parseInt((future - now) / 1000);
+      console.log(dTime);
+
+      // 将秒数转换成时分秒
+
+      // 时
+      var h = parseInt(dTime / 3600);
+      // console.log(h);
+      // 分
+      var m = parseInt((dTime % 3600) / 60);
+      console.log(m);
+      // 秒
+      var s = dTime % 60;
+      console.log(s);
+
+      var str =
+        '到2020-07-19 12:00:00的时间还剩下:' + h + '小时' + m + '分' + s + '秒';
+      console.log(str);
+
+      // 小结一下
+      // 1. 先获取两个时间: 一个是当下时间 一个是未来时间
+      // 2. 将这两个时间相减得到对应的 时间差
+      // 3. 将这个时间转换成秒数, 在将这个秒数转换成 时  分 秒
+
+      // 公式
+      // var h = dTime / 3600
+      // var m = dTime % 3600 / 60
+      // var s = dTime % 60
+    </script>
+  </body>
+</html>

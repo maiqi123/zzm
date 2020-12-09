@@ -1,0 +1,36 @@
+<!-- 轮播图 -->
+<!-- 
+  indicator-dots : 是否显示指定点
+  autoplay : 自动播放
+  interval : 间隔时间
+  duration  : 动画时间
+  circular: 是否采用衔接滑动(无限滚动)    注意1 
+
+  注意2 :  设置样式 swiper 和 image 
+
+  swiper : 轮播图组件
+  swiper-item : 轮播图元素
+ -->
+ <view>
+<swiper 
+indicator-dots="{{ true }}"
+autoplay="{{ true }}" 
+interval="{{ 3000 }}" 
+circular="{{ true }}"
+duration="{{ 1000 }}">
+        
+          <swiper-item>
+            <image src="https://gw.alicdn.com/imgextra/i4/23/O1CN01bnIeIJ1C2Zk9SBt18_!!23-0-lubanu.jpg"></image>
+          </swiper-item>
+          <swiper-item>
+            <image src="https://aecpm.alicdn.com/simba/img/TB15tIjGVXXXXcoapXXSutbFXXX.jpg"></image>
+          </swiper-item>
+          <swiper-item>
+            <image src="https://gw.alicdn.com/imgextra/i2/4/O1CN01Gg29gG1BtsDaaei0M_!!4-0-lubanu.jpg"></image>
+          </swiper-item>
+        </swiper>
+ </view>
+
+        
+ <!-- 返回  -->
+ <navigator open-type="navigateBack">返回</navigator>

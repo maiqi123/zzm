@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      /* 2、使用动画：animation也是一个复合属性 */
+      /* animation: dong 1s; */
+
+      /* 
+        animation属性的相关介绍：
+
+        1、动画的名字：animation-name
+       */
+      /* animation-name: dong; */
+
+      /* 
+        2、动画的持续时间：animation-duration
+       */
+      /* animation-duration: 1s; */
+
+      /* 
+        3、动画的速度变化效果：animation-timing-function
+          取值：
+            1、ease：（默认值）先慢——》再快——》再慢
+            2、linear：匀速
+            3、steps（步数）：分步进行，分段进行
+       */
+      /* animation-timing-function: linear; */
+
+      /* 
+        4、动画的延时：animation-delay
+       */
+      /* animation-delay: 1s; */
+
+      /* 
+        5、动画的执行次数：animation-iteration-count
+          取值：
+            1、次数
+            2、infinite：无限次
+       */
+      /* animation-iteration-count: infinite; */
+
+      /* 
+        6、动画的执行方向：animation-direction
+          取值：
+            1、normal：正常（from——》to）
+            2、reverse：反转（to——》from）
+            3、alternate：交替执行（from——》to——》from——》to——》from...）
+       */
+      /* animation-direction: alternate; */
+
+      /* 
+        7、动画的结束状态：animation-fill-mode
+          取值：
+            1、backwards：（默认值）结束的时候回到开始状态
+            2、forwards：结束的时候不用回到开始状态
+       */
+      /* animation-fill-mode: forwards; */
+
+
+
+      /* animation-name: dong;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-delay: 2s;
+
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+      animation-play-state: paused; */
+
+
+      /* 
+        一般开发中用连写：
+          属性名：animation
+          属性值：单个取值的合写，取值之间以空格隔开
+
+        注意点：
+          1、省略问题：动画名 + 动画的持续时间 不要省略
+
+          2、顺序问题：第一个出现的时间表示：动画的持续时间：animation-duration
+                      如果还有第二个时间表示：动画的延时：animation-delay
+
+       */
+      animation: dong 1s linear infinite;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    div:hover {
+      /* 
+        8、动画的执行状态：animation-play-state
+          一般会结合hover状态使用
+          取值：
+            1、running：（默认值）执行
+            2、paused：暂停
+       */
+      /* animation-play-state: paused; */
+    }
+
+    /* 1、定义动画 */
+    @keyframes dong {
+      from {
+        width: 200px;
+      }
+      to {  
+        width: 800px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

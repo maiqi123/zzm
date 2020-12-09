@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var obj = {
+    //   name: 'zs',
+    //   age: 18
+    // };
+    // // 以后使用点语法还是[]语法
+    // // 如果明确的知道要访问对象的哪个属性。推荐使用点语法。 obj.name  obj['name']
+    // // 我们需要访问的对象的属性名存在于一个变量中  obj[变量]
+    // var key = 'name';
+    // console.log(obj.key);   // undefined
+    // console.log(obj['key']);// undefined
+    // console.log(obj[key]);  // zs
+
+    // key = 'age';
+    // console.log(obj.key); // undefined
+    // console.log(obj['key']);// undefined
+    // console.log(obj[key]);// 18
+
+    // 能够获取到对象对应的值
+    function fn(key) {
+      var obj = {
+        name: 'zs',
+        age: 18,
+        gender: '男'
+      }
+      console.log(obj[key]);
+    }
+
+    fn('name'); // zs
+    fn('age'); // 18
+    fn('gender'); // '男'
+
+
+  </script>
+</body>
+</html>

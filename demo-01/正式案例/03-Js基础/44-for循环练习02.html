@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1 计算1-100之间不能被7整除的数的和
+    //1 计算100-1之间不能被7整除的数的和  // 4315
+    var sum = 0;
+    for(var i = 100; i >= 1; i--) {
+      if (i % 7 !== 0) {
+        sum += i;
+      }
+    }
+    console.log(sum);
+
+    //2 计算300-200之间能被4整除的和
+    var sum = 0;
+    for (var i = 300; i >= 200; i--) {
+      if (i % 4 == 0) {
+        sum += i;
+      }
+    }
+    console.log(sum);
+
+  </script>
+</body>
+</html>

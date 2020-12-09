@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      perspective: 1000px;
+    }
+
+    img {
+      margin: 200px auto;
+      display: block;
+      /* 过渡 */
+      transition: 1s;
+    }
+
+    img:hover {
+     /* 
+      3d转换-旋转
+      属性名：transform
+      属性值：rotateX()  rotateY()  当元素沿着x轴或者y轴进行旋转时，此时就3d旋转
+      */
+    /* transform: rotateX(-45deg); */
+    /* transform: rotateY(45deg); */
+
+    /* 如果是沿着z轴方向旋转，其实还是在一个平面内 */
+    /* transform: rotateZ(45deg); */
+    transform: rotate(45deg);
+    }
+
+  </style>
+</head>
+<body>
+  <img src="./images/face.jpg" alt="">
+</body>
+</html>

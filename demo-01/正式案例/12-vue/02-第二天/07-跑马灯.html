@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ msg }}</h1>
+      <button @click="start">跑</button>
+      <button @click="stop">停</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: '传智黑马69期, 就业薪资十万万~传智黑马69期, 就业薪资十万万~',
+          timeId: ''
+        },
+        methods: {
+          start () {
+            // 如果当前已经在跑了, 就不用在开定时器了
+            if (this.timeId) return
+            this.timeId = setInterval(() => {
+              // str.slice(start, end) 包含start, 不包含end
+              // 把字符的第一个字, 截取到最后去
+              this.msg = this.msg.slice(1) + this.msg.slice(0, 1)
+            }, 500)
+          },
+          stop () {
+            clearInterval(this.timeId)
+            this.timeId = ''
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

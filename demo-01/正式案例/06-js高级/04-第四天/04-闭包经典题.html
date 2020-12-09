@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+
+    <script>
+        // 点击按钮, 打印当前按钮的下标 ==> 闭包实现
+
+        /*var btns = document.querySelectorAll("button");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                console.log(i); // i的值是btns.length
+            }
+        }*/
+        
+        var btns = document.querySelectorAll("button");
+        // 代码朝着闭包的形成条件去写
+
+        // 推导过程:
+
+        // 1.
+        /*for (var i = 0; i < btns.length; i++) {
+            console.log(i); // 0 - 9
+        }*/
+
+        /*// 2. 函数
+        for (var i = 0; i < btns.length; i++) {
+            function fn() {
+                // 循环一次执行一次i的值
+                console.log(i); // 0-9
+            }
+            fn();
+        }*/
+
+        // 3. 外部函数的局部变量
+        /*for (var i = 0; i < btns.length; i++) {
+            function fn(j) {
+                // 函数的形参: var j = 实参 i;
+                console.log(j); // 0-9
+            }
+            fn(i);
+        }*/
+
+
+        // 4. 内部函数 ==> 注册上click
+        for (var i = 0; i < btns.length; i++) {
+            function fn(j) {
+                // 函数的形参: var j = 实参 i;
+                // console.log(j); // 0-9
+                // console.log( btns[j] ); // 每一个按钮
+
+                btns[j].onclick = function () {
+                    console.log(j);
+                }
+            }
+            fn(i);
+        }
+
+        // i = 0; 第一次循环
+        // i = 1; 第二次循环
+
+
+        // 最终优化
+        for (var i = 0; i < btns.length; i++) {
+            /*function fn(j) {
+                btns[j].onclick = function () {
+                    console.log(j);
+                }
+            }
+            fn(i);*/
+
+            // 使用自调用函数
+            (function (j) {
+                btns[j].onclick = function () {
+                    console.log(j);
+                }
+            })(i)
+        }
+
+    </script>
+</body>
+</html>

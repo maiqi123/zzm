@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+            // 代码的执行顺序, 是否深刻理解
+            // 2 3 6  p2  p1  1  4  5
+
+            // 宏任务1: 主线程代码
+            // 2 3 6
+
+            // 执行掉满足条件的微任务
+            // 微任务1
+            // p2
+            // 微任务2
+            // p1
+
+            // 宏任务2
+            // 1
+            // 宏任务3
+            // 4
+            // 宏任务4
+            // 5
+
+            setTimeout(() => {
+              // 宏任务2 ------------- 等待执行
+      6        console.log(1)
+            }, 0)
+
+            new Promise((resolve, reject) => {
+      1        console.log(2)
+              resolve('p1') // 将外层的promise对象状态改成了 fulfilled, 记录值: p1
+
+              new Promise((resolve, reject) => {
+      2          console.log(3)
+                setTimeout(() => {
+                  // 宏任务3 -------- 等待执行
+                  resolve('setTimeout2')
+       7           console.log(4)
+                }, 0)
+                resolve('p2') // 将内层的promise对象状态改成了 fulfilled, 记录值 p2
+              }).then(data => {
+                // 微任务1 ----- 等待执行
+      4         console.log(data)
+              })
+
+              setTimeout(() => {
+                // 宏任务4 -------- 等待执行
+                resolve('setTimeout1')
+      8          console.log(5)
+              }, 0)
+            }).then(data => {
+              // 微任务2 ----- 等待执行
+      5        console.log(data)
+            })
+      3      console.log(6)
+    </script>
+  </body>
+</html>

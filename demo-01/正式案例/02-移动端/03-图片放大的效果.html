@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 384px;
+      border: 1px solid #000;
+      margin: 200px auto;
+      /* 超出部分隐藏 */
+      overflow: hidden;
+
+    }
+
+    /* 过渡的属性给需要过渡的元素本身设置的 */
+    img {
+      /* 过渡 */
+      transition: 1s;
+
+
+      /* 
+        转换原点：transform-origin
+          取值：和background-position是一样的
+            1、方位名词
+              水平方向：left、center、right
+              垂直方向：top、center、bottom
+            2、数字+px（坐标）
+       */
+      transform-origin: 192px 283px
+    }
+
+    div:hover img {
+      /* 让图片缩放两倍 */
+      transform: scale(2);
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <img src="./images/box.jpg" alt="">
+  </div>
+</body>
+</html>

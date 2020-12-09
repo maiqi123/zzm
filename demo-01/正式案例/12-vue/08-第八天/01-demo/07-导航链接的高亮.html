@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      /* router-link-exact-active router-link-active */
+      /* 
+         1. router-link-exact-active 精确匹配   exact 精确
+            router-link中配置的 to 必须和 地址栏hash值, 完全匹配, 才会给元素加上激活的类
+            to="/discover" 可以匹配 /discover
+
+            .router-link-exact-active {
+              color: red;
+              font-size: 30px;
+            } 
+      */
+
+      /* 
+         2. router-link-active 模糊匹配
+            router-link中配置的 to 的路径, 只要在地址栏hash值中包含即可 (以to的路径开头也行)
+            就会加上激活的类
+            to="/discover" 可以匹配 /discover  /discover/test   /discover/list
+      */
+      .router-link-active {
+        color: blue;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ msg }}</h1>
+      <ul>
+        <li><router-link to="/discover">发现音乐</router-link></li>
+        <li><router-link to="/music">我的音乐</router-link></li>
+        <li><router-link to="/friends">朋友</router-link></li>
+      </ul>
+      <!-- 配置路由出口, 将来匹配对应的规则后, 对应的组件, 就会展示在这个位置 -->
+      <router-view></router-view>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <script>
+
+      const Discover = {
+        template: `<div>发现音乐</div>`,
+      }
+      const Music = {
+        template: `<div>我的音乐</div>`
+      }
+      const Friends = {
+        template: `<div>我的好朋友</div>`
+      }
+
+      // router 创建出来的大的路由实例对象, 里面可以配置很多的路由规则, 整个应用一般就一个路由实例
+      // route  一条路由规则, 一个对象, 格式: { path: 路径, component: 组件的配置对象 }
+      const router = new VueRouter({
+        routes: [
+          // 重定向
+          { path: '/', redirect: '/discover' },
+          { path: '/discover', component: Discover },
+          { path: '/music', component: Music},
+          { path: '/friends', component: Friends }
+        ]
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        router
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    标签可以有很多的属性
+      1. 固有属性（内置属性）  和对象是一一对应的，所以操作对象就可以修改标签的属性
+      2. 自定义的属性  无法通过对象来进行操作的
+    DOM中提供了3个方法，用于操作标签属性
+      div.getAttribute(属性名)
+      div.setAttribute(属性名, 属性值)
+      div.removeAttribute('属性名')
+  -->
+  <div id="box" title="哈哈哈" class="aa" aa="bb" cc="dd">呵呵呵</div>
+
+  <script>
+    /* 
+      var div = {
+        id: 'box',
+        title: '哈哈哈',
+        className: 'aa'
+      }
+    */
+    // var div = document.querySelector('div');
+
+    // console.log(div.title);
+    // div.title = '呵呵呵';
+    // div.id = 'aaa';
+
+    // console.log(div.aa);
+    // div.aa = 'gg';
+
+    var div = document.querySelector('div');
+    // console.log(div.className);
+    // var result = div.getAttribute('class');
+    // console.log(result);
+    div.setAttribute('aa', 'cc');
+    div.removeAttribute('cc');
+
+
+  </script>
+</body>
+</html>

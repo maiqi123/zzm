@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      v-model
+        1. 作用: 给表单元素使用, 可以双向数据绑定
+           1.1 给表单元素使用, 用于设置表单元素的值
+               比如: input:text(value)   input:checkbox(checked)  textarea(value) ...
+               vue会自动根据不同的表单元素类型, 设置对应的不同属性, 比如value/checked...
+
+           1.2 可以双向数据绑定
+               (1) 数据变化了, 视图自动更新
+               (2) 视图变化了, 数据自动更新
+
+        2. 语法: v-model=值
+
+        3. 注意点: 绑定的值, 需要在data中存在
+
+
+        vue在有一些, 你不知道怎么实现的场景, 原生dom操作去实现, 也是可以的!
+        尽可能的避免直接的dom操作~ vue中的思想: 数据驱动!
+     -->
+
+    <div id="app">
+      <h1>{{ msg }}</h1>
+      <input type="text" v-model="msg">
+      <hr>
+      用户名: <input type="text" v-model="username"> <br><br>
+      密码: <input type="password" v-model="password"> <br><br>
+      <button>登录</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          username: '',
+          password: ''
+        }
+      })
+    </script>
+  </body>
+</html>

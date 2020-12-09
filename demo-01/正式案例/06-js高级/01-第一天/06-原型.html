@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 原型:
+      // 1. 函数有prototype属性(侧面说明, 函数也是对象)
+      // 2. 函数的prototype属性的值, 是个对象, 把这个对象叫做原型(对象)
+      // 3. 原型作用: 通过构造函数创建出来的实例对象可以直接去访问这个构造函数的prototype属性上的任意成员.
+
+      // function Person(){}
+      // console.dir(Person);
+      // console.log(Person.prototype);
+
+      function Person() {}
+
+      // 给原型对象添加color属性, 值为lime
+      Person.prototype.color = 'lime'
+      Person.prototype.legs = 2
+
+      // 可以把方法添加到原型对象中, 实例对象都可以直接访问到.
+      Person.prototype.sayHi = function () {
+        console.log('hello')
+      }
+      console.log(Person.prototype)
+
+      var p = new Person()
+      var p2 = new Person()
+      // console.log(p.color); // lime
+      // console.log(p.legs); // 2
+      // p.sayHi();
+
+      // p和p2使用的sayHi方法, 均是来源于原型对象上的sayHi方法, 是同一个
+      console.log(p.sayHi === p2.sayHi) // true
+
+      // 小结:
+      //  原型: 函数的prototype属性值(对象 ==> 原型对象)
+      //  作用: 构造函数创建的实例对象可以直接去访问这个构造函数的prototype属性上的任意成员.
+      //  如何解决构造函数创建对象的内存浪费问题:
+      //      把方法添加到原型对象中
+      //  原型对象是函数自带的.
+    </script>
+  </body>
+</html>

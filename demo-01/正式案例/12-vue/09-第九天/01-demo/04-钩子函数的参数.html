@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-test:pengpeng.bb.cc.stop="msg">{{ msg }}</div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // v-on:click.stop.prevent="fn"
+
+      // 五个钩子函数的参数 一个样
+      // 1. el 指令所在的元素
+      // 2. binding 指令相关的参数对象
+      //    (1) name 指令名
+      //    (2) value 指令的值
+      //    (3) arg 指令的参数  :click  :pengpeng
+      //    (4) modifiers 指令的修饰符的对象, 将所有的修饰符, 收集到这个对象
+      Vue.directive('test', {
+        bind (el, binding) {
+          console.log(el, binding)
+        }
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        }
+      })
+
+
+      /* 
+        钩子函数的参数:
+          1. el 指令所在的元素
+          2. binding 指令相关的参数对象
+             (1) name 指令名
+             (2) value 指令值
+             (3) arg 指令的参数  :click
+             (4) modifiers 指令的修饰符的对象  .stop.prevent.aa.bb
+      
+      */
+    </script>
+  </body>
+</html>

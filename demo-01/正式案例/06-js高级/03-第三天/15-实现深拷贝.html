@@ -1,0 +1,67 @@
+8
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div></div>
+
+    <script>
+        var dfg = {
+            money: 10000000,
+            house: "蒙古海景房",
+            car: {
+                brand: "奔驰",
+                color: "lime"
+            }
+        }
+
+        // 深拷贝: 会拷贝对象的多层属性, 对象里面还有对象的话, 里面的对象也会拷贝, 拷贝对象和拷贝出来的对象是完全独立开, 之间的修改互不影响.
+
+        // 参数obj： 需要拷贝的对象
+        // 作用: 浅拷贝一个对象, 返回拷贝出来的对象
+        function copy(obj) {
+            // 1. 创建一个新对象
+            var newObj = {};
+
+            // 2. 遍历obj对象, 把obj对象里面所有的成员给newObj添加一份
+            for (var k in obj) {
+                // 问题: 
+                //  obj[k] 值 有简单数据类型也有复杂数据类型
+                //  不论复杂还是简单, 都是把值赋值给newObj[k]
+                //  但对于复杂数据来说, 把地址赋值过去
+                // newObj[k] = obj[k];
+                // console.log(obj[k]);
+
+                // 解决: 判断数据的类型
+                // 如果是简单的, 直接赋值即可
+                // 但如果是复杂的, 需要把复杂进行拷贝, 把拷贝出来的结果赋值过去
+                /*if(typeof obj[k] === "object"){
+                    // 说明是否复杂
+                    // var newCar = copy( obj[k] );
+                    // console.log( obj[k], newCar, obj[k] === newCar );
+                    newObj[k] = copy( obj[k] );
+                }else{
+                    // 说明简单的
+                    newObj[k] = obj[k];
+                }*/
+
+                // 把上面的if...else简化成三元
+                newObj[k] = typeof obj[k] === "object" ? copy(obj[k]) : obj[k];
+            }
+
+            // 3. 把创建的新对象给返回出去
+            return newObj;
+        }
+
+        var dfg2 = copy(dfg);
+        console.log(dfg2);
+    </script>
+</body>
+
+</html>

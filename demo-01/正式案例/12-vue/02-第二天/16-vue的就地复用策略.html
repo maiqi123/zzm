@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="fn">改值</button>
+      <h1>我是h1元素</h1>
+      <h1>{{ msg }}</h1>
+      <h1>我是h1元素</h1>
+      <h1>我是h1元素</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // vue中有着就地复用的策略:
+      // 当vue中的数据修改了, 会进行新旧dom的对比 (默认: 按照元素的顺序), 
+      // 对比出变化的部分, 尽可能复用之前的标签结构和内容
+      // 进行差异化更新视图, 好处: 渲染性能非常高 
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        methods: {
+          fn () {
+            this.msg = '嘿嘿'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

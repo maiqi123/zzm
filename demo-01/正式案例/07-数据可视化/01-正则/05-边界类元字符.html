@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 开始  ^      [^] 非
+        // 结尾  $
+
+        // ^
+        // console.log( /^chuan/.test("chuang") ); // true
+        // console.log( /^chuan/.test("dachuan") ); // false
+        // console.log( /^chuan/.test("chuanchuan") ); // true
+
+        // $
+        // console.log( /chuan$/.test("chuang") ); // false
+        // console.log( /chuan$/.test("dachuan") ); // true
+        // console.log( /chuan$/.test("chuanchuan") ); // true
+
+
+        // ^ $ 一起使用  精确匹配 写啥匹配啥   用于表单校验中
+        console.log( /^chuan$/.test("chuang") ); // false
+        console.log( /^chuan$/.test("dachuan") ); // false
+        console.log( /^chuan$/.test("chuanchuan") ); // false
+        console.log( /^chuan$/.test("chuan") ); // true
+    </script>
+</body>
+</html>

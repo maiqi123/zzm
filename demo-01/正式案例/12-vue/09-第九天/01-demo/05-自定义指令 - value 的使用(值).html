@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-red>{{ msg }}</h1>
+      <h2 v-color="color">{{ msg }}</h2>
+
+      <h1 v-text="msg"></h1>
+      <h1 v-mytext="msg"></h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // binding
+      // (1) name 指令名
+      // (2) value 指令值
+      // (3) arg 指令参数  :click
+      // (4) modifiers 指令的修饰符对象  .stop.prevent
+
+      // 需求1: v-red 指令, 给哪个元素加, 这个元素字体颜色就变成红色
+      Vue.directive('red', {
+        bind (el, binding) {
+          el.style.color = 'red'
+        }
+      })
+
+      // 需求2: v-color 指令, 设置什么颜色, 就是什么颜色
+      Vue.directive('color', {
+        bind (el, binding) {
+          el.style.color = binding.value
+        },
+        // 指令的值被修改时触发
+        update (el, binding) {
+          el.style.color = binding.value
+        }
+      })
+
+      // v-text="值"   innerText
+      // v-html="值"   innerHTML
+      // v-show="布尔值" 根据布尔值控制 display:none
+      Vue.directive('mytext', {
+        bind (el, binding) {
+          el.innerText = binding.value
+        },
+        update (el, binding) {
+          el.innerText = binding.value
+        }
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          color: 'green'
+        }
+      })
+    </script>
+  </body>
+</html>

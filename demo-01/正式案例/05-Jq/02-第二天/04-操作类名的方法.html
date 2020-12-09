@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="box" class="aa bb cc">哈哈哈</div>
+    <div class="aa bb cc">哈哈哈</div>
+    <div class="aa bb ff cc">哈哈哈</div>
+    <div class="aa bb cc">哈哈哈</div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // className 存在覆盖问题
+
+            // addClass(name) 添加类名 只会添加不会有覆盖问题
+            // removeClass(name) 移除类名
+            // hasClass(name)  判断是否有指定的类名, 如果有返回true
+            // toggleClass(name)  切换类名  如果有就移除掉 没有就添加上
+
+            /*$("#box").click(function(event) {
+                $(this).addClass("ff hh jj oo");
+            });*/
+
+            // $("#box").removeClass("bb aa");
+
+            // console.log( $("#box").hasClass("aa") );
+
+            // hasClass 判断的标准: 
+            //  只要有一个元素有指定的类名就会返回true, 所有的元素都没有指定类名返回false
+            // console.log( $("div").hasClass("ff") );
+            // console.log( $("div").hasClass("hh") );
+        })
+    </script>
+</body>
+
+</html>

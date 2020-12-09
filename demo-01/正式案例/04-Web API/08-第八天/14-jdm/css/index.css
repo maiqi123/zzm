@@ -1,0 +1,305 @@
+/* 头部样式 */
+.jd_container {
+  width: 100%;
+  /* 最大宽度只能是640px */
+  max-width: 640px;
+  /* 最小宽度是320px */
+  min-width: 320px;
+  /* 给头部留出40px的位置 */
+  padding-top: 40px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+}
+.jd_header {
+  width: 100%;
+  /* 最大宽度只能是640px */
+  max-width: 640px;
+  /* 最小宽度是320px */
+  min-width: 320px;
+  height: 40px;
+  background-color: #DC302C;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.jd_header .logo {
+  width: 75px;
+  height: 40px;
+  float: left;
+  /* background-color: green; */
+  position: relative;
+}
+
+.jd_header .logo .logo_icon {
+  position: absolute;
+  width: 57px;
+  height: 23px;
+  /* background: url('../images/jd-sprites.png') 0 -108px no-repeat;
+  background-size: 200px 200px; */
+  background-position: 0 -108px;
+  top: 8px;
+  left: 8px;
+}
+
+.jd_header .login {
+  width: 50px;
+  height: 40px;
+  float: right;
+  /* background-color: green; */
+  line-height: 40px;
+  text-align: center;
+}
+
+.jd_header .login a {
+  color: #fff;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jd_header .search {
+  overflow: hidden;
+  height: 40px;
+  /* background-color: yellow; */
+  position: relative;
+}
+
+.jd_header .search input {
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+  margin-top: 5px; 
+  padding-left: 35px;
+}
+
+.jd_header .search .search_icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  /* background: url('../images/jd-sprites.png') -59px -108px;
+  background-size: 200px 200px; */
+  background-position: -59px -108px;
+  top: 8px;
+  left: 10px;
+}
+
+
+/* 京东导航 */
+.jd_nav li{
+  float: left;
+  width: 20%;
+  padding: 10px 0;
+}
+
+.jd_nav li img {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.jd_nav li p {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: #000;
+}
+
+/* 京东新闻 */
+.jd_news {
+  height: 30px;
+  margin: 0 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.jd_news .logo {
+  width: 82px;
+  height: 30px;
+  float: left;
+  /* background-color: green; */
+}
+
+.jd_news .logo img {
+  width: 73px;
+  height: 16px;
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
+.jd_news .more {
+  width: 40px;
+  height: 30px;
+  float: right;
+  line-height: 30px;
+  /* background-color: green; */
+}
+
+.jd_news .info {
+  overflow: hidden;
+  height: 30px;
+}
+
+
+.jd_news .info li {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+
+/* 京东秒杀 */
+.jd_seckill {
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+/* 强类名 */
+.seckill_title {
+  height: 30px;
+  padding: 0 10px;
+}
+
+.seckill_title .logo {
+  width: 80px;
+  height: 30px;
+  float: left;
+  /* background-color: pink; */
+  line-height: 30px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.seckill_title .logo span {
+  color: #f23030;
+  letter-spacing: 2px;
+}
+
+.seckill_title .logo .icon_clock {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-position: -83px -109px;
+  top: 4px;
+  left: 3px;
+}
+
+.seckill_title .more {
+  width: 70px;
+  height: 30px;
+  float: right;
+  /* background-color: green; */
+  line-height: 30px;
+}
+
+.seckill_title .time {
+  overflow: hidden;
+  height: 30px;
+  padding-left: 10px;
+  padding-top: 6px;
+}
+
+.seckill_title .time span {
+  float: left;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.seckill_title .time span:nth-child(odd) {
+  width: 18px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.seckill_title .time span:nth-child(even) {
+  width: 8px;
+}
+.seckill_content {
+  overflow: hidden;
+}
+.seckill_content ul {
+  width: 610px;
+}
+.seckill_content li {
+  float: left;
+}
+
+.seckill_content li a {
+  display: block;
+  width: 87px;
+  height: 70px;
+  border-right: 1px solid #ccc;
+  overflow: hidden;
+}
+
+
+/* 最后一个li中的a不要右边框 */
+.seckill_content li:last-child a {
+  border-right: none;
+}
+
+.seckill_content li img {
+  width: 60px;
+  height: 60px;
+  margin: 5px auto;
+}
+
+.seckill_content li p {
+  text-align: center;
+}
+
+.seckill_content li .price {
+  font-weight: 700;
+  color: #f23030;
+}
+
+.seckill_content li .old_price {
+  text-decoration: line-through;
+}
+
+
+/* 京东主会场 */
+.jd_main li{
+  float: left;
+  width: 33.33%;
+}
+
+.jd_product .item ul {
+  overflow: hidden;
+}
+
+.jd_product .item li {
+  float: left;
+  width: 50%;
+}
+
+.jd_product .item:first-child li {
+  width: 33.33%;
+}
+
+
+/* 京东底部 */
+.jd_footer {
+  width: 100%;
+  max-width: 640px;
+  min-width: 320px;
+  height: 50px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+}
+
+.jd_footer li {
+  float: left;
+  width: 20%;
+}
+
+.jd_footer li img {
+  width: 65px;
+  height: 50px;
+  margin: 0 auto;
+}

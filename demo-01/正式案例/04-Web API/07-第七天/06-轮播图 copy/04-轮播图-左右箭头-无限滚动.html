@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .box {
+        width: 790px;
+        height: 340px;
+        background-color: pink;
+        margin: 200px auto;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      /* 1. ul要足够宽，能够放下所有图片  2. ul要有定位 */
+      .img-box {
+        width: 900%;
+        height: 100%;
+        position: absolute;
+      }
+
+      .img-box li {
+        float: left;
+      }
+
+      .point-box {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        height: 20px;
+        padding: 0 5px;
+        /* width: 200px; */
+        background-color: rgba(255, 255, 255, .5);
+        border-radius: 10px;
+      }
+      .point-box li {
+        float: left;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: 4px 3px;
+        cursor: pointer;
+        background-color: #fff;
+      }
+
+      .point-box li.now {
+        background-color: red;
+      }
+
+      .left,
+      .right {
+        width: 30px;
+        height: 60px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, .3);
+        line-height: 60px;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        font-size: 24px;
+        font-family: 宋体;
+        font-weight: 700;
+      }
+      .left {
+        left: 0;
+      }
+      .right {
+        right: 0;
+      }
+      .left:hover,
+      .right:hover {
+        background-color: rgba(0, 0, 0, .6);
+      }
+
+      .arrow {
+        display: none;
+      }
+
+      .box:hover .arrow{
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul class="img-box">
+        <li>
+          <a href="#"><img src="images/1.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/2.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/3.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/4.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/5.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/6.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/7.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/8.jpg" alt=""></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/1.jpg" alt=""></a>
+        </li>
+      </ul>
+      <ul class="point-box">
+        <li class="now"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="arrow">
+        <span class="left">&lt;</span>
+        <span class="right">&gt;</span>
+      </div>
+    </div>
+    <script src="animate.js"></script>
+    <script>
+      /* 
+        1. 小圆点功能
+        1.1 找到所有的小圆点
+        1.2 给所有的小圆点注册点击事件
+        1.3 让点击的小圆点高亮（排他）
+        1.4 移动ul,显示对应的那个li
+
+        2. 左右箭头功能
+        2.1 给右箭头注册点击事件
+        2.2 每次点击右箭头，需要让ul移动的图片的张数 + 1
+        2.3 移动ul
+      */
+      var points = document.querySelectorAll('.point-box li');
+      var imgs = document.querySelectorAll('.img-box li');
+      var ul = document.querySelector('.img-box');
+      var box = document.querySelector('.box');
+      var left = document.querySelector('.left');
+      var right = document.querySelector('.right');
+      var width = box.offsetWidth;
+
+      for (var i = 0; i < points.length; i++) {
+        points[i].setAttribute('index', i);
+        points[i].addEventListener('click', function() {
+          for (var i = 0; i < points.length; i++) {
+            points[i].className = '';
+          }
+          this.className = 'now';
+
+          var index = this.getAttribute('index');
+          // 运动的距离  index * 图片的宽度
+          console.log(index);
+          animate(ul, - width * index)
+        });
+      }
+
+
+      /* 
+        2. 左右箭头功能
+        2.1 给右箭头注册点击事件
+        2.2 每次点击右箭头，需要让ul移动的图片的张数 + 1
+        2.3 移动ul
+      */
+      // 记录ul需要移出去的图片的张数
+      var count = 0;
+      right.addEventListener('click', function() {
+        if (count >= imgs.length - 1) {
+          // 瞬间换成第一张
+          count = 0;
+          ul.style.left = '0px';
+        }
+        count++;
+        animate(ul, - width * count);
+      });
+      left.addEventListener('click', function() {
+        if (count <= 0) {
+          // 瞬间把第0张换成最后一张
+          count = imgs.length - 1;
+          ul.style.left = - count * width + 'px';
+        }
+        count--;
+        animate(ul, - width * count);
+      })
+    </script>
+  </body>
+</html>

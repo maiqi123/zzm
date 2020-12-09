@@ -1,0 +1,7 @@
+<view>
+  <slot name='n1'></slot>
+  <view>嘻嘻 - {{ name }} - {{ obj.age }}</view>
+  <slot name='n2'></slot>
+</view>
+
+<button bindtap="update" type="primary">点击</button>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 日期对象
+      // 日期对象比较特殊,因为日期是不断在改变的 所以不同时间的日期对象应该是不同的
+      // 所以 日期对象是通过 new获取的
+      // new的结果一定是一个新对象
+
+      // new的四步
+      // 1. 创建了一个新对象
+      // 2. 将函数里面是this指向了该对象
+      // 3. 执行当前的构造函数
+      // 4. 自动返回该对象
+
+      var d = new Date();
+      // Date是一个构造函数
+      // console.log(Date);
+      // console.log(d.toString());
+      // new的结果一定是对象, 之所以看到的是一个字符串是因为JS自动帮我们调用了toString方法
+      console.log(d);
+    </script>
+  </body>
+</html>

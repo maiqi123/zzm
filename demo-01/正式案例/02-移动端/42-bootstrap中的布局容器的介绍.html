@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <style>
+    .container {
+      height: 100px;
+      border: 1px solid #000;
+
+      /* padding: 0; */
+    }
+
+    .container-fluid {
+      height: 100px;
+      border: 1px solid red;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- 
+    bootstrap中的布局容器
+      1、响应式布局容器：.container
+        特点：
+          1、在不同的屏幕下有不同的版心，并且到了移动端之后，变成宽度自适应
+          2、在布局容器中有默认的左右15px的padding
+
+      2、流式布局容器：.container-fluid
+        特点：
+          1、盒子宽度自适应
+          2、在布局容器中有默认左右15px的padding
+
+
+      3、抵消父元素左右15px的padding的类：.row
+
+          底层原理：通过设置左右-15px的margin，抵消父元素的padding
+   -->
+
+  <div class="container">
+    <div class="row">我是内容</div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">我是内容</div>
+  </div>
+</body>
+</html>

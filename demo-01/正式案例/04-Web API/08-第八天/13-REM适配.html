@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 
+      需要给不同大小的屏幕设置不同的html的fontSize 等比例
+      750 50px
+      375 25px
+    */
+    div {
+      width: 8rem;
+      height: 8rem;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <script>
+    function fn() {
+      // 320  750
+      var width = window.innerWidth;
+      if (width < 320) {
+        width = 320;
+      }
+      if (width > 750) {
+        width = 750;
+      }
+      document.documentElement.style.fontSize = width / 15 + 'px';
+    }
+    fn();
+    window.onresize = fn;
+  </script>
+</body>
+</html>

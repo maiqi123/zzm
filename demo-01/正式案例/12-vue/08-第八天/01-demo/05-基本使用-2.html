@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ msg }}</h1>
+      <!-- 配置路由出口, 将来匹配对应的规则后, 对应的组件, 就会展示在这个位置 -->
+      <router-view></router-view>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <script>
+      /*
+        vue-router的基本使用:
+          1. 下载 npm i vue-router
+          2. 引包
+          3. 使用, 创建路由实例
+          4. 将当前的路由实例, 挂载到vue实例上, 建立联系
+
+          5. 配置路由规则
+             路由是 hash值 和 组件 的对应规则
+             new VueRouter({
+               routes: [
+                 { path: ..., component: 对象 }
+               ]
+             })
+          6. 在外面准备了规则中需要的组件配置对象
+          7. 配置路由出口, 告诉页面, 匹配的组件应该展示在哪个位置
+             <router-view></router-view>
+
+      */
+
+      // Vue.component('jack', 组件的配置对象)
+
+      const Discover = {
+        template: `<div>发现音乐</div>`,
+      }
+      const Music = {
+        template: `<div>我的音乐</div>`,
+      }
+      const Friends = {
+        template: `<div>我的好朋友</div>`,
+      }
+
+      // router 创建出来的大的路由实例对象, 里面可以配置很多的路由规则, 整个应用一般就一个路由实例
+      // route  一条路由规则, 一个对象, 格式: { path: 路径, component: 组件的配置对象 }
+      const router = new VueRouter({
+        routes: [
+          { path: '/discover', component: Discover },
+          { path: '/music', component: Music },
+          { path: '/friends', component: Friends },
+        ],
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+        },
+        router,
+      })
+    </script>
+  </body>
+</html>

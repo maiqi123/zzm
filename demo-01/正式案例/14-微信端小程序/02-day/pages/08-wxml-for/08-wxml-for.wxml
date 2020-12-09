@@ -1,0 +1,40 @@
+<!-- 列表渲染  wx:for='' -->
+<!-- 1. 基本类型展示   -->
+<!-- 元素 : 默认 item -->
+<!-- 索引 : 默认 index -->
+<!-- 注意 : wx:for='{{ list1 }}' -->
+<!-- <view wx:for='{{ list1 }}'>{{ item }} - {{ index }}</view> -->
+
+
+<!-- 2. 元素是对象 -->
+<!-- <view wx:for='{{ list2 }}'>{{ item.id }} - {{ item.name }}</view> -->
+
+
+<!-- 3. 小心嵌套for循环 的 重名问题 -->
+<!-- 可以改名 -->
+<!-- 改item  wx:for-item='it'   -->
+<!-- 改index wx:for-index='i' -->
+<!-- <view wx:for='{{ list1 }}' wx:for-item='it' wx:for-index='i'> {{ i }} -  {{ it }}</view> -->
+
+<!-- 4.  block 可以使用在if , 也可以使用在 for  -->
+<!-- <block wx:for='{{ list2 }}'>
+ <view>id:{{ item.id }}</view>
+ <view>name:{{ item.name }}</view>
+</block> -->
+
+
+<!-- 5. key -->
+<!-- 5.1 数组里面是简单类型的 -->
+<!-- 
+  第一种 :  wx:key='item'  ok  ≈≈≈≈  wx:key='*this'
+  第二种 :  wx:key='index'  ok
+ -->
+<!-- <view wx:for='{{ list1 }}' wx:key='*this' >{{ item }}</view> -->
+
+<!-- 5.2 数组里面是对象类型 -->
+<!-- wx:key='id' -->
+<!-- <view wx:for='{{ list2 }}' wx:key='id'>{{ item.id }} - {{ item.name }}</view> -->
+
+
+<!-- 6. wx:for='list1' 和 wx:for='{{ list1 }}' -->
+<!-- 前面 遍历的是字符串, 元素是字符,   遍历的是数组, 元素才是item -->

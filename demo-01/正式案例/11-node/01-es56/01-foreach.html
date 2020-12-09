@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      
+      forEach 功能 ：类似于for循环 ，遍历数组。
+                    遍历
+      回调函数的参数：
+      参数1： 数组的当前项。
+      参数2： 数组下标。
+      参数3： 当前数组。
+      返回值：没有返回值
+       */
+
+      // var arr = ['张三', '李四', '王五', '赵六']
+      // arr.forEach(function (item, index, array) {
+      //   console.log(index)
+      //   console.log(item)
+      //   console.log(array)
+      // })
+
+      // var list = [
+      //   { id: 1, name: '张三' },
+      //   { id: 2, name: '李四' },
+      //   { id: 3, name: '王五' },
+      //   { id: 4, name: '赵六' },
+      // ]
+      // list.forEach(function (item) {
+      //   console.log(item)
+      //   console.log(item.id)
+      //   console.log(item.name)
+      // })
+
+      var arr = ['张三', '李四', '王五', '赵六']
+      // 需求：每一项内容 后面+ 666 ， 得到一个新数组
+      var arr1 = []
+      arr.forEach(function (item, index, array) {
+        arr1.push(item + 666)
+      })
+      console.log(arr1)
+    </script>
+  </body>
+</html>

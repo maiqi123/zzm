@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    // 1
+    /*var age = 38; // 在全局下定义的变量和函数, 属于window对象
+    // var a = function () {
+    //     console.log("a is ok");
+    // }
+
+    var obj = {
+        age: 18,
+        getAge: function() {
+            console.log(this.age); // window.age
+        },
+    };
+
+    // 把obj的getAge方法赋值给了变量f
+    var f = obj.getAge;
+    // 函数调用模式, 函数内的this指向window
+    f(); // 38*/
+
+    // 2.
+    var age = 38;
+    var obj = {
+        age: 18,
+        getAge: function() {
+            console.log(this.age); // 18
+
+            // 任何函数都有自己的this,关键看调用模式
+            // 函数内的this指向和函数在哪调用时没有关系的, 只和调用模式有关
+            function foo() {
+                console.log(this.age); // 38
+            }
+            // 函数调用模式 this指向window
+            foo();
+        },
+    };
+    // 方法调用模式, getAge方法内的this指向obj
+    obj.getAge();
+    obj["getAge"]();
+    // 18  38
+    </script>
+</body>
+
+</html>

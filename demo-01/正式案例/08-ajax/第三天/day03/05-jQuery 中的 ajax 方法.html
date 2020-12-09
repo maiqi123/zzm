@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function () {
+            // jq中ajax方法 ==> $.ajax({}); // 参数是个对象, 在对象中配置
+            // 请求方式 请求地址 需要发送的数据 ...
+
+            // $("div").ajax(); // error
+
+            /*$.ajax({
+                // type; 请求方式 get post, 默认是get,
+                // url : 请求地址
+                // success: function (data) {
+                //     // 响应成功的时候执行的回调函数
+                // },
+                // error: function(){
+                //     // 响应失败的时候执行的回调函数  
+                // }
+            })*/
+
+            $.ajax({
+                type: "post",
+                url: "051.php",
+                success: function (info) {
+                    // 形参data就是服务器响应的数据
+
+                    console.log("响应成功了", info);
+                },
+                error: function () {
+                    console.log("失败了");
+                }
+            })
+        })
+    </script>
+</body>
+</html>

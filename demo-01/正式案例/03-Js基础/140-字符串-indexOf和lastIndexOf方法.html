@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var str = 'abcdcba';
+    // console.log(str.indexOf('b', 2));
+    var str = "abcoefoxyozzopp";
+    // 打印字符串中 o 出现的所有下标
+    // for (var i = 0; i < str.length; i++) {
+    //   if (str[i] === 'o') {
+    //     console.log(i);
+    //   }
+    // }
+
+    var index = str.indexOf('o');
+    while(index !== -1) {
+      console.log(index);
+      index = str.indexOf('o', index + 1);
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // // 1. 封装一个函数，函数接收一个数组，和一个符号，最终返回一个字符串，该字符串能够把数组中所有的元素按照对应的符号拼接起来。比如
+      // function join(arr, sep) {}
+
+      // join([1, 2, 3, 4], '-') // 结果是1-2-3-4
+      // join(['张三', '李四', '王五', '赵六'], '|') // 结果是 张三|李四|王五|赵六
+
+      // // 2. 封装一个函数，判断数组是否包含某个值,返回true或者false
+      // function has(arr, value) {}
+
+      // has([1, 2, 3, 4], 4) // true
+      // has([1, 2, 3, 4], 5) // false
+
+      // // 3. 说出以下代码的执行结果
+      // var n1 = 1
+      // var n2 = 2
+      // var n3 = 3
+      // fn2()
+      // fn1()
+      // function fn1() {
+      //   n1 = 11
+      //   n2 = 22
+      //   n3 = 33
+      //   console.log(n1, n2, n3)
+      //   var n1 = 100
+      //   var n2 = 200
+      // }
+      // function fn2() {
+      //   n1 = 111
+      //   n2 = 222
+      //   n3 = 333
+      //   console.log(n1, n2, n3)
+      //   var n2 = 1000
+      //   var n3 = 2000
+      // }
+      // console.log(n1, n2, n3)
+
+      // function Star(name, age, sex) {
+      //   this.name = name
+      //   this.age = age
+      //   this.sex = sex
+      //   this.sing = function (sang) {
+      //     console.log(sang)
+      //   }
+      // }
+      // var ldh = new Star('刘德华', 18, '男')
+      // console.log(typeof ldh)
+
+      // math对象
+      // let max = Math.max(5, 10)
+      // console.log(max)
+      // 求随机数
+      // let random = Math.floor(Math.random() * 11)
+      // console.log(random)
+
+      let obj = {
+        name: 'zs',
+        ahg: 80,
+        fn: function () {
+          console.log('我会唱歌')
+        },
+      }
+      // 遍历对象
+      for (var key in obj) {
+        console.log(obj[key])
+        console.log(obj['name'])
+      }
+    </script>
+  </body>
+</html>

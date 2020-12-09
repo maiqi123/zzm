@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 设置视口 -->
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>乐淘电商</title>
+    <link rel="stylesheet" href="./lib/mui/css/mui.css" />
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+  </head>
+
+  <body>
+    <div class="lt_container" id="app">
+      <div class="lt_header">
+        <a href="index.html" class="icon_left"><i class="fa fa-home"></i></a>
+        <h3>乐淘云购</h3>
+        <a href="search.html" class="icon_right"
+          ><i class="fa fa-search"></i
+        ></a>
+      </div>
+
+      <div class="lt_main">
+        <router-view></router-view>
+      </div>
+
+      <div class="lt_footer">
+        <!-- class="current" -->
+        <ul>
+          <li>
+            <router-link to="/home">
+              <i class="fa fa-home"></i>
+              <p>首页</p>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/category">
+              <i class="fa fa-bars"></i>
+              <p>分类页</p>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/cart">
+              <i class="fa fa-shopping-cart"></i>
+              <p>购物车</p>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/user">
+              <i class="fa fa-user"></i>
+              <p>用户中心</p>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <script>
+      /* 
+    1. 下载
+    2. 引包
+    3. 创建路由实例
+    4. 挂载到vue实例上
+
+    5. 配置路由规则
+    6. 准备路由规则中需要的组件配置对象
+    7. 准备路由出口 <router-view></router-view>
+  */
+
+      const Home = {
+        template: `
+      <div>我是Home组件, 首页</div>
+    `,
+      }
+
+      // ----------------------------------------------------------------
+      // 分类模块
+      const Category = {
+        template: `
+      <div>
+        <div>我是Category组件, 分类页</div>
+        <ul>
+          <li><router-link to="/category">默认模块</router-link></li>
+          <li><router-link to="/category/first">一级分类</router-link></li>
+          <li><router-link to="/category/second">二级分类</router-link></li>
+        </ul>
+        <router-view></router-view>
+      </div>
+    `,
+      }
+      // 分类模块, 将来又分为 一级分类 二级分类 => 嵌套路由
+      const DefaultCate = {
+        template: `
+      <div>
+        <div>我是分类页-默认内容</div>
+        <div>我是分类页-默认内容</div>
+        <div>我是分类页-默认内容</div>
+        <div>我是分类页-默认内容</div>
+        <div>我是分类页-默认内容</div>
+        <div>我是分类页-默认内容</div>
+      </div>
+    `,
+      }
+      const First = {
+        template: `
+      <div class="first">
+        <div>我是一级分类</div>
+        <div>我是一级分类</div>
+        <div>我是一级分类</div>
+        <div>我是一级分类</div>
+      </div>
+    `,
+      }
+      const Second = {
+        template: `
+      <div class="second">
+        <div>我是二级分类</div>
+        <div>我是二级分类</div>
+        <div>我是二级分类</div>
+        <div>我是二级分类</div>
+      </div>
+    `,
+      }
+
+      // ----------------------------------------------------------------
+      const Cart = {
+        template: `
+      <div>我是Cart组件, 购物车</div>
+    `,
+      }
+      const User = {
+        template: `
+      <div>我是User组件, 用户中心</div>
+    `,
+      }
+
+      const router = new VueRouter({
+        routes: [
+          { path: '/', redirect: '/home' },
+          { path: '/home', component: Home },
+          {
+            path: '/category',
+            component: Category,
+            // 配置嵌套子路由
+            children: [
+              // { path: '/category', redirect: '/category/first' },  重定向
+              // 如果path中写的是相对路径, 会自动将前面父路由的path拼接在前面
+              // path: 'first' => path: '/category/first'
+              { path: '', component: DefaultCate },
+              { path: 'first', component: First },
+              { path: 'second', component: Second },
+            ],
+          },
+          { path: '/cart', component: Cart },
+          { path: '/user', component: User },
+        ],
+        // 默认的高亮的类名, 可以定制的
+        // linkActiveClass: 模糊匹配
+        // linkExactActiveClass: 精确匹配
+        linkActiveClass: 'current',
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {},
+        router,
+      })
+    </script>
+  </body>
+</html>

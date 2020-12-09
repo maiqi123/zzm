@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <button>开始</button>
+  <div></div>
+  <script>
+    // 让盒子有动画的运动到400px
+    var button = document.querySelector('button');
+    var div = document.querySelector('div');
+    button.addEventListener('click', function() {
+      var timer = setInterval(function () {
+        // current += 10;
+        var current = div.offsetLeft;
+        if (current < 400) {
+          current = current + 10;
+          div.style.left = current + 'px';
+        } else {
+          clearInterval(timer);
+        }
+      }, 16);
+    });
+  </script>
+</body>
+</html>

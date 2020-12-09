@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 第0趟 比较了6次 得到1最大的数
+    // 第1趟 只需要比较5次  多比了1次 
+    // 第2趟，只需要比4次  多比了2次   
+    // 6 + 5 + 4 + 3 + 2 + 1 = 21
+    // var arr = [65, 97, 76, 13, 27, 49, 58];
+    // var arr = [65, 97, 76, 13, 27, 49, 58];
+    // // 控制需要比较多少趟
+    // var count = 0;
+    // for(var i = 0; i < arr.length - 1; i++) {
+    //   // 控制每趟需要比较多少次
+    //   for(var j = 0; j < arr.length - 1 - i; j++) {
+    //     count++
+    //     if (arr[j] > arr[j+1]) {
+    //       var temp = arr[j];
+    //       arr[j] = arr[j+1];
+    //       arr[j+1] = temp;
+    //     }
+    //   }
+
+    // }
+    // console.log(arr);
+    // console.log(count);
+
+    var arr = [65, 97, 76, 13, 27, 49, 58];
+    for (var i = 0; i < arr.length - 1; i++) {
+      for(var j = 0; j < arr.length - 1 - i; j++) {
+        if (arr[j] > arr[j+1]) {
+          var temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+        }
+      }
+    }
+    console.log(arr);
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">按钮</button>
+  <script>
+    // var button = document.querySelector('button');
+    var button = document.getElementById('btn');
+    
+    // ie浏览器提供attachEvent 以及 detachEvent
+    // btn.onclick = function () {
+    //   console.log('哈哈哈');
+    // }
+    // 参数1：事件名  on+事件名
+    // 参数2：函数
+    function fn() {
+      console.log('哈哈');
+    }
+    btn.attachEvent('onclick', fn)
+    btn.attachEvent('onclick', function () {
+      console.log('呵呵');
+    })
+
+    btn.detachEvent('onclick', fn);
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">按钮</button>
+  <script>
+    // 事件三要素： 我扇了飞飞一巴掌，飞飞嘤嘤嘤哭了。
+    // 事件源：飞飞
+    // 事件名称：被扇
+    // 事件处理程序：嘤嘤嘤哭了
+
+    // 我点击了按钮，图片变了
+    // 事件源：按钮
+    // 事件名称：点击
+    // 事件处理程序：图片变了
+    // 事件源.on事件名称 = 事件处理函数
+    var btn = document.getElementById('btn');
+    // btn: 事件源
+    // onclick: 被点击的时候
+    btn.onclick = function() {
+      console.log('憋点我');
+    }
+
+  </script>
+</body>
+</html>

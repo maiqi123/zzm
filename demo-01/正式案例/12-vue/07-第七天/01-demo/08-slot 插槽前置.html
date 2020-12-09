@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .modal {
+        width: 300px;
+        padding: 10px;
+        background-color: skyblue;
+        border: 3px solid #000;
+        border-radius: 30px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <modal title="警告"></modal>
+      <modal title="再次警告"></modal>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+
+      // 需求: 要在页面中显示一个对话框, 封装成一个组件
+      // 通过父传子, 固然可以完成一定层面的组件的定制, 但是自定义性较差, 
+      /// 如果希望能够自定义组件内部的一些结构 => 就需要用到插槽
+
+      // 需求: 对话框1, 内容是一个输入框
+      // 需求: 对话框2, 内容是一个段落 p
+
+      Vue.component('modal', {
+        template: `
+          <div class="modal">
+            <div className="title">
+              <h3>{{ title }}</h3>  
+            </div>
+            <div className="content">
+              <p>亲! 你确认要充值成超级vip嘛?</p>
+            </div>
+            <div className="bottom">
+              <button>确认</button>
+              <button>取消</button>
+            </div>
+          </div>
+        `,
+        props: ['title']
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        }
+      })
+    </script>
+  </body>
+</html>

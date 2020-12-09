@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      解构： 解构赋值，因为解构必然伴随赋值
+       */
+
+      // 数组的解构 （不常用）
+      // let arr = ['张三', '李四', '王五']
+      // let zs = arr[0]
+      // let ls = arr[1]
+      // let ww = arr[2]
+
+      // 解构赋值
+      // let [zs, ls, ww] = arr
+      // console.log(zs, ls, ww)
+
+      // 对象的解构 （常用）
+      // let obj = {
+      //   myname: '张三',
+      //   age: 30,
+      // }
+
+      // // 对象的解构过程中 变量名和 对象中的属性名 要一致。
+      // let { myname, age } = obj
+
+      // console.log(myname1, age)
+
+      // let obj = {
+      //   zenglaoshidechangyongname: '张三',
+      //   age: 30,
+      // }
+      // //对象的解构过程中可以通过冒号指定一个别名
+      // let { zenglaoshidechangyongname: myname, age } = obj
+
+      // console.log(myname, age)
+
+      let obj = {
+        myname: '张三',
+        age: 30,
+      }
+      // 对象解构举例：
+      // 对象解构 常用在 给函数传递参数
+      function test({ myname, age }) {
+        console.log(myname, age)
+      }
+
+      test(obj)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 推荐函数的实参和函数的形参要一一对应
+    // 2. 实参比形参多, 多余的实参会被舍弃
+    // 3. 实参比形参少，少的这些参数会是undefined
+    function add(n1, n2) {
+      return n1 + n2;
+    }
+    // console.log(add(1, 2));
+
+    // console.log(add(1, 2, 3));
+
+    console.log(add());
+  </script>
+</body>
+</html>

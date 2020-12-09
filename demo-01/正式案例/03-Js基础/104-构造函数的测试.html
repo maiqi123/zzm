@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 英雄  名字  技能  血量 蓝量  价格
+      function Hero(name, skill, hp, mp, price) {
+        this.name = name
+        this.skill = skill
+        this.hp = hp
+        this.mp = mp
+        this.price = price
+      }
+
+      // var hero = new Hero();
+      // console.log(hero);
+      var atm = new Hero('迪迦', '激光', 100, 0, 6300)
+      console.log(atm)
+
+      var gl = new Hero('盖伦', '大保健', 3000, 0, 3150)
+      console.log(gl)
+      console.log(typeof gl)
+    </script>
+  </body>
+</html>

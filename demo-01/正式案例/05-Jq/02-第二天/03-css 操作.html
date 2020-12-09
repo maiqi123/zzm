@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // css 操作(获取 设置)样式
+            //  设置样式:
+            //   css(name, value); 设置单个样式
+            //   css({}); 设置多个样式
+            //  设置样式的特征: 会把获取到的每一个元素都设置上相同的样式
+
+            //  获取样式: css(name)
+            //        name是字符串类型的, 样式名
+            //  获取样式的特征: 只会获取第一个元素对应的值
+
+            $("li").css("color", "lime");
+            // $("li").css("fontSize", "50px");
+
+            /*$("li").css({
+                color: "red",
+                backgroundColor: "pink",
+                fontSize: 60
+            })*/
+
+            $("li").eq(0).css("fontSize", 26);
+            $("li").eq(1).css("fontSize", 22);
+            $("li").eq(2).css("fontSize", 24);
+
+            console.log( $("li").css("fontSize") );
+        })
+    </script>
+</body>
+</html>

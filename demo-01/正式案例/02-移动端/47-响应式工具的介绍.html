@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+
+    /* 只在小屏和超小屏中生效——》隐藏 
+      媒体查询
+
+      超小屏：0~768
+      小屏：768~992
+      中屏：992~1200
+      大屏：1200~
+    */
+    
+    /* @media screen and (max-width:992px) {
+      div {
+        display: none;
+      }
+    } */
+
+  </style>
+</head>
+<body>
+  <!-- 
+    响应式工具：设置元素显示隐藏
+
+    底层原理：媒体查询 + display：none实现
+
+      1、hidden-lg：只在大屏中隐藏
+      2、hidden-md：只在中屏中隐藏
+      3、hidden-sm：只在小屏中隐藏
+      4、hidden-xs：只在超小屏中隐藏
+
+   -->
+  <div class="hidden-sm hidden-xs"></div>
+</body>
+</html>

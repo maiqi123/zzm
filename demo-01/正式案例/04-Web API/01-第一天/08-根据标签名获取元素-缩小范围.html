@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <a href="http://itcast.cn">链接1</a>
+    <a href="http://itcast.cn">链接1</a>
+    <a href="http://itcast.cn">链接1</a>
+  </div>
+
+  <div id="box2">
+    <a href="http://itcast.cn">链接2</a>
+    <a href="http://itcast.cn">链接2</a>
+    <a href="http://itcast.cn">链接2</a>
+  </div>
+
+  <script>
+    // 只修改 box中所有的a链接的href属性
+    // var links = document.getElementsByTagName('a');
+    // console.log(links);
+    var box = document.getElementById('box');
+    var links = box.getElementsByTagName('a');
+    console.log(links);
+    for (var i = 0; i < links.length; i++) {
+      links[i].href = 'http://www.baidu.com';
+    }
+  </script>
+</body>
+</html>

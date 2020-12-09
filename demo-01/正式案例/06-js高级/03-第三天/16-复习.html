@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 上下文调用模式 又称: 方法借用模式
+        //  call apply  bind三个方法
+        //  call apply 
+        //   1. 能调用函数
+        //   2. 第一个参数能修改this指向
+        //   3. 给函数传递实参
+        //      call ==> 第二个参数到最后一个参数
+        //      apply ==> 第二个参数, 是伪数组/数组中的每一项
+
+        //  伪数组借用数组的方法
+        //   1. push 实现添加功能
+        //   2. join方法 实现拼串功能
+
+        //   bind
+        //    创建并返回新函数, 新函数和原来的函数是一样的, 新函数内的this指向bind的参数
+
+        // 递归函数: 函数内部自己调用自己
+        //  注意点: 要有结束递归的条件
+        //  案例: 计算1-100所有数的和
+        //  深浅拷贝:
+        //   浅拷贝: 只会拷贝对象的一层属性, 如果对象里面还有对象, 里面的对象没有进行拷贝
+        //   适用场景: 适用于对象里面都是简单数据类型的
+        //   深拷贝: 拷贝对象的多层属性, 如果对象里面还有对象, 里面的对象也会进行拷贝
+
+        // 参考资料
+        // animate.css 动画库     https://www.dowebok.com/98.html
+        // js 斐波那契数列（兔子问题） https://www.cnblogs.com/bfc0517/p/5990297.html
+        // javaScript中浅拷贝和深拷贝的实现  https://github.com/wengjq/Blog/issues/3
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!-- 
+  bindtap : 点击  允许冒泡          @click='fn'  onclick='fn'
+  catchtap : 点击 不允许冒泡
+
+  以后我们看到点击,还是用 bindtap 如果出现冒泡问题了, 不想冒泡,才改为 catchtap
+ -->
+
+<view bindtap='fn0'>
+ <view catchtap='fn1'>按钮1</view>
+</view>
+
+<!-- 监听 input的值 -->
+<input bindinput="iptChange"></input>

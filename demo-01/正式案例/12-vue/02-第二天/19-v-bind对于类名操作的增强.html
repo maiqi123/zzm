@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .base {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+      .blue {
+        background-color: blue;
+      }
+      .large {
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      v-bind 对于类名操作的增强, 注意点, :class 不会影响到原来的 class 属性
+      :class="对象/数组"
+      (1) :class="对象" 
+          { 类名: 布尔值, 类名: 布尔值 } 
+          如果是true, 加上这个类, 如果是false, 移出这个类
+
+      (2) :class="数组"
+          ['类名1', '类名2', '类名3']
+          只要有这个类, 就加上
+
+      (3) :class="对象/数组" 直接内联在结构中编写 (重点)
+
+      最经典的写法: <div class="base" :class="{ blue: isBlue, large: isLarge }"></div>
+     -->
+
+    <div id="app">
+      <div class="base" :class="obj">我是盒子</div>
+      <hr>
+      <div class="base" :class="arr">我是盒子</div>
+      <hr>
+      <div class="base" :class="{ blue: isBlue, large: isLarge }"></div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          obj: {
+            blue: false,
+            large: true
+          },
+          arr: ['pengpeng', 'large'],
+
+          isBlue: false,
+          isLarge: false
+        }
+      })
+    </script>
+  </body>
+</html>

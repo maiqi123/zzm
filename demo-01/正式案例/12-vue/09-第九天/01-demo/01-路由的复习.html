@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 
+    1 路由的基本使用:
+      1. 下载
+      2. 引包
+      3. 创建一个vue-router实例
+         const router = new VueRouter()
+      4. 挂载到vue实例上
+
+      5. 配置路由规则
+         const router = new VueRouter({
+           routes: [
+             { path: 路径, component: 组件的配置对象 },
+             { path: 路径, component: 组件的配置对象 },
+           ]
+         })
+      6. 准备规则中需要的组件配置对象
+      7. 准备路由出口 router-view
+    
+    2. 导航链接
+       router-link
+       (1) 实际渲染出来, 就是a标签
+       (2) 必须配置 to 属性, 指定跳转的路由地址
+
+    3. 导航高亮, 默认匹配后就会自动加上两个类名
+       .router-link-active 模糊匹配
+       .router-link-exact-active 精确匹配
+
+    4. 嵌套路由
+       children: [
+         { .... }
+       ]
+
+    5. 编程式导航, 通过js的方式 跳转路由
+       this.$router.push(路由地址)
+       this.$router === router === vm.$router
+
+    6. 动态路由匹配
+       { path: '/product/:id', component: Product  },
+       { path: '/user/:id', component: User  },
+
+       this.$route.params.id = 值
+
+    7. this.$route的参数
+       只要想拿当前路由相关的信息(路径, 参数) 一律找 this.$route
+       path 路径, 不包含查询参数
+       fullPath 完整路径, 包含查询参数
+       params 获取动态路由匹配的参数
+       query  获取查询参数, 解析好了, 成了一个对象
+
+
+   -->
+  
+</body>
+</html>

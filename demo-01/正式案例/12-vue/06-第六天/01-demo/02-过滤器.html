@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ msg1 | upper }}</h1>
+      <h1>{{ msg2 | upper }}</h1>
+      <hr>
+      <p>商品: {{ obj.name }}</p>
+      <p>价格: {{ obj.price | money }}</p>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 将来开发过程中, 肯定会有对于字符串进行处理的需求, 希望能够将字符串处理的过程进行封装
+      // vue中提供了一个专门的语法: 过滤器
+
+      // 1. 定义过滤器
+      //    Vue.filter(过滤器名字, 处理字符串的函数)
+      //    (1) 函数的返回值, 就是处理字符串的结果
+      //    (2) 函数的形参, 可以拿到处理的字符串
+      // 2. 使用过滤器
+      //    {{ msg | 过滤器名字 }}
+
+      Vue.filter('upper', function(value) {
+        return value.toUpperCase()
+      })
+
+      Vue.filter('money', function(value) {
+        return value + '元'
+      })
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg1: 'hellovue',
+          msg2: 'zhangsan',
+          obj: {
+            name: '苹果',
+            price: 8.8
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

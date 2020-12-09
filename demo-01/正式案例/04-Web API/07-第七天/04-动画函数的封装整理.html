@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+    }
+    p {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin-top: 300px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <button class="go400">去400</button>
+  <button class="go800">去800</button>
+  <div></div>
+  <!-- <p>123</p> -->
+  <script>
+    // 1. 匀速动画
+    // 2. 缓动动画
+    // 3. step为小数的问题 取整  如果是正值，向上取整  负值，向下取整
+    // 4. 开启多个定时器的问题
+    function animate(element, target) {
+      clearInterval(element.timer);
+      element.timer = setInterval(function() {
+        // 让元素动走一步
+        var current = element.offsetLeft;
+        var step = (target - current) / 10;
+        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        current += step;
+        element.style.left = current + 'px';
+        // 如果到达了终点，清除定时器
+        if (current === target) {
+          clearInterval(element.timer);
+        }
+      }, 16)
+    }
+
+    // 让盒子有动画的运动到400px
+    var go400 = document.querySelector('.go400');
+    var go800 = document.querySelector('.go800');
+    var div = document.querySelector('div');
+    var p = document.querySelector('p');
+    go400.onclick = function () {
+      animate(div, 400);
+    }
+
+    go800.onclick = function () {
+      animate(div, 800);
+    }
+  </script>
+</body>
+</html>

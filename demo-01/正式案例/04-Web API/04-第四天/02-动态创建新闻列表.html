@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 300px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+
+  </div>
+  <script>
+    // 假设这是后台给我们的数据，需要把这些数据动态的展示出来
+    var arr = [
+      '中国驻休斯敦总领馆:对侨胞的服务不会停止 撤离画面曝光',
+      '记者探访美国驻成都总领事馆：警方设置硬隔离123',
+      '外交部再回应蓬佩奥涉华言论 中拉关系经得起大风大浪567',
+      '林郑月娥:中央支持香港抗疫 有人借此散播谣言实在令人气愤',
+      '今年七月有个奇怪的天气现象:"空台" 白岩松连线专家解读',
+      '携手同心 打赢香港防疫攻坚战 人民锐评',
+      '谭德塞:蓬佩奥有关世卫组织的言论"完全不实"',
+      '世卫组织总干事:蓬佩奥指责是虚假的 没有任何根据',
+      '「网警说」考生和家长注意！警惕高考后的诈骗陷阱'
+    ];
+
+    // 思路：
+    // 1. 找到div
+    // 2. 创建一个ul，把ul添加到div中
+    // 3. 遍历数组，，数组中每条数据 对应一个 li
+    // 4. 创建li标签，，把li添加到ul中
+    // 5. 创建a标签，添加到li标签中， 设置a标签的内容
+
+
+
+
+
+
+
+
+
+
+
+    var div = document.querySelector('div');
+    var ul = document.createElement('ul');
+    div.appendChild(ul);
+    // 遍历数组
+    for (var i = 0; i < arr.length; i++) {
+      // 创建li标签，添加到ul中
+      var li = document.createElement('li');
+      ul.appendChild(li);
+
+      // 创建a标签，添加到li中
+      var a = document.createElement('a');
+      li.appendChild(a);
+
+      // 给a添加内容
+      a.innerText = arr[i];
+      a.href = '#';
+    }
+  </script>
+</body>
+
+</html>

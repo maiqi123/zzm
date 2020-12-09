@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="1.jpg" alt="图破了" title="哈哈哈" id="box">
+  <script>
+    // document: 文档
+    // get: 获取
+    // element: 元素
+    // by: 通过
+    // id: id
+    // 在文档中通过id获取元素
+
+    // 参数： 字符串，id值
+    var box = document.getElementById('box');
+    // 展示的就是标签的形式
+    // console.log(box);
+    // // 以对象的形式来展示
+    // console.dir(box);
+    // console.log(box.title);
+    box.title = '嘤嘤嘤';
+    box.src = '2.jpg';
+  </script>
+</body>
+</html>

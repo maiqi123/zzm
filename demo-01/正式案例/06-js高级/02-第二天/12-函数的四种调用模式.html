@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数的四种调用模式
+        //  1. 任何函数都有属于自己的this指向
+        //  2. 只有当函数调用的时候, this才能确定下来, 也就是说, 声明函数的时候, 是无法确定this的指向的.
+        //  3. 分析this指向的思路:
+        //      1. 看这个this是属于哪个函数的
+        //      2. 在这个函数是如何调用的.(这个就涉及到 函数的四种调用模式)
+
+
+        // 1. 函数调用模式
+        /*function fn(){
+            console.log(this);
+        }
+        // 函数名(); 调用写法属于函数调用模式, 函数内的this指向window
+        fn();*/
+
+        // 2. 构造函数调用模式
+        function Person(){
+            console.log(this);
+        }
+        // Person(); // window
+        // new 构造函数; 调用写法属于构造函数调用模式, 构造函数中的this指向新创建的实例对象
+        // var p = new Person();
+
+
+        // 3. 方法调用模式
+        /*var obj = {
+            fn: function () {
+                console.log(this);
+            }
+        }
+        // 对象.方法名(); 调用写法属于方法调用模式, 方法内的this指向调用方法的那个对象.
+        //          谁调用指向谁.
+        //          不论是点语法还是中括号语法, 都是属于方法调用模式.
+        obj.fn();
+        obj["fn"]();
+        // obj[fn](); // 这样fn会被当成变量去找这个变量的值.
+
+        var a = "fn";
+        obj[a](); // obj["fn"]()*/
+
+        // 练习题
+        function fn(){
+            console.log(this);
+        }
+
+        // var arr = [fn, 10, 20];
+        // 以下写法是属于方法调用模式
+        arr[0](); // arr   fn方法是被arr数组调用的, fn方法内的this指向arr
+
+        // 可以把数组arr如下去理解
+        /*var arr = {
+            a: fn,
+            b: 10, 
+            c: 20
+        }
+        arr.a();*/
+
+          // arr[0] ==> fn
+          // arr[0]() ==> fn(); this指向window 错误理解
+
+
+          // 4. 上下文调用模式 call  apply  bind
+    </script>
+</body>
+</html>

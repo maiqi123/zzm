@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      Math对象
+        属性
+          PI： 打印圆周率
+        方法：
+          Math.max() / Math.min()  求最大值、最小值
+          Math.ceil() / Math.floor() / Math.round() 取整
+          Math.abs()  取绝对值 
+          Math.random() 获取一个 0-1的随机数，取不到1   0-5  parseInt(Math.random() * 6)
+          Math.pow(2, 10); 求2的10次方  2 ** 10
+          Math.sqrt(9)  :  求开平方
+      
+      Date对象 日期
+        创建一个日期对象
+          var d = new Date();  创建的是一个当前的时间
+          var d = new Date('2020-01-01 12:00:00')
+        日期格式化
+          d.toString()
+          d.toLocaleString()
+          2020-07-07 12:00:00
+        获取日期的每一个部分
+          d.getFullYear()
+          d.getMonth() + 1
+          d.getDate()
+          d.getHours()
+          d.getMinutes()
+          d.getSeconds()
+        时间戳：1970年1月1日 距离现在所过的毫秒数
+          var d = new Date()
+          var d = new Date()
+          console.log(+d);
+          console.log(Date.now());
+          
+        数组Array
+          var r = [];
+
+          首尾增加删除： push() pop() unshift() shift()
+          翻转和排序：  reverse()  sort(function(a, b) { return a - b; })
+          拼接成字符串：join()默认以逗号分隔  join('-')
+    */
+    // console.log(2 ** 10);
+    // console.log(Math.sqrt(9));
+
+    var d = new Date()
+    console.log(+d);
+    console.log(Date.now());
+  </script>
+</body>
+</html>

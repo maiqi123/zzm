@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ajax请求获取到数据
+        
+        // 1.
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", "./03.php");
+        xhr.send(null);
+
+        xhr.onload = function () {
+            if(xhr.status === 200){
+                console.log(xhr.responseText); // JSON字符串
+
+                console.log( JSON.parse( xhr.responseText ) ); // js对象
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: "get",
+                url: "07.php",
+                // dataType: 预期服务器响应的数据类型  text json xml
+                // dataType: "json",
+                success: function (info) {
+                    // 形参data就是服务器响应的数据
+                    console.log("响应成功了", info); // info 是 json字符串
+                    // console.log( JSON.parse( info ) );
+
+                    // 如果指定了dataType为json, 那么获取到info就是个js对象, 都不用自己手动进行 JSON.parse();
+                },
+                error: function () {
+                    console.log("失败了");
+                }
+            })
+        })
+    </script>
+</body>
+</html>

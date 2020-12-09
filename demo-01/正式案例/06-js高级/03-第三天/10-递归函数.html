@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归函数
+        //  函数内部调用函数自己本身, 这个函数是个递归函数
+        //  注意点: 需要有结束递归的条件(出口)
+
+        var count = 0;
+        function fn(){
+            count++;
+            console.log("fn is ok");
+            
+            if(count < 5){
+                fn();
+            }
+        }
+
+        fn();
+    </script>
+</body>
+</html>

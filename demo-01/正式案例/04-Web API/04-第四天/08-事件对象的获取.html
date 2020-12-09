@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 10000px;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <input type="text"> -->
+  <div></div>
+  <script>
+    // 1. 其实任意的一个事件在触发的时候都会有事件对象。
+    // 2. 在事件处理函数中通过第一个参数就直接能够获取到事件对象
+    var input = document.querySelector('input');
+    var div = document.querySelector('div');
+    div.onclick = function (e) {
+      console.log(e);
+    }
+
+    // input.onkeyup = function(e) {
+    //   console.log(e);
+    // }
+
+    // 1. screenX 和 sceenY:  当前鼠标相对于屏幕的位置   不常用
+    // 2. clientX 和 clientY : 当前鼠标相对于 可视区的位置
+    // 3. pageX 和 pageY ： 相对于整个页面的位置，会受到滚动条的影响
+    document.body.onclick = function (e) {
+      console.log(e);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!-- 效果1 : 小写变成大写 -->
+<view>{{ name.toUpperCase() }}</view>
+<view>{{ tool.ml_case(name)  }}</view>
+<view wx:for='{{ tool.ml_slice(list) }}'>{{ item }}</view>
+
+<!-- 说明 : 小程序 提供了一个 wxs , js=> JavaScript wxs=>weixinScript -->
+<!-- wxs => 模仿 js 的 es5 语法  ★ -->
+
+<!-- 回忆 :  -->
+<!-- 回忆js : js 在 html 里面怎么用的 -->
+<!-- 1. <script src='./......js'></script>   外联-->
+<!-- 2. <script>
+        let num = 55
+      </script> -->
+
+<!-- 想象wxs : wxs 在 wxml 里面怎么用的 -->
+<!-- 1. <wxs src='./.wxs'></wxs> -->
+<!-- 2. <wxs>
+          var num = 55
+      </wxs> -->
+
+<!-- 演示1 : 外联 单独创建一个 .wxs 文件  -->
+<!-- <wxs module='tool' src='./common.wxs'></wxs> -->
+
+<!-- 演示2 : 内嵌 一个 <wxs> -->
+<wxs module='tool'>
+  function ml_case(str) {
+    return str.toUpperCase()
+  }
+
+  function ml_slice(arr) {
+    return arr.slice(0,3)
+  }
+
+  module.exports = {
+    ml_case : ml_case,
+    ml_slice : ml_slice
+  }
+</wxs>
+

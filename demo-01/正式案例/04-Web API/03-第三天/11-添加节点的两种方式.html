@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p>1</p>
+    <p>2</p>
+  </div>
+
+  <p class="p">3</p>
+  <script>
+    // 要给div添加节点
+    // 把child这个元素添加到 parent中 ，，添加到所有子元素的最后面
+    // 1. parent.appendChild(child)
+    // var box = document.querySelector('.box');
+    // var p = document.querySelector('.p');
+    // var span = document.querySelector('span');
+    // box.appendChild(p);
+    // box.appendChild(span);
+
+    // 把newChild添加到parent中哪个子节点前面
+    // 2. parent.insertBefore(newChild, refChild)
+    // 如果refChild指定为null，会添加到最后面
+    var box = document.querySelector('.box');
+    // var p = document.querySelector('.p');
+    // box.insertBefore(p, box.lastElementChild);
+
+
+
+    /* 
+      parent.appendChild(newChild) : 把newChild添加到 parent的子元素的最后面
+      parent.insertBefore(newChild, refChild): 把newChild添加到parent的refChild这个子元素的前面。
+
+      parent.insertBefore(newChild, parent.firstElementChild) 添加到子元素的最前面
+      parent.insertBefore(newChild, null) 添加到子元素的最后面
+    */
+
+  </script>
+</body>
+</html>

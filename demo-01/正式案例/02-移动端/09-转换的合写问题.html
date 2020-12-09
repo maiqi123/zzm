@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      margin: 200px auto;
+      /* 过渡 */
+      transition: 10s;
+    }
+
+    body:hover div {
+      /* transform: translateX(400px);
+      transform: rotate(360deg);
+      transform: scale(0.5); */
+
+      /* 
+        如果需要同时实现多种转换的效果，不要分开写，可以使用连写
+        属性名：transform
+        属性值：单个取值的合写，每一个取值之间以空格隔开
+
+       */
+      transform: translateX(400px) rotate(360deg) scale(0.5);
+
+      /* 
+        注意点：如果transform中的取值，如果第一个取值是rotate，会连带着坐标系一起旋转
+       */
+
+      /* transform: rotate(360deg) translateX(400px) scale(0.5); */
+    }
+
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

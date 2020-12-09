@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>姓名:aaa</li>
+    <li>性别:男</li>
+    <li>年龄:20</li>
+  </ul>
+  <script>
+    // ES6中的模板字符串的好处，是代替我们拼接字符串
+    var obj = {
+      name:'rose',
+      gender:'男',
+      age: 18
+    }
+
+    // var str = '<li>姓名:'+obj.name+'</li>'+
+    //   '<li>性别:'+obj.gender+'</li>'+
+    //   '<li>年龄:'+obj.age+'</li>';
+
+    var str = `<li>姓名:${obj.name}</li>
+        <li>性别:${obj.gender=='女'?'靓女':'靓仔'}</li>
+        <li>年龄:${obj.age+10}</li>`
+
+      document.querySelector('ul').innerHTML = str;
+  </script>
+</body>
+</html>

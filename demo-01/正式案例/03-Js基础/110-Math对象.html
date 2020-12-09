@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Math对象: 数学对象 里面存放了关于数学相关的一些属性和方法
+
+      // Math.PI
+      // console.log(Math.PI);
+
+      // Math.max()
+      // 作用: 求一组数的最大值
+      // 参数: 数值 可以是多个
+      // 返回值: 最大值
+      var max = Math.max(1, 2, 30, 4, 5, 6);
+      console.log(max);
+
+      // Math.min()
+      // 作用: 求一组数的最小值
+      // 参数: 数值
+      // 返回值: 最小值
+      var min = Math.min(1, 2, -30, 4, 5, 6);
+      console.log(min);
+
+      // 绝对值  => 永远是整数
+      // 后期可以用来求两个点的距离
+      console.log(Math.abs(-10));
+      console.log(Math.abs(10));
+
+      // 次幂和平方
+      // Math.pow(num, power);//求num的power次方
+      // Math.sqrt(num);//对num开平方
+
+      console.log(Math.pow(2, 10));
+      console.log(Math.sqrt(2));
+      console.log(Math.sqrt(3));
+      console.log(Math.sqrt(4));
+
+      // 取整
+      // parseInt()
+      // Math.ceil();//天花板，向上取整
+      // Math.floor();//地板，向下取整 最为常用的
+      // Math.round();//四舍五入，如果是.5，则取更大的那个数
+      console.log(Math.ceil(0.1));
+      console.log(Math.floor(0.9));
+      console.log(Math.round(0.5));
+    </script>
+  </body>
+</html>

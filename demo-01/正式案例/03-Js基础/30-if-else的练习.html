@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 输入一个数，判断是偶数还是奇数
+    // 2. 输入年龄，判断是否是小姐姐还是老阿姨 
+    // 3. 输入金钱和颜值，金钱超过10000 或者 颜值 8  判断能否找到女朋友
+
+    // var num = +prompt('请输入一个数字');
+    // if (num % 2 === 1) {
+    //   console.log('是奇数');
+    // } else {
+    //   console.log('是偶数');
+    // }
+
+
+    // var age = +prompt('请输入你的年龄');
+    // if (age >= 19) {
+    //   console.log('老阿姨');
+    // } else {
+    //   console.log('小姐姐');
+    // }
+
+    // var money = +prompt('请输入你的存款');
+    // var face = +prompt('请输入你的颜值');
+    // if (money >= 10000 || face >= 8) {
+    //   console.log('能找到女朋友');
+    // } else {
+    //   console.log('做一条单身狗');
+    // }
+
+    // isNaN
+    // 需求：输入工资 如果工资不是有效的数字， 提示：工资不想要了吗
+    var money = +prompt('请输入你的工资');
+    console.log(money);
+    if (isNaN(money)) {
+      console.log('工资不想要了吗');
+    } else {
+      console.log(money + 200);
+    }
+  </script>
+</body>
+</html>

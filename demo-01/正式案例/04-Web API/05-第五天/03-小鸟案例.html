@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: cyan;
+    }
+    img {
+      width: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .right {
+      transform: rotate(0deg);
+    }
+    .bottom {
+      transform: rotate(90deg);
+    }
+    .left {
+      transform: rotateY(180deg);
+    }
+     .top {
+      transform: rotate(270deg);
+    }
+  </style>
+</head>
+<body>
+  <img src="xn.png" alt="">
+  <script>
+    // 1. 找对象
+    // 2. 给document注册鼠标按下事件
+    // 3. 判断按下的是哪个键
+    var img = document.querySelector('img');
+    var x = 0;
+    var y = 0;
+    document.onkeydown = function (e) {
+      console.log(e.keyCode);
+      switch(e.keyCode) {
+        case 13:
+          img.style.display = 'block';
+          break;
+        case 27:
+          img.style.display = 'none';
+          break;
+        case 39:
+          // 右箭头
+          x += 10;
+          img.style.left = x + 'px';
+          img.className = 'right';
+          break;
+        case 37:
+          x -= 10;
+          if (x < 0) {
+            x = 0;
+          }
+          img.style.left = x + 'px';
+          img.className = 'left';
+          break;
+        case 40:
+          y += 10;
+          img.style.top = y + 'px';
+          img.className = 'bottom';
+          break;
+        case 38:
+          y -= 10;
+          img.style.top = y + 'px';
+          img.className = 'top';
+          break;
+      }
+    }
+  </script>
+</body>
+</html>

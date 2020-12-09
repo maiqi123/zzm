@@ -1,0 +1,22 @@
+<girls>
+    <girl>
+        <name>小白</name>
+        <age>19</age>
+        <address>沪</address>
+        <hobby>
+            <item>抽烟</item>
+            <item>喝酒</item>
+            <item>烫头</item>
+        </hobby>
+    </girl>
+    <girl>
+        <name>小黑</name>
+        <age>20</age>
+        <address>皖</address>
+        <hobby>
+            <item>读书</item>
+            <item>写代码</item>
+            <item>看电影</item>
+        </hobby>
+    </girl>
+</girls>

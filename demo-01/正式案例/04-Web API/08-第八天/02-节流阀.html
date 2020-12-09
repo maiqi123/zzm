@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>按钮</button>
+  <script>
+    // 函数防抖  函数节流
+    // 2秒钟最多能执行一次
+    var button = document.querySelector('button');
+    // 1. 定义一个变量，为true代表  可以触发点击事件
+    var flag = true;
+    button.onclick = function () {
+      // 2. 判断flag是否为true，如果是true，可以执行的。
+      if (flag) {
+        // 3. 把flag改成false
+        flag = false;
+        console.log('哈哈哈');
+        // 4. 2秒后把flag改成true
+        setTimeout(function() {
+          flag = true;
+        }, 1000);
+      }
+    }
+
+
+    /* 
+      1. 定义一个标记  flag = true   代表可以执行操作。
+      2. 判断标记是否为true,,,如果为true代表可以执行，如果为false，不能执行
+      3. 如果为true，首先把flag改成false, 执行操作。
+      4. 操作完成了，把标记重新改成true
+    */
+  </script>
+</body>
+</html>

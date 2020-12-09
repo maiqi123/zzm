@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img {
+      width: 300px;
+      height: 300px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button title="1">第1张</button>
+  <button title="2">第2张</button>
+  <button title="3">第3张</button>
+  <button title="4">第4张</button>
+  <button title="5">第5张</button>
+  <button title="6">第6张</button>
+  <img id="img" src="images/1.jpg" alt="">
+  <script>
+    // 1. 找对象
+    var btns = document.getElementsByTagName('button');
+    var img = document.getElementById('img');
+    // 2. 给所有的按钮注册点击事件
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].onclick = function() {
+        // console.log('123')
+        console.log(this.title);
+        img.src = 'images/'+ this.title +'.jpg';
+      }
+    }
+  </script>
+</body>
+</html>

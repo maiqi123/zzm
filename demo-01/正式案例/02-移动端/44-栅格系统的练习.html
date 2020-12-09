@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <style>
+    .container {
+      border: 1px solid #000;
+    }
+
+    .item {
+      height: 100px;
+      border: 1px solid red;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- 
+    需求:  响应式布局容器中一共有 12 个div
+      如果是大屏幕设备, 每行放 6 个 div,  共两行
+      如果是中屏设备,   每行放 4 个 div,  共三行
+      如果是小屏设备,   每行放 3 个 div,  共四行
+      如果是超小屏设备, 每行放 2 个 div,  共六行
+
+    .col-取值1-取值2
+      lg：大屏及以上生效
+      md：中屏及以上生效
+      sm：小屏及以上生效
+      xs：所有屏幕都生效
+  -->
+  <div class="container">
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+    <div class="item col-lg-2 col-md-3 col-sm-4 col-xs-6"></div>
+  </div>
+</body>
+</html>

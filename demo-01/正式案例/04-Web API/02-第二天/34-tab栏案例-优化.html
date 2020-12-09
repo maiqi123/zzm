@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tab {
+      width: 600px;
+      height: 400px;
+      /* background-color: pink; */
+      margin: 100px auto;
+    }
+    .title {
+      height: 50px;
+    }
+    .title ul{
+      display: flex;
+    }
+    .title li {
+      flex: 1;
+      text-align: center;
+      line-height: 50px;
+      background-color: yellowgreen;
+    }
+    .title li.active {
+      background-color: pink;
+    }
+    .content {
+      height: 350px;
+    }
+    .content div {
+      width: 100%;
+      height: 100%;
+      background-color: #ccc;
+      display: none;
+    }
+    .content div.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab">
+    <div class="title">
+      <ul>
+        <li class="active">手机</li>
+        <li>电脑</li>
+        <li>家居</li>
+        <li>衣服</li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="show">好多手机</div>
+      <div>好多电脑</div>
+      <div>好多家居</div>
+      <div>好多衣服</div>
+    </div>
+  </div>
+
+  <script>
+    // 1. 找对象
+    // 2. 给所有的li注册点击事件
+    // 3. 点击的元素需要高亮，需要排他
+    var lis = document.querySelectorAll('.title li');
+    var divs = document.querySelectorAll('.content div');
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].title = i;
+      lis[i].onclick = function () {
+        // 3.1 先干掉所有人
+        for (var i = 0; i < lis.length; i++) {
+          lis[i].className = '';
+          divs[i].className = ''
+        }
+        // 3.2 给自己（li) 以及对应的div添加样式
+        this.className = 'active';
+        divs[this.title].className = 'show';
+      }
+    }
+  </script>
+</body>
+</html>

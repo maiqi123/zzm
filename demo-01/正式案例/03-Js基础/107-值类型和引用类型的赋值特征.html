@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 值类型的赋值： 因为变量存储的是值本身，所以赋值的时候，也是把值复制一份进行赋值。
+    // 引用类型的赋值：变量存储的仅仅是对象的地址，所以赋值的时候，也是把地址复制一份进行赋值。对象只有一份。
+    // var num = 11;
+    // var num2 = num;
+    // num = 22;
+    // console.log(num); // 22
+    // console.log(num2);// 11
+
+
+    // var obj = {
+    //   name: 'zs',
+    //   age: 18
+    // }
+    // var obj2 = obj;
+
+    // obj2.name = 'ls';
+
+    // console.log(obj.name); // ls  zs
+    // console.log(obj2.name);// ls
+
+
+    var obj = {
+      name: 'zs',
+      age: 18
+    }
+
+    var obj2 = obj;
+
+    obj2 = {
+      name: 'ls'
+    }
+
+    obj2.name = 'ww';
+
+    console.log(obj.name); // zs
+    console.log(obj2.name); // ww
+
+
+  </script>
+</body>
+</html>

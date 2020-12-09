@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 组合继承:
+      //  原型链继承 + 借用构造函数继承
+      //  原型链继承 ==> 实例对象可以继承到原型对象上的成员
+      //  借用构造函数继承 ==> 继承到构造函数中的成员.
+
+      function Person(name, age, gender) {
+        this.name = name
+        this.age = age
+        this.gender = gender
+      }
+
+      Person.prototype.sayHi = function () {
+        console.log('hello, 我是' + this.name)
+      }
+
+      function Chinese(name, age, gender, skin) {
+        // 借用构造函数继承
+        Person.call(this, name, age, gender)
+        this.skin = skin
+      }
+
+      // 原型链继承 ==> 原型替换的写法
+      // Chinese.prototype = Person.prototype;
+
+      // 优化后达到的目标
+      // 1. xm照样可以使用Person.prototype原型上的sayHi方法
+      // 2. 修改Chinese的原型不会影响到Person的原型
+
+      // 思路: 让Person.prototype出现在xm的原型链上.
+      /*var p = new Person();
+        Chinese.prototype = p;*/
+
+      Chinese.prototype = new Person()
+
+      // xm的原型链:
+      //  xm ==> Chinese.prototype (本质上p) ==> Person.prototype ==> Object.prototype ==> null;
+
+      var xm = new Chinese('小明', 20, 'male', '黄')
+      // console.log(xm);
+      xm.sayHi()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        action: 提交数据的地址
+        name: 后端可以根据name属性值来获取到对应的数据
+        input:submit 提交功能
+        method: 提交的方式 get默认值   post
+    -->
+    <form action="./05.php" method="post">
+        <input type="text" placeholder="用户名" name="username">
+        <input type="password" placeholder="密码" name="pwd">
+        <input type="submit" value="提交">
+    </form>
+
+    <script>
+        // 表单处理 - 登录功能
+
+        // get post提交表单数据的区别:
+        // get方式: 
+        //  1. 会把发送的数据放到地址栏中, 这样不安全, 会显示出敏感信息
+        //  2. 数据放到地址栏中, 地址栏中字符有长度限制, 使用get方式提交数据,是有大小限制
+        // post方式: 
+        //  1. 不会把发送的数据放到地址栏中, post方式提交数据比get方式更安全些.
+        //  2. post方式来提交数据, 是没有大小限制.  请求体
+
+        // get   获取服务器的数据(用户头像/昵称)
+        // post  向服务器提交数据(注册的时候, 提交用户头像/昵称/密码)
+    </script>
+</body>
+</html>

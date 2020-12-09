@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      every : 每个都 ， 判断数组项中，是否都满足条件
+            遍历 + 判断 （全部满足条件）
+      返回值： 布尔值
+       */
+
+      var list = [
+        { id: 1, name: '吃饭', done: true },
+        { id: 2, name: '睡觉', done: true },
+        { id: 3, name: '打豆豆do', done: false },
+      ]
+      // 需求1：判断数组中 done 是否全为 true
+      // var b = list.every(function (item) {
+      //   return item.done === true
+      // })
+      // console.log(b)
+      // 需求2：判断 是否所有name 长度都小于 等于3
+      var b = list.every(function (item) {
+        return item.name.length <= 3
+      })
+      console.log(b)
+    </script>
+  </body>
+</html>

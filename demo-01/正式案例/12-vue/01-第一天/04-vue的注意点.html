@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<div id="main">
+  <h1>{{ money }}</h1>
+
+  <div id="box">
+    {{ info }}
+  </div>
+  
+  <div id="box2">
+    {{ info }}
+  </div>
+</div>
+
+
+<script src="./vue.js"></script>
+<script>
+
+  // 创建vue实例
+  const vm = new Vue({
+    el: '#main',
+    data: {
+      info: '无敌大帅鹏~',
+      money: 10000
+    }
+  })
+
+  // vue在实例化的过程中, 会将data中定义的所有数据, 会直接添加到 vm 实例身上
+  console.log(vm.info)
+  console.log(vm.money)
+
+
+  /* 
+    vue的初学注意点:
+      1. 请注意, 是首字母大写的 Vue 构造函数
+      2. el 不能指定成 body 或者 html, 但是可以是一个大的div
+      3. 到了vue, 不要老想着操作dom了, 要更新视图, 操作数据即可
+         vm.xxx = 值
+  
+  */
+
+
+</script>
+  
+</body>
+</html>

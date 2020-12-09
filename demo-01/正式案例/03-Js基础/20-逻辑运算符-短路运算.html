@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // false 0 '' null undefined NaN
+    // && :  短路与   && 遇到了假值就会短路
+    // || ： 短路或   || 遇到了真值就会短路
+
+    // 2 > 1 || console.log('我会执行吗');
+    // 1 < 2 && console.log('我会执行吗');
+
+    // var result = true && true;
+    // console.log(result);
+
+    // var result = false && 'abc';
+    // console.log(result);
+    
+    // var result = true || '123';
+    // console.log(result);
+
+    // 假值：false 0 '' undefined null NaN   
+    // var result = 'abc' && 'bcd';
+    // console.log(result);
+
+    // console.log('abc' || 'bcd');
+
+    // console.log(null || 'bcd');
+
+    // console.log(null && 'abc');
+
+    // console.log(false && false);
+
+    // console.log(true && false);
+
+    console.log('abc' || 'bcd'); // abc
+
+    console.log('abc' && undefined); // undefined
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    div {
+      width: 100px;
+      height: 90px;
+      background-color: pink;
+      border-top: 10px solid lime;
+      border-radius: 10px 10px 0 0;
+      position: absolute;
+      left: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <button>奔跑吧，飞飞</button>
+  <div></div>
+  <script>
+    var button = document.querySelector('button');
+    var div = document.querySelector('div');
+    button.onclick = function () {
+      var timer = setInterval(function () {
+          // 先获取到div原来的位置
+          console.log('123');
+          var current = div.offsetLeft;
+          if (current < 800) {
+            current += 10;
+            div.style.left = current + 'px';
+          } else {
+            // 清理定时器
+            clearInterval(timer);
+          }
+        },
+        16);
+    }
+  </script>
+</body>
+
+</html>

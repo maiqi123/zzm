@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    // 3
+    var length = 10;
+
+    function fn() {
+        console.log(this.length);
+    }
+
+    var obj = {
+        length: 5,
+        method: function(fn) {
+            // 函数调用模式 
+            fn(); // fn内的this指向window
+
+            // arguments ==> 有所有的实参 类似于 [fn, 10, 5]
+            // 方法调用模式. fn方法是被arguments调用的. fn内的this指向arguments
+            // 就是打印arguments的length , 就是伪数组长度,既实参的个数
+            // console.log(arguments);
+            arguments[0]();
+        },
+    };
+
+    obj.method(fn, 10, 5);
+    // 10 3
+
+    // arguments 是个伪数组(有length) 里面有函数调用传递的所有的实参
+    /*function add(n1){
+        // console.log(n1);
+        console.log(arguments);
+    }
+    add(10, 20, 30, 40, 50, 6, 1);*/
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      filter ：删除数组 项 (要删除谁，条件里面 就不等于谁)
+       */
+
+      var list = [
+        { id: 1, name: '张三' },
+        { id: 2, name: '李四' },
+        { id: 3, name: '王五' },
+        { id: 4, name: '赵六' },
+      ]
+      // 需求：删除id 为2 的数组项。
+      list = list.filter(function (item) {
+        return item.id != 2
+      })
+      console.log(list)
+    </script>
+  </body>
+</html>

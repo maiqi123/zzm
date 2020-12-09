@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+  // 兼容 IE 678 jquery
+  // 目前稳定版: vue 2.6.12, 实现双向数据绑定, 原理 => Object.defineProperty (es5)  兼容IE9+
+  // 将来 vue3.0, 原理 => proxy代理 (es6)   兼容IE11+, 不兼容 IE 6 7 8 9 10
+  // proxy 代理
+  // Proxy这个词的原意是代理， 可以理解成在目标对象之前设置一层拦截，
+  // 外界对该对象的访问，都必须先通过这层拦截。
+  const data = {
+    name: 'zs',
+    age: 18,
+    desc: '不错'
+  }
+
+  // data => 代理的目标对象
+  // obj  => 代理对象
+  const obj = new Proxy(data, {
+    // 1. target: 代理的目标对象 => data
+    // 2. key: 键, 属性名
+    get (target, key) {
+      // console.log(target === data) // true
+      console.log('get操作')
+      return target[key]
+    },
+    set (target, key, value) {
+      console.log('set操作')
+      target[key] = value
+    }
+  })
+
+  // 将来代理过了后, 无论是设置操作, 还是获取操作, 都找代理对象 obj
+  // console.log(obj.name)
+  // console.log(obj.age)
+  
+  // obj.age = 18
+  // obj.name = 'zs'
+
+  // 动态的新增一个属性
+  obj.info = '个人信息'
+  obj.info = '嘎嘎'
+
+  console.log(obj.info)
+
+
+
+</script>
+  
+</body>
+</html>

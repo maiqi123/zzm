@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则的优先级
+        //  或者 |   优先级最低
+        //  分组 ()   优先级最高
+
+        // 需求: 匹配a或者b或者c
+        // console.log(/a|b|c/.test("def"));
+        // console.log(/a|b|c/.test("deb1f"));
+
+        // | 优先级最低 |的左右两边都是个单独的整体
+        // 匹配 f 或者是 boot
+        // console.log( /f|boot/.test("f") );  // true
+        // console.log( /f|boot/.test("foo") ); // true
+        // console.log( /f|boot/.test("oot") ); //  false
+        // console.log( /f|boot/.test("boot") ); // true
+        // console.log( /f|boot/.test("foot") ); // true
+
+        // () 优先级最高
+        // (f|b) ==> f 或者是b
+        // 匹配foot 或者是 boot
+        console.log( /(f|b)oot/.test("f") );  // false
+        console.log( /(f|b)oot/.test("foo") ); // false 
+        console.log( /(f|b)oot/.test("oot") ); //  false
+        console.log( /(f|b)oot/.test("boot") ); // true
+        console.log( /(f|b)oot/.test("foot") ); // true
+    </script>
+</body>
+</html>

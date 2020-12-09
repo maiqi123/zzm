@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 封装一个函数 计算1-n之间所有数的和
+    // 牛奶 10
+
+    function getSum(n) {
+      var sum = 0;
+      for(var i = 1; i <= n; i++) {
+        sum += i;
+      }
+      // console.log(sum);
+      // 函数执行完返回一个sum的值
+      return sum;
+    }
+    var sum = getSum(10) + getSum(100);
+    console.log(sum);
+    // var result = getSum(100);
+    // console.log(result)
+    // console.log(result);
+    // console.log(result + 100)
+
+
+    // getSum(10);
+
+    // 计算1-10之间所有的和  +  1-100之间所有的和
+    // getSum(10);
+    // getSum(100);
+
+    // getSum(10) + getSum(100)
+    // var sum = getSum(10) + getSum(100);
+    // console.log(sum);
+  </script>
+</body>
+</html>

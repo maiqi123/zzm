@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      filter  遍历数组，返回符合条件的新数组。(return 是返回新数组项的条件， return值 为true 才会被返回。)
+              遍历 + 过滤
+      返回值： 返回新数组 (新数组长度 和原数组长度 ，可能不一样)
+       */
+      // var arr = ['张三', '李四', '王五', '赵六']
+      // arr = arr.filter(function (item) {
+      //   return item === '张三'
+      // })
+      // console.log(arr)
+
+      var list = [
+        { id: 1, name: '张三' },
+        { id: 2, name: '李四' },
+        { id: 3, name: '王五' },
+        { id: 4, name: '赵六' },
+      ]
+      // 需求1： id > 1 的 数据 返回新数组。
+
+      list = list.filter(function (item) {
+        return item.id > 1
+      })
+      console.log(list)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      插值表达式, 小胡子语法 {{ }}
+      1. 作用: 可以使用data中的数据, 去渲染视图
+
+      2. 语法:
+         {{ msg }}
+         {{ obj.name }}
+         {{ msg.toUpperCase() }}
+         支持三元运算符 ? :
+
+      3. 注意点:
+         (1) 插值表达式中使用的变量, 要在data中存在
+         (2) 不要在插值表达式中, 使用 js 语句, 比如: if for    后面会学习指令: v-if v-for
+         (3) 不要在标签属性上, 使用插值表达式   后面会学习 v-bind
+     -->
+
+    <div id="app">
+      <h1>{{ info }}</h1>
+      <h1>{{ obj.name }}</h1>
+      <h1>{{ obj.age }}</h1>
+      <h1>{{ obj.desc }}</h1>
+      <h1>{{ msg.toUpperCase() }}</h1>
+
+      <h1>{{ obj.age >= 18 ? '成年' : '未成年' }}</h1>
+
+      <!-- (1) 插值表达式中使用的变量, 要在data中存在 -->
+      <!-- <h1>{{ gaga }}</h1> -->
+
+      <!-- (2) 不要在插值表达式中, 使用 js 语句, 比如: if for    后面会学习指令: v-if v-for -->
+      <!-- <h1>{{ if (obj.age > 18 ) { }   }}</h1> -->
+
+      <!-- (3) 不要在标签属性上, 使用插值表达式   后面会学习 v-bind -->
+      <!-- <h1 id="box" class="box" title="{{ msg }}"></h1> -->
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          info: '小李是一个好人',
+          obj: {
+            name: '翠花',
+            age: 2,
+            desc: '美若如花'
+          }
+        }
+      })
+
+
+      // 代码段红 没问题, 直接粘进去用
+      // const 和 let 的问题
+
+      // 规范:
+      // const 为主, 能用 const 的地方, 都用 const, const 更加稳定!
+      // 用const声明的对象或者数组, 只要不修改地址, 可以更新内部的内容的
+      // const obj = {
+      //   name: 'zs',
+      //   age: 18
+      // }
+
+      // 100行代码...
+      // obj.name = 'ls'
+      // 100 行代码之后
+      // ....
+      // console.log(obj.name)
+
+      // 如果明确下面, 要修改到他了, 再用 let, 正常都用 const
+
+
+
+
+
+    </script>
+  </body>
+</html>

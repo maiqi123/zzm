@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">哈哈</div>
+    <div>哈哈</div>
+    <div>哈哈</div>
+    <div>哈哈</div>
+    <div>哈哈</div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // jQuery 对象与 DOM 对象转换
+
+            var box = document.querySelectorAll("div");
+
+            // box.text(); // error
+
+            // box这个DOM对象无法直接来使用jQ的方法, 将box转成jQ对象
+            // DOM对象 ==> 转成  jQ对象 
+            // 做法: $(DOM对象)  整体就是个jQ对象
+
+            // $(box).text("嘻嘻"); // ok
+
+          
+            // $("div").style.color = "lime"; // error
+
+            // jQ对象转成DOM对象, 这样jQ对象就可以使用DOM对象的属性和方法了
+            $("div")[0].style.color = "lime"; // 把下标为0的第一个div设置style样式
+
+            // 注意点:
+            //  1. 两者对象之间不用混用, 只能使用各自的属性和方法
+            //  2. 转换:
+            //      DOM对象 ==> jQ对象   $(dom对象)
+            //      jQ对象  ==> DOM对象  使用下标取出来对应的DOM对象即可
+        })
+    </script>
+</body>
+</html>
+

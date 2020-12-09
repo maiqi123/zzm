@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 匹配有规律规则的表达式
+
+        // 1. 通过构造函数来创建  RegExp
+        var reg = new RegExp(/a/); // 匹配含有字母a
+
+        // 正则有test方法, 测试字符串是否有符合正则的规律规则
+        //  符合返回true, 否则返回false
+        console.log(reg.test("abc")); // true
+        console.log(reg.test("123")); // false
+
+        // 2. 正则的字面量
+        var reg2 = /abc/; // 匹配含有abc字符
+        console.log(reg2.test("abcdef11"));// true
+        console.log(reg2.test("acdef"));// false
+    </script>
+</body>
+</html>

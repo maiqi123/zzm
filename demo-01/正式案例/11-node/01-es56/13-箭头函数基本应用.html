@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      普通函数函数：
+        一、具名函数
+          function fn() {
+            console.log('fn')
+          }
+        二、匿名函数（常伴随函数表达式出现）
+          let fn1 = function () {
+            console.log('fn')
+          }
+      箭头函数：
+          () => {}
+
+      步骤：
+        具名函数： 转换成函数表达式， 右边变匿名函数。
+        匿名函数： 删掉function,   () 后面加个 =>
+       */
+      // function fn() {
+      //   console.log('fn')
+      // }
+      // 函数表达式
+      // let fn1 = function () {
+      //   console.log('fn')
+      // }
+
+      // 转换 成箭头函数的方法：
+
+      // function fn() {
+      //   console.log('fn')
+      // }
+      // 1、具名函数转换成函数表达式， （等号右边会成为一个匿名函数）
+      // let fn = function () {
+      //   console.log('fn')
+      // }
+
+      // 2、匿名函数转箭头函数
+      let fn = () => {
+        console.log('fn!!!!!!')
+      }
+      fn()
+    </script>
+  </body>
+</html>

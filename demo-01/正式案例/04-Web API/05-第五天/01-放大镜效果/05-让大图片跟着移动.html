@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8" />
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 350px;
+      height: 350px;
+      margin: 100px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    .big {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: 0;
+      left: 360px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      display: none;
+    }
+
+    .mask {
+      width: 175px;
+      height: 175px;
+      background: rgba(255, 255, 0, 0.4);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      cursor: move;
+      display: none;
+    }
+
+    .small {
+      position: relative;
+    }
+
+    .box img {
+      vertical-align: top;
+    }
+
+    #bigBox img {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box">
+    <div id="smallBox" class="small">
+      <img src="images/001.jpg" width="350" alt="" />
+      <div id="mask" class="mask"></div>
+    </div>
+    <div id="bigBox" class="big">
+      <img src="images/0001.jpg" class="bigImg" width="800" alt="" />
+    </div>
+  </div>
+
+  <!--  
+      1. 找对象
+      2. 给smallbox注册鼠标移入事件， 显示mask 和显示 大盒子
+      3. 给smallbox注册鼠标移出事件， 隐藏mask和 隐藏 大盒子
+      4. 给smallbox注册鼠标移动事件。让mask跟着鼠标移动
+      5. 限制mask的移动范围
+      6. 让大图片等比例的跟着移动  x/y = a/b  
+     -->
+
+  <script>
+    var box = document.querySelector('#box');
+    var smallBox = document.querySelector('#smallBox');
+    var mask = document.querySelector('#mask');
+    var bigBox = document.querySelector('#bigBox');
+    var bigImg = document.querySelector('.bigImg');
+
+    smallBox.onmouseover = function () {
+      mask.style.display = 'block';
+      bigBox.style.display = 'block';
+    }
+
+    smallBox.onmouseout = function () {
+      mask.style.display = 'none';
+      bigBox.style.display = 'none';
+    }
+
+    //  4. 给smallbox注册鼠标移动事件。让mask跟着鼠标移动
+    smallBox.onmousemove = function (e) {
+
+      var x = e.pageX - box.offsetLeft - mask.offsetWidth / 2;
+      var y = e.pageY - box.offsetTop - mask.offsetHeight / 2;
+      // console.log(x, y);
+      // x 和 y会算出来有 负数
+      // if (x < 0) {
+      //   x = 0;
+      // }
+      // x = Math.max(x, 0);
+      // 如果x超出了最大移动的距离，等于最大的移动距离
+      // if (x > smallBox.offsetWidth - mask.offsetWidth) {
+      //   x = smallBox.offsetWidth - mask.offsetWidth;
+      // }
+      // 花里胡哨
+      x = Math.min(Math.max(x, 0), smallBox.offsetWidth - mask.offsetWidth);
+
+      // if (y < 0) {
+      //   y = 0;
+      // }
+      y = Math.max(y, 0);
+      // if (y > smallBox.offsetHeight - mask.offsetHeight) {
+      //   y = smallBox.offsetHeight - mask.offsetHeight;
+      // }
+      y = Math.min(y, smallBox.offsetHeight - mask.offsetHeight);
+      mask.style.left = x + 'px';
+      mask.style.top = y + 'px';
+
+
+      // mask当前移动的距离/ mask能移动的总距离 = 大图片需要移动的距离 / 大图片能移动的总距离
+      bigImg.style.left = -x / (smallBox.offsetWidth - mask.offsetWidth) * (bigImg.offsetWidth - bigBox.offsetWidth) +
+        'px';
+      bigImg.style.top = -y / (smallBox.offsetHeight - mask.offsetHeight) * (bigImg.offsetHeight - bigBox
+        .offsetHeight) + 'px';
+    }
+
+
+
+    /* 
+      我总共能吃10个包子
+      徐燕能吃100个包子
+
+      我吃完5个包子的时候  徐燕得吃完50个包子
+
+      我当前吃完的包子数        需要当前要吃完的包子数
+      ----------------   =    --------------------
+      我能吃的总包子数          徐燕能吃的总包子数
+
+      我总共能吃 8个    徐燕总共能吃 30个
+
+      我吃完第2个的时候，  他要吃完多少
+      2/8 = x/30
+      x = 30/4
+    */
+  </script>
+</body>
+
+</html>

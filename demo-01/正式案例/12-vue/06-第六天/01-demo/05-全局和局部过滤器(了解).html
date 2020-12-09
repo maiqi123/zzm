@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ msg | global | demo }}</h1>
+    </div>
+
+    <div id="app2">
+      <h1>{{ msg | global | demo }}</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 全局过滤器: 在所有的vue实例中, 都可以使用  (组件也是vue实例)
+      // 局部过滤器: 只能在当前的vue实例中, 使用
+      Vue.filter('global', function (value) {
+        return value + '_global'
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+        },
+        filters: {
+          // 过滤器名字: 处理函数
+          demo: function (value) {
+            return value + '_demo'
+          },
+        },
+      })
+      const vm2 = new Vue({
+        el: '#app2',
+        data: {
+          msg: 'hello vue2',
+        },
+      })
+    </script>
+  </body>
+</html>

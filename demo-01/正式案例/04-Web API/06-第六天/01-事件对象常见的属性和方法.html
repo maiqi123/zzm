@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="http://www.baidu.com">百度一下</a>
+  <div>123</div>
+  <form action="/aa">
+    <input type="text" placeholder="请输入用户名">
+    <input type="text" placeholder="请输入密码">
+    <button>登录</button>
+  </form>
+  <script>
+    // 1. 事件对象如何获取? 通过事件函数的参数获取
+    // 2. 事件对象的作用
+    // 2.1 获取鼠标的位置  screenX screenY clientX clientY pageX pageY
+    // 2.2 获取键盘码    e.keyCode
+    // 2.3 获取事件的触发元素 e.target
+    // 2.4 阻止事件传播 e.stopPropagation()
+    // 2.5 阻止浏览器默认行为：  e.preventDefault()
+    // a链接点了要跳转  表单点了会提交
+
+
+    // document.onclick = function (e) {
+    //   console.log(e.target);
+    // }
+
+    // document.addEventListener('click', function(e) {
+    //   console.log(e);
+    // })
+
+    // var link = document.querySelector('a');
+    // link.addEventListener('click', function(e) {
+    //   e.preventDefault();
+    //   console.log('哈哈哈');
+    //   return false;
+    // })
+    // link.onclick = function (e) {
+    //   // 想要阻止跳转 使用return false就可以， return false不是标准的写法
+    //   e.preventDefault();
+    //   console.log('哈哈');
+    //   // return false;
+    // }
+
+    var button = document.querySelector('button');
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log('表单校验');
+    })
+  </script>
+</body>
+
+</html>

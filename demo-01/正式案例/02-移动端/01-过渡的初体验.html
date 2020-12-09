@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+
+      /* 
+        如果需要让元素的样式慢慢的变化——》过渡
+          属性名：transition
+          属性值：时间（秒：s）
+
+        注意点：
+          1、过渡属性给需要过渡的元素本身设置
+          2、如果需要看到过渡的效果，需要两个状态的样式不同才行
+              默认状态：200px
+              hover状态：800px
+            大部分样式只要设置的两个状态样式不同，会有过渡的效果。但是存在特殊的情况
+          3、transition属性给不同状态设置时，效果是不同：
+              默认状态：移入有过渡，移出也是有过渡
+              hover状态：移入有过渡，移出没有过渡效果
+       */
+    }
+
+    div:hover {
+      transition: 1s;
+      width: 800px;
+      /* background-color: yellow; */
+    }
+
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

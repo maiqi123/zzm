@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            padding: 20px;
+            border: 5px solid #000;
+        }
+        p{
+            background-color: #f99;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="create">创建p添加到div内</button><br><br>
+
+    <div>
+        <p>哈哈</p>
+    </div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 1. 注册简单事件
+            // .click(function(){})
+            // .mouseenter(function(){})
+            // 不支持动态绑定: 动态创建出来的元素, 没有注册上事件
+
+            $("p").click(function () {
+                alert("哈哈")
+            })
+
+            // 创建的部分
+            $("#create").click(function() {
+                $("<p>这是新建的p的内容</p>").appendTo( $("div") );
+            });
+        })
+    </script>
+</body>
+</html>

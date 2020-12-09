@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 如何交换两个变量
+    // var n1 = 10;
+    // var n2 = 20;
+    // // var temp = n1;
+    // // n1 = n2;
+    // // n2 = temp;
+    // var temp = n2;
+    // n2 = n1;
+    // n1 = temp;
+    // console.log(n1, n2);
+
+    // 2. 给定一个数组，如果把数组中最大的数放到数组的最后面。
+    // 2.1 遍历数组
+    // 2.2 让相邻的两个元素比较 arr[i] arr[i+1] 进行比较
+    // 2.3 如果前一项比后一项大，两个值进行交换。
+    var arr = [65, 97, 76, 13, 27, 49, 58];
+    for (var i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        var temp = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = temp;
+      }
+    }
+    console.log(arr);
+
+  </script>
+</body>
+</html>

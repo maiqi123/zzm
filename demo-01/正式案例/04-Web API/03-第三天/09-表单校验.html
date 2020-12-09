@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <input type="text" class="username" placeholder="请输入用户名"> 
+    <span></span>
+  </div>
+  <div>
+    <input type="text" placeholder="请输入密码"> <span></span>
+  </div>
+
+  <script>
+    // 用户名长度 6-12位
+    // 1. 找对象
+    // 2. 需要给input框注册  onkeydown: 当键盘按下的时候触发  onkeyup: 当键盘弹起的时候触发
+    // 3. 判断用户名的长度，如果是6-12位，提示成功的消息  否则提示错误的消息
+    var username = document.querySelector('.username');
+    // username.onkeydown = function () {
+    //   console.log('键盘按下', this.value);
+    // }
+    username.onkeyup = function () {
+      var next = this.nextElementSibling
+      if (this.value.length >= 3 && this.value.length <= 6) {
+        // 通过
+        next.innerText = '√';
+        next.style.color = 'green';
+      } else {
+        next.innerText = '用户名长度3-6位';
+        next.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>

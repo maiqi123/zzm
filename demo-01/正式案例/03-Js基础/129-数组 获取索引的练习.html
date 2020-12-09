@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 判断数组['a', 'b', 'c', 'd', 'a', 'b']中是否包含'a'
+    // var arr = ['a', 'b', 'c', 'd', 'a', 'b'];
+    // if (arr.indexOf('e') === -1) {
+    //   console.log('不包含');
+    // } else {
+    //   console.log('包含');
+    // }
+
+
+    // 2. 数组去重： ["c", "a", "z", "a", "x", "a", "a", "z", "c", "x", "a", "x"]
+    // ["c", "a", "z", "a", "x", "a", "a", "z", "c", "x", "a", "x"]
+    // ['c', 'a', 'z', 'x']
+
+    // 2.1 准备一个新的数组
+    // 2.2 遍历原来的数组，判断每一个值在新数组中是否存在  indexOf()
+    // 2.3 如果这个值在新数组中不存在，把这个值存放到新数组中 push()
+    var arr = ["c", "a", "z", "a", "x", "a", "a", "z", "c", "x", "a", "x"];
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      // console.log(arr[i]);
+      if (newArr.indexOf(arr[i]) === -1) {
+        newArr.push(arr[i]);
+      }
+    }
+    console.log(newArr);
+  </script>
+</body>
+</html>

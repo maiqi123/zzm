@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+
+  // Object.defineProperty 可以劫持(修饰)对象的某个属性
+  // 作用: 将来对象的这个属性的获取, 还是设置, 都能被劫持, 做你需要做的事情
+
+  const obj = {
+    name: '小红红',
+    age: 80,
+    desc: '不错, 还可以, 毅哥最爱'
+  }
+
+  // 在劫持前, 将初始值, 存到了 temp 中
+  let temp = obj.age
+
+  // Object.defineProperty(对象名, 属性名, 配置对象)
+  Object.defineProperty(obj, 'age', {
+    // 一旦配置了get函数, 那么只要进行obj.age的获取, 都会被劫持     obj.age
+    // 会执行 get 函数, 将 get 函数的 return 的返回值, 作为结果返回
+    get () {
+      console.log('你进行了红红的年纪的获取, 被我发现了~')
+      return temp
+    },
+    // 一旦配置了set函数, 那么只要进行obj.age的设置, 都会被劫持     obj.age = xxx
+    // 会执行 set 函数
+    set (value) {
+      // 应该进行的是设置操作
+      // console.log(value)
+      console.log('帅鹏嘎嘎')
+      temp = value
+    }
+  })
+
+
+
+  console.log(obj.age)  // 80 获取操作, 被get函数劫持, 执行get函数, 返回 temp 的值
+  obj.age = 16    // 设置操作, 被set函数劫持, 修改了 temp 的值, 改成了 16
+  console.log(obj.age)  // 16 获取操作, 被get劫持, 返回 temp 的值
+
+
+
+</script>
+
+</body>
+</html>

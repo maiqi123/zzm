@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      background-color: rgb(216, 49, 49);
+    }
+  </style>
+</head>
+
+<body>
+  <button>关灯</button>
+  <button>关灯</button>
+  <button>关灯</button>
+  <button>关灯</button>
+  <button>关灯</button>
+  <button>关灯</button>
+  <button>关灯</button>
+  <button>关灯</button>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      $('button').on('click', function () {
+        // $('body').toggleClass('active')
+        // $('body.active').css('backgroundColor', 'black');
+      })
+      $('button').on('mouseenter', function () {
+        $('body').toggleClass('active')
+        $(this).css('backgroundColor', 'red').prevAll().css('backgroundColor', 'red')
+        $(this).nextAll.css('backgroundColor', 'blue')
+      })
+      $('button').on('mouseleave', function () {
+        $('body').removeClass('active')
+      })
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+    // 1. 找对象
+    // 2. 给button注册点击事件
+    // 3. 修改body的背景色 ，修改 h1的颜色  修改按钮的文字
+
+
+
+    // var button = document.querySelector('button');
+    // var h1 = document.querySelector('h1');
+    // var body = document.querySelector('body');
+
+    // button.onclick = function () {
+    //   if (button.innerText === '关灯') {
+    //     body.style.backgroundColor = '#000';
+    //     h1.style.color = '#fff';
+    //     this.innerText = '开灯';
+    //   } else {
+    //     body.style.backgroundColor = '#fff';
+    //     h1.style.color = '#000';
+    //     this.innerText = '关灯';
+    //   }
+    // }
+  </script>
+</body>
+
+</html>

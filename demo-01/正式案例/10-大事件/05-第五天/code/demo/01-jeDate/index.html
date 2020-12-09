@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./test/jeDate-test.css">
+  <link rel="stylesheet" href="./skin/jedate.css">
+  <script src="./src/jedate.js"></script>
+</head>
+
+<body>
+  <div class="jeitem">
+    <label class="jelabel">点击图标</label>
+    <div class="jeinpbox">
+      <input type="text" class="jeinput" id="testico" placeholder="YYYY-MM-DD">
+      <div class="icons jebtns" onclick="jeDate('#testico',{trigger:false,format: 'YYYY-MM-DD'})"></div>
+    </div>
+
+  </div>
+  <script>
+    jeDate("#testico", {
+      format: "YYYY-MM-DD hh:mm:ss",
+      isTime: false,
+      minDate: "2014-09-19 00:00:00",
+      onClose:false
+    })
+  </script>
+</body>
+
+</html>

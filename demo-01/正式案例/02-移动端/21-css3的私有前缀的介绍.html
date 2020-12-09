@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+      margin: 200px auto;
+
+      /* 
+        如果需要兼容老版本的浏览器认识css3的新属性，此时可以给css3的属性名前面加上对应的私有前缀即可。
+
+        私有前缀的作用：兼容性处理
+
+        常见的私有前缀：
+          1、兼容谷歌浏览器、safari浏览器：-webkit-
+
+          2、兼容ie浏览器：-ms-
+
+          3、兼容火狐浏览器：-moz-
+
+          4、欧朋浏览器：-o-
+      
+       */
+      
+      -webkit-transform: rotate(45deg);
+
+      -ms-transform: rotate(45deg);
+
+      -moz-transform: rotate(45deg);
+
+      -o-transform: rotate(45deg);
+
+      /* 规范之后的写法 */
+      transform: rotate(45deg);
+    }
+
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: url("./rb.jpeg") no-repeat 0 0 / cover;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        /* background-color: pink; */
+        position: absolute;
+        box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      var div = document.querySelector("div");
+      document.onmousemove = function (e) {
+        div.style.left = e.clientX - 100 + "px";
+        div.style.top = e.clientY - 100 + "px";
+      };
+    </script>
+  </body>
+</html>

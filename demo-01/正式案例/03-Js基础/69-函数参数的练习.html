@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 计算1-n之间所有数的和
+    // function fn(n) {
+    //   var sum = 0;
+    //   if (n > 0) {
+    //     for(var i = 1; i <= n; i++) {
+    //       sum += i;
+    //     }
+    //   } else {
+    //     for(var i = n; i <= 1; i++) {
+    //       sum += i;
+    //     }
+    //   }
+    //   console.log(sum);
+    // }
+
+    // // 调用
+    // fn(10);
+    // fn(100);
+    // fn(-100);
+
+    // 2. 计算两个数的和
+    // function getSum(n1, n2) {
+    //   console.log(n1 + n2);
+    // }
+    // getSum(10, 20);
+    // 3. 计算m-n之间所有数的积  fn(1, 5)  fn(2, 4)
+    // function getProduct(m, n) {
+    //   var product = 1;
+    //   for(var i = m; i <= n; i++) {
+    //     product *= i;
+    //   }
+    //   console.log(product);
+    // }
+    // getProduct(1, 2);
+    // getProduct(1, 5);
+
+    // 定义一个函数， 能够求3个数中最小的那个数
+    // getMin(1, 2, 3);
+    // getMin(5, 2, 6);
+    function getMin(n1, n2, n3) {
+      var min = n1 < n2 ? n1 : n2;
+      min = min < n3 ? min : n3;
+      console.log(min);
+    }
+
+    getMin(1,2,3);
+    getMin(5, 10, 20);
+
+  </script>
+</body>
+</html>

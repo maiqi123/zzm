@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+      width: 100px;
+      height: 400px;
+      margin: 200px auto;
+      position: relative;
+      transition: 1s;
+
+      /* 
+        视距：让子元素有近大远小的视觉效果——》本质默认还是一个平面的元素
+       */
+      /* perspective: 1000px; */
+
+      /* 
+        transform-style：
+          1、flat：平面
+          2、preserve-3d：让当前元素变成一个真正的3d元素
+       */
+      transform-style: preserve-3d;
+
+    }
+
+    ul:hover {
+      transform: rotateY(85deg);
+    }
+
+    li {
+      width: 100px;
+      height: 400px;
+      /* 子绝父相 */
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    li:nth-child(1) {
+      background-color: green;
+    }
+
+    li:nth-child(2) {
+      background-color: yellow;
+      /* 沿着x轴方向进行旋转 */
+      transform: rotateX(45deg);
+    }
+
+  </style>
+</head>
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        // 请求报文: 请求行  请求头   请求体
+    
+        // 请求行: 第一行
+        ===========================================
+        GET /day01/04.php?username=admin&pwd=12345 HTTP/1.1
+        GET: 请求的方式
+        /day01/04.php: 请求的地址
+        username=admin&pwd=12345 发送的数据
+        HTTP/1.1 http协议版本
+        ===========================================
+        
+    
+        ========================请求头======================
+        这些头信息都是浏览器自动添加上的
+        Host: 127.0.0.1
+        Connection: keep-alive
+        Upgrade-Insecure-Requests: 1
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36
+        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+        Sec-Fetch-Site: same-origin
+        Sec-Fetch-Mode: navigate
+        Sec-Fetch-User: ?1
+        Sec-Fetch-Dest: document
+        Referer: http://127.0.0.1/day01/04-%e8%a1%a8%e5%8d%95%e5%a4%84%e7%90%86.html
+        Accept-Encoding: gzip, deflate, br
+        Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+
+        ======================请求体==========================
+        放的是需要发送的数据
+        由于get方式, 把发送数据已经放到url地址后面, 所以get方式, 请求体是空的
+     -->
+    <script>
+        // get方式 各种信息都在请求的报文中
+    </script>
+</body>
+</html>

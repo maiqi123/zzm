@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1 计算1-100之间不能被7整除的数的和
+      // var sum = 0
+      // for (var i = 1; i <= 100; i++) {
+      //   if (i % 7 !== 0) {
+      //     sum += i
+      //   }
+      // }
+      // console.log(sum)
+
+      //2 同时求1-100之间所有奇数的和
+      // var sum = 0
+      // for (var i = 1; i <= 100; i++) {
+      //   if (i % 2 == 1) {
+      //     sum += i
+      //   }
+      // }
+      // console.log(sum)
+
+      // 3. 公园里有一只猴子和一堆桃子，猴子每天吃掉桃子总数的一半，把剩下一半中扔掉一个坏的。到第8天的时候，猴子睁开眼发现只剩下一个桃子。问公园里刚开始有多少个桃子？
+      // 1  4   10  22  46 ....  第六天的 = (第七天的 + 1) * 2
+
+      // 猴子有一堆的桃子， 每天丢掉一只坏的，再吃一半  7天剩1
+
+
+      var sum = 1;
+      for(var i = 7; i >= 1; i--) {
+        sum = (sum + 1) * 2
+      }
+      console.log(sum);
+
+
+
+
+
+
+
+      // var total = 1
+      // for (var d = 6; d >= 1; d--) {
+      //   total = (total + 1) * 2
+      // }
+      // console.log('总共有' + total)
+
+      // 4. 女婿第一天给丈母娘1块钱，第二天给2块，第三天给4块，一次类推，每天给的钱都是前一天的2倍，求一个月30天后，女婿总共给了丈母娘多少钱
+      // var money = 1
+      // var total = 1
+      // // 第二天开始
+      // for (var i = 2; i <= 30; i++) {
+      //   money = money * 2
+      //   total = total + money
+      // }
+
+      // console.log('总共给丈母娘' + total)
+
+
+      // var arr = [1];
+      // var money = 1;
+      // for(var i = 2; i <= 30; i++) {
+      //   money = money * 2;
+      //   arr.push(money);
+      // } 
+      // console.log(arr);
+      // var total = 0;
+      // for (var i = 0; i < arr.length; i++) {
+      //   total += arr[i];
+      // }
+      // console.log(total);
+
+
+      var sum = 1;
+      var money = 1;
+      for (var i = 2; i <= 30; i++) {
+        money = money * 2;
+        sum += money;
+      }
+      console.log(sum);
+
+
+
+
+    </script>
+  </body>
+</html>

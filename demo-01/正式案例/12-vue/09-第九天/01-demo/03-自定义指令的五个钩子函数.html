@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-demo="info">{{ msg }}</div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+
+      // 自定义指令
+      Vue.directive('demo', {
+        // 指令 和 所在的元素, 绑定时触发, 在bind中一般进行功能初始化, bind一般只执行一次
+        bind () {
+          console.log('bind')
+        },
+        // 绑定后, 被插入页面中时触发, 可以开始操作dom, dom已经渲染上去了 (让元素获取焦点)
+        inserted () {
+          console.log('inserted')
+        },
+        // 当指令的值, 更新时触发
+        update () {
+          console.log('update')
+        },
+        // 指令所在的元素(组件) dom更新完成后触发
+        componentUpdated () {
+          console.log('componentUpdated')
+        },
+        // 指令和所在元素解绑时触发
+        unbind () {
+          console.log('unbind')
+        }
+      })
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          info: '张三'
+        }
+      })
+
+
+      /* 
+        bind 功能初始化, 只执行一次
+        inserted 元素被插入到页面中时, 触发, dom渲染了, 可以开始操作dom
+        update 指令的值修改时触发
+
+        componentUpdated
+        unbind
+      */
+    </script>
+  </body>
+</html>

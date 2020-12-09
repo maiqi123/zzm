@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div>你必须遵循什么什么协议你必须遵循什么什么协议你必须遵循什么什么协议你必须遵循什么什么协议</div>
+  <input type="checkbox"> 同意协议
+  <hr>
+  <button disabled>注册</button>
+
+  <script>
+    // 1. 找对象
+    // 2. 给input注册点击事件
+    // 3. 判断input是否选中，如果input选中， 让button不禁用，，，如果input不选中，禁用button按钮
+    var input = document.querySelector('input');
+    var button = document.querySelector('button');
+    input.onclick = function () {
+      // if (input.checked === true) {
+      //   button.disabled = false;
+      // } else {
+      //   button.disabled = true;
+      // }
+      // button.disabled = input.checked === true ? false : true;
+      button.disabled = !input.checked;
+    }
+  </script>
+</body>
+</html>

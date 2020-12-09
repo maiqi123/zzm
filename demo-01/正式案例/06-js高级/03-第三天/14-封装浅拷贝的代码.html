@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div></div>
+
+    <script>
+        // 深拷贝 && 浅拷贝  克隆js中对象
+
+        var dfg = {
+            money: 10000000,
+            house: "蒙古海景房",
+            car: "奔驰",
+        }
+
+        // 需求: 拷贝dfg对象, 得到一个完全一模一样的新对象
+
+         // 思路:
+        //  1. 创建一个新对象
+        //  2. 把dfg对象里面的所有成员给添加一份到新对象中
+
+        
+        // 参数obj： 需要拷贝的对象
+        // 作用: 浅拷贝一个对象, 返回拷贝出来的对象
+        function copy(obj){
+            // 1. 创建一个新对象
+            var newObj = {};
+            
+            // 2. 遍历obj对象, 把obj对象里面所有的成员给newObj添加一份
+            for(var k in obj){
+                newObj[k] = obj[k];
+            }
+
+            // 3. 把创建的新对象给返回出去
+            return newObj;
+        }
+
+        var dfg2 = copy(dfg);
+        console.log(dfg2);
+    </script>
+</body>
+</html>

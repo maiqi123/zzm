@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 
+
+    组件通信
+      1. 父传子
+         (1) 给子组件添加属性的方式, 传值
+             <son money="100"></son>
+         (2) 在子组件中, 通过 props 进行接收
+
+      2. 子传父
+         (1) 在子组件中, 触发自己的自定义事件, 并传值
+             this.$emit('事件名', 参数1, 参数2, ...)
+         (2) 在父组件中, 给子组件注册对应的自定义事件, 接收参数
+             <son @事件名="fatherFn"></son>
+
+             fatherFn (参数1, 参数2, ...) {
+
+             }
+      3. 非父子
+         (1) 先创建一个, 都能访问到的事件总线 (event bus)
+             const bus = new Vue()
+         (2) 在 A 组件中, 触发 bus 的事件, 传值
+             bus.$emit('事件名', 参数1, 参数2, ...)
+         (3) 在 B 组件中, 给 bus 注册对应的事件, 并接收参数
+             bus.$on('事件名', 事件处理函数)
+
+
+    插槽:
+      插槽的两大分类:
+       1. 默认插槽(匿名插槽), 没有具体分配的内容, 都会给到匿名插槽
+          <slot></slot>
+          <slot name="default"></slot>
+
+       2. 具名插槽: 具有名字的插槽, 需要配置名字, 可以实现定向分发, 只会接收对应的内容
+          (1) 给插槽起名字
+              <slot name="header"></slot>
+
+          (2) 使用template将需要分发的内容包裹
+              <template>
+                <p>111</p>
+                <p>111</p>
+                <p>111</p>
+              </template>
+
+          (3) 通过 v-slot:插槽名, 指定具体分发给谁
+              <template v-slot:header>
+                <p>111</p>
+                <p>111</p>
+                <p>111</p>
+              </template>
+
+      作用域插槽: 其实在定义插槽的同时, 是可以提供数据, 是可以传递数据的, 将来在内容分发时, 就可以使用这些数据
+          (1) 给插槽, 以添加属性的方式传值
+              <slot name="header" desc="不错" :money="money"></slot>
+
+              data: {
+                money: 100
+              }
+          (2) 将添加的属性, 收集到一个对象中
+              { desc: '不错', money: 100 }
+
+          (3) 将来在分发内容时, 就可以使用插槽提供的数据了
+              <template v-slot:header="obj">
+                <p>{{ obj.desc }}</p>
+                <p>{{ obj.money }}</p>
+                <p>111</p>
+              </template>
+
+
+   -->
+  
+</body>
+</html>

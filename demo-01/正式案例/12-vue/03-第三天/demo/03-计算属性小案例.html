@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 输入框, 内容, 默认是字符串类型 -->
+      <input type="text" v-model="num1"> +
+      <input type="text" v-model="num2"> =
+      <span>{{ sum }}</span>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 当页面中需要一个属性, 且这个属性, 是依赖于其他值计算出来的 => 计算属性
+      // data 和 computed 都是用于提供属性, 不能重名的
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          num1: '',
+          num2: ''
+        },
+        computed: {
+          // 求和
+          sum () {
+            return +this.num1 + +this.num2
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

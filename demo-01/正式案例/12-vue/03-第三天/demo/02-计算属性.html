@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="fn">按钮</button>
+      <h1>{{ msg.split('').reverse().join('') }}</h1>
+      <h1>{{ msg }}</h1>
+
+      <!-- 计算属性 -->
+      <h1>{{ reverseMsg }}</h1>
+      <h1>{{ reverseMsg }}</h1>
+      <h1>{{ reverseMsg }}</h1>
+      <h1>{{ reverseMsg }}</h1>
+      <h1>{{ reverseMsg }}</h1>
+
+      <hr />
+
+      <!-- 函数调用 -->
+      <h1>{{ reverseMsgFn() }}</h1>
+      <h1>{{ reverseMsgFn() }}</h1>
+      <h1>{{ reverseMsgFn() }}</h1>
+      <h1>{{ reverseMsgFn() }}</h1>
+      <h1>{{ reverseMsgFn() }}</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 模板中写大量的表达式, 固然可以实现效果, 但是会使得模板过重, 难以维护
+      // 如果模板中写了大量的逻辑, 推荐使用 计算属性 优化
+
+      // 计算属性:
+      // 1. 写在 computed 中
+      // 2. 和 data 一样, 都是用于提供属性的
+      // 3. 计算属性: 写法是一个函数, 但实质是一个属性
+      //    计算属性: 一个需要通过计算才能得到的属性, 计算的过程封装到了这个函数中, 函数的返回值就是属性值
+
+      // 优点:
+      // 1. 将模板中的逻辑, 封装到了计算属性中, 便于维护
+      // 2. 计算属性, 有缓存的处理, 如果计算过了一个值, 就会将这个值缓存起来
+      //    下次再获取这个值, 直接将缓存的结果返回 (跳过计算的过程)
+      // 3. 如果计算属性依赖的值, 变化了, 会自动重新计算, 并再次缓存
+      const vm = new Vue({
+        // el 视图, data 数据, methods 方法, computed 计算属性
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+        },
+        methods: {
+          fn() {
+            console.log(1111)
+          },
+
+          // 这个函数的作用: 翻转字符串, 返回
+          reverseMsgFn() {
+            console.log('函数调用了')
+            return this.msg.split('').reverse().join('')
+          },
+        },
+        computed: {
+          // 计算属性配置的函数中的 this, 一律都指向当前vue实例
+          reverseMsg() {
+            console.log('计算属性计算了')
+            return this.msg.split('').reverse().join('')
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 字符串可以和数组一样直接遍历，但是字符串不能调用数组的方法
+    // 2. 字符串是内存中不可变的
+    // var str = 'abcdefg';
+
+    // for(var i = 0; i < str.length; i++) {
+    //   console.log(str[i]);
+    // }
+
+    // str.push('h');
+    // console.log(str);
+    // console.log(str[0]);
+
+    // var str = 'hello';
+    // str = 'world';
+    // console.log(str);
+
+    var sum = '0';
+    for (var i = 1; i <= 10000; i++) {
+      sum += i;
+    }
+    console.log(sum);
+  </script>
+</body>
+</html>

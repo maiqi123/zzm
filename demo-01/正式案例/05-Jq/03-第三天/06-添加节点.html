@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="box" style="width: 500px; padding: 20px; border: 2px solid #000">
+        <h1>哈哈</h1>
+        <p>嘻嘻</p>
+        <h2>呜呜</h2>
+    </div>
+
+    <p class="demo">在外面浪</p>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // append() 
+            // 语法: parent.append(child);
+            // 作用: child添加到parent里面的最后面
+
+            // 特征: 
+            //   child 如果是页面中本来就存在的元素, 添加的效果就是个剪贴的效果(挪动了位置)
+            // $("div").append( $(".demo") );
+            //   child 写的是个html字符串, 先会根据html字符串去创建元素, 在进行添加操作
+            // $("div").append( '<p class="demo">在外面浪</p>' );
+
+            // appendTo() 作用同 append() 方法
+            // 语法: child.appendTo(parent);
+            // $(".demo").appendTo($("div"));
+            // 下面代码是简写形式
+            // $(".demo").appendTo("div");
+
+
+            // prepend  prependTo
+            // 语法: parent.prepend(child);
+            // 作用: 把child添加到parent里面的最前面
+            // $("div").prepend($(".demo"));
+            // $(".demo").prependTo($("div"));
+
+
+            // after()  before()
+            //  A.after(B); // A和B做兄弟, B在A的后面
+            //  A.before(B); // A和B做兄弟, B在A的前面
+
+            // $("div").after($("div h1"));
+            // $("div").before($("div h1"));
+
+
+            // 小结:
+            //   添加节点操作
+            //      添加做孩子
+            //          添加到里面的最后面  append appendTo
+            //          添加到里面的最前面  prepend  prependTo
+            //      添加做兄弟
+            //          在后面  after
+            //          在前面  before
+        })
+    </script>
+</body>
+</html>

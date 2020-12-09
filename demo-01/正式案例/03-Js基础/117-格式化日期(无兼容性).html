@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var date = new Date();
+
+    // 需求: 格式化日期
+    // 只需要获取日期对象里面的每一个部分(年 月 日 时 分 秒) 然后自己拼接一个字符串
+
+    // 获取年份
+    var y = date.getFullYear();
+    console.log(y);
+    // 获取月份 => 月份是从0开始的
+    var m = date.getMonth() + 1;
+    console.log(m);
+    // 获取日期
+    var d = date.getDate();
+    console.log(d);
+    // 获取小时
+    var h = date.getHours();
+    console.log(h);
+    // 获取分钟
+    var mm = date.getMinutes();
+    console.log(mm);
+    // 获取秒钟
+    var s = date.getSeconds();
+    console.log(s);
+
+    // 需求
+    // 2020-7-18 16:23:00
+    // 拼接字符串
+    var str =
+      y + '-' + addZero(m) + '-' + addZero(d) +
+      ' ' +
+      addZero(h) +
+      ':' +
+      addZero(mm) +
+      ':' +
+      addZero(s);
+    console.log(str);
+
+    // 函数
+    // 功能: 补0
+    // 参数: 数值
+    // 返回值: 补好0的数值
+    function addZero(n) {
+      return n >= 10 ? n : '0' + n;
+    }
+  </script>
+</body>
+
+</html>

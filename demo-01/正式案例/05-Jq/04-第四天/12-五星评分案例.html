@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .comment {
+        font-size: 40px;
+        color: #ff16cf;
+    }
+
+    .comment li {
+        float: left;
+    }
+
+    ul {
+        list-style: none;
+    }
+    </style>
+</head>
+
+<body>
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+      // 功能:
+      // 1. 鼠标移入li
+      //      当前的li,以及前面所有的li 变实心
+      //      当前的后面所有的li 变空心
+      // 2. 鼠标移出ul, 所有的li变空心
+      // 3. 鼠标点击li
+      //      效果: 点击之后,鼠标移出ul, 点击的li以及前面所有的li是实心
+      //      代码: 给当前点击的li做个标记
+
+      // 标记:
+      //  1. 类名
+      //  2. 下标
+
+      var $lis = $(".comment li");
+
+      var wjx_k = "☆";
+      var wjx_s = "★";
+
+      $lis.on("mouseenter", function () {
+        $(this).text(wjx_s); 
+        $(this).prevAll().text(wjx_s); 
+        $(this).nextAll().text(wjx_k);
+        // prev() 上一个兄弟
+        // prevAll() 当前前面所有的兄弟
+        // nextAll() 当前后面所有的兄弟
+      })
+
+      // 移出
+      $(".comment").on("mouseleave", function () {
+        $lis.text(wjx_k); // 所有的li变空
+
+        // 在做件事情: 找到我之前点击的那个li ==> 有active类名
+        $(".comment li.active").text(wjx_s).prevAll().text(wjx_s);
+      })
+
+      // 鼠标点击li
+      $lis.on("click", function () {
+        // 需要确保类名只能在当前点击的元素上, 其他兄弟没有该类名
+        $(this).addClass("active").siblings().removeClass("active");
+      })
+    });
+    </script>
+</body>
+
+</html>

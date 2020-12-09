@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      /* 过渡：transition复合的属性 */
+      /* transition: 1s; */
+
+      /* 
+        过渡的相关的属性：
+          1、过渡的持续时间：transition-duration
+       */
+      /* transition-duration: 1s; */
+
+      /* 
+        2、过渡的属性：transition-property
+          作用：设置哪些属性有过渡的效果
+          取值：
+            1、属性的属性名
+            2、all：（默认值）所有可以过渡的属性都有过渡的效果
+              注意点：其实不是所有的属性都可以过渡，只要哪些有中间状态的样式可以过渡
+                如：显示与隐藏的切换：display：none/blcok——》此类属性没有中间状态，此时没有过渡的效果
+
+       */
+      /* transition-property: all; */
+
+      /* 
+        3、过渡的速度变化效果：transition-timing-function
+          取值：
+            1、ease：（默认值）先慢——》再快——》再慢
+            2、linear：匀速
+            3、steps(步数)：分步进行
+       */
+      /* transition-timing-function: linear; */
+
+      /* 
+        4、过渡的延时：transition-delay
+       */
+      /* transition-delay: 2s; */
+
+
+
+
+
+
+
+
+      /* transition-duration: 1s;
+      transition-property: all;
+      transition-timing-function: steps(3);
+      transition-delay: 2s; */
+
+      /* 
+        实际开发的时候一般只有用连写即可
+          属性名：transition
+          属性值：单个取值的合写，取值之间以空格隔开
+
+        注意点：
+          1、省略问题：transition-duration必加，其他的按照那你的需求省略即可
+
+          2、顺序问题：第一次出现的时间表示过渡的时间：transition-duration
+                      如果还有第二个时间才表示过渡的延时：transition-delay
+
+       */
+      /* transition: 1s all linear 2s; */
+      /* transition: 1s; */
+
+      transition: 2s;
+
+    }
+    
+    div:hover {
+      width: 800px;
+      /* background-color: yellow; */
+
+      /* display: none; */
+
+      /* 表示设置元素以及其中的内容的透明度 */
+      /* opacity: 0; */
+    }
+
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

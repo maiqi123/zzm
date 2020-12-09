@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:title="msg">我是盒子</div>
+      <div v-mybind:title="msg">我是盒子</div>
+      <hr />
+      <p v-color:font="fontColor">我是内容, 字体变色</p>
+      <p v-color:bg="bgColor">我是内容, 背景变色</p>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // binding.arg   =>  title      属性名
+      // binding.value =>  hello vue  指令值
+      Vue.directive('mybind', {
+        bind(el, binding) {
+          // console.log(binding.arg, binding.value)
+          // 如何给dom元素, 添加html标签属性 setAttribute(键名, 值)
+          el.setAttribute(binding.arg, binding.value)
+        },
+        update(el, binding) {
+          el.setAttribute(binding.arg, binding.value)
+        },
+      })
+
+      // 需求
+      // v-color:font = 'color'  设置元素的字体颜色
+      // v-color:bg = 'color' 设置元素的背景颜色
+      Vue.directive('color', {
+        bind(el, binding) {
+          // console.log(binding.arg)
+          if (binding.arg === 'font') {
+            el.style.color = binding.value
+          }
+
+          if (binding.arg === 'bg') {
+            el.style.backgroundColor = binding.value
+          }
+        },
+        update(el, binding) {
+          if (binding.arg === 'font') {
+            el.style.color = binding.value
+          }
+
+          if (binding.arg === 'bg') {
+            el.style.backgroundColor = binding.value
+          }
+        },
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          fontColor: 'red',
+          bgColor: 'skyblue',
+        },
+      })
+    </script>
+  </body>
+</html>

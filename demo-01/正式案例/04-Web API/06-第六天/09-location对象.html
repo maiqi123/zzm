@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="http://www.baidu.com">百度一下</a>
+  <button>登录</button>
+  <script>
+    // 1. location.href 可以获取当前网页的地址
+    // location.href = '新的地址'; 实现网页的跳转
+
+    // 2. location.reload(true|false) 刷新
+
+    // 3. location.search 可以获取到地址栏中 ? 后面的部分
+    // 是否强制刷新
+    console.log(location);
+    // location.href = 'http://www.baidu.com';
+
+    var button = document.querySelector('button');
+    button.onclick = function() {
+      location.href = './07-机械表/01-机械表CSS.html'
+    }
+  </script>
+</body>
+</html>

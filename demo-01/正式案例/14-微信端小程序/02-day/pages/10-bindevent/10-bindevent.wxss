@@ -1,0 +1,4 @@
+/* pages/10-bindevent/10-bindevent.wxss */
+input {
+  background: #ccc;
+}

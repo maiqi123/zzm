@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <input type="text">
+  <div></div>
+  <script>
+    // 1. 其实任意的一个事件在触发的时候都会有事件对象。
+    var div = document.querySelector('div');
+    div.onclick = function() {
+      console.log('123');
+    }
+  </script>
+</body>
+</html>

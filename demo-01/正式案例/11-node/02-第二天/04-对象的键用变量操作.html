@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // key = 'age'
+      // let obj = {
+      //   name: 'zs',
+      //   age: 30,
+      // }
+      // 取值：用点属性名不可以取一个变量的属性，用[变量名] 可以传入 属性名。
+      // console.log(obj.name)
+      // console.log(obj[key])
+      // console.log(obj['name'])
+
+      // 赋值
+
+      let key = 'name'
+      let key1 = 'name1'
+      let value = 'zs'
+
+      let obj = {
+        age: 30,
+        [key]: 'ls',
+      }
+      obj[key1] = value
+      console.log(obj)
+    </script>
+  </body>
+</html>

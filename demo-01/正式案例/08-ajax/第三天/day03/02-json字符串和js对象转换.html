@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 这是后端响应给前端的数据 (json字符串格式)
+        // var jsonStr = '{"name": "xm", "age": 19}';
+
+        // 需求: 获取到name 和 age的值
+        
+        // 把json字符串转成js对象, 需要借助JSON对象, 通过该对象就可以来操作json字符串
+        // JSON.parse(json字符串); 
+        // parse 有解析的含义
+        //  该方法, 可以把json字符串解析得到一个js对象
+
+        // var jsObj = JSON.parse(jsonStr);
+        // console.log( jsObj );
+        // console.log( jsObj.name, jsObj.age );
+
+
+        // 当我们给服务器端传送复杂数据类型的时候, 不能直接传递js中对象或数组
+        // 需要传递json字符串(后端也认识)
+        var obj = {
+            name: "lw",
+            age: 20,
+            hobby: [
+                "abc",
+                "def"
+            ]
+        };
+
+        // 把上面的js对象转成json字符串, 在给后端传递json字符串即可
+        // JSON.stringify(js对象);
+        //  stringify 字符串化
+        //  该方法就可以将js对象字符串化得到一个json字符串.
+
+        var jsonStr = JSON.stringify(obj);
+        console.log( jsonStr );
+    </script>
+</body>
+</html>

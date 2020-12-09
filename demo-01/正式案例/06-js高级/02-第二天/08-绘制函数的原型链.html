@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(){
+
+        }
+
+        // 底层: var Person = new Function(); // Person当成实例对象来看, 既当孩子看
+        // Person.__proto__ === Function.prototype;  // true
+        // console.log(Function.prototype.__proto__);
+
+        // 问: Person实例对象的原型链:
+        //   Person ==> Function.prototype ==> Object.prototype ==> null;
+
+        // 查看下Function.prototype原型对象上有啥
+        console.dir( Function.prototype );
+        // 函数可以使用call apply bind三个方法.
+    </script>
+</body>
+</html>

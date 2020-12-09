@@ -1,0 +1,2 @@
+<view>{{ name }}</view>
+<button bindtap="update"  type="primary">修改</button>

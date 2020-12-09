@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 
+    json-server的使用:
+      1. 安装
+      2. 准备json文件
+          {
+            "todos": [
+              { "id": 1, "name": "吃饭", "flag": true },
+              { "id": 2, "name": "睡觉", "flag": false },
+              { "id": 3, "name": "打豆豆", "flag": true }
+            ]
+          }
+
+      3. 起接口
+         json-server data.json 起一套增删改查的接口
+         http://localhost:3000/todos 增删改查都是用的这个地址, 请求方式不同
+
+         1. get 获取, 查询  http://localhost:3000/todos
+
+         2. post 添加, 新增  http://localhost:3000/todos
+            参数在请求体中, 需要点到body, 勾上 x-www-form-urlencoded
+
+         3. delete 删除  http://localhost:3000/todos/:id 
+            例如: http://localhost:3000/todos/1 => 删除 id 为 1 的项
+
+
+         4. put 全量修改, 要改全都改  http://localhost:3000/todos/:id 
+            例如: http://localhost:3000/todos/2 修改id为2的项
+            
+         5. patch 局部修改, 只修改一部分  http://localhost:3000/todos/:id 
+
+
+         put和patch的参数, 和post类似, 也是需要在body中传递
+   -->
+
+
+
+   <!-- 
+      将来后台让你传参, 有几种形式
+        http://localhost:3000/todos/1     直接通过地址, 将id值传递了过来
+        http://localhost:3000/todos?id=1  直接通过查询参数, 将id值传递了过来
+
+
+    -->
+  
+</body>
+</html>

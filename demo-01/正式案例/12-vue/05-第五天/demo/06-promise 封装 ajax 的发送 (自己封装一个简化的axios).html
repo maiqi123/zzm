@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+  // axios只是一个基于原生ajax封装的工具插件包, 在你需要发送ajax的时候, 引入即可
+  // axios 内部也是基于promise 进行封装的
+  // 使用方式:
+  // axios({
+  //   method: 'get',
+  //   url: '...'
+  // }).then(res => {
+  //   console.log(res)
+  // })
+
+  // 需求: 封装一个简易的 axios 方法, 发送 get 请求
+
+  function axios(obj) {
+    return new Promise((resolve, reject) => {
+      // promise中一般封装一个异步的操作, 比如: ajax
+      // 原生发送 get 请求
+      // 1. 创建xhr对象
+      const xhr = new XMLHttpRequest()
+      // 2. 指定请求方式和地址
+      xhr.open(obj.method, obj.url)
+      // 3. 发送
+      xhr.send(null)
+      
+      // 监听xhr的状态
+      xhr.onreadystatechange = function () {
+        // 只有readyState为4, 才表示请求回来了, 才能判断请求是否成功
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            resolve(JSON.parse(xhr.responseText))
+          } else {
+            reject(xhr.responseText)
+          }
+        }
+      }
+    })
+  }
+
+  axios({
+    method: 'get',
+    url: 'http://localhost:3000/todos'
+  }).then(res => {
+    console.log(res)
+  })
+
+
+</script>
+  
+</body>
+</html>

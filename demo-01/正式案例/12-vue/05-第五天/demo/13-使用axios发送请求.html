@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+  function axios(obj) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
+      xhr.open(obj.method, obj.url)
+      xhr.send(null)
+      
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            resolve(JSON.parse(xhr.responseText))
+          } else {
+            reject(xhr.responseText)
+          }
+        }
+      }
+    })
+  }
+
+  // 要求: 依次请求 2, 3 依次打印 2 和 3 的内容
+  // http://localhost:3000/todos/2
+  // http://localhost:3000/todos/3
+
+  // axios({
+  //   method: 'get',
+  //   url: 'http://localhost:3000/todos/2'
+  // }).then(data => {
+  //   console.log(data)
+
+  //   return axios({
+  //     method: 'get',
+  //     url: 'http://localhost:3000/todos/3'
+  //   })
+  // }).then(data => {
+  //   console.log(data)
+  // })
+
+
+  // ---------------------------------------------------
+  // async function fn () {
+  //   const data1 = await axios({
+  //     method: 'get',
+  //     url: 'http://localhost:3000/todos/2'
+  //   })
+  //   console.log(data1)
+
+  //   const data2 = await axios({
+  //     method: 'get',
+  //     url: 'http://localhost:3000/todos/3'
+  //   })
+  //   console.log(data2)
+  // }
+  // // 调用这个函数, 就可以依次获取 2 和 3 的项
+  // fn()
+
+  // ---------------------------------------------------
+  // axios.get(url)
+  async function fn () {
+    const data1 = await axios.get('http://localhost:3000/todos/2')
+    console.log(data1)
+
+    const data2 = await axios.get('http://localhost:3000/todos/3')
+    console.log(data2)
+  }
+  // 调用这个函数, 就可以依次获取 2 和 3 的项
+  fn()
+
+
+
+</script>
+  
+</body>
+</html>

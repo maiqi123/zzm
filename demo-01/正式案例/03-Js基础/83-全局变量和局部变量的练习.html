@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var n1 = 11;
+    var n2 = 22;
+
+    function fn () {
+      var n2 = 222;
+      n1 = 1;
+      n2 = 2;
+      console.log(n1);
+      console.log(n2);
+    }
+    fn();
+    console.log(n1);
+    console.log(n2);
+
+    // 1 2 1 22
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 伪数组与数组
+
+        // 伪数组与数组最大的区别: 伪数组不能使用数组的方法, 但是可以借用
+
+        // 伪数组: 是个对象, 有数字下标 和 length属性, 所以可以和数组一样进行for循环遍历, 伪数组不能使用数组的方法
+
+        // 常见的伪数组:
+        //  1. arguments
+        //  2. querySelectorAll() getElementsByTagName()
+        //  3. jQ对象  $("div")
+
+
+        // 需求: 给obj伪数组添加一项 3: "CC"
+        var obj = {
+            0: "燕哥",
+            1: "班班",
+            2: "堂哥",
+            length: 3
+        };
+        console.log(obj);
+        // 常规做法: 
+        // obj.3 = "CC"; // 错误写法
+        // obj.3 这样会解析成小数, obj是个对象,不是个数, 所以会报错.
+
+        // 以下写法,虽然可以实现功能, 但是麻烦, 不方便, 而且还需要手动维护好length的长度
+        /*obj[3] = "CC";
+        obj.length++;
+        console.log(obj);*/
+
+
+        // 优化以上写法:
+        //  让伪数组obj去借用数组的push方法来实现添加功能
+        //  push方法在数组的原型对象中
+        //  Array.prototype.push ==> 从数组的原型对象中来拿到push方法
+        // Array.prototype.push.call(obj, "CC", "dfg", "xm", "xhei");
+
+        // 在优化
+        [].push.call(obj, "CC");
+
+        // 可以理解成:
+        //  obj.push("CC", "dfg", "xm", "xhei");
+        console.log(obj);
+
+
+        // 注意点:
+        //  1. 如果是优化写法 [].push,  {} 和 [] 之间需要隔开, 使用分号;即可
+        //  2. push方法不仅能实现添加功能, 还可以自动的去维护好length长度
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ajax发送请求和获取响应的总结
+
+        //  1. 创建ajax对象 ==> var xhr = new XMLHttpRequest();
+
+        //  2. ajax 发送的是http协议 (请求 + 响应)
+
+        //  3. 请求报文(行 头 体)
+        //      请求行: xhr.open(方式, 地址)
+        //      请求头: 不用处理
+        //      请求体: xhr.send(请求体数据)
+
+        //  4. 响应报文(行 头 体)
+        //      响应行(状态行): 状态码  xhr.status 200 ok 404 not Founc 500
+        //      响应头:   
+        //          xhr.getAllResponseHeaders()  获取所有的响应头
+        //          xhr.getResponseHeader("xxxx")  获取指定的响应头
+        //      响应体: 响应的内容     xhr.responseText
+        
+        // xhr 状态变化
+        //  只需要关注4 ==> 响应结束, 需要给xhr注册readystatechange事件
+        //  状态 ==> xhr.readyState
+    </script>
+</body>
+</html>

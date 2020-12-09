@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    哈哈,jQuery快要结束了
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 链式编程
+            // 原理: 设置性操作, 会返回当前的jQ对象, 所有可以在后面继续链式编程
+            //       获取性操作, 会返回具体的值(不是个jQ对象),所有不可以在后面继续链式编程
+
+            // console.log($("body").css("color", "red")); // $("body")
+            // console.log($("body").css("color", "red").css("fontSize", 40)); // $("body")
+            // console.log($("body").css("color", "red").css("fontSize", 40).css("backgroundColor")); // rgba(0, 0, 0, 0)
+
+            /*var res = $("body").css("color", "red"); // $("body")
+            res.css("fontSize", 40)*/
+
+            $("body").css("color", "red").css("fontSize", 40).css("height", 2000).css("backgroundColor");
+        })
+    </script>
+</body>
+</html>

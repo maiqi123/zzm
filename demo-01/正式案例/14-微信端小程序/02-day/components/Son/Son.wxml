@@ -1,0 +1,4 @@
+<!-- 子的角色-->
+<!-- 第三步 : 直接使用传递过来的数据 -->
+<text>{{ msg }}</text>
+<view bindtap="send2father">点击把信息传递给父</view>

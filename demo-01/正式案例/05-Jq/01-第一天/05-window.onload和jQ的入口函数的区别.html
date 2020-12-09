@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // window.onload和jQ的入口函数的区别
+
+        // 覆盖问题:
+        //  1. window.onload 存在覆盖问题的
+        //  2. jQ的入口函数 不存在覆盖问题的
+
+        // 执行时机: jQ的入口函数先于window.onload执行的
+        // window.onload 入口函数是页面加载完成, 还需要等待引用的外部资源(img css js video...)加载完成才会执行的
+        // jQ的入口函数只要页面加载完成就会执行的.
+        // 推荐使用jQ的入口函数
+
+        // 使用jQ的时候, 步骤
+        //  1. 引用jQ这个js文件
+        //  2. 写jQ的入口函数
+        //  3. 在入口函数中写功能代码
+
+        /*window.onload = function () {
+            console.log(1);
+        }
+
+        window.onload = function () {
+            console.log(2);
+        }*/
+
+        /*$(function () {
+            console.log(3);
+        })
+        $(function () {
+            console.log(4);
+        })*/
+
+        window.onload = function () {
+            console.log(5);
+        }
+
+        $(function () {
+            console.log(6);
+        })
+    </script>
+</body>
+</html>

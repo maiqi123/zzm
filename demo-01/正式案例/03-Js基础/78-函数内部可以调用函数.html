@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // F10: 让代码一行一行执行，但是遇到函数调用，会跳过。
+    // F11: 让代码一行一行执行，遇到函数调用，会进入到函数内部。
+    function study () {
+      console.log('早上8点开始学习');
+      play();
+      console.log('晚上10点结束今天的学习');
+    }
+
+    function play () {
+      console.log('早上8.30开始打游戏');
+      console.log('晚上9.30结束打游戏');
+    }
+
+    console.log('开始');
+    study();
+    console.log('结束');
+
+  </script>
+</body>
+</html>

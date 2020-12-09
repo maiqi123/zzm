@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000;
+
+      /* 让ul有近大远小的视距效果 */
+      perspective: 1000px;
+    }
+
+    /* ul表示相册的整体 */
+    ul {
+      list-style: none;
+      width: 300px;
+      height: 400px;
+      margin: 200px auto;
+      position: relative;
+
+      /* 让ul倒下去的过渡 */
+      transition: 1s;
+
+      /* 让ul倒下去的转换原点在下边 */
+      transform-origin: center bottom;
+
+      /* 需要让ul变成一个真正的3d元素 */
+      transform-style: preserve-3d;
+    }
+
+    /* 功能一：推到ul整体 */
+    ul:hover {
+      transform: rotateX(30deg);
+    }
+
+    /* li表示相册的每一页 */
+    li {
+      width: 300px;
+      height: 400px;
+      /* 子绝父相 */
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border: 3px solid orange;
+      /* 每一页翻开的过渡 */
+      transition: 1s 1s;
+      /* 每一页翻开的转换原点 */
+      transform-origin: left center;
+    }
+
+    /* 功能二：鼠标移入ul之后，让li标签每一页翻开 */
+    ul:hover li:nth-child(5) {
+      transform: rotateY(-180deg);
+      transition-delay: 1s;
+    }
+
+    ul:hover li:nth-child(4) {
+      transform: rotateY(-150deg);
+      transition-delay: 2s;
+    }
+
+    ul:hover li:nth-child(3) {
+      transform: rotateY(-120deg);
+      transition-delay: 3s;
+    }
+
+    ul:hover li:nth-child(2) {
+      transform: rotateY(-90deg);
+      transition-delay: 4s;
+    }
+
+    img {
+      width: 300px;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ul表示的相册的整体 -->
+  <ul>
+    <!-- li表示相册的每一页 -->
+    <li><img src="./images/44.jpg" alt=""></li>
+    <li><img src="./images/33.jpg" alt=""></li>
+    <li><img src="./images/22.jpg" alt=""></li>
+    <li><img src="./images/11.jpg" alt=""></li>
+    <li><img src="./images/55.jpg" alt=""></li>
+
+
+
+
+  </ul>
+
+
+</body>
+
+</html>

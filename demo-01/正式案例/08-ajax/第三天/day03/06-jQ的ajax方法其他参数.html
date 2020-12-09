@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function () {
+            // 在发送ajax请求之前,来取做表单的校验
+            /*if (true) {
+                // if成立, 表单校验不通过了.
+                return;
+
+                // return 和 return false;区别
+                // return 没有返回值的, 主要就是借助return后面代码不执行
+                // return false 有返回值, 返回值是false
+            }*/
+
+            $.ajax({
+                type: "get",
+                url: "051.php",
+                data: {
+                    name: "lw",
+                    age: 19
+                    // 需要发送的数据, data的值是个对象, 是个字符串
+                    // 不是直接把data这个对象直接发送到服务器端, jQ内部会根据请求方式去做不同的处理
+                },
+                // data: "name=lw&age=19",
+
+                beforeSend: function () {
+                    // 在发送ajax请求之前,执行的回调函数
+                    // console.log("在发送ajax请求之前,执行的回调函数");
+
+                    // 该回调函数的作用: 
+                    //  可以在该回调函数中进行表单校验的, 如果校验不通过, 可以来阻止ajax请求的方式
+                    //  固定写法: return false;
+                    // return false;
+                },
+                success: function (info) {
+                    // 形参data就是服务器响应的数据
+                    console.log("响应成功了", info);
+                },
+                error: function () {
+                    console.log("失败了");
+                },
+                complete: function () {
+                    // 响应完成了就会执行的回调函数
+                    // 不论是响应成功还是失败都会执行的
+                    // console.log( "complete 响应完成了" );
+
+                    // 作用: 可以在该回调函数中, 将页面中的loading将其隐藏掉
+                }
+            })
+        })
+    </script>
+</body>
+</html>

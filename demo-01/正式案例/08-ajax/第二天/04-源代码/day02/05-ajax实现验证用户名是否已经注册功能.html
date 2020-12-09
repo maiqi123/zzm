@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" placeholder="用户名"><span></span>
+
+    <script>
+        // 需求: 当input失去焦点的时候, 发送ajax请求, 来验证用户名是否已经注册过
+        var span = document.querySelector("span");
+        document.querySelector("input").onblur = function () {
+            var txt = this.value;
+            // console.log(txt); // 内容
+
+            // ajax请求
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "05.php?username=" + txt);
+            xhr.send(null);
+
+            // 处理响应
+            /*xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4){
+                    // 响应结束了
+                    if(xhr.status === 200){
+                        // 响应是成功的
+                        // console.log( xhr.responseText );
+
+                        if(xhr.responseText === "yes"){
+                            // 注册过了
+                            span.innerText = "该用户名已被注册";
+                            span.style.color = "red";
+                        }else{
+                            // 可以注册
+                            span.innerText = "√";
+                            span.style.color = "green";
+                        }
+                    }else{
+                        // 失败了
+                        alert("网络繁忙, 请稍后再试!");
+                    }
+                }
+            }*/
+
+            // onload注册
+            xhr.onload = function () {
+                // 响应结束了
+                if(xhr.status === 200){
+                    // 响应是成功的
+                    // console.log( xhr.responseText );
+
+                    if(xhr.responseText === "yes"){
+                        // 注册过了
+                        span.innerText = "该用户名已被注册";
+                        span.style.color = "red";
+                    }else{
+                        // 可以注册
+                        span.innerText = "√";
+                        span.style.color = "green";
+                    }
+                }else{
+                    // 失败了
+                    alert("网络繁忙, 请稍后再试!");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

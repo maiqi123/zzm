@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    /*var num = 123;
+
+        // 函数在声明定义写好的时候,其作用域就已经定下来, 作用域链也就跟着定下来了.
+        // f1函数作用域链: f1函数作用域 ==> 全局作用域
+        function f1() {
+            console.log(num);
+        }
+
+        function f2() {
+            var num = 456;
+            f1();
+        }
+        f2(); // 打印啥？
+              // 123*/
+
+
+    // 2.
+    /*var num = 123;
+
+    function f1(num) {
+        // 函数的形参如何去理解: 理解成函数内部声明的局部变量
+        //  var num = 实参; // 456
+
+        console.log(num); // 456
+    }
+
+    function f2() {
+        var num = 456;
+        f1(num); // 等价于 f1(456);
+    }
+    f2();*/
+
+    /*// 3.
+    var num = 123;
+
+    function f1() {
+        console.log(num); // 123
+    }
+
+    function f2() {
+        var num = 456;
+        f1(num); // 等价于 f1(456);
+    }
+    f2();*/
+
+    // 4.
+    var num = 123;
+
+    function f1(num) {
+        // var num = 实参; // undefined
+        console.log(num); // undefined
+    }
+
+    function f2() {
+        var num = 456;
+        f1();
+    }
+    f2();
+    </script>
+</body>
+
+</html>

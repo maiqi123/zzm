@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      function this ：
+      1、谁调用指向谁
+
+      箭头函数：
+        1、他没有自己的this，取到的是定义时候的this，也就是函数外面的this。
+        2、箭头函数因为没有自己的 this，他不能做构造函数。
+
+
+       */
+
+      // let obj = {
+      //   name: 'zs',
+      //   skill: function () {
+      //     console.log(this)
+      //   },
+      // }
+      // obj.skill()
+
+      // function test() {
+      //   console.log(this)
+      // }
+
+      // let obj = {
+      //   name: 'zs',
+      // }
+
+      // test()
+      // window.test()
+
+      // 1、call 和 apply =====> 立即调用 + 改变指向
+      // test.call(obj)
+      // test.apply(obj)
+
+      // 2 bind   ======》 返回一个新的函数 + 改变指向
+
+      // let newTest = test.bind(obj)
+
+      // newTest()
+
+      // let obj = {
+      //   name: 'zs',
+      //   skill: function () {
+      //     console.log(this)
+      //     // 下面两个 settimeout 都是指向window
+      //     // window.setTimeout(function () {
+      //     //   console.log(this)
+      //     // }, 0)
+      //     // setTimeout(function () {
+      //     //   console.log(this)
+      //     // }, 0)
+
+      //     setTimeout(() => {
+      //       console.log(this)
+      //     }, 0)
+      //   },
+      // }
+      // obj.skill()
+
+      let Person = function () {
+        this.name = 'zs'
+        this.age = 38
+      }
+
+      // let Person = () => {
+      //   this.name = 'zs'
+      //   this.age = 38
+      // }
+
+      let p = new Person()
+
+      console.log(p) // Person 是箭头函数  不行
+    </script>
+  </body>
+</html>

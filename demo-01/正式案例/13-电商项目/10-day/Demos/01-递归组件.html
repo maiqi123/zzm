@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .c {
+        border: 1px solid #000;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+ 
+      <!-- 
+      1. 组件A里面使用组件B  ==> B组件注册全局/局部/路由控制 => 显示即可  
+      2. 组件A里面的模板里面使用A自己 ===>  添加 name ='aa'  <aa> </aa>   ==> 递归组件
+
+      3. 外界 第一次使用 floor 的时候, 记得做一个判断  , 如果 comment.parent 有值才使用 floor
+         <floor v-if='comment.parent' :parent='comment.parent'></floor>
+         
+      4. 内部 一定要有一个中止条件, 因为递归可能会死循环     
+         <aa v-if='parent.parent' :parent='parent.parent' ></aa> 
+      
+      
+
+
+       -->
+
+
+      <!-- 需求  : 把下面的`树形结构`的数据通过`递归组件`展示出来 -->
+      <!-- 树形结构 :  parent :{ parent : { parent : {} } } -->
+      <!-- 递归组件 :  组件内部使用组件自己 -->
+      <floor v-if='comment.parent' :parent='comment.parent'></floor>
+     
+    </div>
+    <script src="vue.js"></script>
+    <script>
+
+      Vue.component('floor',{
+        props:['parent'],
+        name : 'aa', // 项目中是应该需要添加name的
+       template:`
+         <div class='c'> 
+           <aa v-if='parent.parent' :parent='parent.parent' ></aa>
+           <div>姓名 : {{ parent.name }}</div>
+           <div>年龄 : {{ parent.age }}</div>
+         </div>
+          `
+      })
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          // 评论
+          comment: {
+            name: '张三',
+            parent: {
+              name: '爸爸',
+              age: 40,
+              parent: {
+                name: '爷爷',
+                age: 60,
+                parent: {
+                  name: '祖宗',
+                  age: 80,
+                },
+              },
+            },
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

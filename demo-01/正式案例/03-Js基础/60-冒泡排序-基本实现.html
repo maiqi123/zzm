@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 7个数
+    var arr = [65, 97, 76, 13, 27, 49, 58];
+    
+    // // 比较多少趟
+    // for(var j = 0; j < arr.length -1; j++) {
+    //   // 一趟
+    //   for (var i = 0; i < arr.length - 1; i++) {
+    //     if (arr[i] > arr[i + 1]) {
+    //       var temp = arr[i];
+    //       arr[i] = arr[i+1];
+    //       arr[i+1] = temp;
+    //     }
+    //   }
+    // }
+
+    // console.log(arr);
+
+
+    var arr = [65, 97, 76, 13, 27, 49, 58];
+    // 控制需要比较多少趟
+    for(var i = 0; i < arr.length - 1; i++) {
+
+      // 控制每趟需要比较多少次
+      for(var j = 0; j < arr.length - 1; j++) {
+        if (arr[j] > arr[j+1]) {
+          var temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+        }
+      }
+
+    }
+    console.log(arr);
+
+  </script>
+</body>
+</html>

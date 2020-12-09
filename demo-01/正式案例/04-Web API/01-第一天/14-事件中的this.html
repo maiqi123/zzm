@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">按钮</button>
+  <script>
+    var btn = document.getElementById('btn');
+    btn.onclick = function () {
+      // 在事件的函数中，可以通过this访问到当前元素，，当前触发事件的元素 事件源
+      console.log(this);
+      // btn1.className = 'red';
+      // this.className = 'red';
+      this.className = 'red';
+
+      this.title = '呵呵呵';
+    }
+  </script>
+</body>
+</html>

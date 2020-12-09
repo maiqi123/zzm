@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-link to="/product/1">商品1</router-link>
+      <router-link to="/product/2">商品2</router-link>
+      <router-link to="/product/3">商品3</router-link>
+      <router-link to="/product/4">商品4</router-link>
+
+      <router-view></router-view>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <script>
+      // ----------------------------------------------------------------------------
+      // this.$route详解 (记忆: 只要想拿当前路由的路径或者参数, 一律找 this.$route)
+      // 1. fullPath 完整的路径, 包含查询参数   ?username=zs&age=18
+      // 2. path     路径, 不包含查询参数
+      // 3. params   可以用于接收动态路由参数
+      // 4. query    拿到解析成对象后的查询参数
+      const Product = {
+        template: `
+          <div>我是商品组件 - {{ $route.params.id }}</div>
+        `,
+        data () {
+          return {
+            msg: 'zs'
+          }
+        },
+        created () {
+          console.log('发送请求:', this.$route.params.id)
+        },
+        watch: {
+          // 虽然组件没有变化, 但是路由地址变了, 可以监视 this.$route
+          // 只要路由变化了, 地址也变了, 就会有一个新的 this.$route (不用深度监视)
+          $route (newValue) {
+            console.log(this.$route)
+            console.log('发送请求:', this.$route.params.id)
+          }
+        }
+      }
+
+      // path: '/product/:id'  => 动态路由匹配, 可以匹配 /product/1 /product/2 ... /product/10000
+
+      const router = new VueRouter({
+        routes: [
+          { path: '/product/:id', component: Product }
+        ]
+      })
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        router
+      })
+    </script>
+  </body>
+</html>

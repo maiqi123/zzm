@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: #f00;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <button>展示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 三组基本动画
+
+        //  show(speed, easing, callback)   hide()       toggle()
+        //   展示                             隐藏          切换
+
+        //  speed: 动画时长, 单位ms
+        //          写字符串: 提供了三个字符串
+        //          "fast"  200
+        //          "normal"  400
+        //          "slow"  600
+        //          字符串不是以上三者之一, 默认mormal
+
+        //  easing: 动画效果 swing 秋千 慢-快-慢  默认的
+        //                  linear 匀速
+
+        //  callback: 当动画运动完成之后执行的回调函数
+
+        // 以上三个参数都是可选的
+
+        // show系列动画, 没有参数就没有动画效果
+
+        $("button").eq(0).click(function() {
+            $("div").show(1000, function() {
+                console.log("运动结束了");
+            });
+        });
+
+        // 隐藏
+        $("button").eq(1).click(function() {
+            $("div").hide(1000, function() {
+                console.log("hide  is ok");
+            });
+        });
+
+
+        // 切换
+        $("button").eq(2).click(function() {
+            $("div").toggle(1000, function() {
+                console.log("toggle  is ok");
+            });
+        });
+
+    })
+    </script>
+</body>
+
+</html>

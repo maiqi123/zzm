@@ -1,0 +1,16 @@
+{
+  "name": "04-webpack-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "build": "webpack ./src/main.js -o ./dist/bundle.js"
+  },
+  "dependencies": {
+    "vue": "^2.6.12"
+  }
+}

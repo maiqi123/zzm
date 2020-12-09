@@ -1,0 +1,39 @@
+<!-- 1. button 的基本使用 -->
+<button>按钮</button>
+
+<!-- 2. 属性1 : size -->
+<button size="mini">小</button>
+<button size="mini">小</button>
+<button size="mini">小</button>
+<button size="default">大</button>
+
+<!-- 3. 属性2 ： 颜色 type -->
+<button type="primary">按钮</button>
+<button type="default">按钮</button>
+<button type="warn">按钮</button>
+
+<!-- 4. 属性3 ： plain 是否镂空 -->
+<button type="primary">不镂空</button>
+<button type="primary" plain>镂空</button>
+
+<!-- 5. 属性4 ： disabled 禁用 -->
+<button disabled type="primary">按钮</button>
+
+<!-- 6. 属性5 ：loading 加载框 -->
+<button loading="{{ true }}">加载框</button>
+
+<!-- 7. 新样式 只有中间这一部分，  老版本是全屏  style：'V2' -->
+
+<!-- 8. 注册事件 -->
+<button bindtap="fn1">点击1</button>
+<button bind:tap="fn1">点击2</button>
+
+<!-- 9. 事件对象 -->
+<button bind:tap="fn1">点击3</button>
+
+<!-- 10. 传参 -->
+<!-- 10.1 小程序里面传参 不能直接在后面加()的,  -->
+<!-- 10.2  借助 html5 的新属性 data-xx  -->
+<button bind:tap="fn1" data-name='马哥' data-age='{{ 30 }}' data-isok='{{  true }}' >点击4</button>
+
+

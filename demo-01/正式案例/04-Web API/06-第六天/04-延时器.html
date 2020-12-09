@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="open">开启</button>
+  <button class="close">关闭</button>
+  <script>
+    var button = document.querySelector('.open');
+    var close = document.querySelector('.close');
+    var id;
+    button.addEventListener('click', function() {
+      // 设置延时器
+      // 函数： 需要延迟执行的一个函数
+      // 时间： 单位是毫秒，延迟的时间
+      // 返回值：返回延时器的id
+      // window.setTimeout(函数, 时间)
+
+      // 清除延时器
+      // window.clearTimeout()
+      id = setTimeout(function (){
+        console.log('boom! shakalaka');
+      }, 3000);
+
+
+      // console.log('清除');
+      // clearTimeout(id);
+    });
+
+    close.addEventListener('click', function() {
+      // 参数： 延时器的id
+      clearTimeout(id);
+    });
+  </script>
+</body>
+</html>

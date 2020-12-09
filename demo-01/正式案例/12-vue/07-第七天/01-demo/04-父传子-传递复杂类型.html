@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #app {
+        width: 400px;
+        height: 400px;
+        background-color: pink;
+      }
+      .son {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 
+      :msg="str"  v-bind:msg 会动态解析str变量的
+      msg="str"
+
+     -->
+
+    <div id="app">
+      <h3>这是父组件</h3>
+      <son :house="house" :obj="friend"></son>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 父组件传递过来的数据:
+      // 1. 如果是简单类型, 修改了, vue能检测到的, 就会给你报错
+      // 2. 如果是复杂类型, 只要不修改地址, vue不会报错的, 但是就算不报错, 也应该避免, 没有遵循单向数据流
+
+      Vue.component('son', {
+        template: `
+          <div class="son">
+            <h4>我是son组件</h4>
+            <p>自己的数据: {{ msg }}</p>
+            <p>父组件传来的数据: {{ house }}</p>
+            <p>{{ obj.name }} - {{ obj.age }}</p>
+            <button @click="change">改值</button>
+          </div>
+        `,
+        data () {
+          return {
+            msg: 'son的数据'
+          }
+        },
+        methods: {
+          change () {
+            // 修改自己的数据
+            // this.msg = '嘿嘿'
+
+            // 修改老爹的数据
+            // this.house = '茅庐'
+
+            // 修改父组件传递过来的对象, 不改地址, 只改内容
+            this.obj.name = '楼下小宋'
+          }
+        },
+        props: ['house', 'obj']
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          house: '新疆海景独栋大别墅',
+          friend: {
+            name: '隔壁老王',
+            age: 25,
+            desc: '高富帅'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

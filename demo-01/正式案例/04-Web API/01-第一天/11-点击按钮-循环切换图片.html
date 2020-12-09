@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>下一张</button>
+  <button>上一张</button>
+  <br>
+  <img src="1.jpg" alt="">
+  <script>
+    // 思路：
+    // 1. 找对象
+    // 2. 给按钮注册点击事件
+    // 3. 修改img的src,,,,控制src的图片
+    var button = document.getElementsByTagName('button')[0];
+    var img = document.getElementsByTagName('img')[0];
+    var num = 1;
+    // console.log(button);
+    button.onclick = function() {
+      num++;
+      if (num === 6) {
+        num = 1;
+      }
+      // console.log(num);
+      img.src = num + '.jpg';
+      // img.width = 100;
+      // img.height = 100;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      v-on:
+        作用: 注册事件
+        语法: v-on:事件名 = "事件处理函数"    v-on:click="fn"
+        简写: @事件名 = "事件处理函数"        @click="fn"
+     -->
+    <div id="app">
+      <button v-on:click="fn" v-on:mouseenter="fn2">改值</button>
+      <button @click="fn" @mouseenter="fn2">改值</button>
+      <h1>{{ msg }}</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        // 数据
+        data: {
+          msg: 'hello vue',
+        },
+        // 方法
+        methods: {
+          // methods中所有的方法, this指向, 默认指向当前 vm 实例
+          fn () {
+            // console.log('哇哇')
+            // console.log(vm.msg)
+            // console.log(this.msg)
+            this.msg = '李四'
+          },
+          fn2 () {
+            console.log('鼠标滑入了')
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

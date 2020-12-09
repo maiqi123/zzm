@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: skyblue;
+    }
+
+    div {
+      width: 174px;
+      height: 126px;
+      background: url('./images/fish-12-126.png');
+      /* 调用动画：其实可以同时设置多组动画——》每组动画之间以逗号隔开即可 */
+      animation: dou 1s steps(12) infinite,
+        you 5s infinite;
+    }
+
+    div:nth-child(even) {
+      /* 如果设置了多组，之后的设置每组都需要对应起来 */
+      animation-duration: 1s, 10s;
+    }
+
+    /* 
+      动画一：需要让小鱼原地抖起来
+        通过动画的方式，不停的快速切换background-position即可
+     */
+    @keyframes dou {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 0 -1512px;
+      }
+    }
+
+
+
+    /* 
+      动画二：让小鱼游起来
+      
+      写动画的注意点：
+        1、写动画的时候一定要分清楚一共几个状态，每一个状态的样式是什么
+        2、每一个状态的改变，都是基于上一个状态
+
+      
+      小鱼游动的状态：
+        0% 1、开始状态：小鱼没有移动没有旋转
+        25% 2、小鱼往右游动：transform：translateX（800px）
+        50% 3、小鱼顺时针调头了180deg：transform：rotate（180deg）
+        75% 4、小鱼往左游动：transform：translateX（0px）
+        100% 5、小鱼接着顺时针旋转了180deg：transform：rotate（360deg）
+
+
+     */
+    @keyframes you {
+      0% {
+        transform: translateX(0px) rotate(0deg);
+      }
+
+      25% {
+        transform: translateX(800px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateX(800px) rotate(180deg);
+      }
+
+      75% {
+        transform: translateX(0px) rotate(180deg);
+      }
+
+      100% {
+        transform: translateX(0px) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+
+</html>

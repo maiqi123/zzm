@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    // 定义一个函数， 求 1-n之间所有数的和
+    function getSum(n) {
+      var sum = 0;
+      for (var i = 1; i <= n; i++) {
+        sum += i;
+      }
+      return sum;
+    }
+    // alert           1-10
+    // console.log     1-100
+    // getSum(100)  console.log()
+    // getSum(10);
+
+    // var result = getSum(10);
+    // // console.log(result);
+    // // alert(result);
+    // console.log(result + 1000);
+
+    // var result = getSum(10)
+    // alert(result)
+    alert(getSum(10));
+    console.log(getSum(100));
+
+  </script>
+</body>
+</html>

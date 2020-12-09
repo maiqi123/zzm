@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 700px;
+      height: 600px;
+      border: 1px solid #000;
+    }
+
+    .son {
+      width: 20%;
+      height: 100px;
+      background-color: red;
+
+      float: left;
+      /* border会撑大盒子 */
+      border: 1px solid blue;
+      /* 自动内减：针对于移动端中一般会给大多标签设置box-sizing:border-box; */
+      box-sizing: border-box;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+  </div>
+</body>
+</html>

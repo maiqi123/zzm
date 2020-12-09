@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            border:20px solid #ccc;
+            margin: 10px;
+            background-color: #f99;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // width() height() 获取宽 高
+
+            // console.log($("#box").css("width"));
+
+            // // 获取
+            // console.log($("#box").width());
+            // console.log($("#box").height());
+
+            // 设置
+            // $("#box").width(300);
+
+            // 宽 + padding
+            console.log( $("#box").innerWidth() );
+
+            // 宽 + padding + border
+            console.log( $("#box").outerWidth() );
+
+            // 宽 + padding + border + margin
+            console.log( $("#box").outerWidth(true) );
+
+
+            // 宽高:
+            //  width() 宽
+            //  innerWidth()  宽 + padding
+            //  outerWidth()  宽 + padding + border
+            //  outerWidth(true)  宽 + padding + border + margin
+
+            // 获取可视区的宽高
+            // $(window).width()
+            // $(window).height()
+        })
+    </script>
+</body>
+</html>

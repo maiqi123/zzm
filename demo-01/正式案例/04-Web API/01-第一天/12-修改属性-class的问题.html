@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">按钮</button>
+  <div class="aa" id="div">123</div>
+  <script>
+    var btn = document.getElementById('btn');
+    var div = document.getElementById('div');
+    // 因为class在js中是关键，所以对象不能拥有class属性，，标签中的class对象对应的是对象中 className
+    btn.onclick = function () {
+      console.dir(div);
+      console.log(div.className);
+      div.className = 'box';
+    }
+  </script>
+</body>
+</html>

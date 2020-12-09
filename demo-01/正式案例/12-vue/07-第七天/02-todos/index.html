@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Template • TodoMVC</title>
+		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+	</head>
+	<body>
+		<!-- 父子组件, 兄弟组件
+				 new Vue() => 根实例, 根组件
+				 组件的内部, 是可以解析渲染其他组件的, 就形成了父子关系, 
+				 (1) 根实例 => 父组件
+				 (2) 头部组件 是 根组件的 子组件
+						 主体组件 是 根组件的 子组件
+						 底部组件 是 根组件的 子组件
+		-->
+		<section class="todoapp">
+
+			<!-- 头部的搜索框 -->
+			<todo-header @add-todo="addTodo"></todo-header>
+
+			<!-- 中间的用于展示的列表主体 -->
+			<todo-main  
+				@edit-todo="editTodo"
+				@change-state="changeState"  
+				@del-todo="delTodo" 
+				:list="list">
+			</todo-main>
+
+			<!-- 底部的按钮等内容 -->
+			<todo-footer @clear-todo="clearTodo" :list="list"></todo-footer>
+
+		</section>
+
+		<!-- 引入 vue -->
+		<script src="./node_modules/vue/dist/vue.js"></script>
+
+		<!-- 引入组件 -->
+		<script src="./js/header.js"></script>
+		<script src="./js/main.js"></script>
+		<script src="./js/footer.js"></script>
+
+		<script src="js/app.js"></script>
+	</body>
+</html>

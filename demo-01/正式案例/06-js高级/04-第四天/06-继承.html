@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 继承
+      //  在js中的含义: 一个对象可以去使用另外一个对象的成员, 该对象就是继承自另外一个对象.
+      //  好处: 达到复用.
+
+      // 实现继承的方式:
+      //  1. 原型链继承: 构造函数创建出来的实例对象可以直接使用(继承)这个原型对象上的任意成员.
+      //          只要是给原型对象添加的成员, 实例对象都可以继承到
+      function Person() {}
+
+      Person.prototype.color = 'lime'
+      Person.prototype.sayHi = function () {
+        console.log('hi')
+      }
+      Person.prototype.work = function () {
+        console.log('work')
+      }
+      Person.prototype.running = function () {
+        console.log('running man')
+      }
+      Person.prototype.learn = function () {
+        console.log('learn')
+      }
+
+      var p = new Person()
+
+      console.log(p.color)
+      p.sayHi()
+    </script>
+  </body>
+</html>

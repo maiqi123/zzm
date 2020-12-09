@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+<script>
+
+/* 
+  (1) promise
+    promise的基本使用:
+      1. 创建promise对象
+        const p = new Promise((resolve, reject) => {
+            // promise中一般封装异步的内容
+            // resolve 成功的时候, 需要调用的函数, 将promise状态改成fulfilled
+            // reject  失败的时候, 需要调用的函数, 将promise状态改成rejected
+        })
+
+      2. 使用promise对象
+        p.then(成功的函数).catch(失败的函数)
+
+    promise的三个状态
+      1. pending 等待中
+      2. fulfilled 成功的
+      3. rejected  失败的
+
+    promise的状态只能修改一次, 一旦被修改了, 就会状态凝固
+
+    promise 主要就是为了解决回调函数嵌套的问题而存在的
+
+  (2) 宏任务 和 微任务
+    宏任务: 主线程的代码, 定时器(延时器)的代码 都是 宏任务
+    如果有多个需要执行的宏任务, 多个宏任务按照顺序依次执行
+
+    setTimeout(() => {
+      console.log(111)
+    }, 0)
+
+    setTimeout(() => {
+      console.log(222)
+    }, 0)
+
+    微任务: promise中的 .then .catch中的代码, 就属于微任务
+    微任务, 是在当前宏任务执行完, 下一个宏任务开始前, 执行
+    每次一个宏任务做完, 都会检测有没有满足条件的微任务, 如果有, 那么就执行掉
+
+  (3) async 和 await
+    async 和 await 大大的提升了 promise 使用时的可维护性
+
+    async function fn () {
+      const res = await axios.get(...)
+      console.log(res)
+      console.log(222)
+    }
+    
+
+*/
+
+
+</script>
+  
+</body>
+</html>

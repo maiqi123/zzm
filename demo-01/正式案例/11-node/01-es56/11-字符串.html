@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      字符串
+      一、模板字符串: 反引号  ` .和波浪线 同一个按键， 英文状态下。
+        1、支持换行
+        2、通过 ${} 插入变量
+        3、在没有换行需要，也不需要插入变量的情况下，不建议使用 模板字符串
+
+      */
+      // let key = 'hello node'
+      // let str = `
+      // <div>
+      //   <h1>
+      //     <h1>${key}</h1>
+      //   </h1>
+      // </div>
+      // `
+      // console.log(str)
+      /*
+      二、字符串的三个方法
+        includes()：返回布尔值，表示字符串是否包含参数字符串。
+        startsWith()：返回布尔值，表示原字符串是否以参数字符头部。
+        endsWith()：返回布尔值，表示原字符串是否以参数字符结尾
+
+        注意：上面三个方法 如果传递参数 是原字符串一样的 ，一定会返回 true
+       */
+      let str = 'hello node'
+      // console.log(str.includes('h')) //true
+      // console.log(str.includes('h1'))  // false
+      // console.log(str.includes('hl')) // false
+      // console.log(str.includes('hel')) // true
+
+      // console.log(str.startsWith('h')) // true
+      // console.log(str.startsWith('hello node')) // true
+
+      // console.log(str.endsWith('h')) // false
+      // console.log(str.endsWith('hello node')) // true
+    </script>
+  </body>
+</html>

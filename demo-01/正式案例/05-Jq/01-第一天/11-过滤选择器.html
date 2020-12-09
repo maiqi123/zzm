@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>cc和flyman的第1个孩子</li>
+        <li>cc和flyman的第2个孩子</li>
+        <li>cc和flyman的第3个孩子</li>
+        <li>cc和flyman的第4个孩子</li>
+        <li>cc和flyman的第5个孩子</li>
+        <li>cc和flyman的第6个孩子</li>
+        <li>cc和flyman的第7个孩子</li>
+        <li>cc和flyman的第8个孩子</li>
+        <li>cc和flyman的第9个孩子</li>
+        <li>cc和flyman的第10个孩子</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 过滤选择器
+            // :odd 从获取到的元素中过滤出下标为奇数的
+            // :even 从获取到的元素中过滤出下标为偶数的
+            // :first 从获取到的元素中过滤出第一个
+            // :last 从获取到的元素中过滤出最后一个
+            // :eq(下标) 从获取到的元素中过滤出指定下标的
+
+            $("li:odd").css("backgroundColor", "pink");
+            $("li:even").css("backgroundColor", "lime");
+            $("li:first").css("fontSize", "50px");
+            $("li:last").css("fontSize", "50px");
+            $("li:eq(4)").css("height", "100px");
+        })
+    </script>
+</body>
+</html>

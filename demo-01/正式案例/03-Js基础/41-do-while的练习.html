@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 1-100计算所有偶数的和
+    // var i = 1;
+    // var sum = 0;
+    // do {
+    //   if (i % 2 === 0) {
+    //     sum += i;
+    //   }
+    //   i++;
+    // } while(i <= 100);
+    // console.log(sum);
+    
+    // 2. 循环表白的案例用do..while怎么写？
+    // do {
+    //   var result = prompt('你爱我吗?y/n');
+    // } while(result !== 'y');
+    // alert('我也是');
+
+    // 3. 循环输入账号密码的案例用do..while怎么写？
+    var i = 0;
+    do {
+      var result = prompt('请输入你的密码');
+      i++;
+    } while(result !== '123456' && i < 3);
+    
+    if (result === '123456') {
+      alert('取款成功');
+    } else {
+      alert('你的账号被冻结');
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .wrap {
+            margin: 100px auto 0;
+            width: 630px;
+            height: 394px;
+            padding: 10px 0 0 10px;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+
+        .wrap img {
+            display: block;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul>
+            <li><a href="#"><img src="images/01.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="images/02.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="images/03.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="images/04.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="images/05.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="images/06.jpg" alt="" /></a></li>
+        </ul>
+    </div>
+
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 步骤:
+            //  1. 找对象(li)
+            //  2. 给li注册mouseenter
+            //  3. 当前的li高亮          当前的 this表示 高亮 opacity 为1 
+            //     其他所有兄弟li变暗    变暗  opacity 为 .5
+
+            // 1.
+            var $lis = $(".wrap li");
+
+            // 2.
+            $lis.mouseenter(function () {
+                // 3. 排他思想完成功能
+                //      先干掉所有人, 在复活我自己
+                // $lis.css("opacity", 0.4); // 所有的li变暗
+                // $(this).css("opacity", 1); // 当前高亮
+
+                // 第二种写法:
+                // jQ提供了siblings() 就可以获取当前元素的其他所有兄弟元素, 不包含自己
+                // 当前的li高亮, 其他所有兄弟li变暗
+                // $(this).css("opacity", 1); // 当前的li高亮
+                // $(this).siblings().css("opacity", 0.4); // 其他所有兄弟li变暗
+
+                // 第二种优化: 链式编程 通过点一直写下去
+                $(this).css("opacity", 1).siblings().css("opacity", 0.4);
+            })
+
+            // 移出wrap, 让所有的li恢复高亮
+            $(".wrap").mouseleave(function () {
+                $lis.css("opacity", 1);
+            })
+
+            // 小结: 
+            // 1. css方法操作样式
+            // 2. siblings() 找所有的兄弟, 不包含自己
+            // 3. 链式编程
+        })
+    </script>
+</body>
+
+</html>

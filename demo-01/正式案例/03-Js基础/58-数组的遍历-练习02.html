@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = ["a", "bb", "ccc", "dddd"];
+    //1.让一个数组倒叙保存另一个数组  ['dddd', 'ccc', 'bb', 'a']
+    // 1. 准备一个新的数组 2. 倒着遍历arr数组 3. 把遍历的值保存到新数组中
+    // var newArr = [];
+    // for (var i = arr.length - 1; i >= 0; i--) {
+    //   newArr.push(arr[i]);
+    // }
+    // console.log(newArr);
+
+
+    //2 将数组中值为0的项去掉，将不为0的值存入一个新的数组
+    // var arr = [1, 0, 2, 0, 1, 1, 0, 0, 3, 1]; // [1, 2, 1, 1, 3, 1]
+    // // 1. 准备新的数组  2. 遍历arr数组  3. 把值不为0的保存到新数组中
+    // var arr1 = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //   if (arr[i] === 0) {
+    //     continue;
+    //   }
+    //   arr1.push(arr[i]);
+    // }
+    // console.log(arr1);
+
+
+
+
+    //3 将字符串数组|拼接,得到一个字符串
+    // ['a', 'b', 'c', 'd']   a|b|c|d
+    // 1. 准备一个空字符串  2. 遍历数组  3. 把每个值都拼接到字符串中
+    var arr = ['a', 'b', 'c', 'd'];
+    var str = '';
+    for (var i = 0; i < arr.length; i++) {
+      if (i === 0) {
+        str = str + arr[i];
+      } else {
+        str = str + '|' + arr[i];
+      }
+    }
+    console.log(str);
+
+    // var arr = ['a', 'b', 'c', 'd'];
+    // var str = arr[0];
+    // for (var i = 1; i < arr.length; i++) {
+    //   str += '|' + arr[i];
+    // }
+    // console.log(str);
+
+
+    //4 有一个字符串数组，求字符串数组中每项的长度，并把长度的数值存储到新的数组中
+    var arr = ['aa', 'hello', 'you', 'i']; // [2, 5, 3, 1] 
+    // 1. 准备一个新数组 2. 遍历arr  3. 把字符串的长度存到新数组中
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      newArr.push(arr[i].length);
+    }
+    console.log(newArr);
+  </script>
+</body>
+
+</html>

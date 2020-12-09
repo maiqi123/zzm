@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. NaN是number类型，代表是一个非数字 not a number
+    // 2. NaN的特点：  NaN不会等于NaN
+    // console.log(NaN == NaN);
+    // 如何判断一个值是否是一个数字
+    // isNaN(值)： 判断这个值是否是NaN
+    //  true: 代表不是数字
+    //  false: 代表是数字
+    var money = prompt('请输入你的工资');
+    money = money - 0;
+    // console.log(money);
+
+    console.log(isNaN(money));
+  </script>
+</body>
+</html>

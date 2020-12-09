@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="fn">按钮</button>
+      <ul>
+        <!-- 如果数据特别简单, 没有重复的, 可以以自身作为key, 如果有重复, 可以不指定key -->
+        <li v-for="item in list" :key="item">{{ item }}</li>
+      </ul>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // vue中有着就地复用的策略:
+      // 当vue中的数据修改了, 会进行新旧dom的对比 (默认: 按照元素的顺序), 
+      // 对比出变化的部分, 尽可能复用之前的标签结构和内容
+      // 进行差异化更新视图, 好处: 渲染性能非常高 
+
+      // 1. 没有key的情况, 默认按照元素的下标, 进行对比出差异部分, 默认是没有问题的!
+      // 2. 但是列表数据的, 每一项的次序, 有可能会改变, 此时的性能不高, 可以利用key进行优化
+
+      // key一般指定成 id, key必须是唯一标识, 只要设置了key, 当前列表不会按照默认的下标, 而是按照key对比了
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          list: ['苹果', '香蕉', '梨子', '猕猴桃']
+        },
+        methods: {
+          fn () {
+            // 往数组后面加一项
+            // this.list.push('橘子')
+
+            // 往数组前面加一项
+            this.list.unshift('橘子')
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

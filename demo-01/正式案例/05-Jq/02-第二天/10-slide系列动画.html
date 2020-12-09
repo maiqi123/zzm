@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: #f00;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <button>展示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+    $(function() {
+        // 三组基本动画
+
+        //  slideDown(speed, easing, callback)   slideUp()       slideToggle()
+        //   向下展开                             向上收起           切换
+
+       //  参数同show系列参数
+        // 以上三个参数都是可选的
+
+        // slide系列动画, 没有参数有动画效果
+
+        $("button").eq(0).click(function() {
+            $("div").slideDown(3000, function () {
+                console.log("展开了");
+                $("div").css("backgroundColor", "lime");
+            });
+        });
+
+        // 隐藏
+        $("button").eq(1).click(function() {
+            $("div").slideUp();
+        });
+
+
+        // 切换
+        $("button").eq(2).click(function() {
+            $("div").slideToggle();
+        });
+    })
+    </script>
+</body>
+
+</html>

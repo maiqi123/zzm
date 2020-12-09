@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="file" multiple>
+  <script>
+    var file = document.getElementById('file')
+    file.onchange = function(){
+      // 只要选中了图片，点了打开就会触发这个事件 并且将待上传的图片存到这个标签对象当中 可以通过files属性来获取
+      console.log(112233);
+      // console.log(this);
+      console.dir(this)// 里面有一个files属性 这个属性是一个文件列表 里面存储着所有的待上传的文件 是一个伪数组
+      console.log(this.files);
+      console.log(this.files[0]);
+    }
+  </script>
+</body>
+</html>

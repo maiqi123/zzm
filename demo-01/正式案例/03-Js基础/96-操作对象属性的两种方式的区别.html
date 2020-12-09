@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name: '伟棠',
+      age: 18,
+      height: 158,
+      sayHi: function () {
+        console.log('大家好');
+      }
+    }
+
+    // 区别： 如果是点语法  对象名.属性名  直接去对象中找对应的属性名
+    //       如果是中括号语法，，对象名['属性名'] 等价于 对象名.属性名 
+    //       var name = 'age';  obj[name] 等价于  obj['age']
+
+    // var key = 'age';
+    // console.log(obj.key);   // undefined
+    // console.log(obj['key']);// undefined
+    // console.log(obj[key]);  // 18
+
+    var name = 'age';
+    console.log(obj.name);   // 伟棠
+    console.log(obj['name']);// 伟棠
+    console.log(obj[name]);  // 18
+
+
+    // var name = 'age';
+    // console.log(obj.name); // obj的name属性
+    // console.log(obj.key);
+
+    // console.log(obj['name']);  // obj.name
+    // console.log(obj[age]);
+    // var age = 'name';
+    // console.log(obj[age]);
+
+  </script>
+</body>
+</html>

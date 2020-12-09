@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+
+  // 宏任务 和 微任务
+  // 1. 宏任务: 主线程的代码 和 定时器内部的代码 都称之为宏任务
+  //    如果有多个宏任务, 会依次按照顺序执行, 只有前一个宏任务做完了, 才会考虑下一个宏任务
+  // 2. 微任务: 当前的宏任务执行完成后, 下一个宏任务开始之前, 需要执行的任务, 就是微任务
+  //    promise的 .then .catch 中的代码, 都属于微任务
+  
+  // 当前宏任务执行完, 会判断是否有 待执行的 微任务, 如果有, 就将微任务执行掉, 再进行浏览器渲染
+  // 浏览器渲染完, 再执行下一个宏任务
+
+  // // 宏任务1 (主线程的代码)
+  // console.log(111)
+  // console.log(111)
+
+  // setTimeout(() => {
+  //   // 宏任务2 (定时器的代码)
+  //   console.log(222)
+  //   console.log(222)
+  //   console.log(222)
+  // }, 0)
+
+  // setTimeout(() => {
+  //   // 宏任务3 (定时器的代码)
+  //   console.log(333)
+  //   console.log(333)
+  //   console.log(333)
+  // }, 0)
+
+  // console.log(111)
+
+  // --------------------------------------------------------------------------------
+  // 宏任务1: 主线程的代码
+  console.log(1)
+
+  setTimeout(() => {
+    // 宏任务2: 定时器的代码
+    console.log(3)
+  }, 0)
+
+  const p = new Promise((resolve, reject) => {
+    resolve(4) // 将promise的状态从pending改成了fulfilled成功, 将来要执行 .then 中的内容
+  })
+
+  p.then(data => {
+    // 微任务
+    console.log(data)
+  })
+
+  console.log(2)
+
+  // 1 2 4 3
+
+
+
+</script>
+
+</body>
+</html>

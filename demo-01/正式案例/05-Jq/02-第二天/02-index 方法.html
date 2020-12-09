@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li><a href="#">这是第1个li</a></li>
+        <li><a href="#">这是第2个li</a></li>
+        <li>
+            <a href="#">这是第3个li</a>
+        </li>
+        <li><a href="#">这是第4个li</a></li>
+        <li><a href="#">这是第5个li</a></li>
+        <li><a href="#">这是第6个li</a></li>
+        <li><a href="#">这是第7个li</a></li>
+        <li><a href="#">这是第8个li</a></li>
+        <li><a href="#">这是第9个li</a></li>
+        <li><a href="#">这是第10个li</a></li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // index 方法: 获取的是当前元素在所有兄弟们的索引 ==> 和结构相关
+
+            // 需求: 点击内容, 获取当前的下标
+            /*$("li").click(function(event) {
+                console.log($(this).index());
+            });*/
+
+            $("a").click(function(event) {
+                // console.log($(this).index()); // error
+
+                console.log( $(this).parent().index() );
+            });
+        })
+    </script>
+</body>
+</html>

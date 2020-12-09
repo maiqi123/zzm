@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .c {
+        border: 1px solid #000;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+       1. 如果A组件使用B => B注册全局/局部组件
+       2. 如果A组件使用A => 只需要给A添加name 属性即可 
+
+       3. 在第一次使用 floor 的时候, 要判断是否有值,
+         <floor v-if="comment.parent" :parent="comment.parent"></floor>
+       
+       4. 在 floor 内部 使用 floor 的时候, 一定要有个判断终止使用 , 如果不判断就会造成死循环   
+
+
+     -->
+    <div id="app">
+      <floor v-if="comment.parent" :parent="comment.parent"></floor>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+      // 楼层组件
+      Vue.component('floor', {
+        name: 'floor', // 递归组件需要使用 name
+        props: ['parent'],
+        template: `
+         <div class='c'> 
+            <floor v-if='parent.parent' :parent='parent.parent'  ></floor>
+            <div>姓名 : {{ 1 }}</div>
+            <div>年龄 : {{ 2 }}</div>
+         </div>
+          `,
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          // 评论
+          comment: {
+            name: '张三',
+            parent: {
+              name: '爸爸',
+              age: 40,
+              parent: {
+                name: '爷爷',
+                age: 60,
+                parent: {
+                  name: '祖宗',
+                  age: 80,
+                },
+              },
+            },
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

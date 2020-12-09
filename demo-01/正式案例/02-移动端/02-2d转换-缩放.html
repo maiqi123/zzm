@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 200px auto;
+      /* 过渡 */
+      transition: 1s;
+    }
+
+    div:hover {
+      /* width: 400px; */
+      /* 
+      2d转换-缩放
+      属性名：转换：transform
+      属性值：scale
+        取值：
+          1、scaleX(缩放的倍数)：沿着x轴方向（水平方向）进行缩放
+          2、scaleY(缩放的倍数)：沿着y轴方向（垂直方向）进行缩放
+          3、scale(x,y)：连写
+
+       */
+      /* transform: scaleX(2); */
+      /* transform: scaleY(2); */
+
+      /* transform: scale(2,2); */
+      /* 
+        特殊情况：如果两个倍数相同，此时可以只写一个
+       */
+      /* transform: scale(2); */
+      transform: scale(.5);
+
+    }
+
+  </style>
+</head>
+<body>
+  <div>我是一个有内容的div</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var num = 11;
+    // function fn(a) {
+    //   // a: 11
+    //   a = 22;
+    //   console.log(a); // 11 22
+    // }
+    // fn(num);
+    // console.log(num); // 11
+
+
+    var obj = {
+      name: 'zs',
+      age: 18
+    }
+
+    function fn(o) {  o = obj
+      o.name = 'ls';
+      console.log(o.name); // ls
+    }
+
+    fn(obj);
+    console.log(obj.name); // ls 
+
+
+
+
+  </script>
+</body>
+</html>

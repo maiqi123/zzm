@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function Person() {
+        this.name = 'is me'
+        this.color = ['lime', 'red']
+      }
+
+      function Chinese() {}
+      Chinese.prototype = new Person()
+
+      // c1 c2的原型链:   属性查找原则: 沿着原型链来找
+      //  c1 c2 ==> Chinese.prototype (本质上是Person的实例对象) ==> Person.prototype ==> Object.prototype ==> null;
+      //      Person的实例对象 {name: "is me", color: ["lime", "red", "black"]}
+      var c1 = new Chinese()
+      var c2 = new Chinese()
+
+      // 属性设置原则: 有就替换, 没有就添加, 只会影响自身, 不会影响原型和原型链上
+      // 给c1自身添加name属性, 值为change
+      c1.name = 'change' //c1没有name  这个操作是给c1添加name属性 给c1添加属性不会影响原型构造函数 不会影响c2 所以c2的name还是is me
+      // c1.color ==> 要去找到color的结果, 才能去调用后面push方法
+      c1.color.push('black')
+
+      console.log(c2.name) // "is me"
+      console.log(c2.color) // ["lime", "red", "black"];
+
+      // 这是给c1自身添加color数组, 不会影响到原型链上的color数组
+      c1.color = ['yellow']
+      console.log(c1.color)
+      console.log(c2)
+      // console.log(c2.name);  // "is me"
+      // console.log(c2.color); // ["lime", "red"];
+    </script>
+  </body>
+</html>

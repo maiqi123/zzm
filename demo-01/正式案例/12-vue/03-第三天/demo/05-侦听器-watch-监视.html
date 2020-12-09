@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ msg }}</h1>
+      <button @click="fn">改值</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // vue中提供了 watch 侦听器的语法, 可以监视数据的变化
+      // el视图, data数据, methods方法, computed计算属性, watch侦听器
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          str: 'abc',
+          obj: {
+            name: '小花',
+            age: 18,
+            desc: '小花, 小花, 貌美如花'
+          }
+        },
+        methods: {
+          fn () {
+            this.msg = '嘿嘿'
+          }
+        },
+        watch: {
+          // 监视 msg 的变化
+          msg: function(newValue, oldValue) {
+            console.log('你改变了msg的值', newValue, ", 改变前:", oldValue)
+          },
+          // 监视 str 的变化
+          str (newValue, oldValue) {
+            console.log('str变化了, 变成了:', newValue)
+          },
+          // 监视 obj.age 的变化
+          'obj.age' (newValue, oldValue) {
+            console.log('小花, 我一直看着你, 你变了, 你今年' + newValue + '岁')
+          }
+        }
+      })
+
+
+      // const obj = {
+      //   name: 'zs',
+      //   age: 18,
+      //   'de-sc': '不错'
+      // }
+      // console.log(obj)
+    </script>
+  </body>
+</html>

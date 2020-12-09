@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ msg }}
+    </div>
+
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <script>
+      /* 
+        vue-router 是一个官方维护的插件, 是基于 vue
+        vue-router的基本使用:
+          1. 下载 npm i vue-router
+          2. 引包 
+          3. 使用, 创建路由实例
+          4. 将当前的路由实例, 挂载到vue实例上, 建立联系
+      */
+
+      const router = new VueRouter()
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        router
+      })
+    </script>
+  </body>
+</html>

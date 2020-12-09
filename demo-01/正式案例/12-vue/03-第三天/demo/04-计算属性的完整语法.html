@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 姓名拼接 -->
+      <input type="text" v-model="start">+
+      <input type="text" v-model="end">=
+      <input type="text" v-model="fullName">
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          start: '帅',
+          end: '鹏'
+        },
+        computed: {
+          // 全名, 默认只配置了计算属性的getter, 默认的计算属性, 只能获取不能修改
+          // fullName () {
+          //   return this.start + '-' + this.end
+          // }
+
+          // 如果想修改, 需要配置对应的 setter
+          // 计算属性的完整写法
+          fullName: {
+            get () {
+              return this.start + '-' + this.end
+            },
+            // this.fullName = '张-三' 也是设置, 只要设置了, 就会执行 set 方法
+            set (val) {
+              this.start = val.split('-')[0]
+              this.end = val.split('-')[1]
+            }
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

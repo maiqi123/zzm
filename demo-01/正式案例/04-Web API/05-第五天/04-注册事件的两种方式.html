@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">按钮</button>
+  <script>
+    // var button = document.querySelector('button');
+    var button = document.getElementById('btn');
+
+    // 优点：非常的简洁  非常的方便
+    // 缺点：如果多次给同一个元素注册同一个事件，会被覆盖。
+    // button.onclick = function () {
+    //   console.log('哈哈哈');
+    // }
+    // button.onclick = function () {
+    //   console.log('呵呵呵');
+    // }
+    // button.onclick = null;
+
+    // 方式2：addEventListener()   removeEventListener
+
+    // 参数1：事件名
+    // 参数2：事件处理程序
+    // 优点：注册的事件不会被覆盖
+    // 缺点：使用没有on这个方式简洁
+    function fn() {
+      console.log('哈哈哈');
+    }
+    button.addEventListener('click', fn);
+
+    button.addEventListener('click', function () {
+      console.log('呵呵呵');
+    });
+
+  
+    // 参数1：事件名
+    // 参数2：需要移除的事件处理程序，需要对应注册时的那个函数
+    // 如果注册的事件想要能被移除，注册的时候不能使用匿名函数，需要先声明一个函数。
+    // button.removeEventListener('click', fn);
+  </script>
+</body>
+</html>

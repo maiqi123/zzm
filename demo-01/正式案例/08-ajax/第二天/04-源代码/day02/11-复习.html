@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ajax 发送请求和获取响应
+        //  get post请求区别
+
+        //  1. 创建ajax对象 ==> new XMLHttpRequest(); // 没有参数, ()可以不写
+        
+        //  2. 发送请求, 请求三部分(行 头 体)
+        //   行:
+        //     get方式: xhr.open("GET", "xxx?数据");
+        //     post方式: xhr.open("POST", "xxx");
+
+        //   头:
+        //     get方式: 不用管, 浏览器会自动处理
+        //     post方式: xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        
+        //   体:
+        //     get方式: xhr.send(null);
+        //     post方式: xhr.send(数据);
+
+        //  获取响应(行 头 体)
+        //   行: 状态码  xhr.status 200ok 404 500
+        
+        //   头: 
+        //      xhr.getAllResponseHeaders(); // 获取到所有的响应头
+        //      xhr.getResponseHeader("xxxx"); // 获取指定的响应头
+
+        //   体:
+        //     响应的内容 xhr.responseText
+
+        // xhr状态变化 ==> 注册事件 xhr.onreadystatechange && xhr.readyState === 4
+        //            ==>  xhr.onload = function(){} 响应结束了
+
+        
+        
+    </script>
+</body>
+</html>

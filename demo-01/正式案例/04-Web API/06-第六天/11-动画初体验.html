@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    div {
+      width: 100px;
+      height: 90px;
+      background-color: pink;
+      border-top: 10px solid lime;
+      border-radius: 10px 10px 0 0;
+      position: absolute;
+      left: 0px;
+    }
+  </style>
+</head>
+<body>
+  <button>奔跑吧，飞飞</button>
+  <div></div>
+  <script>
+    // c3 transition 补间动画
+    // 帧动画
+    // 需求：让飞飞渐渐地跑到400
+    var button = document.querySelector('button');
+    var div = document.querySelector('div');
+    button.onclick = function () {
+      setInterval(function () {
+        // 先获取到div原来的位置
+        var current = div.offsetLeft;
+        current += 10;
+        div.style.left = current + 'px';
+      }, 16);
+    }
+  </script>
+</body>
+</html>

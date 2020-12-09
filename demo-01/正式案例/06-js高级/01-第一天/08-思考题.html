@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // [] 字面量 底层本质 new Array() 创建的
+        //    [] ==> new Array(); // new的第一步创建一个新对象, 有新的地址0x11
+        //    [] ==> new Array(); // new的第一步创建一个新对象, 有新的地址0x12
+
+        console.log( [] === [] );  // false
+
+        // 两个数组使用的push方法是同一个
+        // push方法会存放在哪? 放到数组的原型对象中
+        // Array.prototype
+        // 把push方法放到Array.prototype 原型对象上的好处:
+        //  1. 可以解决内存浪费问题
+        //  2. 只要是数组的实例对象都可以去原型对象上直接使用原型上的方法(push pop ... )
+        console.log( [].push === [].push );  // true
+
+        // var d = new Date();
+        // d.getFullYear();
+    </script>
+</body>
+</html>

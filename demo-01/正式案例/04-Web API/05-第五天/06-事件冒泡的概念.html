@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+
+    .son {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+
+  <script>
+    var father = document.querySelector('.father');
+    var son = document.querySelector('.son');
+
+    son.addEventListener('click', function(e) {
+      // stop: 停止  Propagation： 传播
+      console.log('son的事件');
+    });
+    father.addEventListener('click', function(e) {
+      // e.stopPropagation();
+      console.log('father的事件');
+    });
+
+    document.body.addEventListener('click', function () {
+      console.log('body的点击事件');
+    })
+
+    document.addEventListener('click', function () {
+      console.log('document的点击事件');
+    })
+    // 事件冒泡：当某个元素的事件触发后，这个事件会依次在所有的祖先元素中触发，这个过程就叫事件冒泡
+    // 默认浏览器就是支持事件冒泡，事件冒泡有好处。
+
+  </script>
+</body>
+</html>

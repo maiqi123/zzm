@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+            this.sayHi = function () {
+                console.log("hello");
+            }
+        }
+
+        var p1 = new Person("xm", 20);
+        var p2 = new Person("xh", 21);
+        // console.log(p1, p2);
+
+        // 对于复杂数据类型来说, 想进行比较的时候, 比的是内存地址.
+        console.log(p1 === p2); // false
+        // 构造函数创建对象的问题: 内存上的浪费
+        // p1和p2的sayHi在做比较的时候, 发现结果为false . 两个sayHi方法在内存中地址不同, 在内存中有两份一样功能的sayHi方法, 这样会有内存上的浪费.
+        console.log(p1.sayHi === p2.sayHi); // false
+    </script>
+</body>
+</html>

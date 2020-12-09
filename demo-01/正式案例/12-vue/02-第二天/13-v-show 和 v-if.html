@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      v-show 和 v-if 功能: 控制盒子的显示隐藏
+
+      v-show="布尔值"
+      如果是true, 显示, 如果是false, 隐藏
+      原理: 实质是在控制元素的 css 样式, display: none;
+
+      v-if="布尔值"
+      如果是true, 显示, 如果是false, 隐藏
+      原理: 动态的创建 或者 删除元素
+
+      应用场景: 看情况
+        1. 如果是频繁的切换显示隐藏, 用 v-show
+           频繁的切换, 如果用 v-if, 那么就是大量的创建和删除元素, 消耗性能
+
+        2. 如果是不用频繁切换, 要么显示, 要么隐藏的情况, 适合于用 v-if
+           v-show 和 v-if 对于默认是 false 的情况, 有区别的
+           (1) v-if 是惰性的, 如果初始值为 false, 那么这些元素就直接不创建了, 节省一些初始渲染开销
+           (2) v-show 不管false还是true, 都会先创建元素, 然后根据true/false 决定是否设置display: none
+
+           广告 对于 vip 用户, 直接不显示即可 => v-if="false"
+    -->
+
+    <div id="app">
+      <h1 v-show="flag">{{ msg }}</h1>
+      <h1 v-if="flag">{{ msg }}</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          flag: true
+        }
+      })
+    </script>
+  </body>
+</html>

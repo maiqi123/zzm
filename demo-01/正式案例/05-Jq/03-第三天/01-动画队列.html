@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #f99;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    
+    <div></div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 动画队列: 给元素添加多个动画的时候, jQ会把需要做的动画放到元素的队列中, 元素按照队列的顺序依次去执行这些动画.
+
+            //  坏处: 给元素的动画队列中不停的添加动画, 元素就会不停的执行动画(抽风bug)
+            //  好处: 有先后顺序的动画效果
+            $("div").click(function() {
+                $("div")
+                    .slideUp(1000)
+                    .slideDown(1000)
+                    .animate({
+                        left: 500
+                    }, 1000)
+                    .animate({
+                        top: 300
+                    }, 1000)
+                    .animate({
+                        borderRadius: 50
+                    }, 1000)
+            });
+
+        })
+    </script>
+</body>
+</html>

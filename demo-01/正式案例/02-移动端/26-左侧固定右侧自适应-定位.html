@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      height: 600px;
+      border: 3px solid #000;
+
+      position: relative;
+
+      /* 2、给父元素设置padding-left */
+      padding-left: 300px;
+    }
+
+    /* 左侧固定 */
+    .left {
+      width: 300px;
+      height: 300px;
+      background-color: blue;
+      /* 子绝父相 */
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* 右侧自适应 */
+    .right {
+      /* width: ??????? 自适应; */
+      height: 310px;
+      background-color: yellow;
+
+      /* 1、给右侧的盒子设置margin-left */
+      /* margin-left: 300px; */
+    }
+
+    /* 
+    左侧固定右侧自适应-定位
+      1、左侧盒子宽度写死——》定位
+      2、右侧盒子宽度不设置自适应
+          1、给右侧的盒子设置margin-left
+          2、给父元素设置padding-left
+    
+     */
+
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>

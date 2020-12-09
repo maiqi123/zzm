@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name, age){
+            // 有形参, 无实参, 形参是undefined
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.name = "lw";
+        Object.prototype.gender = "male";
+
+        // 变化的点
+        var p = new Person();
+
+        console.log(p);
+        
+        // p实例对象的原型链
+        //  p ==> Person.prototype ==> Object.prototype ==> null;
+
+        console.log(p.name); // undefined
+        console.log(p.age); // undefined
+        console.log(p.gender); // male
+        console.log(p.sex); // undefined
+    </script>
+</body>
+</html>

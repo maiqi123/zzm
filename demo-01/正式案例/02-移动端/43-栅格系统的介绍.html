@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <style>
+    .container {
+      border: 1px solid #000;
+    }
+
+    .item {
+      height: 100px;
+      border: 1px solid red;
+    }
+
+    /* 
+      要求在响应式布局容器中，只在大屏设备中宽度各占一半一行中显示，其他屏幕中占满一行
+
+      超小屏：0~768
+      小屏：768~992
+      中屏：992~1200
+      大屏：1200~
+    */
+
+  /* 只在大屏中生效 */
+  /* @media screen and (min-width:1200px) {
+    .item {
+      width: 50%;
+      float: left;
+    }
+  } */
+
+
+  </style>
+</head>
+<body>
+  <!-- 
+    栅格系统：在bootstrap中把一行等分成了12份
+
+    底层原理： 媒体查询 + 宽度百分比 + 浮动
+
+    语法：
+      .col-取值1-取值2
+
+      取值1：
+        1、lg：大屏及以上屏幕生效
+        2、md：中屏及以上屏幕生效
+        3、sm：小屏及以上屏幕生效
+        4、xs：超小屏及以上屏幕生效（所有屏幕都可以生效）
+
+      取值2：份数
+
+
+   -->
+
+   <!-- 
+    让两个盒子在中屏、大屏中各占1/3
+
+    -->
+  <div class="container">
+    <div class="item col-md-4"></div>
+    <div class="item col-md-4"></div>
+  </div>
+</body>
+</html>

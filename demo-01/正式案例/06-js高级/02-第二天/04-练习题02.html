@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    function Person(name) {
+        // name ==> undefined
+        if (name) {
+            this.name = name;
+        }
+    }
+
+    Person.prototype.name = "ls";
+    Person.prototype.money = 100;
+
+    var p = new Person();
+
+    console.log(p);
+
+    // p实例对象自身没有name属性
+
+    console.log(p.name); // ls      undefined 
+    console.log(p.money); // 100    100
+    </script>
+</body>
+
+</html>

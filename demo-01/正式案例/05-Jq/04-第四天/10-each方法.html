@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // each() 可以用来遍历jQ对象
+            //  each(function(index, item){
+            //     // index 下标
+            //     // item 当前遍历的每一项  DOM对象
+            //  })
+
+            var arr = ["red", "green", "yellow"];
+            var $lis = $("li");
+
+            $lis.each(function (i, v) {
+                // console.log(i, v);
+                $(v).css("backgroundColor", arr[i]);
+            })
+        })
+    </script>
+</body>
+</html>

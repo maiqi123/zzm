@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .jack, .rose {
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        border: 2px solid #000;
+        margin: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <jack></jack>
+      <rose></rose>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 需求: 两个组件, Jack 和 Rose, Jack传递一个消息给Rose
+      // 非父子通信语法:
+      // 1. 先创建一个都能访问到的事件总线 (event bus)
+      //    const bus = new Vue() 事件总线, 就是一个空的vue实例, 可以注册事件, 可以触发事件
+      // 2. 在 A 组件中, 可以触发 bus 的事件, 触发事件的同时, 可以传值
+      //    bus.$emit(事件名, 参数1, 参数2, ...)
+      // 3. 在 B 组件中, 通过给 bus 注册对应的事件, 接收参数
+      //    bus.$on(事件名, 处理函数)
+
+      // Vuex vue的状态管理工具, 可以维护整个vue应用的数据
+      
+      const bus = new Vue()
+
+      Vue.component('jack', {
+        template: `
+          <div class="jack">
+            <h3>我是jack组件</h3>
+            <button @click="say">jack对rose说</button>
+            <p>{{ str }}</p>
+          </div>
+        `,
+        data () {
+          return {
+            msg: 'you jump, i look look~',
+            str: ''
+          }
+        },
+        methods: {
+          say () {
+            bus.$emit('jack-say', this.msg)
+          }
+        },
+        created () {
+          bus.$on('rose-say', (askMsg) => {
+            // console.log(askMsg)
+            this.str = askMsg
+          })
+        }
+      })
+
+      Vue.component('rose', {
+        template: `
+          <div class="rose">
+            <h3>我是rose组件</h3>
+            <button @click="say">rose回答</button>
+            <p>{{ info }}</p>
+          </div>
+        `,
+        data () {
+          return {
+            info: '',
+            askMsg: '你个负心汉~ 你走~'
+          }
+        },
+        methods: {
+          say () {
+            bus.$emit('rose-say', this.askMsg)
+          }
+        },
+        // 注册了事件, 才能接收到参数, 如果点击按钮的时候, 事件还没注册上, 就拿不到参数
+        // 注册事件, 越早越好
+        created () {
+          bus.$on('jack-say', (msg) => {
+            // console.log(msg)
+            this.info = msg
+          })
+        }
+      })
+
+      // $('#btn').on('click', function() {  })
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        }
+      })
+    </script>
+  </body>
+</html>

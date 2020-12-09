@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 4000px;
+      width: 3000px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // 1. 整个页面的滚动事件推荐给window注册  window.onscroll
+    // 2. 想要获取页面的scrollTop   window.pageYOffset
+    // window的事件： onload  scroll  resize
+
+    // 
+    window.onscroll = function () {
+      // console.log('123');
+      // console.log(document.body.scrollTop);
+      // console.log(window.scrollY);
+      console.log(window.pageYOffset);
+      console.log(window.pageXOffset);
+    }
+  </script>
+</body>
+</html>

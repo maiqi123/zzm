@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则的组成: 普通字符 + 元字符
+        // 普通字符 /a/  没有实际含义, 写啥就匹配啥
+        // 元字符   有实际含义
+
+        // 1. \d  匹配任意一个数字 0-9
+        // 2. \D  匹配任意一个非数字
+        // 3. \w  匹配任意一个单词字符  大小写字母 a-z A-Z 数字 0-9 _
+        // 4. \W  匹配任意一个非单词字符
+        // 5. \s  匹配任意一个不可见字符  空格  换行 \n  制表符(tab)   \t
+        // 6. \S  匹配任意一个可见字符
+        // 7. .   匹配除了换行任意一个字符
+        // 8. \.  只能匹配小数点  对点进行转义
+
+        // console.log( /\d/.test("abc") ); // false
+        // console.log( /\d/.test("123") ); //  true
+        // console.log( /\d/.test("ab1c") ); // true
+
+        // console.log( /\D/.test("abc") ); // true
+        // console.log( /\D/.test("123") ); //  false
+        // console.log( /\D/.test("ab1c") ); // true
+
+        // console.log( /\w/.test("abc") );  // true
+        // console.log( /\w/.test(",,,,") ); // false
+        // console.log( /\w/.test("  _ ") ); // false
+        // console.log( /\w/.test("#$%^&*()") ); // false
+
+        // console.log( /\W/.test("abc") );  // false
+        // console.log( /\W/.test(",,,,") ); // true
+        // console.log( /\W/.test("  _ ") ); // true
+        // console.log( /\W/.test("#$%^&*()") ); // true
+
+
+        /*console.log( /\s/.test("ab c") ); // true 
+        console.log( /\s/.test("   ") );  // true
+        console.log( /\s/.test(",,,,") ); // false
+        console.log( /\s/.test(",,\n,,") ); // true*/
+
+        // console.log( /\S/.test("ab c") ); // true 
+        // console.log( /\S/.test("   ") );  // false
+        // console.log( /\S/.test(",,,,") ); // true
+        // console.log( /\S/.test(",,\n,,") ); // true
+
+        // console.log( /./.test("12.3") ); // true
+        // console.log( /./.test("abc") );  // true
+        // console.log( /./.test("\n") );   // false
+
+        console.log( /\./.test("12.3") ); // true
+        console.log( /\./.test("abc") );  // false
+        console.log( /\./.test("\n") );   // false
+    </script>
+</body>
+</html>

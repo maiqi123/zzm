@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-color:font.bold="fontColor">字体加粗, 字体变色</p>
+      <p v-color:bg.italic.bold="bgColor">字体倾斜和加粗, 背景变色</p>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // v-color:font = 'color'  设置元素的字体颜色
+      // v-color:bg = 'color' 设置元素的背景颜色
+
+      // v-color:bg.italic = 'color' 把元素的字体改成倾斜
+      // v-color:bg.bold = 'color'  把元素的字体改成加粗
+
+      Vue.directive('color', {
+        bind (el, binding) {
+          // console.log(binding.arg)
+          if (binding.arg === 'font') {
+            el.style.color = binding.value
+          }
+
+          if (binding.arg === 'bg') {
+            el.style.backgroundColor = binding.value
+          }
+
+          // console.log(binding.modifiers)
+          // 判断 modifiers 对象中, 是否存在对应修饰的属性, 如果存在, 说明有这个功能
+          if (binding.modifiers.bold) {
+            el.style.fontWeight = 700
+          }
+          if (binding.modifiers.italic) {
+            el.style.fontStyle = 'italic'
+          }
+        },
+        update (el, binding) {
+          if (binding.arg === 'font') {
+            el.style.color = binding.value
+          }
+
+          if (binding.arg === 'bg') {
+            el.style.backgroundColor = binding.value
+          }
+        }
+      })
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          fontColor: 'red',
+          bgColor: 'skyblue'
+        }
+      })
+    </script>
+  </body>
+</html>

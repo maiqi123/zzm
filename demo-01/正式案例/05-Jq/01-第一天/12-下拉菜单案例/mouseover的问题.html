@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="../jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+    x = 0;
+    y = 0;
+    $(document).ready(function() {
+        $("div.over").mouseover(function() {
+            $(".over span").text(x += 1);
+        });
+
+        $("div.enter").mouseenter(function() {
+            $(".enter span").text(y += 1);
+        });
+
+        // mouseover 和 mouseenter都有鼠标移入的效果
+        // mouseover 注册的事件会在当前元素上以及其后代元素上触发, 原理是因为mouseover事件会事件冒泡
+        // mouseenter 注册的事件只会在当前元素上触发, 因为mouseenter事件不会事件冒泡
+
+        // 推荐以后再注册鼠标移入移出的时候, 使用mouseenter 和 mouseleave
+        //  mouseover 和 mouseout 是一对, 因为事件会频繁触发, 会影响网页性能.
+    });
+    </script>
+</head>
+
+<body>
+    <div class="over" style="background-color:lightgray;padding:20px;width:40%;float:left">
+        <h2 style="background-color:white;">被触发的 Mouseover 事件：<span></span></h2>
+    </div>
+
+    <div class="enter" style="background-color:lightgray;padding:20px;width:40%;float:right">
+        <h2 style="background-color:white;">被触发的 Mouseenter 事件：<span></span></h2>
+    </div>
+</body>
+
+</html>

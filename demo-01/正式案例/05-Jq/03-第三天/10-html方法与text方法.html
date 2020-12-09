@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="box">
+        <h2>哈哈</h2>
+    </div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // html 方法与 text 方法
+            // html() ==> 底层封装了innerHTML
+            // text() ==> 底层封装了innerText
+            // html() 和 text() 的区别:
+            //    html() 可以识别标签
+            //    text() 不可以识别标签
+
+            // 传参就是在设置, 不传参就是在获取
+
+            // console.log( $("#box").html() );
+            // console.log( $("#box").text() );
+
+            // $("#box").html("<h1>吓到宝宝了, 要抱抱!!!</h1>");
+            $("#box").text("<h1>吓到宝宝了, 要抱抱!!!</h1>");
+        })
+    </script>
+</body>
+</html>

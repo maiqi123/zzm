@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" id="btn1" value="按钮1">
+  <input type="button" id="btn2" value="按钮2">
+  <script src="../bignews69/admin/libs/jquery-1.12.4.min.js"></script>
+  <script>
+    // 当单击按钮1的时候，要发送ajax请求
+    $('#btn1').on('click',function(){
+      $.ajax({
+        type:'get',
+        url:'http://127.0.0.1/list.php',
+        success:function(){
+          console.log(123);
+        }
+      })
+    })
+    // 当单击按钮2的时候，要发送ajax请求
+    $('#btn2').on('click',function(){
+      $.ajax({
+        type:'get',
+        url:'http://127.0.0.1/index.php',
+        success:function(){
+          console.log(123);
+        }
+      })
+    })
+
+    $.ajaxSetup({
+      // 这个函数的功能是可以用来设置一些公用的方法
+      // 比如可以设置统一的请求头，带上token
+      // $.ajax()函数中的方法都可以在这里使用 beforeSend()  error()  success() complete()
+      beforeSend:function(){
+        console.log('ajaxSetup中的函数被执行了...');
+      }
+    })
+
+    // 通过以上演示，我们知道只要是$.ajax()在执行的时候，首先会先到$.ajaxSetup()中先去执行代码
+  </script>
+</body>
+</html>

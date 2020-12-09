@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .box {
+      width: 600px;
+      margin: 100px auto;
+      border: 1px solid #000;
+      padding: 20px;
+      transform: translateX();
+    }
+
+    textarea {
+      width: 450px;
+      height: 160px;
+      outline: none;
+      resize: none;
+    }
+
+    ul {
+      width: 450px;
+      padding-left: 80px;
+    }
+
+    ul li {
+      line-height: 25px;
+      border-bottom: 1px dashed #cccccc;
+    }
+
+    .fr {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="weibo">
+    <span>微博发布</span>
+    <textarea name="" id="txt" cols="30" rows="10"></textarea>
+    <button id="btn">发布</button>
+    <ul id="ul">
+    </ul>
+
+    <script>
+      // 1. 找对象
+      // 2. 给发布按钮注册点击事件
+      // 3. 获取到textarea(文本域)的内容
+      // 4. 动态创建一个li，给li设置内容，并且添加到ul中
+
+
+      // 1. 找对象
+      var textarea = document.querySelector('#txt');
+      var btn = document.querySelector('#btn');
+      var ul = document.querySelector('#ul');
+
+      // 2. 给发布按钮注册点击事件
+      btn.onclick = function () {
+        // 3. 获取textarea的内容, 判断textarea内容是否是空
+        var content = textarea.value.trim();
+        if (content === '') {
+          alert('亲，发布的内容不能为空了啦~');
+          return;
+        }
+
+        // 4. 创建li   
+        var li = document.createElement('li');
+        // 5. 给li设置内容
+        li.innerText = content;
+        // 6. 把li添加到ul中
+        // ul.appendChild(li);
+        ul.insertBefore(li, ul.firstElementChild);
+        // 7. 把文本域的内容清空
+        textarea.value = '';
+
+
+        // 8. 给li添加一个删除的按钮
+        var button = document.createElement('button');
+        button.innerText = '删除';
+        button.classList.add('fr');
+        li.appendChild(button);
+        button.onclick = function () {
+          // 删除按钮的父元素
+          ul.removeChild(this.parentNode);
+        }
+      }
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <demo></demo>
+
+      <demo></demo>
+
+      <demo></demo>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 组件是可复用的vue实例, new Vue怎么配, 组件也可以怎么配
+      // 例如: data methods computed watch ...
+      // 注意: el是根实例独有的
+      Vue.component('demo', {
+        template: `
+          <div>
+            <div>我是demo组件 - {{ count }}</div>
+            <button @click="fn">按钮</button>  
+          </div>
+        `,
+        // 一个组件的data选项必须是一个函数, 为了保证每个组件数据的独立性!
+        // 每当组件被使用时, 就会执行 data 函数, 将data函数的返回的对象, 作为当前组件的数据对象
+        data() {
+          // 这种写法, 就是为了保证数据的独立性, 每次使用组件, 都会提供一个新的独立的数据对象
+          // const obj = {
+          //   count: 0
+          // }
+          // return obj
+
+          return {
+            count: 0,
+          }
+        },
+        methods: {
+          fn() {
+            // console.log('(#^.^#)')
+            this.count++
+          },
+        },
+      })
+
+      // 根实例 和 组件 配置区别:
+      // 1. el 是根实例独有的
+      // 2. data 对于根实例是一个对象, data对于组件是一个函数, 且在函数中要返回一个对象
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+        },
+      })
+    </script>
+  </body>
+</html>

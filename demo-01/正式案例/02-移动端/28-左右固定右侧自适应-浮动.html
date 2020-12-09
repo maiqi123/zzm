@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      height: 600px;
+      border: 3px solid #000;
+    }
+
+    /* 左右固定 */
+    .left {
+      width: 300px;
+      height: 300px;
+      background-color: blue;
+      /* 左浮动 */
+      float: left;
+    }
+
+    .right {
+      width: 300px;
+      height: 300px;
+      background-color: blue;
+      /* 右浮动 */
+      float: right;
+    }
+
+    /* 中间自适应 */
+    .center {
+      /* width: ????; */
+      height: 310px;
+      background-color: yellow;
+      /* 触发bfc */
+      overflow:hidden
+    }
+
+    /* 
+      左右固定中间自适应（圣杯布局、双飞翼布局）
+        1、左右宽度写死——》分别左右浮动
+        2、中间不设置宽度默认自适应——》触发bfc
+
+        注意点：在html的结构中需要先写左右，再写中间
+    
+     */
+
+  </style>
+</head>
+<body>
+  <!-- 
+    左右固定中间自适应（圣杯布局、双飞翼布局）
+   -->
+  <div class="father">
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="center"></div>
+  </div>
+</body>
+</html>

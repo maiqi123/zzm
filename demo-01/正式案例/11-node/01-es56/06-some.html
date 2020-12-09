@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      some  一些， 当数组中，数组项存在 满足条件的时候，返回true， 否则返回false。 1+
+          遍历 + 判断（有一个以上满足条件）
+      返回值： 布尔值
+       */
+
+      var arr = [
+        { id: 1, name: '吃饭', done: true },
+        { id: 2, name: '睡觉睡觉睡觉', done: true },
+        { id: 3, name: '打豆豆豆豆', done: false },
+      ]
+      // 需求1： 判断数组中 是否有 done 为false的
+      // var b = arr.some(function (item) {
+      //   return item.done === false
+      // })
+      // console.log(b)
+
+      // 需求2：判断是否存在 name 长度 > 4
+      var b = arr.some(function (item) {
+        return item.name.length > 4
+      })
+      console.log(b)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <a href="http://web.itcast.cn" target="_blank">18岁以下禁止访问的</a> -->
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 创建节点
+
+            // 原生js
+            /*var link = document.createElement("a");
+            link.href = "http://web.itcast.cn";
+            link.target = "_blank";
+            link.innerText = "18岁以下禁止访问的";
+            document.body.appendChild(link);*/
+
+            // jQ创建
+            // 语法: $(html字符串)
+            // $("<p>哈哈</p>")
+
+            // 注意点: 引号问题
+            var $link = $('<a href="http://web.itcast.cn" target="_blank"><span>哈哈</span></a>'); // 内存中
+
+            // append() 添加节点方法 ==> 底层就是封装了appendChild
+            $("body").append( $link );
+        })
+    </script>
+</body>
+</html>

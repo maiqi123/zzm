@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //2. 循环表白案例  你爱我吗  prompt y/n
+    //3. 取款案例， 输入你的密码  假设密码 123456  如果输入的密码错误，继续请输入密码 如果超过3次，你的账号被冻结
+
+    // var result = prompt('你爱我吗? y/n');
+    // while(result !== 'y') {
+    //   result = prompt('你爱我吗? y/n');
+    // }
+
+    // alert('我也是，我也很爱我自己');
+
+    // var password = prompt('请输入你的银行卡密码');
+    // var i = 1;
+    // while(password !== '123456' && i < 3) {
+    //   i++;
+    //   password = prompt('请输入你的银行卡密码');
+    // }
+    // if (password === '123456') {
+    //   alert('取款成功');
+    // } else {
+    //   alert('你输入的次数过多')
+    // }
+
+    // 需求： 输入密码  密码123456  如果密码输入错误，继续输入密码，，最多输入3次
+    var password = prompt('请输入密码');
+    var i = 1; // 输入的次数
+    // 1. 如果密码错误  并且 次数 小于3
+    while(password !== '123456' && i < 3) {
+      password = prompt('请再次输入你的密码');
+      i++;
+    }
+
+    if (password === '123456') {
+      alert('取款成功');
+    } else {
+      alert('你的账号被冻结');
+    }
+
+  </script>
+</body>
+</html>

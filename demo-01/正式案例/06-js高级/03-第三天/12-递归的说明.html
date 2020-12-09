@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 计算 1-100 之间所有数的和 ==> 递归函数
+
+        // sum用于求和
+        // 参数n表示计算1-n之间所有数的和
+        function sum(n){
+            // 2. 结束递归的条件
+            if (n === 1) {
+                return 1; // return 后续代码不执行
+            }
+
+            // 1. 得到公式, 按照公式去计算
+            return sum(n - 1) + n;
+        }
+        console.log( sum(5) ); // 1 + 2 + 3 + 4 + 5
+
+        // 递归函数: 层层递进. 在层层回归
+        // sum(5) ==> sum(4) + 5; // sum(5) 最终结果不知道, 需要等, 等待sum(4)的结果
+        // sum(4) ==> sum(3) + 4; // sum(4) 最终结果不知道, 需要等, 等待sum(3)的结果
+        // sum(3) ==> sum(2) + 3; // sum(3) 最终结果不知道, 需要等, 等待sum(2)的结果
+        // sum(2) ==> sum(1) + 2; // sum(2) 最终结果不知道, 需要等, 等待sum(1)的结果
+        // sum(1) ==> 1
+    </script>
+</body>
+</html>

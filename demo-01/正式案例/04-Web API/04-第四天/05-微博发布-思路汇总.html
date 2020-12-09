@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .box {
+      width: 600px;
+      margin: 100px auto;
+      border: 1px solid #000;
+      padding: 20px;
+    }
+
+    textarea {
+      width: 450px;
+      height: 160px;
+      outline: none;
+      resize: none;
+    }
+
+    ul {
+      width: 450px;
+      padding-left: 80px;
+    }
+
+    ul li {
+      line-height: 25px;
+      border-bottom: 1px dashed #cccccc;
+    }
+
+    .fr {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="weibo">
+    <span>微博发布</span>
+    <textarea name="" id="txt" cols="30" rows="10"></textarea>
+    <button id="btn">发布</button>
+    <ul id="ul">
+    </ul>
+
+    <script>
+      // 1. 找对象
+      // 2. 给发布按钮注册点击事件
+      // 3. 获取到文本域的value值
+      // 4. 判断value值是不是空的 (trim)
+      // 5. 动态创建一个li，并且设置li的内容
+      // 6. 把li添加到ul中
+      // 7. 创建删除按钮，并且添加到li中
+      // 8. 给删除按钮注册点击事件
+      // 9. 让ul删除 按钮的 所在的li
+      // 10. 把文本域的值清空
+      var txt = document.querySelector('#txt');
+      var btn = document.querySelector('#btn');
+      var ul = document.querySelector('#ul');
+      btn.onclick = function () {
+        var content = txt.value.trim();
+        if (content === '') {
+          alert('亲，输入的内容不能为空哟~');
+          return;
+        }
+
+        // 创建li
+        var li = document.createElement('li');
+        ul.insertBefore(li, ul.firstElementChild);
+        li.innerText = content;
+        var button = document.createElement('button');
+        button.innerText = '删除';
+        li.appendChild(button);
+        button.className = 'fr';
+        button.onclick = function () {
+          ul.removeChild(this.parentNode);
+        }
+
+        txt.value = '';
+      }
+    </script>
+  </div>
+</body>
+
+</html>

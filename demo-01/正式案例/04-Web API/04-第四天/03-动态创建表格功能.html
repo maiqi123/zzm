@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table {
+      width: 500px;
+      margin: 100px auto;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    td,
+    th {
+      border: 1px solid #333;
+    }
+
+    td {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    thead tr {
+      height: 40px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <table cellspacing="0">
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>科目</th>
+        <th>成绩</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <script>
+    var arr = [{
+        name: '张飞',
+        subject: '语文',
+        score: 100
+      },
+      {
+        name: '关羽',
+        subject: '体育',
+        score: 98
+      },
+      {
+        name: '吕布',
+        subject: '道德',
+        score: 20
+      },
+      {
+        name: '曹操',
+        subject: '两性',
+        score: 100
+      }
+    ];
+
+    // 1. 遍历arr数组
+    // 2. 动态创建tr标签
+    // 3. 创建3个td，并且给3个td设置内容
+
+    // 1. 获取tbody 4小时
+    var tbody = document.querySelector('tbody');
+    // 2. 遍历数组
+    for (var i = 0; i < arr.length; i++) {
+      // 3. 创建tr标签
+      var tr = document.createElement('tr');
+      // 4. 把tr添加到tbody中
+      tbody.appendChild(tr);
+      // 5. 遍历对象
+      var obj = arr[i];
+      for (var k in obj) {
+        // 6. 创建td
+        var td = document.createElement('td');
+        // 7. 给td设置内容
+        td.innerText = obj[k];
+        // 8. 把td添加到tr中
+        tr.appendChild(td);
+      }
+
+      // 9 给tr添加删除的td
+      var td = document.createElement('td');
+      tr.appendChild(td);
+
+      // 10 给td添加按钮
+      var button = document.createElement('button');
+      button.innerText = '删除';
+      td.appendChild(button);
+      // 11. 给button注册点击事件
+      button.onclick = function () {
+        // console.log('哈哈哈');
+        // console.log(this);
+        tbody.removeChild(this.parentNode.parentNode);
+        // tbody.removeChild(tr);
+      }
+    }
+  </script>
+</body>
+
+</html>

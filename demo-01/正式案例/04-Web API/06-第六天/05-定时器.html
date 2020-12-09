@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="open">开启</button>
+  <button class="close">关闭</button>
+  <script>
+    // 参数1：需要重复执行的函数
+    // 参数2：间隔时间
+    // 返回值：定时器的id 用于清除
+    // window.setInterval(函数, 时间)
+    // window.clearInterval(id)
+    var open = document.querySelector('.open');
+    var close = document.querySelector('.close');
+    var timer;
+    open.onclick = function () {
+      timer = setInterval(function() {
+        console.log('我没病');
+      }, 1000);
+    }
+
+    close.onclick = function () {
+      console.log('吃药了');
+      clearInterval(timer);
+    }
+  </script>
+</body>
+</html>

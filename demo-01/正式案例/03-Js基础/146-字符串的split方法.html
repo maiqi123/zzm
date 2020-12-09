@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var str = 'a-b-c-d';
+    // var arr = str.split('-');
+    // console.log(arr);
+
+    // 把字符串中所有单词的首字母都变大写
+    // var str = 'hello world my name is jim green';
+    // 1. 把字符串split切割成数组
+    // 2. 遍历数组， 把每个值的首字母都变成大小
+    // 3. 把数组重新拼接成字符串
+    // 学习：简单的模仿
+    var str = 'hello world my name is jim green';
+    var arr = str.split(' ');
+    // console.log(arr);
+    for (var i = 0; i < arr.length; i++) {
+      // var temp = arr[i];
+      arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
+    }
+    // console.log(arr);
+    str = arr.join(' ');
+    console.log(str);
+
+
+
+    // get-element-by-id   GetElementById
+    // get-element-by-id   getElementById
+  </script>
+</body>
+</html>

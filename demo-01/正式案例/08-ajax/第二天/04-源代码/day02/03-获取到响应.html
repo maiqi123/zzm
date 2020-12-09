@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button>发送</button>
+    <div style="width: 200px; height: 200px; border: 2px solid #000;"></div>
+
+    <script>
+        document.querySelector("button").onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "03.php?username=lw");
+            xhr.send(null);
+
+            // 获取响应内容的时机: 应该是服务器响应结束后才来获取
+            // console.log( xhr.responseText );
+
+            // 需要给xhr注册readystatechange事件: 当xhr对象状态发生改变的时候触发
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState === 4){
+                    // 响应已经结束了
+                    
+                    // 还需要进一步判断响应是成功的还是失败的
+                    if(xhr.status === 200){
+
+                        // console.log( xhr.getAllResponseHeaders() );
+                        // console.log( xhr.getResponseHeader("content-length") );
+
+                        // ok 成功
+                        document.querySelector("div").innerText = xhr.responseText;
+                    }else{
+                        // 失败了
+                        alert("网络异常, 请稍后重试!!!");
+                    }
+
+                    // console.log( xhr.status );
+                    // console.log( xhr.responseText ); // 响应的内容
+                }
+            }
+
+            // xhr对象状态:
+            // 0: ajax对象初始化了, 还未open
+            // 1: 已经open, 但还未发送请求, 还未send
+            // 2: 已经发送请求, 正在处理
+            // 3: 正在响应, 但还未结束
+            // 4: 响应结束了
+            // 在代码中, 通过xhr.readyState来查看到状态
+
+            // 还需要判断响应的状态码是否为200 ok 响应成功的
+            // xhr.status ==> 状态码
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img src="./06.jpg" alt="图片破了" title="这是啥图片" width="500" id="pic" class="pic">
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // attr 方法操作(获取 设置)属性
+            //  attr(name, value); // 设置单个属性
+            //  attr({}); // 设置多个属性
+            //  attr(name); // 获取属性
+            //  removeAttr()  移除属性
+
+            // $("img").attr("src", "./07.jpg");
+            // $("img").attr("title", "大飞哥和CC在家就这么编程啊, 很happy~!!!!");
+
+            /*$("img").attr({
+                src: "07.jpg",
+                title: "美好的生活",
+                alt: "这是我们向往的生活"
+            })*/
+
+            console.log($("img").attr("src"));
+
+            $("img").removeAttr("alt")
+        })
+    </script>
+</body>
+</html>

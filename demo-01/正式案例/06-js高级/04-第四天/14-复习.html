@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 闭包
+        //  形成条件: 至少两个函数, 嵌套关系, 内部函数需要使用到外部函数的变量
+        //  综合环境:
+        //   作用: 保护数据的安全 && 持久化维持数据 && 模块化 
+        //  基本模型:
+        //    function outer(){
+        //      var num = 0;
+        //      function inner(){
+        //          console.log(num)
+        //      }
+        //      return inner;
+        //      
+        //      return function (){
+        //          console.log(num);
+        //      }
+        //    }
+        //   面试题:
+        // 继承: 一个对象可以使用另外一个对象的成员, 就是集成
+        // 继承的方式
+        //  1. 原型链继承
+        //        原型替换的写法 ==> constructor 属性丢失了, 手动补一下
+        //  2. 借用构造函数继承
+        //        Person.call(this, name, age, gender)
+        //  3. 组合继承 
+        //      原型链继承 + 借用构造函数继承
+        //      原型链继承 能继承到原型对象上的成员
+        //      借用构造函数继承 能继承到构造函数中的成员.
+    </script>
+</body>
+</html>

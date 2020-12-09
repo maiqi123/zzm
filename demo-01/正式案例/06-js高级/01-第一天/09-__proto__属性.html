@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // __proto__ 属性
+        //  1. 对象有该属性
+        //  2. 对象的__proto__属性值指向的就是当前的原型对象
+
+        // 要想访问原型对象有2种途径:
+        //  1. 构造函数通过prototype属性来访问
+        //  2. 实例对象通过__proto__属性来访问
+
+        function Person(){}
+        var p = new Person();
+        // console.log(p);
+        // console.log(p.__proto__ === Person.prototype ); // true
+
+        // 注意点:
+        //  该属性不是个标准属性, 存有兼容性问题
+        //  建议: 不要在项目中使用该属性来操作原型对象
+
+        // 不推荐的做法:
+        // p.__proto__.color = "red";
+
+        // 推荐:
+        Person.prototype.color = "pink";
+        console.log( Person.prototype );
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ msg }}</h1>
+      <h1>{{ msg }}</h1>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        template: '<a href="#">我是a标签 - {{ msg }}</a>'
+      })
+
+
+
+      // const vm = new Vue({
+      //   data: {
+      //     msg: 'hello vue'
+      //   }
+      // })
+      // // 指定视图的另外一种方式, vm.$mount
+      // vm.$mount('#app')
+      // console.log(vm.msg)
+
+
+      // new Vue({
+      //   data: {
+      //     msg: '嘎嘎'
+      //   }
+      // }).$mount('#app')
+
+
+
+    </script>
+  </body>
+</html>

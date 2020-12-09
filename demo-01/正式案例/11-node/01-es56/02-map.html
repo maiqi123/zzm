@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      map 遍历数组，返回一个新数组（数组项经过处理的） （一对一处理）
+                遍历 + 映射
+      返回值： 返回一个新数组 （新数组长度和原数组 一样）
+       */
+
+      // var arr = ['张三', '李四', '王五', '赵六']
+      // arr = arr.map(function (item) {
+      //   return item + 888
+      // })
+      // console.log(arr)
+
+      // 需求 处理list数组 ，让list 数组 只有 name值。
+      var list = [
+        { id: 1, name: '张三' },
+        { id: 2, name: '李四' },
+        { id: 3, name: '王五' },
+        { id: 4, name: '赵六' },
+      ]
+      list = list.map(function (item) {
+        return item.name
+      })
+      console.log(list)
+    </script>
+  </body>
+</html>

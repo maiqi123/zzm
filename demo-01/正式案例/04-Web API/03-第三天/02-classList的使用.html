@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <button>切换</button>
+  <div></div>
+  <script>
+    // 1. className操作样式的缺点： 使用className设置样式的时候，会覆盖原来的类名。
+    // 2. 使用classList操作类名
+    var div = document.querySelector('div');
+    // div.className = 'aa bb dd cc';
+
+    // 每一个元素都有classList属性，是一个集合，会包括所有的类名
+    // classList提供了4个方法
+    // classList.add(类名)  负责添加类名，不会影响别的类
+    // classList.remove(类名)  移除类名，不会影响别的类名
+    // classList.contains(类名) 判断是否包含某个类名  返回true或者false
+    // classList.toggle(类名)  用于切换类名， 如果原来有这个类名，就会移除掉，如果没有这个类名，就会添加
+
+    // console.log(div.classList);
+    // div.classList.add('dd');
+    // div.classList.remove('bb');
+    // console.log(div.classList.contains('cc'));
+
+    // div.classList.toggle('aa');
+    // div.classList.toggle('aa');
+    var button = document.querySelector('button');
+    var div = document.querySelector('div');
+    button.onclick = function () {
+      div.classList.toggle('hide');
+    }
+  </script>
+</body>
+</html>

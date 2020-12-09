@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      h1 {
+        background-color: pink;
+      }
+      .fade-enter {
+        opacity: 0;
+      }
+      .fade-enter-to {
+        opacity: 1;
+      }
+      .fade-enter-active {
+        transition: all 1s;
+      }
+
+      .fade-leave {
+        opacity: 1;
+        transform: rotate(0deg);
+        background-color: pink;
+      }
+      .fade-leave-to {
+        opacity: 0;
+        background-color: blue;
+        transform: rotate(360deg);
+      }
+      .fade-leave-active {
+        transition: all 1s;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="isShow = !isShow">切换</button>
+      <transition name="fade">
+        <h1 v-if="isShow">我是内容</h1>
+      </transition>
+
+      <transition>
+        <h1 v-if="isShow">另外一个h1</h1>
+      </transition>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // vue中提供了动画语法, 可以用于方便的实现转场动画 (控制元素显示隐藏时的动画的, 配合v-if)
+      // 1. 使用transition标签, 将要做动画的元素包裹
+      // 2. 只要包裹了元素, 那么这个元素, 就有了在不同阶段动态切换的六个类
+      //    v-enter  在元素即将进入到页面中时添加
+      //    v-enter-to 在元素完全进入到页面时
+      //    v-enter-active 在元素进入页面的动画过程中
+      //    v-leave    在元素即将要离开页面时
+      //    v-leave-to 在元素完全离开页面时
+      //    v-leave-active 在元素离开页面的过程中
+
+      // 3. transition上允许配置 name 属性, 给你的动画指定类名前缀
+      //    <transition name="fade">, 当前给元素添加的六个动画的类名, 前缀就变了
+      //    fade-enter fade-enter-to fade-enter-active ...
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          isShow: true
+        }
+      })
+    </script>
+  </body>
+</html>

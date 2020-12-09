@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      默认参数：
+      es6：在形参后面 等号 默认值。
+       */
+
+      // es5设置默认值的方式
+      // function test(num) {
+      //   num = num || 10
+      //   console.log(num + 1)
+      // }
+      // test(20)
+
+      // es6设置默认值的方式
+      // function test(num = 10) {
+      //   console.log(num + 1)
+      // }
+      // test()
+
+      let obj = {
+        id: 1,
+        name: '张三',
+        age: 30,
+      }
+      // 取剩余参数
+      function test({ id, ...rest }) {
+        console.log(id)
+        console.log(rest)
+        console.log(rest.name)
+        console.log(rest.age)
+      }
+      test(obj)
+    </script>
+  </body>
+</html>

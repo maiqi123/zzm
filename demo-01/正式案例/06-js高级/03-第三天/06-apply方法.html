@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // apply方法作用和call方法一样的, 区别在于语法
+        //   作用:
+        //    1. 能调用函数
+        //    2. 第一个参数修改this指向
+        //    3. 其他参数可以给函数传递实参
+
+        // apply语法: fn.apply(thisArg, 实参列表)
+        //  参数:
+        //   thisArg: 第一个参数用来修改this指向
+        //   实参列表: 给函数传递实参的, 数组,伪数组
+
+        /*function fn(){
+            console.log(1);
+        }
+        fn();
+        fn.call();
+        fn.apply();*/
+
+        /*function fn2(){
+            console.log(this);
+        }
+        fn2.call([1]);
+        fn2.apply({});*/
+
+
+        function fn3(n1, n2){
+            console.log(n1 + n2, arguments);
+        }
+
+        fn3.call(null, 1, 2);
+        fn3.apply(undefined, [10, 20, 40, 60, 80, 90]);
+        //  使用apply方法, 给函数传递实参的话, 需要将实参放到数组或伪数组中
+        //  apply的平铺性: 是把数组或伪数组里面的每一项取出来作为函数的实参
+
+        
+        // apply方法作用和call方法一样的, 区别在于语法
+        //   作用:
+        //    1. 能调用函数
+        //    2. 第一个参数修改this指向
+        //    3. 其他参数可以给函数传递实参  
+                    // call ==> 从第二个到最后一个参数
+                    // apply ==> 是数组或伪数组中的每一项
+    </script>
+</body>
+</html>

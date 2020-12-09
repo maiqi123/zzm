@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 借用构造函数继承
+
+      function Person(name, age, gender) {
+        this.name = name
+        this.age = age
+        this.gender = gender
+        this.number = ['hahaa', 'xixi', 'hehe']
+      }
+
+      function Chinese(name, age, gender, skin) {
+        /*this.name = name;
+            this.age = age;
+            this.gender = gender;*/
+
+        // 借用构造函数继承
+        //  借用构造函数Person来继承里面的属性
+        Person.call(this, name, age, gender)
+        // Person.apply(this, [name, age, gender]);
+        //  1. call可以调用Person函数
+        //  2. call第一个参数this, 指向Chinese的实例xm
+        // Person函数内的this指向call的第一个参数,也就是指向了xm
+        //  3. call第二个参数到最后一个参数, 是用来给函数传递实参的.
+
+        this.skin = skin
+      }
+
+      var xm = new Chinese('小明', 20, 'male', '黄')
+      var xm2 = new Chinese('小明', 20, 'male', '黄')
+      xm2.number.pop()
+
+      console.log(xm)
+      console.log(xm2)
+    </script>
+  </body>
+</html>

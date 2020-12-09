@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 计算 1-100 之间所有数的和 ==> 递归函数
+
+        // 思路: 
+        //   1. 化归思想(复杂问题简单化, 未知问题转已知)
+        //   2. 需要有结束递归的条件
+
+        // sum用于求和
+        // 参数n表示计算1-n之间所有数的和
+        function sum(n){
+            // 2. 结束递归的条件
+            if (n === 1) {
+                return 1; // return 后续代码不执行
+            }
+
+            // 1. 得到公式, 按照公式去计算
+            return sum(n - 1) + n;
+        }
+        console.log( sum(100) );
+
+
+        // 推导过程
+        // sum(100) ==> sum(99) + 100; // 1-99所有数的和 ==> sum(99)
+        // sum(99) ==> sum(98) + 99;
+        // sum(98) ==> sum(97) + 98;
+        // ...
+        // sum(4) ==> sum(3) + 4;
+        // sum(3) ==> sum(2) + 3;
+        // sum(2) ==> sum(1) + 2;
+        // sum(1) ==> 1;
+        //  公式: sum(n) ==> sum(n - 1) + n;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = ['赵云', '马超', '刘备', '关羽', '张飞'];
+
+    // 复习一下
+    var str = '';
+    for (var i = 0; i < arr.length; i++) {
+      if (i === arr.length - 1) {
+        str += arr[i];
+      } else {
+        str += arr[i] + '|';
+      }
+    }
+    console.log(str);
+
+    // join方法: 将数组里面的每一项链接成一个字符串
+    // 参数: 连接符
+    // 1. 自己设置的连接符
+    // 2. 没有参数,默认以逗号进行链接
+    // 3. 传递一个空值 ''
+    // 返回值: 连接好的字符串
+
+    var str = arr.join('|');
+    console.log(str);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+
+  <p>123</p>
+  <script>
+    // parent.replaceChild(newChild, oldChild)
+    // 把oldChild替换为newChild
+    var ul = document.querySelector('ul');
+    var p = document.querySelector('p');
+
+    ul.removeChild(ul.firstElementChild);
+    ul.insertBefore(p, ul.firstElementChild);
+
+    // ul.replaceChild(p, ul.firstElementChild);
+  </script>
+</body>
+</html>

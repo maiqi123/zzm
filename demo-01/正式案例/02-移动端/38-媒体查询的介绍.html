@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+
+    /* 
+    min-width:600px——》样式生效的最小宽为600px
+    当屏幕宽度大于等于600px时，里面的选择器生效
+    
+    */
+    /* @media screen and (min-width:600px) {
+      div {
+        width: 400px;
+        height: 400px;
+        background-color: yellow;
+      }
+    } */
+
+    /* 
+    max-width: 1200px——》样式生效的最大宽为1200px
+    当屏幕宽度小于等于1200px时，里面的选择器会生效
+    */
+    /* @media screen and (max-width: 1200px) {
+      div {
+        width: 400px;
+        height: 400px;
+        background-color: purple;
+      }
+    } */
+
+    /* 
+    width:900px——》样式生效的宽度为900px
+    当屏幕宽度正好等于900px时，里面的选择器会生效
+    */
+    /* @media screen and (width:900px) {
+      div {
+        width: 400px;
+        height: 400px;
+        background-color: lime;
+      }
+    } */
+
+    /* 如果需要在600~800之间样式生效，怎么写？？ */
+    @media screen and (min-width:600px) and (max-width:800px) {
+      div {
+        width: 400px;
+        height: 400px;
+        background-color: pink;
+      }
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+  <!-- 
+    响应式的布局原理：动态的根据当前屏幕的宽度，自动改变页面中元素的宽度以及元素的显示与隐藏
+
+    怎么样根据当前屏幕的宽度，自动改变页面中元素的样式？？？
+
+    媒体查询：
+
+      语法： 
+        @media screen and (条件) {
+          选择器
+        }
+      含义：
+        判断当前屏幕的宽度是否满足条件
+        1、满足：会让里面的选择器生效
+        2、不满足：里面的选择器是失效
+
+      注意点：
+        1、媒体查询只能控制选择器是否生效，不能提升选择器的优先级
+        2、媒体查询中可以同时设置多个条件的，条件之间以 and 链接
+
+      条件：
+        1、min-width：样式生效的最小宽
+                      当屏幕宽度大于等于该宽度时，此时样式会生效
+
+        2、max-width：样式生效的最大宽
+                      当屏幕宽度小于等于该宽度时，此时样式会生效
+
+        3、width：样式生效的宽度
+                  当屏幕宽度正好等于该宽度时，此时样式会生效
+      
+
+   -->
+
+  <div></div>
+</body>
+</html>

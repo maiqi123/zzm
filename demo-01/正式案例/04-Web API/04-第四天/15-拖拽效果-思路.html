@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: hotpink;
+      position: absolute;
+      cursor: move;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+
+  <script>
+    // 1. 找对象
+    // 2. 给div注册鼠标按下事件
+    // 2.1 获取鼠标按下时  鼠标在盒子中的位置
+    // 2.2 给document注册鼠标移动事件
+    // 2.3 让div跟着鼠标移动
+    // 3. 给div注册鼠标弹起事件
+    // 3.1 把document的鼠标移动事件取消
+
+    var div = document.querySelector('div');
+    div.onmousedown = function (e) {
+      // 获取鼠标按下时的位置
+      var x = e.pageX - this.offsetLeft;
+      var y = e.pageY - this.offsetTop;
+      console.log(x, y);
+      document.onmousemove = function (e) {
+        console.log('2');
+        div.style.margin = '0px';
+        div.style.left = e.pageX - x + 'px';
+        div.style.top = e.pageY -y + 'px';
+      }
+    }
+
+    // div.onmouseup = function () {
+    //   document.onmousemove = null;
+    // }
+  </script>
+</body>
+</html>

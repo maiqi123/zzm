@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      perspective: 1000px;
+    }
+
+    img {
+      margin: 200px auto;
+      display: block;
+      /* 过渡 */
+      transition: 1s;
+    }
+
+    /* 
+
+     */
+    img:hover {
+      /* 如果transform的第一个取值是rotate，会连带坐标系一起旋转
+          此时诸葛孔明面朝的方向就是z轴的方向
+
+          写立方体每一个面的思路：
+            1、先面朝对应的方向
+            2.沿着面朝的方向（z轴）进行平移
+       */
+      /* 
+        右面：
+          1、先旋转到面朝右
+          2、沿着z轴方向平移即可
+       */
+      /* transform: rotateY(90deg) translateZ(200px); */
+
+      /* 
+        左面
+          1、先旋转到面朝左
+          2、沿着z轴方向平移即可
+       */
+      /* transform: rotateY(-90deg) translateZ(200px); */
+
+      /* 
+        上面
+          1、先旋转到面朝上
+          2、沿着z轴方向平移即可
+       */
+      /* transform: rotateX(90deg) translateZ(200px); */
+      transform: rotateX(-90deg) translateZ(200px);
+    }
+
+  </style>
+</head>
+<body>
+  <img src="./images/face.jpg" alt="">
+</body>
+</html>

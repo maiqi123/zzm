@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 视距：perspective——》一般给转换元素的父元素设置
+        作用：让子元素有了近大远小的视觉效果
+        取值：表示观察者的眼睛距离元素初始平面的距离（z=0）
+          取值的特殊情况：
+            1、如果取值越小，表示距离越近，此时近大远小的效果越明显
+            2、如果取值越大，表示距离越远，此时近大远小的效果越不明显
+          一般取值给1000左右
+     */
+    body {
+      perspective: 10000px;
+    }
+
+    img {
+      margin: 200px auto;
+      display: block;
+      /* 过渡 */
+      transition: 1s;
+    }
+
+    img:hover {
+      /* 沿着x轴方向旋转 */
+      transform: rotateX(-45deg);
+    }
+
+  </style>
+</head>
+<body>
+  <img src="./images/face.jpg" alt="">
+</body>
+</html>

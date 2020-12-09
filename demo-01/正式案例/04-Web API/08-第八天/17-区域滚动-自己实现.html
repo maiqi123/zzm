@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+    }
+    .father {
+      width: 200px;
+      height: 500px;
+      background-color: pink;
+      overflow: hidden;
+    }
+
+    .son {
+      width: 300px;
+      height: 1000px;
+      background-color: green;
+      opacity: 0.5;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="father">
+    <div class="son">
+      <p>我是第1个p</p>
+      <p>我是第2个p</p>
+      <p>我是第3个p</p>
+      <p>我是第4个p</p>
+      <p>我是第5个p</p>
+      <p>我是第6个p</p>
+      <p>我是第7个p</p>
+      <p>我是第8个p</p>
+      <p>我是第9个p</p>
+      <p>我是第10个p</p>
+      <p>我是第11个p</p>
+      <p>我是第12个p</p>
+      <p>我是第13个p</p>
+      <p>我是第14个p</p>
+      <p>我是第15个p</p>
+      <p>我是第16个p</p>
+      <p>我是第17个p</p>
+      <p>我是第18个p</p>
+      <p>我是第19个p</p>
+      <p>我是第20个p</p>
+      <p>我是第21个p</p>
+      <p>我是第22个p</p>
+      <p>我是第23个p</p>
+      <p>我是第24个p</p>
+      <p>我是第25个p</p>
+      <p>我是第26个p</p>
+      <p>我是第27个p</p>
+      <p>我是第28个p</p>
+      <p>我是第29个p</p>
+      <p>我是第30个p</p>
+      <p>我是第31个p</p>
+      <p>我是第32个p</p>
+      <p>我是第33个p</p>
+      <p>我是第34个p</p>
+      <p>我是第35个p</p>
+      <p>我是第36个p</p>
+      <p>我是第37个p</p>
+      <p>我是第38个p</p>
+      <p>我是第39个p</p>
+      <p>我是第40个p</p>
+      <p>我是第41个p</p>
+      <p>我是第42个p</p>
+      <p>我是第43个p</p>
+      <p>我是第44个p</p>
+      <p>我是第45个p</p>
+      <p>我是第46个p</p>
+      <p>我是第47个p</p>
+      <p>我是第48个p</p>
+      <p>我是第49个p</p>
+      <p>我是第50个p</p>
+      <p>我是第51个p</p>
+      <p>我是第52个p</p>
+      <p>我是第53个p</p>
+      <p>我是第54个p</p>
+      <p>我是第55个p</p>
+      <p>我是第56个p</p>
+      <p>我是第57个p</p>
+      <p>我是第58个p</p>
+      <p>我是第59个p</p>
+      <p>我是第60个p</p>
+      <p>我是第61个p</p>
+      <p>我是第62个p</p>
+      <p>我是第63个p</p>
+      <p>我是第64个p</p>
+      <p>我是第65个p</p>
+      <p>我是第66个p</p>
+      <p>我是第67个p</p>
+      <p>我是第68个p</p>
+      <p>我是第69个p</p>
+      <p>我是第70个p</p>
+      <p>我是第71个p</p>
+      <p>我是第72个p</p>
+      <p>我是第73个p</p>
+      <p>我是第74个p</p>
+      <p>我是第75个p</p>
+      <p>我是第76个p</p>
+      <p>我是第77个p</p>
+      <p>我是第78个p</p>
+      <p>我是第79个p</p>
+      <p>我是第80个p</p>
+      <p>我是第81个p</p>
+      <p>我是第82个p</p>
+      <p>我是第83个p</p>
+      <p>我是第84个p</p>
+      <p>我是第85个p</p>
+      <p>我是第86个p</p>
+      <p>我是第87个p</p>
+      <p>我是第88个p</p>
+      <p>我是第89个p</p>
+      <p>我是第90个p</p>
+      <p>我是第91个p</p>
+      <p>我是第92个p</p>
+      <p>我是第93个p</p>
+      <p>我是第94个p</p>
+      <p>我是第95个p</p>
+      <p>我是第96个p</p>
+      <p>我是第97个p</p>
+      <p>我是第98个p</p>
+      <p>我是第99个p</p>
+      <p>我是第100个p</p>
+    </div>
+  </div>
+  <script src="iscroll.js"></script>
+  <script>
+    new IScroll('.father', {
+      scrollY: false,
+      scrollX: true
+    });
+    /* 
+    var father = document.querySelector('.father');
+    var son = document.querySelector('.son');
+    var startY;
+    // 记录滚动的总的距离
+    var total = 0;
+    father.addEventListener('touchstart', function(e) {
+      startY = e.touches[0].pageY;
+      console.log(startY);
+    });
+    father.addEventListener('touchmove', function(e) {
+      var distance = e.touches[0].pageY - startY;
+      var x = total + distance;
+      if (x > 0) {
+        x = 0;
+      }
+      if (x < father.offsetHeight - son.offsetHeight) {
+        x = father.offsetHeight - son.offsetHeight;
+      }
+      son.style.transform = 'translateY('+ x +'px)';
+      console.log(distance);
+    });
+    father.addEventListener('touchend', function(e) {
+      var distance = e.changedTouches[0].pageY - startY;
+      total += distance;
+    });
+
+ */
+
+    // http://caibaojian.com/iscroll-5/gettingstart.html
+
+  </script>
+</body>
+</html>

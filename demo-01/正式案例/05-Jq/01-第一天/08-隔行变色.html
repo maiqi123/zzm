@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>这是CC的第1个女朋友</li>
+        <li>这是CC的第2个女朋友</li>
+        <li>这是CC的第3个女朋友</li>
+        <li>这是CC的第4个女朋友</li>
+        <li>这是CC的第5个女朋友</li>
+        <li>这是CC的第6个女朋友</li>
+        <li>这是CC的第7个女朋友</li>
+        <li>这是CC的第8个女朋友</li>
+        <li>这是CC的第9个女朋友</li>
+        <li>这是CC的第10个女朋友</li>
+    </ul>
+    
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        /*var lis = document.querySelectorAll("li");
+
+        for (var i = 0; i < lis.length; i++) {
+            // lis[i].style.backgroundColor = "red"; 
+
+            // 判断i的奇偶
+            if(i % 2 === 0){
+                // 偶
+                lis[i].style.backgroundColor = "red"; 
+            }else{
+                // 奇
+                lis[i].style.backgroundColor = "lime"; 
+            }
+        }*/
+
+
+        // 修改之后, 还能否实现隔行变色???
+        var lis = $("li"); // jQ对象 伪数组 有length长度
+
+        for (var i = 0; i < lis.length; i++) {
+            if(i % 2 === 0){
+                // lis[i] ==> 根据下标取出对应的DOM对象
+                lis[i].style.backgroundColor = "red"; 
+            }else{
+                lis[i].style.backgroundColor = "lime"; 
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 随机数:
+    // Math.random()  => 随机生成一个0 - 1之间的随机小数 可以取到0  但是永远取不到1
+    // console.log(Math.random());
+
+    // 翻牌子
+    // 需求: 0 - 3的随机整数
+    var arr = ['西施', '貂蝉', '杨玉环', '乔碧萝'];
+
+    // Math.random() * 3 // 0 - 2.999999999
+    // Math.random() * 4 // 0 - 3.99999999
+
+    // console.log(Math.floor(Math.random() * 4));
+
+    // console.log(arr[Math.floor(Math.random() * arr.length)]);
+
+    // 小结一下
+    // 公式 => 0 - N的随机整数
+    // Math.floor(Math.random() * (n + 1))
+    // Math.floor(Math.random() * arr.length)
+  </script>
+</body>
+
+</html>

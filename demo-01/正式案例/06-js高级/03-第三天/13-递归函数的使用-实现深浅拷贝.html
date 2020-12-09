@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div></div>
+
+    <script>
+        // 深拷贝 && 浅拷贝  克隆js中对象
+        // cloneNode(deep)  克隆节点
+
+        // 浅拷贝: 只会拷贝对象的一层属性, 会得到一个完全一模一样的新对象
+        // 浅拷贝问题: 如果对象里面还有对象的话, 里面的对象没有进行拷贝, 仅仅是把地址赋值过去了. 拷贝的对象和拷贝出来的对象之间不是完全的独立, 之间的修改还是会互相影响.
+        // 浅拷贝适用场景: 适用于对象里面都是简单数据类型
+
+        var dfg = {
+            money: 10000000,
+            house: "蒙古海景房",
+            car: "奔驰",
+            /*car: {
+                brand: "奔驰",
+                color: "lime"
+            },*/
+        }
+
+        var cc = {
+            // ...
+        }
+
+        // 需求: 拷贝dfg对象, 得到一个完全一模一样的新对象
+
+         // 思路:
+        //  1. 创建一个新对象
+        //  2. 把dfg对象里面的所有成员给添加一份到新对象中
+
+        // 1.
+        var dfg2 = {};
+
+        // 2.
+        /*dfg2.money = dfg.money;
+        dfg2.car = dfg.car;
+        dfg2.house = dfg.house;*/
+
+        // 遍历dfg对象, 把dfg对象里面所有的成员给dfg2添加一份
+        for(var k in dfg){
+            // console.log(k, typeof k); // k是变量, 表示键名, 是个字符串类名
+            // console.log( dfg[k], dfg.k );
+            // dfg.k 表示获取的是dfg的k这个属性的值, 由于没有k这个属性, 所有结果为undefined
+            // dfg[k] k是当变量来使用
+
+            dfg2[k] = dfg[k];
+        }
+
+        console.log(dfg2);
+
+
+        // 以下代码仅仅是把dfg对象的地址赋值给了dfg2, 并没有得到新对象
+        // 问题: 通过dfg2修改对象的成员, 会影响到dfg对象的成员.
+        // var dfg2 = dfg;
+        // dfg2.car = "mini奔驰";
+        // console.log(dfg, dfg2);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

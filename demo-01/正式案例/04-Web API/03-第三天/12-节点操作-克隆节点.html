@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p>1</p>
+    <p>2</p>
+  </div>
+
+  <p class="p"><span>123</span></p>
+  <script>
+    
+    var p = document.querySelector('.p');
+    var box = document.querySelector('.box');
+
+    // deep: 指定是否深度克隆
+    // 默认就是false  cloneNode(false)  代表浅克隆，，只会克隆标签，不会克隆所有的子节点
+    // 如果指定为true cloneNode(true) 深克隆  会克隆所有的内容，包括子节点
+    // var 新元素 = 元素.cloneNode(deep)  作用：在内存中，克隆一个一模一样的元素
+    var newP = p.cloneNode(true);
+    // console.log(newP);
+    box.appendChild(newP);
+
+  </script>
+</body>
+</html>

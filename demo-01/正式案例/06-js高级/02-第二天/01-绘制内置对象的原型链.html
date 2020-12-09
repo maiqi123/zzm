@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 内置对象的原型链
+        // Array
+        var arr = new Array();
+        // console.log( Array.prototype.__proto__ );
+        // 实例对象arr的原型链:
+        //  arr ==> Array.prototype ==> Object.prototype ==> null;
+
+        // Date
+        var d = new Date();
+        //  实例对象d原型链:
+        //   d ==> Date.prototype ==> Object.prototype ==> null;
+
+        // Math 本身就是个对象, 不是构造函数, 不能用来new
+        // var m = new Math(); // error
+        //  Math实例对象的原型链:
+        // console.log(Math.__proto__);
+        //  Math ==> Object.prototype ==> null;
+
+        // 原型链特征: 任意对象的原型链上都有Object.prototype原型对象.
+    </script>
+</body>
+</html>

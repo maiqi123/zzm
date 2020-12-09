@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+
+<script src="./node_modules/axios/dist/axios.js"></script>
+<script>
+
+  // axios 其实就是一个基于原生封装的, 一个用于发送ajax的插件包
+  // $.ajax({ ... }) type url data success error    get,post参数, 都可以写在data中
+
+  // 使用步骤:
+  // 1. 下载  npm i axios
+  // 2. 引包
+  // 3. 使用, 发送ajax
+  /* 
+    axios({
+      method: 请求方式,  // get/post/put/patch/delete
+      url: 请求地址,
+      data: 参数对象, // 这个参数对象最终, 会在请求体中进行提交  post/put/patch
+      params: 参数对象, // 这个参数对象最终, 会在地址栏中拼接提交 get/delete   
+                          ?username=zs&desc=好 (将来项目中会有)
+    }).then(成功的函数).catch(失败的函数)
+  */
+
+  axios({
+    method: 'get',  // 请求方式 get/post/put/patch/delete
+    url: 'http://localhost:3000/todos',  // 请求地址
+  }).then(function(res) {
+    // 真正后台返回的数据 res.data
+    console.log(res.data)
+  }).catch(function(err) {
+    console.log(err)
+  })
+
+
+</script>
+  
+</body>
+</html>

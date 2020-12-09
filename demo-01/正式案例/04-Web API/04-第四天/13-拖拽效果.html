@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 3000px;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      /* pointer help default move */
+      cursor: move;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    // onmousedown: 按住鼠标触发的事件
+    // onmouseup: 弹起属性触发的事件
+    // onmousemove: 鼠标移动的事件
+
+    // 1. 给div注册onmousedown事件
+    // 1.1 给document注册onmousemove事件
+    // 1.2 让div跟着鼠标
+
+    // 2. 给div注册onmouseup事件
+    // 2.1 取消document的onmousemove事件
+
+    var div = document.querySelector('div');
+    // div.onclick = function () {
+    //   console.log('123');
+    // }
+    // div.onclick = null;
+
+    div.onmousedown = function (e) {
+      // 按下的位置
+      var x = e.pageX - this.offsetLeft;
+      var y = e.pageY - this.offsetTop;
+      console.log(x, y);
+      document.onmousemove = function (e) {
+        console.log('跑');
+        div.style.left = e.pageX - x + 'px';
+        div.style.top = e.pageY - y + 'px';
+      }
+    }
+
+
+    div.onmouseup = function () {
+      console.log('谈起了');
+      document.onmousemove = null;
+    }
+  </script>
+</body>
+
+</html>

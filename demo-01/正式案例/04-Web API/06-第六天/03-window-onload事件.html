@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // window的onload事件： 会在页面加载完成的时候才会触发, 页面加载完成指的是页面所有的资源都加载完成。
+    // window.onload = function() {
+    //   console.log('哈哈哈');
+    //   var button = document.querySelector('button');
+    //   console.log(button);
+    // }
+  </script>
+</head>
+<body>
+  <button>我是按钮</button>
+  <img src="1.gif" alt="">
+
+  <script>
+
+    // onload = function () {
+    //   var img = document.querySelector('img');
+    //   console.log(img);
+    //   console.log(img.offsetWidth);
+    //   console.log(img.offsetHeight);
+    // }
+
+    window.addEventListener('load', function() {
+      var img = document.querySelector('img');
+      console.log(img);
+      console.log(img.offsetWidth);
+      console.log(img.offsetHeight);
+    })
+    
+
+
+    /* 
+      1. 如果js代码写在DOM结构的前面， 需要使用window.onload
+      2. 如果页面一加载，就需要获取图片的宽度和高度，也是需要使用window.onload
+    */
+  </script>
+</body>
+</html>

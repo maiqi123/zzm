@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 将以下代码实现好功能
+        /*var cc = {
+            username: "CC",
+            lover: "约翰.菲菲",
+            sayLove: function () {
+                setInterval(function () {
+                    // this ==> window
+                    console.log("Dear " + this.lover + ", 俺"+ this.username +"好想你, 想你想的睡不着!!!!");
+                }, 1000)
+            }
+        }
+        cc.sayLove();*/
+
+
+        // 使用常规方法来解决
+        /*var cc = {
+            username: "CC",
+            lover: "约翰.菲菲",
+            sayLove: function () {
+                var that = this; // 把this的指向赋值给变量that
+
+                setInterval(function () {
+                    // this ==> window
+                    console.log("Dear " + that.lover + ", 俺"+ that.username +"好想你, 想你想的睡不着!!!!");
+                }, 1000)
+            }
+        }
+        cc.sayLove();*/
+
+
+        // 使用bind来解决 ==> 定时器函数中的this指向问题
+        var cc = {
+            username: "CC",
+            lover: "约翰.菲菲",
+            sayLove: function () {
+                // sayLove方法内的this指向cc
+                setInterval(function () {
+                    // this ==> window
+                    console.log("Dear " + this.lover + ", 俺"+ this.username +"好想你, 想你想的睡不着!!!!");
+                }.bind(this), 1000)
+            }
+        }
+        cc.sayLove();
+    </script>
+</body>
+</html>

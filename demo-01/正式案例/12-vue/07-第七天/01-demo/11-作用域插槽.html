@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .modal {
+        width: 300px;
+        padding: 10px;
+        background-color: skyblue;
+        border: 3px solid #000;
+        border-radius: 30px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 模板是谁的, 用的就是谁的变量 -->
+    <div id="app">
+      <modal title="警告">
+        <!-- 块: 将代码包裹成了一个整体, template标签不会影响到任何的结构和样式, 只是包裹成一个整体 -->
+        <template v-slot:content>
+          <input type="text">
+          <input type="text">
+          <input type="text">
+          <input type="text">
+        </template>
+
+        <template v-slot:bottom="obj">
+          <!-- {{ obj }} -->
+          <button>{{ obj.yes }}</button>
+          <button>{{ obj.no }}</button>
+          <div>{{ obj.friend }}</div>
+        </template>
+
+        <div>我是测试内容</div>
+      </modal>
+
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+
+      // 需求: 要在页面中显示一个对话框, 封装成一个组件
+      // 通过父传子, 固然可以完成一定层面的组件的定制, 但是自定义性较差, 
+      /// 如果希望能够自定义组件内部的一些结构 => 就需要用到插槽
+
+      // 需求: 对话框1, 内容是一个输入框
+      // 需求: 对话框2, 内容是一个段落 p
+
+      // 插槽作用: 用于实现组件的内容分发
+      // 通过 slot 标签, 可以接收到写在组件标签内的内容
+
+      // 插槽的分类:
+      // 1. 默认插槽(匿名插槽)
+      //    <slot></slot> 只要没有具体分发的内容, 都会给到默认插槽
+      //    <slot name="default"></slot> 完整的写法 和 <slot></slot> 完全等价
+      // 2. 具名插槽: 具有名字的插槽, 配置了名字的插槽, 可以实现定向分发
+      //    一旦配置了名字, 就是有一个有追求的插槽, 只会接收对应的内容, 不是分发给他的, 他不要
+      //    2.1 给插槽起名字 
+      //        <slot name="content"></slot>
+      //    2.2 需要使用 template 标签, 将内容包裹成一个整体
+      //    2.3 通过给template指定 v-slot:插槽名, 指定具体分发给谁
+      // -----------------------------------------------------------------------------------
+      // 作用域插槽: 如果子组件中有数据, 希望在父模板分发内容时使用, 可以使用作用域插槽
+      // => 其实, 可以给插槽, 以添加属性的方式, 给父模板传值的
+      // 1. 给插槽, 添加属性的方式, 传值
+      // 2. 所有添加的属性, 都会被收集到一个对象中
+      //    { yes: '确认', no: '取消', money: '100' }
+      // 3. 在template中, 通过 = 即可接收
+
+      Vue.component('modal', {
+        template: `
+          <div class="modal">
+            <div className="title">
+              <h3>{{ title }}</h3>  
+            </div>
+            <div className="content">
+              <slot name="content"></slot>
+            </div>
+            <div className="bottom">
+              <slot :yes="yes" :no="no" money="100" name="bottom" :friend="friend"></slot>
+            </div>
+            <slot name="default"></slot>
+          </div>
+        `,
+        data () {
+          return {
+            yes: '确认',
+            no: '取消',
+            friend: {
+              name: '老王',
+              age: 99
+            }
+          }
+        },
+        props: ['title']
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        }
+      })
+    </script>
+  </body>
+</html>

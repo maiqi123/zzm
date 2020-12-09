@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+      position: absolute;
+    }
+    .two {
+      margin: 100px;
+      background-color: green;
+    }
+
+    .three {
+      margin: 200px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="one"></div>
+  <div class="two"></div>
+  <div class="three"></div>
+  <script>
+    var divs = document.querySelectorAll('div');
+    var zIndex = 0;
+    for (var i = 0; i < divs.length; i++) {
+      divs[i].onclick = function () {
+        zIndex++;
+        this.style.zIndex = zIndex;
+      }
+    }
+  </script>
+</body>
+</html>

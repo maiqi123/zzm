@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      对象内的简写：
+      对象内包含：属性和方法
+      属性的简写：如果属性值是一个变量，且变量名和属性名一样，可以只写属性名。
+       */
+
+      name = 'zs'
+      let obj = {
+        // 当属性名和变量名一样，只写属性名就可以。
+        // name: name,
+        name,
+        // fn: function () {
+        //   console.log('111111')
+        // },
+        // 方法的简写 ：方法名后面跟 括号 然后大括号 里面 函数体。
+        fn(key) {
+          console.log('111111')
+        },
+      }
+      console.log(obj)
+    </script>
+  </body>
+</html>

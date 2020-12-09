@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      padding: 10px;
+      border: 100px solid #ccc;
+    }
+
+  </style>
+</head>
+<body>
+  <div>我有很多内容我有很多内容我有很多内容我有很多内容我有很多内容我有很多内容</div>
+  <script>
+    // clientWidth, clientHeight  不包含border部分
+    // clientLeft, clientTop    基本没用  获取的左边框和上边框
+    var div = document.querySelector('div');
+    console.log(div.offsetHeight);
+    console.log(div.scrollHeight);
+    console.log(div.clientHeight);
+
+    console.log(div.clientLeft);
+    console.log(div.clientTop);
+  </script>
+</body>
+</html>

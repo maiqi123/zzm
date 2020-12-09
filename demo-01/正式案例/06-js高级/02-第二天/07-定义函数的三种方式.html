@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义函数的三种方式
+
+        // 1. function 
+        //   可以先调用, 在声明, 因为是预解析(声明提升)
+        /*fn();
+        function fn(){
+            console.log("fn is ok");            
+        }*/
+        
+
+        // 2. 函数表达式
+        //   不可以先调用,在声明, 预解析只会提升声明, 赋值留在原位置.
+        /*fn2();
+        var fn2 = function(){
+            console.log("fn2 is ok");
+        }*/
+        
+
+        // 3. 函数也是对象, 也是通过构造函数new出来的 (Function)
+        //      其实任何函数底层都是 Function 创建的
+        // 语法: var fn = new Function(arg1, arg2, ..., bodyFn); // 创建出实例对象, 类型为函数
+        // 参数: 
+        //   1. 若干个
+        //   2. 都是字符串类型
+        //   3. 除了最后一个bodyFn之外, 其他所有的参数都是作为新函数的形参
+        //   4. 最后一个bodyFn参数, 是作为函数的函数体
+
+        var fn3 = new Function("n1", "n2", "alert(n1 + n2)");
+        // fn3长啥样
+        /*var fn3 = function (n1, n2) {
+            alert(n1 + n2);
+        }*/
+        // console.log(fn3);
+        fn3(10, 20);
+    </script>
+</body>
+</html>

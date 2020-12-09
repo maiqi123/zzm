@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 属性查找原则
+        // 1. 首先在对象自身上来查找是否有该属性, 如果有, 就返回属性值.
+        // 2. 如果没有, 就去对象的原型对象上来查找, 如果有, 就返回属性值.
+        // 3. 如果也没有, 就沿着对象的原型链继续往上找, 直到Object.prototype, 如果有, 就返回属性值.
+        // 4. 如果还没有, 返回undefined
+        // 简化记忆: 沿着对象的原型链往上找
+        // 注意点: 关键看对象上是否有该属性, 而不在乎其值是啥
+
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.name = "lw";
+        Object.prototype.gender = "male";
+
+        var p = new Person("xm", 20);
+        console.log(p);
+
+        // p实例对象的原型链
+        //  p ==> Person.prototype ==> Object.prototype ==> null;
+
+        console.log(p.name); // xm
+        console.log(p.age); // 20
+        console.log(p.gender); // male
+        console.log(p.sex); // undefined
+    </script>
+</body>
+</html>

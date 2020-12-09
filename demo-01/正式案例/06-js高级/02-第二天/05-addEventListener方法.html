@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="box" style="width: 200px; height: 200px; background-color: #f99;"></div>
+
+    <script>
+        // div从哪里拿到的addEventListener方法???
+        // 沿着__proto__ 一直往上打印查看
+        var box = document.querySelector("#box");
+        box.addEventListener("click", function () {
+            console.log("啊哈哈");
+        })
+    </script>
+</body>
+</html>

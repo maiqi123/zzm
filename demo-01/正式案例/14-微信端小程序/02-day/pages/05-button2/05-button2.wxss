@@ -1,0 +1,5 @@
+/* pages/05-button2/05-button2.wxss */
+input {
+  background: #ddd;
+  margin-top: 20px;
+}

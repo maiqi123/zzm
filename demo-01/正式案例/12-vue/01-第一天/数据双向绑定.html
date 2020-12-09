@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <h1></h1>
+  </body>
+  <script>
+    const data = {
+      msg: '哈哈哈哈',
+    }
+    const input = document.querySelector('input')
+    const h1 = document.querySelector('h1')
+    input.value = data.msg
+    h1.innerHTML = data.msg
+    // 添加监听事件
+    input.addEventListener('input', function () {
+      data.msg = input.value
+    })
+    // 劫持数据
+    let temp = data.msg
+    Object.defineProperty(data, 'msg', {
+      get() {
+        return temp
+      },
+      set(value) {
+        temp = value
+        input.value = temp
+        h1.innerHTML = temp
+      },
+    })
+  </script>
+</html>

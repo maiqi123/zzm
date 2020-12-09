@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .product {
+        border: 3px solid #000;
+        padding: 10px;
+        border-radius: 20px;
+        margin: 10px;
+        background-color: pink;
+        width: 400px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 根组件, 根实例 -->
+
+    <div id="app">
+      <product proname="超级好吃的棒棒糖" :proprice="price"></product>
+      <product proname="超级好玩的过山车" proprice="先玩1个亿"></product>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 组件通信:
+      // 1. 父传子
+      // 2. 子传父
+      // 3. 非父子
+
+      // 父传子:
+      // 1. 给子组件以添加html标签属性的方式传值   规范: 添加的属性, 要求全小写
+      // 2. 在子组件中, 通过 props 可以进行接收传递的参数
+
+      // 需求: 在页面中渲染商品组件
+      Vue.component('product', {
+        template: `
+          <div class="product">
+            <h3>商品名称: {{ proname }}</h3>
+            <p>价格: {{ proprice }}</p>
+          </div>
+        `,
+        // props中接收的值 和 data中的属性一样都可以在组件中使用
+        props: ['proname', 'proprice']
+      })      
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          price: '1元一根'
+        }
+      })
+    </script>
+  </body>
+</html>

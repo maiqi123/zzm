@@ -1,0 +1,19 @@
+{
+  "name": "02-webpack-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "build": "webpack ./src/main.js -o ./dist/bundle.js --mode=development",
+    "pp": "yarn add vue",
+    "start": "yarn add moment"
+  },
+  "dependencies": {
+    "moment": "^2.29.0",
+    "vue": "^2.6.12"
+  }
+}

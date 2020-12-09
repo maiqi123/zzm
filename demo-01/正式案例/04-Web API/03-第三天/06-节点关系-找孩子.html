@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <!-- 我是注释 -->
+    <li>3</li>
+    <li>4</li>
+    <span>1</span>
+    <span>2</span>
+  </ul>
+  <script>
+
+    var ul = document.querySelector('ul');
+    
+    // childNodes : 获取某个元素 所有的子节点
+    // children   : 获取某个元素  所有的子元素
+    // console.log(ul.childNodes);
+    // console.log(ul.children);  // 4 li
+
+    // 找第一个孩子节点
+    // firstChild
+    // 找第一个孩子元素
+    // firstElementChild
+    // console.log(ul.firstChild);
+    // console.log(ul.firstElementChild);
+    // console.log(ul.children[0]);
+
+    // 找最后一个孩子节点
+    // lastChild
+    // 找最后一个孩子元素
+    // lastElementChild 
+    console.log(ul.lastChild);
+    console.log(ul.lastElementChild);
+
+
+
+    /* 
+      childNodes
+      Chilren
+
+      firstChild
+      firstElementChild
+      lastChild
+      lastElementChild
+    */
+  </script>
+</body>
+</html>

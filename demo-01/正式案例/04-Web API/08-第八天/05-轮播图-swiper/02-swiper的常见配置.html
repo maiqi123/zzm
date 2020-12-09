@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="swiper/swiper-bundle.min.css">
+  <style>
+    .swiper-container {
+      width: 790px;
+      height: 340px;
+      margin: 100px auto;
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 100%;
+      background: #fff;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 轮播图盒子 -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="#"><img src="images/1.jpg" alt=""></a></div>
+      <div class="swiper-slide"><a href="#"><img src="images/2.jpg" alt=""></a></div>
+      <div class="swiper-slide"><a href="#"><img src="images/3.jpg" alt=""></a></div>
+      <div class="swiper-slide"><a href="#"><img src="images/4.jpg" alt=""></a></div>
+      <div class="swiper-slide"><a href="#"><img src="images/5.jpg" alt=""></a></div>
+      <div class="swiper-slide"><a href="#"><img src="images/6.jpg" alt=""></a></div>
+      <div class="swiper-slide"><a href="#"><img src="images/7.jpg" alt=""></a></div>
+      <div class="swiper-slide"><a href="#"><img src="images/8.jpg" alt=""></a></div>
+    </div>
+    <!-- 如果需要分页器 小圆点 -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 如果需要导航按钮 左右箭头-->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <script src="swiper/swiper-bundle.min.js"></script>
+  <script>
+    // 参数2：是一个对象，swiper的配置
+    var mySwiper = new Swiper('.swiper-container', {
+      // 纵向的轮播图
+      // 指定轮播图方向
+      // direction: 'vertical',
+      loop: true,
+      // 自动播放
+      autoplay: {
+        // 轮播图的间隔时间
+        delay: 1000,
+        // 操作了轮播图之后需要继续自动播放
+        disableOnInteraction: false
+      },
+      // 指定轮播图效果
+      effect: 'slide',
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    })
+    // DOM
+  </script>
+</body>
+
+</html>

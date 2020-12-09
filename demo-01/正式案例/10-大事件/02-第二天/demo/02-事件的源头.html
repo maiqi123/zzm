@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+    .demo {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+    .foo {
+      width: 100px;
+      height: 100px;
+      background-color: orangered;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="demo">
+      <div class="foo"></div>
+    </div>
+  </div>
+
+  <script>
+    var box = document.querySelector('.box');
+    var demo = document.querySelector('.demo');
+    var foo = document.querySelector('.foo');
+
+    var arr = [box,demo,foo]
+    for(var i=0;i<arr.length;i++){
+      arr[i].onclick = function(e){
+        // 在事件处理程序当中，当前的事件源头要使用关键字this来表示
+        // 确定的说 this指向当前正在执行事件处理程序的那个事件源头
+        // console.log(this);
+        console.log(e.target);
+      }
+    }
+  </script>
+</body>
+</html>

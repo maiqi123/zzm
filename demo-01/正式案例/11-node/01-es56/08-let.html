@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+    let:
+    es6 定义变量，  （var）
+
+    let:
+    1、没有变量提升
+    2、增加了块级作用域
+    3、不可以重复定义
+     */
+      // var str
+      // console.log(str)
+      // str = 'aaa'
+
+      // 没有变量提升 不可以 先试用 后定义
+      // console.log(str)
+      // let str = 'bbb'
+
+      // 块作用域
+      {
+        let a = 'zs'
+        var age = 30
+      }
+      console.log(a)
+      console.log(age)
+
+      // var name = 'zs'
+      // var name = 'ls'
+      // console.log(name)
+
+      // let 不可以重复定义 同一个变量（在同一作用域内）
+      // let name = 'zs'
+      // let name = 'ls'
+      // console.log(name)
+    </script>
+  </body>
+</html>

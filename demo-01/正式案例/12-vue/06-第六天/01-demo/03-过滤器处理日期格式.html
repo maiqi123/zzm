@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ date1 | time }}</h1>
+      <h1>{{ date2 | time }}</h1>
+    </div>
+
+    <script src="./node_modules/moment/moment.js"></script>
+    <script src="./vue.js"></script>
+    <script>
+      // 后台返回时间戳, 我们需要学会将时间戳转换成需要的日期格式
+      // 专门用于处理日期格式的包: moment
+
+      // console.log(moment().format(str))  str决定了格式化成什么样子
+      // YYYY 四位的年份
+      // MM 月份
+      // DD 日
+      // HH 时(24小时制), hh(12小时制)
+      // mm 分
+      // ss 秒
+      // console.log(moment().format('YYYY年MM月DD日 HH:mm:ss'))
+      // console.log(moment().format('YYYY-MM-DD HH:mm:ss'))
+      // console.log(moment(时间戳).format('YYYY-MM-DD HH:mm:ss'))
+
+      // 定义过滤器
+      Vue.filter('time', function(value) {
+        return moment(value).format('YYYY年MM月DD日 HH:mm:ss')
+      })
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          date1: 1600844305400,
+          date2: 1900044305400,
+        }
+      })
+    </script>
+  </body>
+</html>

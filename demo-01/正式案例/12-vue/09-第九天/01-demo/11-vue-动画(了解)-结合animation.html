@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      h1 {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        margin: 200px auto;
+      }
+      /* 入场动画, 进来 */
+      @keyframes bounce {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(3);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .pp-enter-active {
+        /* animation: 动画名称 动画时间; */
+        animation: bounce 1s;
+      }
+
+      /* 离场动画, 离开 */
+      @keyframes leave {
+        0% {
+          transform: rotate(0deg);
+          opacity: 1;
+        }
+        50% {
+          transform: rotate(360deg);
+        }
+        100% {
+          transform: rotate(0deg);
+          opacity: 0;
+        }
+      }
+      .pp-leave-active {
+        animation: leave 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="isShow = !isShow">切换</button>
+      <transition name="pp">
+        <h1 v-if="isShow">我是内容</h1>
+      </transition>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // 1. 使用transition标签将需要动画的元素包裹
+      // 2. 只要包裹了元素, 那么元素就有了动态在不同阶段切换的六个类
+      //    v-enter v-enter-to v-enter-active
+      //    v-leave v-leave-to v-leave-active
+
+      // animation from to, 在动画中, 设计好了, 动画的开始 和 动画的结束的样式
+      // 使用animation, 只需要关注 v-enter-active / v-leave-active
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          isShow: true
+        }
+      })
+    </script>
+  </body>
+</html>

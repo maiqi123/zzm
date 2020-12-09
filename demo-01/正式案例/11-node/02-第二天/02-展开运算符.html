@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+    展开运算符
+     */
+
+      // 对象
+      // 把对象的每个键值对都拿出来放到当前位置
+      // 注意：展开运算符，是浅拷贝。
+      let obj = { name: 'zs', age: 30 }
+      // let obj1 = obj
+      // console.log(obj === obj1)
+      // let obj2 = { ...obj }
+      // let obj2 = { name: 'zs', age: 30 }
+      // console.log(obj === obj2)
+      // 需求1： 新创建一个对象， 有一个属性 为id ，其他属性 是obj中的属性值
+      // let obj3 = { id: 1, name: obj.name, age: obj.age }
+      // let obj3 = { id: 1, ...obj }
+      // console.log(obj3)
+      // obj4 = { name: 'zs', age: 30, o: { a: '11' } }
+      // obj5 = { ...obj4 }
+      // console.log(obj4.o === obj5.o)
+
+      // 数组
+      // 把数组项都拿出来放到当前位置。
+      let arr = [1, 3, 5]
+      // let arr1 = [1, 3, 5]
+      // let arr1 = [...arr]
+      // console.log(arr1 === arr)
+      // 需求2：给arr数组后面加一个 7
+      // let arr2 = [...arr, 7]
+      // console.log(arr2)
+      // 需求3：给 arr数组前面 加 0
+      // let arr3 = [0, ...arr]
+      // console.log(arr3)
+      // 需求4：给 arr 数组 前面 加个 0 ， 后面 加个 [6,7,8]
+      // 不要忘记 逗号分割
+      let arr4 = [0, ...arr, ...[6, 7, 8]]
+      console.log(arr4)
+    </script>
+  </body>
+</html>

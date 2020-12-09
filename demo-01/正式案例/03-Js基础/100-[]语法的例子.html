@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr1 = ['name', 'age', 'gender']
+      var arr2 = ['zs', 18, '男']
+      // {name:'zs', age: 18, gender: '男'}
+      var obj = {}
+
+      for (var i = 0; i < arr1.length; i++) {
+        // obj.aa = 'bb'  obj['aa'] = bb;
+        // console.log(arr1[i]); // name  age gender
+        // console.log(arr2[i]);
+        obj[arr1[i]] = arr2[i]
+      }
+      console.log(obj)
+    </script>
+  </body>
+</html>

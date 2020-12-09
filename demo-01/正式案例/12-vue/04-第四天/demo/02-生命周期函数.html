@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ msg }}
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      // vue在生命周期的不同阶段, 提供了对应的一些生命周期函数(钩子函数)
+      // 只要vue实例到达了对应的阶段, 就会自动调用相应的 钩子函数
+
+      // 八大生命周期函数
+      // beforeXXX
+      // XXXed
+
+      // beforeCreate  数据注入vm实例之前, 此时vm还没有数据
+      // created       数据注入vm实例之后, 此时vm已经有数据了   重要
+      // beforeMount   创建出来的结构, 替换视图之前
+      // mounted       创建出来的结构, 替换视图之后      重要
+      // beforeUpdate  数据变化了, 更新视图之前
+      // updated       数据变化了, 更新视图之后
+      // beforeDestroy 实例销毁, 资源释放之前
+      // destroyed     实例销毁, 资源释放之后
+
+
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          list: []
+        },
+        // 八大钩子函数, 钩子函数中的 this, 也是指向当前vm实例
+        beforeCreate () {
+          // beforeCreate中数据还没准备就绪, 太早了, 不适合操作数据
+          console.log('beforeCreate  数据注入vm实例之前, 此时vm还没有数据')
+          console.log(this.msg)
+        },
+        created () {
+          console.log('created 数据注入vm实例之后, 此时vm已经有数据了')
+          console.log(this.msg)
+        },
+        beforeMount () {
+          console.log('beforeMount')
+          console.log(document.querySelector('#app').innerHTML)
+        },
+        mounted () {
+          console.log('mounted')
+          console.log(document.querySelector('#app').innerHTML)
+        },
+        beforeUpdate () {
+          console.log('beforeUpdate')
+          console.log(document.querySelector('#app').innerHTML)
+        },
+        updated () {
+          console.log('updated')
+          console.log(document.querySelector('#app').innerHTML)
+        },
+        beforeDestroy () {
+          console.log('beforeDestroy')
+        },
+        destroyed () {
+          console.log('destroyed')
+        }
+      })
+    </script>
+  </body>
+</html>

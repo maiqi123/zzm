@@ -1,0 +1,14 @@
+
+function ml_case(str){
+  return str.toUpperCase()
+}
+
+function ml_slice(arr) {
+  return arr.slice(0,4)
+}
+
+module.exports = {
+  ml_case : ml_case,
+  ml_slice : ml_slice
+}
+

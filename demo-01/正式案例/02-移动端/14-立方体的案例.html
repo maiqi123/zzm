@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ul表示立方体的整体 */
+      ul {
+        list-style: none;
+
+        width: 300px;
+        height: 300px;
+        /* border: 1px solid #000; */
+
+        margin: 200px auto;
+        position: relative;
+
+        /* 
+        视距：让子元素有近大远小的视距效果——》本质上来说还是默认的平面元素
+       */
+        /* perspective: 1000px; */
+
+        /* 
+        把元素转换成真正的3d元素
+       */
+        transform-style: preserve-3d;
+
+        /* 过渡 */
+        transition: 2s;
+      }
+
+      /* 鼠标移入ul之后，让立方体全方位展示自己 */
+      ul:hover {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+
+      /* li表示立方体的每一个面 */
+      li {
+        width: 300px;
+        height: 300px;
+        /* 子绝父相 */
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      /* 
+      写每一个面的思路：
+        1、先面朝对应的方向
+        2、沿着面朝的方向（z轴）方向进行平移
+     */
+      /* ---------------------------------------------前面 */
+      ul li:nth-child(1) {
+        /* 
+        前面：
+          1、沿着面朝的z轴方向平移
+       */
+        transform: translateZ(150px);
+        background-image: url(./images/202e5cdd319debaf4a3151e7b5e8525.jpg);
+      }
+
+      /* ---------------------------------------------后面 */
+      ul li:nth-child(2) {
+        /* 
+        后面：
+          1、沿着后z轴方向平移
+       */
+        transform: translateZ(-150px);
+        background-image: url(./images/42fe0b7327a789090112d6388485ce3.jpg);
+      }
+
+      /* ---------------------------------------------上面 */
+      ul li:nth-child(3) {
+        /* 
+        上面：
+          1、先面朝上
+          2、沿着面朝的z轴方向平移
+       */
+        transform: rotateX(90deg) translateZ(150px);
+        background-image: url(./images/202e5cdd319debaf4a3151e7b5e8525.jpg);
+      }
+
+      /* ---------------------------------------------下面 */
+      ul li:nth-child(4) {
+        /* 
+        下面：
+          1、先面朝下
+          2、沿着面朝的z轴方向平移
+       */
+        transform: rotateX(-90deg) translateZ(150px);
+        background-image: url(./images/42fe0b7327a789090112d6388485ce3.jpg);
+      }
+
+      /* ---------------------------------------------左面 */
+      ul li:nth-child(5) {
+        /* 
+        左面：
+          1、先面朝左
+          2、沿着面朝的z轴方向平移
+       */
+        transform: rotateY(-90deg) translateZ(150px);
+        background-image: url(./images/202e5cdd319debaf4a3151e7b5e8525.jpg);
+      }
+
+      /* ---------------------------------------------右面 */
+      ul li:nth-child(6) {
+        /* 
+        右面：
+          1、先面朝右
+          2、沿着面朝的z轴方向平移
+       */
+        transform: rotateY(90deg) translateZ(150px);
+        background-image: url(./images/42fe0b7327a789090112d6388485ce3.jpg);
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      v-on
+        1. @事件名 = "事件处理函数"
+        2. @事件名 = "内联语句"
+
+      v-on的传参说明:
+        1. 注册事件, 不需要传参, @事件名 = 'fn'
+        2. 注册事件, 需要传参,   @事件名 = 'fn(参数1, 参数2, ....)'
+
+     -->
+
+    <div id="app">
+      <h1>{{ msg }}</h1>
+      <button @click="fn">按钮1</button>
+      <!-- 点击的时候, 执行一句话, msg = msg + '嘎嘎' -->
+      <button @click="msg = msg + '嘎嘎'">按钮2</button>
+
+      <button @click="fn2(100, '大帅鹏')">按钮3</button>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue'
+        },
+        methods: {
+          fn () {
+            this.msg = '张三'
+          },
+          fn2 (num1, str) {
+            console.log(num1, str)
+            console.log('这是fn2')
+          }
+        }
+      })
+
+
+      /* 
+        小结:
+          没有参数: @click="fn"
+          有参数:  @click="fn(参数1, 参数2, ...)"
+      
+      */
+    </script>
+  </body>
+</html>

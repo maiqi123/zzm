@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="http://www.baidu.com" id="link">百度一下</a>
+  <script>
+    var link = document.getElementById('link');
+    // a链接点击了默认就是要发生跳转的，但是我们可以通过 return false来阻止a链接的跳转。
+    link.onclick = function () {
+      console.log('哈哈哈');
+      return false;
+    }
+  </script>
+</body>
+</html>

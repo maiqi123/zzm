@@ -1,0 +1,7 @@
+@import './common.wxss';
+view {
+  color: red;
+  background: green;
+  width: 400rpx;
+  height: 400rpx;
+}

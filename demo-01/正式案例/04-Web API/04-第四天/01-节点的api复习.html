@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    /* 
+      节点查找
+        子元素： children  firstElementChild  lastElementChild
+        兄弟元素： previousElementSibling  nextElementSibling
+        父元素： parentNode  parentElement
+      
+      添加节点：
+        parent.appendChild(newChild) 把newChild追加到parent的子元素的最后面
+        parent.insertBefore(newChild, refChild); 把newchild添加到parent的子元素refChild的前面
+
+        parent.insertBefore(newChild, parent.firstElementChild); 最前面
+        parent.insertBefore(newChild, null); 最后面
+
+      克隆：
+        node.cloneNode(true)
+          true: 深克隆， 会克隆标签以及所有的子元素
+          false: 浅克隆：只会克隆当前标签。
+      
+      删除节点：
+        parent.removeChild(child) : 父节点删除某个子节点
+        element.remove() : 自杀
+      
+      创建元素：
+        var div = document.createElement('div')
+
+    */
+  </script>
+</body>
+</html>

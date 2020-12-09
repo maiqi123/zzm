@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var obj = {
+    //   name: 'zs',
+    //   age: 18,
+    //   sayHi: function() {
+    //     console.log('哈哈哈');
+    //   }
+    // };
+
+    // 对象的取值
+    // 语法： 对象名.属性名  对象名.方法名()
+    // 如果对象的属性名不存在，会打印undefined
+    // 如果对象的方法名不存在，会报错。
+    // console.log(obj.name);
+    // console.log(obj.age);
+    // console.log(obj.sayHi);
+    // obj.sayHi();
+    // console.log(obj.gender);
+    // obj.sing();
+
+
+    // 赋值
+    // var obj = {
+    //   age: 20
+    // };
+    // // 对象名.属性名 = 值
+    // // 如果属性名不存在，会给对象增加一个属性
+    // // 如果属性名存在，会覆盖原来的值。
+    // // 对象名.方法名 = function () {}
+    // obj.name = '张三';
+    // obj.gender = '男';
+    // obj.age = 30;
+    // obj.sing = function () {
+    //   console.log('我可以唱歌');
+    // }
+    // console.log(obj);
+    // obj.sing();
+    var obj = {
+      name: 'zs',
+      age: 18,
+      sayHi: function () {
+        console.log('大家好');
+      }
+    }
+
+    console.log(obj.name);
+    obj.sayHi();
+    obj.gender = '男';
+    obj.sing = function () {
+      console.log('唱歌');
+    }
+
+
+    console.log(obj);
+  </script>
+</body>
+
+</html>

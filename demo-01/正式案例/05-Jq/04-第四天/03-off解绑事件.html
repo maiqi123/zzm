@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            padding: 20px;
+            border: 5px solid #000;
+        }
+        p{
+            background-color: #f99;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="create">创建p添加到div内</button><br><br>
+    <button id="btn">解绑事件</button><br><br>
+
+    <div>
+        <p>哈哈</p>
+    </div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // on注册事件 
+            // off解绑事件
+            //  1. off() 解绑元素所有的事件(包括事件委托)
+            //  2. off(事件名) 解绑元素具体的事件
+            //  3. off(事件名, 子元素) 解绑元素具体的事件委托
+
+            // 使用on注册事件委托 ==> 可以来解决动态绑定的问题
+            $("div").on("click", "p", function () {
+                // 事件是注册给了父元素div, 然后由div内的子元素p去触发
+                alert("123");
+            })
+
+            // 解绑
+            $("#btn").on("click", function () {
+                $("div").off("click", "p");
+            })
+
+            /*$("div").on("click mouseenter", function () {
+                alert("123");
+            })*/
+
+            // 创建的部分
+            $("#create").click(function() {
+                $("<p>这是新建的p的内容</p>").appendTo( $("div") );
+            });
+        })
+    </script>
+</body>
+</html>

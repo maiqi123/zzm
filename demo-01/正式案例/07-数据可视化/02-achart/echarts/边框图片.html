@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 150px;
+            border: 20px solid #000;
+            /*指定图片*/
+            /*border-image-source: url("./images/border.jpg");*/
+            /*对图片进行切分 上 右 下 左  不要带px单位, 但可以是%  */
+            /*border-image-slice: 167 167 167 167;*/
+            /*边框图片的宽度, 不写, 默认占满整个边框的宽度*/
+            /*border-image-width: 5px; */
+
+            border-image: url("./images/border.jpg") 167 167 167 167/50px round;
+        }
+    
+        /*c3 border-image 边框图片*/
+        /* div:nth-child(1){
+            平铺方式: stretch 拉伸 默认
+            border-image-repeat: stretch;
+        }
+        div:nth-child(2){
+            repeat 会出现不完整的形状 
+            border-image-repeat: repeat;
+        } 
+        div:nth-child(3){
+            round 完整的平铺
+            border-image-repeat: round;
+        } */
+    </style>
+</head>
+<body>
+    <div>哈哈</div>
+    <div></div>
+    <div></div>
+</body>
+</html>

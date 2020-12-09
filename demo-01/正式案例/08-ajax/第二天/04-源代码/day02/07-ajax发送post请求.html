@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ajax发送post请求
+
+        var xhr = new XMLHttpRequest();
+
+        // 请求行
+        // post方式, url后面没有发送的数据 , 数据在请求体中
+        xhr.open("POST", "./07.php");
+
+        // 请求头
+        // post方式比get方式多个content-type 请求头
+        //  xhr.setRequestHeader()  设置请求头
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        // 请求体
+        xhr.send("username=lw&age=10"); // 注意点: 不要带?
+
+
+        // 响应的是没有get 和 post之分, 所以响应写法和get是一样的
+        xhr.onload = function () {
+            // 响应结束了
+            if(xhr.status === 200){
+                // 成功的
+                console.log( xhr.responseText );
+            }else{
+                alert("网络故障!!!");
+            }
+        }
+        
+        
+        // 小结: post请求报文
+        //   1. 行: 数据不要放到url地址后面了
+        //   2. 头: 通过setRequestHeader 方法设置Content-type
+        //   3. 体: send() 带上发送的数据
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    当获取到input框的焦点的， 把value值给清空，方便输入
+    当失去input框的焦点的时候，判断内容是否为空，，，恢复input框的value
+   -->
+  <input type="text" value="格力空调" placeholder="格力空调">
+  <script>
+    // onfocus: 当文本框获得焦点的时候会触发
+    // onblur:  当文本框失去焦点的时候会触发
+
+    var input = document.querySelector('input');
+    input.onfocus = function () {
+      if (input.value === '格力空调') {
+        this.value = '';
+      }
+    }
+    input.onblur = function () {
+      console.log('失去焦点了');
+      if (input.value === '') {
+        this.value = '格力空调';
+      }
+    }
+  </script>
+</body>
+</html>

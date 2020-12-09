@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>随机生成一个16进制的颜色</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="按钮" id="btn">
+  <div class="box"></div>
+  <script>
+    // 16进制的颜色  #123abc     a--f  0--9
+    function getColor(){
+      var colors = ['a','b','c','d','e','f',0,1,2,3,4,5,6,7,8,9]
+      console.log(colors.length);// 16项  0--15   随机数生成是的0--1之间的随机小数
+      // 假设随机数取到两个极端 0  0.99999999   0  16 15.99999
+      var str = '#'
+      for(var i=0;i<6;i++){
+        var index = Math.floor(Math.random()*colors.length) // 将生成的数据向下取整数，不要小数
+        // console.log(index);
+        str += colors[index]  // 根据索引获取数组中的字符，然后拼接起来
+      }
+      console.log(str);
+      return str;
+    }
+
+    // 1. 获取页面中的标签
+    var btn = document.getElementById('btn')
+    var box = document.querySelector('.box')
+    // 2. 给事件源注册事件
+    btn.onclick = function(){
+      // console.log(123);
+      var color = getColor()
+      box.style.backgroundColor = color;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // 需求: 在fn函数的外面去获取到fn内部声明的num变量的值.
+        /*function fn(){
+            var num = 10;
+            return num;
+        }
+
+        var res = fn(); // fn函数调用就可以获取到返回值num
+        console.log(res);*/
+
+        // 需求: 在fn函数的外面去修改fn函数内的num的值.
+        function fn(){
+            var num = 1;
+            // inner 函数可以来修改num的值
+            function inner(n){
+                // 这个代码是不会形成闭包的, inner函数使用的num是inner函数内部的自己的num
+                // var num = n;
+
+                // 这个有形成闭包
+                num = n;
+                console.log(num);
+            }
+            // inner(10);
+            // 将inner这个函数返回出去
+            return inner;
+        }
+        var res = fn(); // res是fn函数的返回值, 既inner函数
+        console.log(res);
+        res(1000);
+
+        // 闭包: closure   是函数和声明该函数的词法环境的组合.
+        //      函数: 内部函数 , 既上面代码的inner
+        //      声明该函数: 外部函数, 既上面代码的fn
+        //      词法环境: 作用域链
+        //      组合: 整体
+
+        // 形成闭包条件: 至少两个函数, 之间是嵌套关系, 内部函数需要访问外部函数的变量
+
+        // 闭包的基本模型: 
+        function outer(){
+            var count = 0;
+
+            function inner() {
+                console.log(count);
+            }
+
+            // 这个代码不影响闭包的存在
+            // 视其需求来添加 ==> 如果inner函数需要在外部去使用, 就需要将其返回出去.
+            return inner;
+        }
+
+        // 以下写法也是有闭包的存在
+        /*function outer(){
+            var count = 0;
+
+            return {
+                fn1: function () {
+                    console.log(count);
+                },
+                fn2: function () {
+                    count++;
+                }
+            }
+        }*/
+
+
+        // 闭包的作用: 
+        // 1. 来保护数据的安全
+        // 2. 持久化维持数据
+        // 3. 模块化
+    </script>
+</body>
+</html>

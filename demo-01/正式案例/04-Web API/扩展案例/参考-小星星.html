@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        background-color: #000;
+      }
+      p {
+        color: pink;
+        font-size: 40px;
+        /* text-align: center; */
+        /* line-height: 300px; */
+        /* 文字阴影: 阴影水平位移， 垂直的位移， 模糊程度 ， 阴影颜色  */
+        /* 可以设置多个阴影： 每个阴影按照正常的语法格式书写，多个阴影之间使用逗号分隔  */
+        text-shadow: 34px 67px 1px hotpink, -123px 200px 46px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <p>☆</p>
+    <!-- <h1>小星星案例-文字阴影</h1> -->
+    <script>
+      // var x1 = y1 = x2 = y2 =b1 = b2 = 0;
+      // var sy = 2;
+      // // b1 = 20;
+
+      var p = document.querySelector("p");
+      //循环生成 100个阴影
+
+      var str = "";
+      for (var i = 0; i < 100; i++) {
+        str +=
+          Math.round(
+            Math.random() * document.documentElement.offsetWidth - 20
+          ) +
+          "px " +
+          Math.round(
+            Math.random() * document.documentElement.offsetHeight - 100
+          ) +
+          "px " +
+          Math.round(Math.random() * 20) +
+          "px" +
+          " hsla(" +
+          Math.round(Math.random() * 360) +
+          ", 100%, 50%, " +
+          (Math.random() + 0.3) +
+          "),";
+      }
+
+      console.log(str);
+
+      console.dir(p);
+
+      // p.style.textShadow = str;
+
+      p.style.textShadow = str.substr(0, str.length - 1);
+    </script>
+  </body>
+</html>

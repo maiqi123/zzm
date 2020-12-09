@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 属性设置原则
+        //  1. 如果对象自身有该属性, 设置的话就是在修改操作, 只会影响到对象自身, 不会影响到原型和原型链上的属性.
+        //  2. 如果对象自身没有该属性, 设置的话就是在给对象添加该属性, 只会影响到对象自身, 不会影响到原型和原型链上的属性.
+        //  简单记忆: 有就修改, 没有就添加
+
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.name = "lw";
+        Object.prototype.gender = "male";
+        var p = new Person("xm", 20);
+
+        console.log(p);
+
+        // p.name = "xhei";
+        // console.log(p.name); // xhei
+        // console.log(Person.prototype.name); // lw
+        // console.log(Object.prototype.name); // undefined
+        
+        p.gender = "不详";
+        console.log(p);
+        console.log( p.gender ); // "不详"
+        console.log(Person.prototype.gender); // male
+        console.log(Object.prototype.gender); // male
+    </script>
+</body>
+</html>

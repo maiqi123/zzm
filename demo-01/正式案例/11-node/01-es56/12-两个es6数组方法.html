@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      es6 两个数组方法
+
+      find: （比较常用）
+        返回符合条件的 第一项，如果没有符合条件的，返回undefined
+
+      findIndex: （一般没用）
+        返回符合条件的 第一项的 下标，如果没有符合条件的， 返回 -1
+       */
+
+      let arr = [
+        { id: 1, name: '张三' },
+        { id: 2, name: '李四' },
+        { id: 3, name: '王五' },
+        { id: 4, name: '赵六' },
+      ]
+      // 需求1：找到id 为2的数组项
+      let obj = arr.find(function (item) {
+        return item.id === 2
+      })
+      console.log(obj) //id:2 name:'李四'
+
+      // let obj1 = arr.filter(function (item) {
+      //   return item.id === 2
+      // })
+      // console.log(obj1[0])
+
+      // 需求2：找到id 为2的数组项的 下标
+      // let i = arr.findIndex(function (item) {
+      //   return item.id === 6
+      // })
+      // console.log(i)
+    </script>
+  </body>
+</html>

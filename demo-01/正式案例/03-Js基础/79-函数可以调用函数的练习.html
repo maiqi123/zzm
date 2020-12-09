@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    // 求阶乘
+    function getJC(n) {
+      var product = 1;
+      for (var i = 1; i <= n; i++) {
+        product *= i;
+      }
+      return product;
+    }
+
+    // console.log(getJC(5));
+    // console.log(getJC(4));
+    // console.log(getJC(3));
+
+    // 求阶乘和
+    function getSum(n) {
+      var sum = 0;
+      for (var i = 1; i <= n; i++) {
+        // 函数内部可以调用函数
+        sum = sum + getJC(i);
+      }
+      return sum; 
+    }
+    // 24 
+    console.log(getSum(4));
+
+  </script>
+</body>
+</html>

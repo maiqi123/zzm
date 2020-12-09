@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // bind方法
+      //  语法: var newFn = fn.bind(thisArg)
+      //  作用: 创建并返回一个新函数, 新函数和fn函数长的一样, 新函数内的this指向bind的thisArg参数
+
+      var fn = function () {
+        console.log(1)
+        console.log(this)
+      }
+
+      var fn2 = fn.bind([10, 20])
+
+      console.log(fn2)
+
+      // 虽然以下调用的写法是函数调用模式, 但是fn2是bind创建出来的, fn2内的this就已经指向了bind的参数.
+      // fn2();
+
+      // call  apply  bind 三个方法区别
+      //  1. call apply 都可以来调用函数
+      //  2. bind不会去调用函数, 是去创建并返回新函数
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            padding: 20px;
+            border: 5px solid #000;
+        }
+
+        p {
+            background-color: #f99;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="create">创建p添加到div内</button><br><br>
+
+    <div>
+        <p>哈哈</p>
+    </div>
+
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // on语法
+            // on(type, selector, data, fn);
+            // 1. type  事件名
+            // 2. selector 选择器, 该参数是可选的, 如果写上该参数, 就是表示注册事件委托
+            //      如果该参数不写的, 注册的就是个简单事件
+            // 3. data 携带的数据, 可选的
+            // 4. fn  事件处理函数
+
+            /*$("p").click(function () {
+                alert("哈哈")
+            })*/
+
+            // 使用on注册事件委托 ==> 可以来解决动态绑定的问题
+            // 套路: 把事件注册给父元素, 然后由指定的子元素去触发
+            $("div").on("click", "p", function () {
+                // 事件是注册给了父元素div, 然后由div内的子元素p去触发
+                alert("123");
+            })
+
+            // 使用on注册简单事件
+            /*$("p").on("click", function () {
+                alert("123");
+            })*/
+
+            // 创建的部分
+            // $("#create").click(function() {
+            //     $("<p>这是新建的p的内容</p>").appendTo( $("div") );
+            // });
+
+            $("#create").on('click', function () {
+                $("<p>这是新建的p的内容</p>").appendTo($("div"));
+            })
+        })
+    </script>
+</body>
+
+</html>

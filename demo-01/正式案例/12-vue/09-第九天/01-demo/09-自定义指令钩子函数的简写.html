@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-color="color">{{ msg }}</p>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+
+      // Vue.directive('color', {
+      //   bind (el, binding) {
+      //     el.style.color = binding.value
+      //   },
+      //   update (el, binding) {
+      //     el.style.color = binding.value
+      //   }
+      // })
+
+      // 如果 bind 和 update 的逻辑完全一致, 那么vue允许简写
+      // Vue.directive('指令名', 处理函数) 表示同时配置bind 和 update
+      Vue.directive('color', function(el, binding) {
+        el.style.color = binding.value
+      })
+      
+      const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello vue',
+          color: 'blue'
+        }
+      })
+    </script>
+  </body>
+</html>
